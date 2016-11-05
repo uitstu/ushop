@@ -1,0 +1,7 @@
+D:\Projects\UShop\Presenter\obj\Debug\Presenter.csprojResolveAssemblyReference.cache
+D:\Projects\UShop\Presenter\bin\Debug\Presenter.dll
+D:\Projects\UShop\Presenter\bin\Debug\Presenter.pdb
+D:\Projects\UShop\Presenter\bin\Debug\Model.dll
+D:\Projects\UShop\Presenter\bin\Debug\Model.pdb
+D:\Projects\UShop\Presenter\obj\Debug\Presenter.dll
+D:\Projects\UShop\Presenter\obj\Debug\Presenter.pdb

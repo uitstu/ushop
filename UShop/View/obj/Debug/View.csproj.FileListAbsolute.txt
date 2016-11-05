@@ -1,0 +1,14 @@
+D:\Projects\UShop\View\obj\Debug\View.csprojResolveAssemblyReference.cache
+D:\Projects\UShop\View\obj\Debug\View.frmUShop.resources
+D:\Projects\UShop\View\obj\Debug\View.Properties.Resources.resources
+D:\Projects\UShop\View\obj\Debug\View.csproj.GenerateResource.Cache
+D:\Projects\UShop\View\obj\Debug\View.exe.licenses
+D:\Projects\UShop\View\bin\Debug\View.exe
+D:\Projects\UShop\View\bin\Debug\View.pdb
+D:\Projects\UShop\View\bin\Debug\Model.dll
+D:\Projects\UShop\View\bin\Debug\Presenter.dll
+D:\Projects\UShop\View\bin\Debug\Model.pdb
+D:\Projects\UShop\View\bin\Debug\Presenter.pdb
+D:\Projects\UShop\View\obj\Debug\View.exe
+D:\Projects\UShop\View\obj\Debug\View.pdb
+D:\Projects\UShop\View\obj\Debug\View.Elements.frmProductCategory.resources

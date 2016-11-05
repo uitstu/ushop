@@ -1,0 +1,5 @@
+D:\Projects\UShop\Model\bin\Debug\Model.dll.config
+D:\Projects\UShop\Model\bin\Debug\Model.dll
+D:\Projects\UShop\Model\bin\Debug\Model.pdb
+D:\Projects\UShop\Model\obj\Debug\Model.dll
+D:\Projects\UShop\Model\obj\Debug\Model.pdb
