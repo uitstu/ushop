@@ -27,17 +27,11 @@ namespace Presenter.InterfaceImplement
         {
             _view = view;
             _model = model;
-            wireViewEvents();
         }
 
-        void wireViewEvents()
+        public void loadProductCategories()
         {
-            _view.loadProductCategories += viewLoadProductCategories;
-        }
-
-        private void viewLoadProductCategories(object sender, EventArgs e)
-        {
-            _view.ProductCategories = _model.loadProductCategory();
+            _view.loadProductCategories(_model.loadProductCategory());
         }
     }
 }

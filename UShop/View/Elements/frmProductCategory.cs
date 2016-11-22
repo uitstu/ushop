@@ -23,17 +23,12 @@ namespace View.Elements
 
         private void frmProductCategory_Load(object sender, EventArgs e)
         {
-            if (loadProductCategories != null)
-            {
-                loadProductCategories(sender, e);
-            }
+            presenter.loadProductCategories();
         }
 
-        public List<Model.ProductCategory> ProductCategories
+        public void loadProductCategories(List<Model.ProductCategory> listObj)
         {
-            set { gridProductCategory.DataSource = value; }
+            gridProductCategory.DataSource = listObj;
         }
-
-        public event EventHandler loadProductCategories;
     }
 }

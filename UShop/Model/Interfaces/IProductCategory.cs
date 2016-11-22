@@ -9,5 +9,6 @@ namespace Model.Interface
     public interface IProductCategory
     {
         List<ProductCategory> loadProductCategory();
+        void addProductCategory(ProductCategory obj);
     }
 }

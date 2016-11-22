@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InterfaceImplements\ProductCategoryPresenter.cs" />
+    <Compile Include="Elements\CategoryPresenter.cs" />
+    <Compile Include="Elements\ProductCategoryPresenter.cs" />
+    <Compile Include="Interfaces\ICategoryView.cs" />
     <Compile Include="Interfaces\IProductCategoryView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace Presenter.Interface
 {
-    public interface IProductCategoryView
+    public interface ICategoryView
     {
-        void loadProductCategories(List<ProductCategory> listObj);
-
+        void loadCategories(List<Category> listObj);
+        //void saveCategory(Category obj);
+        //void deleteCategory(String id);
     }
 }

@@ -43,5 +43,21 @@ namespace View
             }
             return null;
         }
+
+        private void btnCategory_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.checkExist(typeof(frmCategory));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                frmCategory f = new frmCategory();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
     }
 }

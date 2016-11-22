@@ -7,16 +7,27 @@ using System.Threading.Tasks;
 
 namespace Model.InterfaceImplement
 {
-    public class ProductCategoryModel : IModel, IProductCategory
+    public class ProductCategoryModel : DataModel, IProductCategory
     {
-        public UShopDBDataContext UShopDB
-        {
-            get { return new UShopDBDataContext(); }
-        }
 
         public List<Model.ProductCategory> loadProductCategory()
         {
             return UShopDB.ProductCategories.ToList();
+        }
+
+
+        public void addProductCategory(ProductCategory obj)
+        {
+            try
+            {
+                UShopDB.ProductCategories.InsertOnSubmit(obj);
+                UShopDB.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception();
+            }
+            
         }
     }
 }

@@ -2,10 +2,16 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="UShopDB">
   <DataContextMoniker Name="/UShopDBDataContext" />
   <nestedChildShapes>
-    <classShape Id="157a2a58-2a45-4f0c-93ab-82cabcbc1d88" absoluteBounds="2.125, 1.125, 2, 1.5785953776041666">
+    <classShape Id="d0ad97c6-0bee-4ad0-90c4-1e35999c3539" absoluteBounds="0.75, 0.75, 2, 1.5785953776041666">
       <DataClassMoniker Name="/UShopDBDataContext/ProductCategory" />
       <nestedChildShapes>
-        <elementListCompartment Id="e040c6b3-ec41-4ec4-86ed-d0992aba3b4c" absoluteBounds="2.14, 1.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="748f2e0f-6040-4433-977b-103c82235a65" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3484512a-12ef-4145-95ef-233f0f1435be" absoluteBounds="3.75, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/UShopDBDataContext/Category" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3675c697-27c1-4d1b-90a4-81e0db77d1fb" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
