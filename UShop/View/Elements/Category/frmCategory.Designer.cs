@@ -247,10 +247,11 @@
             this.gridColumn1});
             this.updateCategory.GridControl = this.gridCategory;
             this.updateCategory.Name = "updateCategory";
-            this.updateCategory.OptionsCustomization.AllowFilter = false;
             this.updateCategory.OptionsFilter.ShowAllTableValuesInFilterPopup = true;
             this.updateCategory.OptionsView.ShowAutoFilterRow = true;
             this.updateCategory.OptionsView.ShowGroupPanel = false;
+            this.updateCategory.FilterEditorCreated += new DevExpress.XtraGrid.Views.Base.FilterControlEventHandler(this.updateCategory_FilterEditorCreated);
+            this.updateCategory.CustomRowFilter += new DevExpress.XtraGrid.Views.Base.RowFilterEventHandler(this.updateCategory_CustomRowFilter);
             // 
             // CategoryName
             // 

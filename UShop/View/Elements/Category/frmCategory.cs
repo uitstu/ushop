@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraGrid.Views.Grid;
+﻿using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
 using Presenter.Interface;
 using Presenter.InterfaceImplement;
 using System;
@@ -21,6 +22,12 @@ namespace View.Elements
         {
             InitializeComponent();
             preCategory = new CategoryPresenter(this);
+
+            GridView gridView = gridCategory.FocusedView as GridView;
+            foreach (GridColumn col in gridView.Columns)
+            {
+                col.OptionsFilter.AutoFilterCondition = AutoFilterCondition.Contains;// .Settings.AutoFilterCondition = AutoFilterCondition.Contains;
+            }
         }
 
         //functions from interface
@@ -64,5 +71,17 @@ namespace View.Elements
             frmAddCategory frmAdd = new frmAddCategory(preCategory, obj);
             frmAdd.ShowDialog();
         }
+
+        private void updateCategory_FilterEditorCreated(object sender, DevExpress.XtraGrid.Views.Base.FilterControlEventArgs e)
+        {
+            
+        }
+
+        private void updateCategory_CustomRowFilter(object sender, DevExpress.XtraGrid.Views.Base.RowFilterEventArgs e)
+        {
+            
+        }
+
+        
     }
 }
