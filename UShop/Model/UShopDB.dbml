@@ -113,20 +113,14 @@
       <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="PRODUCER" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="ORIGIN" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="IMAGE_SRC" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="RECORD_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PRODUCT_SIZE" Member="PRODUCT_SIZEs">
-    <Type Name="PRODUCT_SIZE">
-      <Column Name="PRODUCT_SIZE_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PRODUCT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SIZE_S" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SIZE_M" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SIZE_L" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SIZE_XL" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SIZE_XXL" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TOTAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SIZE_TOTAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IMAGE_SRC" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="RECORD_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.RECEIPT_NOTE" Member="RECEIPT_NOTEs">
@@ -149,23 +143,19 @@
       <Column Name="RN_ITEM_CODE" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
       <Column Name="RN_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PRODUCT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SIZE_S" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="QUANTITY_STOCK_S" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="QUANTITY_VOUCHER_S" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SIZE_M" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="QUANTITY_STOCK_M" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="QUANTITY_VOUCHER_M" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SIZE_L" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="QUANTITY_STOCK_L" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="QUANTITY_VOUCHER_L" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SIZE_XL" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="QUANTITY_STOCK_XL" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="QUANTITY_VOUCHER_XL" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SIZE_XXL" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="QUANTITY_STOCK_XXL" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="QUANTITY_VOUCHER_XXL" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PRICE" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="TOTAL_QUANTITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TOTAL_STOCK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TOTAL_VOUCHER" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="AMOUNT" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="RECORD_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
     </Type>

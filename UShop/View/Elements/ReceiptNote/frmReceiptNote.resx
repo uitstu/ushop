@@ -120,4 +120,29 @@
   <metadata name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnEditReceiptNote.Buttons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAADCSURBVDhP1dLNCgFRGMbxgw33YCXFFYjYugBrKcWCS1Ds
+        bJQLsPKxcx1KlLJlYeMWWFrwf6c5nBlndOx46tf0zvQ+nWlG/V1KWCPjTV8mhyHuOCOFZ2TY4GSxRQ0X
+        LDD2r4GkIc09tEPqkGV5LlqIIRBdkPWmV8q4Qi/PEMdbbAUVmMtzVGFNuKAAc3mKESawxixIoIG9f0+W
+        5dhLOBXkcUMTfeh3di6Q791FEWacCgboRNghsiCJFY4fHCD/xE9FqQd+OT5h9HKQTwAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
+  <data name="btnDeleteReceiptNote.Buttons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAHBSURBVDhPYxhcYLmMZPJaFfnJUC4GmM/AwLFVS+3gannZ
+        RqgQAiyTEU+66eP8/2Gw1//VcjLtUGE4mCgkxLdTV/3q80j//zu1NW5AhRFgtYxU210vp/8vgAbc9XT8
+        v1JaohAqxTCNm1tsj476Q5Dcfj3tZ7P5+ISgUqhgpbR4+Q1Hq//PfVz+33Cw+r9cQjR2Pj+/wkFdzdcg
+        scMGmu/ncHJKQZVjB8vERZIuWxj/e+Zq9/+ihdG/IzoaX0Ds43pa3+bx8qpCleEHC4WF/c/raf15amv+
+        H4RPaav/mi/KbwCVJgwWivK5n9VQ+f3EzPA/CJ/QUPoxj5tbFyqNHywVFog+r6b897Ge1v+L6ir/jijJ
+        fwOxDyvKfZnFz68IVYYdLBMSKrisJP//kbrK/6vKCv+XCgqmAUNc5YCk+HuQ2AFp8TezubnFocpRwQoh
+        ofprslL/HyrI/r8hJ/1/pZBAFVSKARTyu8VFn4HkdoqJPJ4pKMgPlUKApXx8WZfFRP/fFBf7v4KfbyJU
+        GA5Acb9VUOD2fQnx/1uE+K9AhVEB0JCcNQLcc/8zMDBChVDAInFx7s0C/KdWCvB1QoUGHDAwAAB4p6D2
+        F0TJ8AAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>

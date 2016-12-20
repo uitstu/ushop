@@ -120,4 +120,19 @@
   <metadata name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnDeleteItem.Buttons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAAcFJREFUOE9jGFxguYxk8loV+clQLgaYz8DAsVVL7eBqedlGqBACLJMRT7rp4/z/
+        YbDX/9VyMu1QYTiYKCTEt1NX/erzSP//O7U1bkCFEWC1jFTbXS+n/y+ABtz1dPy/UlqiECrFMI2bW2yP
+        jvpDkNx+Pe1ns/n4hKBSqGCltHj5DUer/899XP7fcLD6v1xCNHY+P7/CQV3N1yCxwwaa7+dwckpBlWMH
+        y8RFki5bGP975mr3/6KF0b8jOhpfQOzjelrf5vHyqkKV4QcLhYX9z+tp/Xlqa/4fhE9pq/+aL8pvAJUm
+        DBaK8rmf1VD5/cTM8D8In9BQ+jGPm1sXKo0fLBUWiD6vpvz3sZ7W/4vqKv+OKMl/A7EPK8p9mcXPrwhV
+        hh0sExIquKwk//+Rusr/q8oK/5cKCqYBQ1zlgKT4e5DYAWnxN7O5ucWhylHBCiGh+muyUv8fKsj+vyEn
+        /X+lkEAVVIoBFPK7xUWfgeR2iok8nikoyA+VQoClfHxZl8VE/98UF/u/gp9vIlQYDkBxv1VQ4PZ9CfH/
+        W4T4r0CFUQHQkJw1Atxz/zMwMEKFUMAicXHuzQL8p1YK8HVChQYcMDAAAHinoPYXRMnwAAAAAElFTkSu
+        QmCC
+</value>
+  </data>
 </root>

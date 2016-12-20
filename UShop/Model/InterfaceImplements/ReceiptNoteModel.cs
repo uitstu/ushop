@@ -174,5 +174,78 @@ namespace Model.InterfaceImplement
 
             return dt;
         }
+
+
+        public void add(RECEIPT_NOTE obj, DataTable dtItems)
+        {
+            UShopDB.RECEIPT_NOTEs.InsertOnSubmit(obj);
+            UShopDB.SubmitChanges();
+            obj.RN_CODE = getCODE("RCN",obj.RN_ID);
+
+            List<RECEIPT_NOTE_ITEM> lst = new List<RECEIPT_NOTE_ITEM>();
+
+            foreach (DataRow r in dtItems.Rows)
+            {
+                RECEIPT_NOTE_ITEM item = new RECEIPT_NOTE_ITEM();
+                item.RN_ID = obj.RN_ID;
+                item.PRODUCT_ID = Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'), 5));
+                item.QUANTITY_STOCK_S = Int32.Parse(r[2].ToString());
+                item.QUANTITY_VOUCHER_S = Int32.Parse(r[3].ToString());
+                item.QUANTITY_STOCK_M = Int32.Parse(r[4].ToString());
+                item.QUANTITY_VOUCHER_M = Int32.Parse(r[5].ToString());
+                item.QUANTITY_STOCK_L = Int32.Parse(r[6].ToString());
+                item.QUANTITY_VOUCHER_L = Int32.Parse(r[7].ToString());
+                item.QUANTITY_STOCK_XL = Int32.Parse(r[8].ToString());
+                item.QUANTITY_VOUCHER_XL = Int32.Parse(r[9].ToString());
+                item.QUANTITY_STOCK_XXL = Int32.Parse(r[10].ToString());
+                item.QUANTITY_VOUCHER_XXL = Int32.Parse(r[11].ToString());
+
+                item.TOTAL_STOCK = Int32.Parse(r[12].ToString());
+                item.TOTAL_VOUCHER = Int32.Parse(r[13].ToString());
+                item.PRICE = Int32.Parse(r[14].ToString());
+                item.AMOUNT = Int32.Parse(r[15].ToString());
+
+                item.RECORD_STATUS = "A";
+
+                lst.Add(item);
+
+                foreach (PRODUCT p in UShopDB.PRODUCTs.Where(o => o.PRODUCT_ID == item.PRODUCT_ID))
+                {
+                    p.SIZE_S += item.QUANTITY_STOCK_S;
+                    p.SIZE_M += item.QUANTITY_STOCK_M;
+                    p.SIZE_L += item.QUANTITY_STOCK_L;
+                    p.SIZE_XL += item.QUANTITY_STOCK_XL;
+                    p.SIZE_XXL += item.QUANTITY_STOCK_XXL;
+                }
+            }
+
+            UShopDB.RECEIPT_NOTE_ITEMs.InsertAllOnSubmit(lst);
+
+            UShopDB.SubmitChanges();
+
+            foreach (RECEIPT_NOTE_ITEM i in UShopDB.RECEIPT_NOTE_ITEMs.Where(o=> o.RN_ID == obj.RN_ID))
+            {
+                i.RN_ITEM_CODE = getCODE("RIT", i.RN_ITEM_ID) ;
+            }
+
+            UShopDB.SubmitChanges();
+        }
+
+
+        public PRODUCT getProductByCODE(string code)
+        {
+            PRODUCT i = new PRODUCT();
+
+            foreach (PRODUCT item in UShopDB.PRODUCTs)
+            {
+                if (item.PRODUCT_CODE.Equals(code))
+                {
+                    i = item;
+                    break;
+                }
+            }
+
+            return i;
+        }
     }
 }

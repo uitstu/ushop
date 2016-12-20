@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReceiptNote));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -48,10 +51,16 @@
             this.ACCOUNTED = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TOTAL = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NOTE = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnUPDATE = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnEditReceiptNote = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.btnDELETE = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnDeleteReceiptNote = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridReceiptNote)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEditReceiptNote)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDeleteReceiptNote)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -145,6 +154,9 @@
             this.gridReceiptNote.MainView = this.gridView1;
             this.gridReceiptNote.MenuManager = this.barManager1;
             this.gridReceiptNote.Name = "gridReceiptNote";
+            this.gridReceiptNote.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.btnEditReceiptNote,
+            this.btnDeleteReceiptNote});
             this.gridReceiptNote.Size = new System.Drawing.Size(675, 209);
             this.gridReceiptNote.TabIndex = 6;
             this.gridReceiptNote.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -160,9 +172,12 @@
             this.ACCOUNTING_DATE,
             this.ACCOUNTED,
             this.TOTAL,
-            this.NOTE});
+            this.NOTE,
+            this.btnUPDATE,
+            this.btnDELETE});
             this.gridView1.GridControl = this.gridReceiptNote;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowAutoFilterRow = true;
             // 
             // RN_CODE
             // 
@@ -171,6 +186,7 @@
             this.RN_CODE.Name = "RN_CODE";
             this.RN_CODE.Visible = true;
             this.RN_CODE.VisibleIndex = 0;
+            this.RN_CODE.Width = 70;
             // 
             // SUPPLIER_NAME
             // 
@@ -179,6 +195,7 @@
             this.SUPPLIER_NAME.Name = "SUPPLIER_NAME";
             this.SUPPLIER_NAME.Visible = true;
             this.SUPPLIER_NAME.VisibleIndex = 1;
+            this.SUPPLIER_NAME.Width = 70;
             // 
             // EMP_NAME
             // 
@@ -187,6 +204,7 @@
             this.EMP_NAME.Name = "EMP_NAME";
             this.EMP_NAME.Visible = true;
             this.EMP_NAME.VisibleIndex = 2;
+            this.EMP_NAME.Width = 70;
             // 
             // ISSUED_DATE
             // 
@@ -195,6 +213,7 @@
             this.ISSUED_DATE.Name = "ISSUED_DATE";
             this.ISSUED_DATE.Visible = true;
             this.ISSUED_DATE.VisibleIndex = 3;
+            this.ISSUED_DATE.Width = 70;
             // 
             // ACCOUNTING_DATE
             // 
@@ -203,6 +222,7 @@
             this.ACCOUNTING_DATE.Name = "ACCOUNTING_DATE";
             this.ACCOUNTING_DATE.Visible = true;
             this.ACCOUNTING_DATE.VisibleIndex = 4;
+            this.ACCOUNTING_DATE.Width = 70;
             // 
             // ACCOUNTED
             // 
@@ -211,6 +231,7 @@
             this.ACCOUNTED.Name = "ACCOUNTED";
             this.ACCOUNTED.Visible = true;
             this.ACCOUNTED.VisibleIndex = 5;
+            this.ACCOUNTED.Width = 70;
             // 
             // TOTAL
             // 
@@ -219,6 +240,7 @@
             this.TOTAL.Name = "TOTAL";
             this.TOTAL.Visible = true;
             this.TOTAL.VisibleIndex = 6;
+            this.TOTAL.Width = 70;
             // 
             // NOTE
             // 
@@ -227,6 +249,39 @@
             this.NOTE.Name = "NOTE";
             this.NOTE.Visible = true;
             this.NOTE.VisibleIndex = 7;
+            this.NOTE.Width = 70;
+            // 
+            // btnUPDATE
+            // 
+            this.btnUPDATE.ColumnEdit = this.btnEditReceiptNote;
+            this.btnUPDATE.Name = "btnUPDATE";
+            this.btnUPDATE.Visible = true;
+            this.btnUPDATE.VisibleIndex = 8;
+            this.btnUPDATE.Width = 20;
+            // 
+            // btnEditReceiptNote
+            // 
+            this.btnEditReceiptNote.AutoHeight = false;
+            this.btnEditReceiptNote.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnEditReceiptNote.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            this.btnEditReceiptNote.Name = "btnEditReceiptNote";
+            this.btnEditReceiptNote.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
+            // btnDELETE
+            // 
+            this.btnDELETE.ColumnEdit = this.btnDeleteReceiptNote;
+            this.btnDELETE.Name = "btnDELETE";
+            this.btnDELETE.Visible = true;
+            this.btnDELETE.VisibleIndex = 9;
+            this.btnDELETE.Width = 20;
+            // 
+            // btnDeleteReceiptNote
+            // 
+            this.btnDeleteReceiptNote.AutoHeight = false;
+            this.btnDeleteReceiptNote.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnDeleteReceiptNote.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            this.btnDeleteReceiptNote.Name = "btnDeleteReceiptNote";
+            this.btnDeleteReceiptNote.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
             // frmReceiptNote
             // 
@@ -247,6 +302,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridReceiptNote)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEditReceiptNote)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDeleteReceiptNote)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,6 +330,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn ACCOUNTED;
         private DevExpress.XtraGrid.Columns.GridColumn TOTAL;
         private DevExpress.XtraGrid.Columns.GridColumn NOTE;
+        private DevExpress.XtraGrid.Columns.GridColumn btnUPDATE;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnEditReceiptNote;
+        private DevExpress.XtraGrid.Columns.GridColumn btnDELETE;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDeleteReceiptNote;
 
     }
 }

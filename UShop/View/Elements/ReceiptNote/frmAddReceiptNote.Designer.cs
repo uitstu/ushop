@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddReceiptNote));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
@@ -38,6 +40,8 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.cboxProduct = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cboxSupplier = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label7 = new System.Windows.Forms.Label();
@@ -52,7 +56,7 @@
             this.dpickAccounting = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.dpickIssued = new System.Windows.Forms.DateTimePicker();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridItems = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -71,14 +75,15 @@
             this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.label5 = new System.Windows.Forms.Label();
+            this.btnDeleteItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboxProduct.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboxSupplier.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDeleteItem)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -158,6 +163,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.label8);
             this.groupControl1.Controls.Add(this.label5);
             this.groupControl1.Controls.Add(this.cboxProduct);
             this.groupControl1.Controls.Add(this.cboxSupplier);
@@ -179,6 +185,24 @@
             this.groupControl1.Size = new System.Drawing.Size(1155, 163);
             this.groupControl1.TabIndex = 4;
             this.groupControl1.Text = "groupControl1";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(543, 32);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(11, 13);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "/";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(993, 139);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(150, 13);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "STO: STOCK, VOU: VOUCHER";
             // 
             // cboxProduct
             // 
@@ -226,6 +250,7 @@
             this.btnAddItem.Size = new System.Drawing.Size(75, 23);
             this.btnAddItem.TabIndex = 11;
             this.btnAddItem.Text = "Thêm";
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
             // label6
             // 
@@ -239,11 +264,11 @@
             // lbTotal
             // 
             this.lbTotal.AutoSize = true;
-            this.lbTotal.Location = new System.Drawing.Point(543, 32);
+            this.lbTotal.Location = new System.Drawing.Point(560, 32);
             this.lbTotal.Name = "lbTotal";
-            this.lbTotal.Size = new System.Drawing.Size(65, 13);
+            this.lbTotal.Size = new System.Drawing.Size(13, 13);
             this.lbTotal.TabIndex = 8;
-            this.lbTotal.Text = "/  10000000";
+            this.lbTotal.Text = "0";
             // 
             // tboxAccounted
             // 
@@ -251,6 +276,9 @@
             this.tboxAccounted.Name = "tboxAccounted";
             this.tboxAccounted.Size = new System.Drawing.Size(100, 21);
             this.tboxAccounted.TabIndex = 7;
+            this.tboxAccounted.Text = "0";
+            this.tboxAccounted.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tboxAccounted.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tboxAccounted_KeyPress);
             // 
             // label4
             // 
@@ -285,6 +313,7 @@
             this.dpickAccounting.Name = "dpickAccounting";
             this.dpickAccounting.Size = new System.Drawing.Size(200, 21);
             this.dpickAccounting.TabIndex = 2;
+            this.dpickAccounting.ValueChanged += new System.EventHandler(this.dpickAccounting_ValueChanged);
             // 
             // label1
             // 
@@ -301,17 +330,20 @@
             this.dpickIssued.Name = "dpickIssued";
             this.dpickIssued.Size = new System.Drawing.Size(200, 21);
             this.dpickIssued.TabIndex = 0;
+            this.dpickIssued.ValueChanged += new System.EventHandler(this.dpickIssued_ValueChanged);
             // 
-            // gridControl1
+            // gridItems
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 185);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.MenuManager = this.barManager1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1155, 314);
-            this.gridControl1.TabIndex = 5;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridItems.Location = new System.Drawing.Point(0, 185);
+            this.gridItems.MainView = this.gridView1;
+            this.gridItems.MenuManager = this.barManager1;
+            this.gridItems.Name = "gridItems";
+            this.gridItems.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.btnDeleteItem});
+            this.gridItems.Size = new System.Drawing.Size(1155, 314);
+            this.gridItems.TabIndex = 5;
+            this.gridItems.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
@@ -334,143 +366,172 @@
             this.gridColumn21,
             this.gridColumn1,
             this.gridColumn4});
-            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GridControl = this.gridItems;
             this.gridView1.Name = "gridView1";
+            this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
+            this.gridView1.RowDeleting += new DevExpress.Data.RowDeletingEventHandler(this.gridView1_RowDeleting);
+            this.gridView1.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView1_ValidateRow);
+            this.gridView1.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView1_RowUpdated);
+            this.gridView1.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gridView1_ValidatingEditor);
             // 
             // gridColumn2
             // 
-            this.gridColumn2.Caption = "ID";
+            this.gridColumn2.Caption = "CODE";
+            this.gridColumn2.FieldName = "CODE";
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.ReadOnly = true;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 0;
             // 
             // gridColumn3
             // 
             this.gridColumn3.Caption = "NAME";
+            this.gridColumn3.FieldName = "NAME";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.ReadOnly = true;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 1;
             // 
             // gridColumn5
             // 
-            this.gridColumn5.Caption = "STOCK_S";
+            this.gridColumn5.Caption = "STO_S";
+            this.gridColumn5.FieldName = "STOCK_S";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 2;
             // 
             // gridColumn6
             // 
-            this.gridColumn6.Caption = "VOUCHER_S";
+            this.gridColumn6.Caption = "VOU_S";
+            this.gridColumn6.FieldName = "VOUCHER_S";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 3;
             // 
             // gridColumn8
             // 
-            this.gridColumn8.Caption = "STOCK_M";
+            this.gridColumn8.Caption = "STO_M";
+            this.gridColumn8.FieldName = "STOCK_M";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 4;
             // 
             // gridColumn9
             // 
-            this.gridColumn9.Caption = "VOUCHER_M";
+            this.gridColumn9.Caption = "VOU_M";
+            this.gridColumn9.FieldName = "VOUCHER_M";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 5;
             // 
             // gridColumn11
             // 
-            this.gridColumn11.Caption = "STOCK_L";
+            this.gridColumn11.Caption = "STO_L";
+            this.gridColumn11.FieldName = "STOCK_L";
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
             this.gridColumn11.VisibleIndex = 6;
             // 
             // gridColumn12
             // 
-            this.gridColumn12.Caption = "VOUCHER_L";
+            this.gridColumn12.Caption = "VOU_L";
+            this.gridColumn12.FieldName = "VOUCHER_L";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 7;
             // 
             // gridColumn14
             // 
-            this.gridColumn14.Caption = "STOCK_XL";
+            this.gridColumn14.Caption = "STO_XL";
+            this.gridColumn14.FieldName = "STOCK_XL";
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.Visible = true;
             this.gridColumn14.VisibleIndex = 8;
             // 
             // gridColumn15
             // 
-            this.gridColumn15.Caption = "VOUCHER_XL";
+            this.gridColumn15.Caption = "VOU_XL";
+            this.gridColumn15.FieldName = "VOUCHER_XL";
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.Visible = true;
             this.gridColumn15.VisibleIndex = 9;
             // 
             // gridColumn17
             // 
-            this.gridColumn17.Caption = "STOCK_XXL";
+            this.gridColumn17.Caption = "STO_XXL";
+            this.gridColumn17.FieldName = "STOCK_XXL";
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.Visible = true;
             this.gridColumn17.VisibleIndex = 10;
             // 
             // gridColumn18
             // 
-            this.gridColumn18.Caption = "VOUCHER_XXL";
+            this.gridColumn18.Caption = "VOU_XXL";
+            this.gridColumn18.FieldName = "VOUCHER_XXL";
             this.gridColumn18.Name = "gridColumn18";
             this.gridColumn18.Visible = true;
             this.gridColumn18.VisibleIndex = 11;
             // 
             // gridColumn19
             // 
-            this.gridColumn19.Caption = "STOCK_TOTAL";
+            this.gridColumn19.Caption = "STO_TOTAL";
+            this.gridColumn19.FieldName = "STOCK_TOTAL";
             this.gridColumn19.Name = "gridColumn19";
+            this.gridColumn19.OptionsColumn.ReadOnly = true;
             this.gridColumn19.Visible = true;
             this.gridColumn19.VisibleIndex = 12;
             // 
             // gridColumn20
             // 
-            this.gridColumn20.Caption = "VOUCHER_TOTAL";
+            this.gridColumn20.Caption = "VOU_TOTAL";
+            this.gridColumn20.FieldName = "VOUCHER_TOTAL";
             this.gridColumn20.Name = "gridColumn20";
+            this.gridColumn20.OptionsColumn.ReadOnly = true;
             this.gridColumn20.Visible = true;
             this.gridColumn20.VisibleIndex = 13;
             // 
             // gridColumn21
             // 
             this.gridColumn21.Caption = "PRICE";
+            this.gridColumn21.FieldName = "PRICE";
             this.gridColumn21.Name = "gridColumn21";
+            this.gridColumn21.OptionsColumn.ReadOnly = true;
             this.gridColumn21.Visible = true;
             this.gridColumn21.VisibleIndex = 14;
             // 
             // gridColumn1
             // 
             this.gridColumn1.Caption = "AMOUNT";
+            this.gridColumn1.FieldName = "AMOUNT";
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.ReadOnly = true;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 15;
             // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "Delete";
+            this.gridColumn4.ColumnEdit = this.btnDeleteItem;
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.FixedWidth = true;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 16;
+            this.gridColumn4.Width = 20;
             // 
-            // label5
+            // btnDeleteItem
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(397, 138);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(194, 13);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "click \"Thêm\" grid sẽ add thêm một dòng";
+            this.btnDeleteItem.AutoHeight = false;
+            this.btnDeleteItem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnDeleteItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            this.btnDeleteItem.Name = "btnDeleteItem";
+            this.btnDeleteItem.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnDeleteItem.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDeleteItem_ButtonClick);
             // 
             // frmAddReceiptNote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1155, 522);
-            this.Controls.Add(this.gridControl1);
+            this.Controls.Add(this.gridItems);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -485,8 +546,9 @@
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboxProduct.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboxSupplier.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDeleteItem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -502,7 +564,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem btnAdd;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.GridControl gridItems;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
@@ -537,5 +599,7 @@
         private DevExpress.XtraEditors.ComboBoxEdit cboxProduct;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label8;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDeleteItem;
     }
 }

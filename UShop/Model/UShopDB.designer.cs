@@ -57,9 +57,6 @@ namespace Model
     partial void InsertPRODUCT(PRODUCT instance);
     partial void UpdatePRODUCT(PRODUCT instance);
     partial void DeletePRODUCT(PRODUCT instance);
-    partial void InsertPRODUCT_SIZE(PRODUCT_SIZE instance);
-    partial void UpdatePRODUCT_SIZE(PRODUCT_SIZE instance);
-    partial void DeletePRODUCT_SIZE(PRODUCT_SIZE instance);
     partial void InsertRECEIPT_NOTE(RECEIPT_NOTE instance);
     partial void UpdateRECEIPT_NOTE(RECEIPT_NOTE instance);
     partial void DeleteRECEIPT_NOTE(RECEIPT_NOTE instance);
@@ -167,14 +164,6 @@ namespace Model
 			get
 			{
 				return this.GetTable<PRODUCT>();
-			}
-		}
-		
-		public System.Data.Linq.Table<PRODUCT_SIZE> PRODUCT_SIZEs
-		{
-			get
-			{
-				return this.GetTable<PRODUCT_SIZE>();
 			}
 		}
 		
@@ -2159,6 +2148,18 @@ namespace Model
 		
 		private string _ORIGIN;
 		
+		private System.Nullable<int> _SIZE_S;
+		
+		private System.Nullable<int> _SIZE_M;
+		
+		private System.Nullable<int> _SIZE_L;
+		
+		private System.Nullable<int> _SIZE_XL;
+		
+		private System.Nullable<int> _SIZE_XXL;
+		
+		private System.Nullable<int> _SIZE_TOTAL;
+		
 		private string _IMAGE_SRC;
 		
 		private string _RECORD_STATUS;
@@ -2189,6 +2190,18 @@ namespace Model
     partial void OnPRODUCERChanged();
     partial void OnORIGINChanging(string value);
     partial void OnORIGINChanged();
+    partial void OnSIZE_SChanging(System.Nullable<int> value);
+    partial void OnSIZE_SChanged();
+    partial void OnSIZE_MChanging(System.Nullable<int> value);
+    partial void OnSIZE_MChanged();
+    partial void OnSIZE_LChanging(System.Nullable<int> value);
+    partial void OnSIZE_LChanged();
+    partial void OnSIZE_XLChanging(System.Nullable<int> value);
+    partial void OnSIZE_XLChanged();
+    partial void OnSIZE_XXLChanging(System.Nullable<int> value);
+    partial void OnSIZE_XXLChanged();
+    partial void OnSIZE_TOTALChanging(System.Nullable<int> value);
+    partial void OnSIZE_TOTALChanged();
     partial void OnIMAGE_SRCChanging(string value);
     partial void OnIMAGE_SRCChanged();
     partial void OnRECORD_STATUSChanging(string value);
@@ -2420,156 +2433,6 @@ namespace Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAGE_SRC", DbType="NVarChar(200)")]
-		public string IMAGE_SRC
-		{
-			get
-			{
-				return this._IMAGE_SRC;
-			}
-			set
-			{
-				if ((this._IMAGE_SRC != value))
-				{
-					this.OnIMAGE_SRCChanging(value);
-					this.SendPropertyChanging();
-					this._IMAGE_SRC = value;
-					this.SendPropertyChanged("IMAGE_SRC");
-					this.OnIMAGE_SRCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECORD_STATUS", DbType="VarChar(1)")]
-		public string RECORD_STATUS
-		{
-			get
-			{
-				return this._RECORD_STATUS;
-			}
-			set
-			{
-				if ((this._RECORD_STATUS != value))
-				{
-					this.OnRECORD_STATUSChanging(value);
-					this.SendPropertyChanging();
-					this._RECORD_STATUS = value;
-					this.SendPropertyChanged("RECORD_STATUS");
-					this.OnRECORD_STATUSChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PRODUCT_SIZE")]
-	public partial class PRODUCT_SIZE : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _PRODUCT_SIZE_ID;
-		
-		private System.Nullable<int> _PRODUCT_ID;
-		
-		private System.Nullable<int> _SIZE_S;
-		
-		private System.Nullable<int> _SIZE_M;
-		
-		private System.Nullable<int> _SIZE_L;
-		
-		private System.Nullable<int> _SIZE_XL;
-		
-		private System.Nullable<int> _SIZE_XXL;
-		
-		private System.Nullable<int> _TOTAL;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnPRODUCT_SIZE_IDChanging(int value);
-    partial void OnPRODUCT_SIZE_IDChanged();
-    partial void OnPRODUCT_IDChanging(System.Nullable<int> value);
-    partial void OnPRODUCT_IDChanged();
-    partial void OnSIZE_SChanging(System.Nullable<int> value);
-    partial void OnSIZE_SChanged();
-    partial void OnSIZE_MChanging(System.Nullable<int> value);
-    partial void OnSIZE_MChanged();
-    partial void OnSIZE_LChanging(System.Nullable<int> value);
-    partial void OnSIZE_LChanged();
-    partial void OnSIZE_XLChanging(System.Nullable<int> value);
-    partial void OnSIZE_XLChanged();
-    partial void OnSIZE_XXLChanging(System.Nullable<int> value);
-    partial void OnSIZE_XXLChanged();
-    partial void OnTOTALChanging(System.Nullable<int> value);
-    partial void OnTOTALChanged();
-    #endregion
-		
-		public PRODUCT_SIZE()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRODUCT_SIZE_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int PRODUCT_SIZE_ID
-		{
-			get
-			{
-				return this._PRODUCT_SIZE_ID;
-			}
-			set
-			{
-				if ((this._PRODUCT_SIZE_ID != value))
-				{
-					this.OnPRODUCT_SIZE_IDChanging(value);
-					this.SendPropertyChanging();
-					this._PRODUCT_SIZE_ID = value;
-					this.SendPropertyChanged("PRODUCT_SIZE_ID");
-					this.OnPRODUCT_SIZE_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRODUCT_ID", DbType="Int")]
-		public System.Nullable<int> PRODUCT_ID
-		{
-			get
-			{
-				return this._PRODUCT_ID;
-			}
-			set
-			{
-				if ((this._PRODUCT_ID != value))
-				{
-					this.OnPRODUCT_IDChanging(value);
-					this.SendPropertyChanging();
-					this._PRODUCT_ID = value;
-					this.SendPropertyChanged("PRODUCT_ID");
-					this.OnPRODUCT_IDChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIZE_S", DbType="Int")]
 		public System.Nullable<int> SIZE_S
 		{
@@ -2670,22 +2533,62 @@ namespace Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL", DbType="Int")]
-		public System.Nullable<int> TOTAL
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIZE_TOTAL", DbType="Int")]
+		public System.Nullable<int> SIZE_TOTAL
 		{
 			get
 			{
-				return this._TOTAL;
+				return this._SIZE_TOTAL;
 			}
 			set
 			{
-				if ((this._TOTAL != value))
+				if ((this._SIZE_TOTAL != value))
 				{
-					this.OnTOTALChanging(value);
+					this.OnSIZE_TOTALChanging(value);
 					this.SendPropertyChanging();
-					this._TOTAL = value;
-					this.SendPropertyChanged("TOTAL");
-					this.OnTOTALChanged();
+					this._SIZE_TOTAL = value;
+					this.SendPropertyChanged("SIZE_TOTAL");
+					this.OnSIZE_TOTALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAGE_SRC", DbType="NVarChar(200)")]
+		public string IMAGE_SRC
+		{
+			get
+			{
+				return this._IMAGE_SRC;
+			}
+			set
+			{
+				if ((this._IMAGE_SRC != value))
+				{
+					this.OnIMAGE_SRCChanging(value);
+					this.SendPropertyChanging();
+					this._IMAGE_SRC = value;
+					this.SendPropertyChanged("IMAGE_SRC");
+					this.OnIMAGE_SRCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECORD_STATUS", DbType="VarChar(1)")]
+		public string RECORD_STATUS
+		{
+			get
+			{
+				return this._RECORD_STATUS;
+			}
+			set
+			{
+				if ((this._RECORD_STATUS != value))
+				{
+					this.OnRECORD_STATUSChanging(value);
+					this.SendPropertyChanging();
+					this._RECORD_STATUS = value;
+					this.SendPropertyChanged("RECORD_STATUS");
+					this.OnRECORD_STATUSChanged();
 				}
 			}
 		}
@@ -3003,31 +2906,21 @@ namespace Model
 		
 		private System.Nullable<int> _PRODUCT_ID;
 		
-		private System.Nullable<int> _SIZE_S;
-		
 		private System.Nullable<int> _QUANTITY_STOCK_S;
 		
 		private System.Nullable<int> _QUANTITY_VOUCHER_S;
-		
-		private System.Nullable<int> _SIZE_M;
 		
 		private System.Nullable<int> _QUANTITY_STOCK_M;
 		
 		private System.Nullable<int> _QUANTITY_VOUCHER_M;
 		
-		private System.Nullable<int> _SIZE_L;
-		
 		private System.Nullable<int> _QUANTITY_STOCK_L;
 		
 		private System.Nullable<int> _QUANTITY_VOUCHER_L;
 		
-		private System.Nullable<int> _SIZE_XL;
-		
 		private System.Nullable<int> _QUANTITY_STOCK_XL;
 		
 		private System.Nullable<int> _QUANTITY_VOUCHER_XL;
-		
-		private System.Nullable<int> _SIZE_XXL;
 		
 		private System.Nullable<int> _QUANTITY_STOCK_XXL;
 		
@@ -3035,7 +2928,9 @@ namespace Model
 		
 		private System.Nullable<double> _PRICE;
 		
-		private System.Nullable<int> _TOTAL_QUANTITY;
+		private System.Nullable<int> _TOTAL_STOCK;
+		
+		private System.Nullable<int> _TOTAL_VOUCHER;
 		
 		private System.Nullable<double> _AMOUNT;
 		
@@ -3053,40 +2948,32 @@ namespace Model
     partial void OnRN_IDChanged();
     partial void OnPRODUCT_IDChanging(System.Nullable<int> value);
     partial void OnPRODUCT_IDChanged();
-    partial void OnSIZE_SChanging(System.Nullable<int> value);
-    partial void OnSIZE_SChanged();
     partial void OnQUANTITY_STOCK_SChanging(System.Nullable<int> value);
     partial void OnQUANTITY_STOCK_SChanged();
     partial void OnQUANTITY_VOUCHER_SChanging(System.Nullable<int> value);
     partial void OnQUANTITY_VOUCHER_SChanged();
-    partial void OnSIZE_MChanging(System.Nullable<int> value);
-    partial void OnSIZE_MChanged();
     partial void OnQUANTITY_STOCK_MChanging(System.Nullable<int> value);
     partial void OnQUANTITY_STOCK_MChanged();
     partial void OnQUANTITY_VOUCHER_MChanging(System.Nullable<int> value);
     partial void OnQUANTITY_VOUCHER_MChanged();
-    partial void OnSIZE_LChanging(System.Nullable<int> value);
-    partial void OnSIZE_LChanged();
     partial void OnQUANTITY_STOCK_LChanging(System.Nullable<int> value);
     partial void OnQUANTITY_STOCK_LChanged();
     partial void OnQUANTITY_VOUCHER_LChanging(System.Nullable<int> value);
     partial void OnQUANTITY_VOUCHER_LChanged();
-    partial void OnSIZE_XLChanging(System.Nullable<int> value);
-    partial void OnSIZE_XLChanged();
     partial void OnQUANTITY_STOCK_XLChanging(System.Nullable<int> value);
     partial void OnQUANTITY_STOCK_XLChanged();
     partial void OnQUANTITY_VOUCHER_XLChanging(System.Nullable<int> value);
     partial void OnQUANTITY_VOUCHER_XLChanged();
-    partial void OnSIZE_XXLChanging(System.Nullable<int> value);
-    partial void OnSIZE_XXLChanged();
     partial void OnQUANTITY_STOCK_XXLChanging(System.Nullable<int> value);
     partial void OnQUANTITY_STOCK_XXLChanged();
     partial void OnQUANTITY_VOUCHER_XXLChanging(System.Nullable<int> value);
     partial void OnQUANTITY_VOUCHER_XXLChanged();
     partial void OnPRICEChanging(System.Nullable<double> value);
     partial void OnPRICEChanged();
-    partial void OnTOTAL_QUANTITYChanging(System.Nullable<int> value);
-    partial void OnTOTAL_QUANTITYChanged();
+    partial void OnTOTAL_STOCKChanging(System.Nullable<int> value);
+    partial void OnTOTAL_STOCKChanged();
+    partial void OnTOTAL_VOUCHERChanging(System.Nullable<int> value);
+    partial void OnTOTAL_VOUCHERChanged();
     partial void OnAMOUNTChanging(System.Nullable<double> value);
     partial void OnAMOUNTChanged();
     partial void OnRECORD_STATUSChanging(string value);
@@ -3178,26 +3065,6 @@ namespace Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIZE_S", DbType="Int")]
-		public System.Nullable<int> SIZE_S
-		{
-			get
-			{
-				return this._SIZE_S;
-			}
-			set
-			{
-				if ((this._SIZE_S != value))
-				{
-					this.OnSIZE_SChanging(value);
-					this.SendPropertyChanging();
-					this._SIZE_S = value;
-					this.SendPropertyChanged("SIZE_S");
-					this.OnSIZE_SChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUANTITY_STOCK_S", DbType="Int")]
 		public System.Nullable<int> QUANTITY_STOCK_S
 		{
@@ -3234,26 +3101,6 @@ namespace Model
 					this._QUANTITY_VOUCHER_S = value;
 					this.SendPropertyChanged("QUANTITY_VOUCHER_S");
 					this.OnQUANTITY_VOUCHER_SChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIZE_M", DbType="Int")]
-		public System.Nullable<int> SIZE_M
-		{
-			get
-			{
-				return this._SIZE_M;
-			}
-			set
-			{
-				if ((this._SIZE_M != value))
-				{
-					this.OnSIZE_MChanging(value);
-					this.SendPropertyChanging();
-					this._SIZE_M = value;
-					this.SendPropertyChanged("SIZE_M");
-					this.OnSIZE_MChanged();
 				}
 			}
 		}
@@ -3298,26 +3145,6 @@ namespace Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIZE_L", DbType="Int")]
-		public System.Nullable<int> SIZE_L
-		{
-			get
-			{
-				return this._SIZE_L;
-			}
-			set
-			{
-				if ((this._SIZE_L != value))
-				{
-					this.OnSIZE_LChanging(value);
-					this.SendPropertyChanging();
-					this._SIZE_L = value;
-					this.SendPropertyChanged("SIZE_L");
-					this.OnSIZE_LChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUANTITY_STOCK_L", DbType="Int")]
 		public System.Nullable<int> QUANTITY_STOCK_L
 		{
@@ -3358,26 +3185,6 @@ namespace Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIZE_XL", DbType="Int")]
-		public System.Nullable<int> SIZE_XL
-		{
-			get
-			{
-				return this._SIZE_XL;
-			}
-			set
-			{
-				if ((this._SIZE_XL != value))
-				{
-					this.OnSIZE_XLChanging(value);
-					this.SendPropertyChanging();
-					this._SIZE_XL = value;
-					this.SendPropertyChanged("SIZE_XL");
-					this.OnSIZE_XLChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUANTITY_STOCK_XL", DbType="Int")]
 		public System.Nullable<int> QUANTITY_STOCK_XL
 		{
@@ -3414,26 +3221,6 @@ namespace Model
 					this._QUANTITY_VOUCHER_XL = value;
 					this.SendPropertyChanged("QUANTITY_VOUCHER_XL");
 					this.OnQUANTITY_VOUCHER_XLChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIZE_XXL", DbType="Int")]
-		public System.Nullable<int> SIZE_XXL
-		{
-			get
-			{
-				return this._SIZE_XXL;
-			}
-			set
-			{
-				if ((this._SIZE_XXL != value))
-				{
-					this.OnSIZE_XXLChanging(value);
-					this.SendPropertyChanging();
-					this._SIZE_XXL = value;
-					this.SendPropertyChanged("SIZE_XXL");
-					this.OnSIZE_XXLChanged();
 				}
 			}
 		}
@@ -3498,22 +3285,42 @@ namespace Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL_QUANTITY", DbType="Int")]
-		public System.Nullable<int> TOTAL_QUANTITY
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL_STOCK", DbType="Int")]
+		public System.Nullable<int> TOTAL_STOCK
 		{
 			get
 			{
-				return this._TOTAL_QUANTITY;
+				return this._TOTAL_STOCK;
 			}
 			set
 			{
-				if ((this._TOTAL_QUANTITY != value))
+				if ((this._TOTAL_STOCK != value))
 				{
-					this.OnTOTAL_QUANTITYChanging(value);
+					this.OnTOTAL_STOCKChanging(value);
 					this.SendPropertyChanging();
-					this._TOTAL_QUANTITY = value;
-					this.SendPropertyChanged("TOTAL_QUANTITY");
-					this.OnTOTAL_QUANTITYChanged();
+					this._TOTAL_STOCK = value;
+					this.SendPropertyChanged("TOTAL_STOCK");
+					this.OnTOTAL_STOCKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL_VOUCHER", DbType="Int")]
+		public System.Nullable<int> TOTAL_VOUCHER
+		{
+			get
+			{
+				return this._TOTAL_VOUCHER;
+			}
+			set
+			{
+				if ((this._TOTAL_VOUCHER != value))
+				{
+					this.OnTOTAL_VOUCHERChanging(value);
+					this.SendPropertyChanging();
+					this._TOTAL_VOUCHER = value;
+					this.SendPropertyChanged("TOTAL_VOUCHER");
+					this.OnTOTAL_VOUCHERChanged();
 				}
 			}
 		}

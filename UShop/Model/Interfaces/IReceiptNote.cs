@@ -20,5 +20,9 @@ namespace Model.Interface
 
         DataTable loadSupplierDT();
         DataTable loadProductDT();
+
+        void add(RECEIPT_NOTE obj, DataTable dtItems);
+
+        PRODUCT getProductByCODE(string code);
     }
 }

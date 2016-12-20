@@ -71,6 +71,16 @@ namespace Presenter.InterfaceImplement
         {
             return _model.loadProductDT();
         }
+
+        public void add(RECEIPT_NOTE obj, DataTable dtItems)
+        {
+            _model.add(obj,dtItems);
+        }
+
+        public PRODUCT getProductByCODE(string code)
+        {
+            return _model.getProductByCODE(code);
+        }
     }
 
 
