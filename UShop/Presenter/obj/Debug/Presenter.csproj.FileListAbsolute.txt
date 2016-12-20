@@ -5,10 +5,10 @@ D:\Projects\UShop\Presenter\bin\Debug\Model.dll
 D:\Projects\UShop\Presenter\bin\Debug\Model.pdb
 D:\Projects\UShop\Presenter\obj\Debug\Presenter.dll
 D:\Projects\UShop\Presenter\obj\Debug\Presenter.pdb
+C:\Users\Huy\Desktop\gitHDT\ushop\UShop\Presenter\obj\Debug\Presenter.csprojResolveAssemblyReference.cache
 C:\Users\Huy\Desktop\gitHDT\ushop\UShop\Presenter\bin\Debug\Presenter.dll
 C:\Users\Huy\Desktop\gitHDT\ushop\UShop\Presenter\bin\Debug\Presenter.pdb
 C:\Users\Huy\Desktop\gitHDT\ushop\UShop\Presenter\bin\Debug\Model.dll
 C:\Users\Huy\Desktop\gitHDT\ushop\UShop\Presenter\bin\Debug\Model.pdb
-C:\Users\Huy\Desktop\gitHDT\ushop\UShop\Presenter\obj\Debug\Presenter.csprojResolveAssemblyReference.cache
 C:\Users\Huy\Desktop\gitHDT\ushop\UShop\Presenter\obj\Debug\Presenter.dll
 C:\Users\Huy\Desktop\gitHDT\ushop\UShop\Presenter\obj\Debug\Presenter.pdb

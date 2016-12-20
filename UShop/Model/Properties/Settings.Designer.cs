@@ -32,5 +32,15 @@ namespace Model.Properties {
                 return ((string)(this["UShopConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=HUY;Initial Catalog=UShopDB;Integrated Security=True")]
+        public string UShopDBConnectionString {
+            get {
+                return ((string)(this["UShopDBConnectionString"]));
+            }
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace Presenter.Interface
 {
     public interface ICategoryView
     {
-        void loadCategories(List<Category> listObj);
+        void loadCategories(List<CATEGORY> listObj);
         //void saveCategory(Category obj);
         //void deleteCategory(String id);
     }

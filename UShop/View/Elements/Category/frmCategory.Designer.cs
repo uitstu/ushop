@@ -51,6 +51,7 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.gridCategory = new DevExpress.XtraGrid.GridControl();
             this.updateCategory = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.CATEGORY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CategoryName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CategoryDescription = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnEdit = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -241,6 +242,7 @@
             // updateCategory
             // 
             this.updateCategory.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.CATEGORY_CODE,
             this.CategoryName,
             this.CategoryDescription,
             this.gridColumnEdit,
@@ -253,24 +255,32 @@
             this.updateCategory.FilterEditorCreated += new DevExpress.XtraGrid.Views.Base.FilterControlEventHandler(this.updateCategory_FilterEditorCreated);
             this.updateCategory.CustomRowFilter += new DevExpress.XtraGrid.Views.Base.RowFilterEventHandler(this.updateCategory_CustomRowFilter);
             // 
+            // CATEGORY_CODE
+            // 
+            this.CATEGORY_CODE.Caption = "Mã danh mục";
+            this.CATEGORY_CODE.FieldName = "CATEGORY_CODE";
+            this.CATEGORY_CODE.Name = "CATEGORY_CODE";
+            this.CATEGORY_CODE.Visible = true;
+            this.CATEGORY_CODE.VisibleIndex = 0;
+            // 
             // CategoryName
             // 
             this.CategoryName.Caption = "Tên danh mục";
-            this.CategoryName.FieldName = "CategoryName";
+            this.CategoryName.FieldName = "CATEGORY_NAME";
             this.CategoryName.Name = "CategoryName";
             this.CategoryName.OptionsColumn.AllowEdit = false;
             this.CategoryName.Visible = true;
-            this.CategoryName.VisibleIndex = 0;
+            this.CategoryName.VisibleIndex = 1;
             this.CategoryName.Width = 289;
             // 
             // CategoryDescription
             // 
             this.CategoryDescription.Caption = "Mô tả";
-            this.CategoryDescription.FieldName = "CategoryDescription";
+            this.CategoryDescription.FieldName = "DESCRIPTION";
             this.CategoryDescription.Name = "CategoryDescription";
             this.CategoryDescription.OptionsColumn.AllowEdit = false;
             this.CategoryDescription.Visible = true;
-            this.CategoryDescription.VisibleIndex = 1;
+            this.CategoryDescription.VisibleIndex = 2;
             this.CategoryDescription.Width = 289;
             // 
             // gridColumnEdit
@@ -281,7 +291,7 @@
             this.gridColumnEdit.OptionsFilter.AllowAutoFilter = false;
             this.gridColumnEdit.OptionsFilter.AllowFilter = false;
             this.gridColumnEdit.Visible = true;
-            this.gridColumnEdit.VisibleIndex = 2;
+            this.gridColumnEdit.VisibleIndex = 3;
             this.gridColumnEdit.Width = 20;
             // 
             // btnEdit
@@ -301,7 +311,7 @@
             this.gridColumn1.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn1.OptionsFilter.AllowFilter = false;
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 3;
+            this.gridColumn1.VisibleIndex = 4;
             this.gridColumn1.Width = 20;
             // 
             // btnDelete
@@ -375,6 +385,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnEdit;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDelete;
+        private DevExpress.XtraGrid.Columns.GridColumn CATEGORY_CODE;
 
     }
 }

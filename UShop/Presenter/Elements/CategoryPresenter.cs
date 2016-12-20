@@ -34,7 +34,7 @@ namespace Presenter.InterfaceImplement
             _view.loadCategories(_model.loadCategory());
         }
 
-        public void saveCategory(Category obj)
+        public void saveCategory(CATEGORY obj)
         {
             _model.addCategory(obj);
             _view.loadCategories(_model.loadCategory());
@@ -46,7 +46,7 @@ namespace Presenter.InterfaceImplement
             _view.loadCategories(_model.loadCategory());
         }
 
-        public void updateCategory(Category obj)
+        public void updateCategory(CATEGORY obj)
         {
             _model.updateCategory(obj);
             _view.loadCategories(_model.loadCategory());

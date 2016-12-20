@@ -67,11 +67,23 @@
     <Compile Include="Elements\Category\frmCategory.Designer.cs">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Elements\frmProductCategory.cs">
+    <Compile Include="Elements\ReceiptNote\frmAddReceiptNote.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Elements\frmProductCategory.Designer.cs">
-      <DependentUpon>frmProductCategory.cs</DependentUpon>
+    <Compile Include="Elements\ReceiptNote\frmAddReceiptNote.Designer.cs">
+      <DependentUpon>frmAddReceiptNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\ReceiptNote\frmReceiptNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Elements\ReceiptNote\frmReceiptNote.Designer.cs">
+      <DependentUpon>frmReceiptNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="frmUShop.cs">
       <SubType>Form</SubType>
@@ -87,8 +99,14 @@
     <EmbeddedResource Include="Elements\Category\frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Elements\frmProductCategory.resx">
-      <DependentUpon>frmProductCategory.cs</DependentUpon>
+    <EmbeddedResource Include="Elements\ReceiptNote\frmAddReceiptNote.resx">
+      <DependentUpon>frmAddReceiptNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Elements\ReceiptNote\frmReceiptNote.resx">
+      <DependentUpon>frmReceiptNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUShop.resx">
       <DependentUpon>frmUShop.cs</DependentUpon>

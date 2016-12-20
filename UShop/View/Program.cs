@@ -20,7 +20,7 @@ namespace View
 
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            Application.Run(new frmUShop());
+            Application.Run(new frmLogin());
         }
     }
 }

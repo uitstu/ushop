@@ -8,9 +8,9 @@ namespace Model.Interface
 {
     public interface ICategory
     {
-        List<Category> loadCategory();
-        void addCategory(Category obj);
+        List<CATEGORY> loadCategory();
+        void addCategory(CATEGORY obj);
         void deleteCategory(String id);
-        void updateCategory(Category obj);
+        void updateCategory(CATEGORY obj);
     }
 }

@@ -16,7 +16,7 @@ namespace View.Elements.Category
     public partial class frmAddCategory : Form
     {
         private CategoryPresenter preCategory;
-        private Model.Category obj;
+        private Model.CATEGORY obj;
 
         public frmAddCategory()
         {
@@ -28,33 +28,33 @@ namespace View.Elements.Category
             InitializeComponent();
         }
 
-        public frmAddCategory(CategoryPresenter preCategory, Model.Category obj)
+        public frmAddCategory(CategoryPresenter preCategory, Model.CATEGORY obj)
         {
             this.preCategory = preCategory;
             this.obj = obj;
             InitializeComponent();
 
-            edtCategoryName.Text = obj.CategoryName;
-            edtCategoryDescription.Text = obj.CategoryDescription;
+            edtCategoryName.Text = obj.CATEGORY_NAME;
+            edtCategoryDescription.Text = obj.DESCRIPTION;
         }
 
         private void btnCategorySave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (obj == null)
             {
-                obj = new Model.Category();
+                obj = new Model.CATEGORY();
 
-                obj.CategoryName = edtCategoryName.Text;
-                obj.CategoryDescription = edtCategoryDescription.Text;
-                obj.IsActive = true;
+                obj.CATEGORY_NAME = edtCategoryName.Text;
+                obj.DESCRIPTION = edtCategoryDescription.Text;
+                obj.RECORD_STATUS = "A";
 
                 preCategory.saveCategory(obj);
             }
             else
             {
-                obj.CategoryName = edtCategoryName.Text;
-                obj.CategoryDescription = edtCategoryDescription.Text;
-                obj.IsActive = true;
+                obj.CATEGORY_NAME = edtCategoryName.Text;
+                obj.DESCRIPTION = edtCategoryDescription.Text;
+                obj.RECORD_STATUS = "A";
 
                 preCategory.updateCategory(obj);
             }

@@ -40,9 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Elements\CategoryPresenter.cs" />
-    <Compile Include="Elements\ProductCategoryPresenter.cs" />
+    <Compile Include="Elements\AccountPresenter.cs" />
+    <Compile Include="Elements\ReceiptNotePresenter.cs" />
+    <Compile Include="Interfaces\IReceiptNoteView.cs" />
+    <Compile Include="Interfaces\IAccountView.cs" />
     <Compile Include="Interfaces\ICategoryView.cs" />
-    <Compile Include="Interfaces\IProductCategoryView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

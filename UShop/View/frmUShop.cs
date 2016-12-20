@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using View.Elements;
+using View.Elements.ReceiptNote;
 
 namespace View
 {
@@ -19,17 +20,7 @@ namespace View
 
         private void btnProductManagement_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form frm = this.checkExist(typeof(frmProductCategory));
-            if (frm != null)
-            {
-                frm.Activate();
-            }
-            else
-            {
-                frmProductCategory f = new frmProductCategory();
-                f.MdiParent = this;
-                f.Show();
-            }
+            
         }
 
         private Form checkExist(Type fType)
@@ -54,6 +45,31 @@ namespace View
             else
             {
                 frmCategory f = new frmCategory();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void frmUShop_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Application.Exit();
+        }
+
+        private void frmUShop_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnReceiptNote_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.checkExist(typeof(frmReceiptNote));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                frmReceiptNote f = new frmReceiptNote();
                 f.MdiParent = this;
                 f.Show();
             }

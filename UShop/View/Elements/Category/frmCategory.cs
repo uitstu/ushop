@@ -31,7 +31,7 @@ namespace View.Elements
         }
 
         //functions from interface
-        public void loadCategories(List<Model.Category> listObj)
+        public void loadCategories(List<Model.CATEGORY> listObj)
         {
             gridCategory.DataSource = listObj;
         }
@@ -56,17 +56,17 @@ namespace View.Elements
             GridView gridView = gridCategory.FocusedView as GridView;
             //object row = gridView.GetRow(gridView.FocusedRowHandle);
 
-            preCategory.deleteCategory(gridView.GetFocusedRowCellValue("CategoryID").ToString());
+            preCategory.deleteCategory(gridView.GetFocusedRowCellValue("CATEGORY_ID").ToString());
         }
 
         private void btnEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             GridView gridView = gridCategory.FocusedView as GridView;
-            Model.Category obj = new Model.Category();
+            Model.CATEGORY obj = new Model.CATEGORY();
 
-            obj.CategoryID = Convert.ToInt32(gridView.GetFocusedRowCellValue("CategoryID").ToString());
-            obj.CategoryName = gridView.GetFocusedRowCellValue("CategoryName").ToString();
-            obj.CategoryDescription = gridView.GetFocusedRowCellValue("CategoryDescription").ToString();
+            obj.CATEGORY_ID = Convert.ToInt32(gridView.GetFocusedRowCellValue("CATEGORY_ID").ToString());
+            obj.CATEGORY_NAME = gridView.GetFocusedRowCellValue("CATEGORY_NAME").ToString();
+            obj.DESCRIPTION = gridView.GetFocusedRowCellValue("DESCRIPTION").ToString();
 
             frmAddCategory frmAdd = new frmAddCategory(preCategory, obj);
             frmAdd.ShowDialog();
