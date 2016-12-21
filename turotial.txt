@@ -1,2 +1,4 @@
-devexpress P1 P2 P3: https://www.youtube.com/watch?v=U4Sp_YisqS0
-button update delete: https://www.youtube.com/watch?v=w2Ss8XcyEmE
+devexpress P1 P2 P3 - them, sua, xoa LinQ: https://www.youtube.com/watch?v=U4Sp_YisqS0
+cach tao button update delete trong gridview: https://www.youtube.com/watch?v=w2Ss8XcyEmE
+kiem tra du lieu trong gridview: https://documentation.devexpress.com/#WindowsForms/CustomDocument114741
+rang buoc du lieu trong gridview: https://www.youtube.com/watch?v=povVd1iJkHc&list=PL8h4jt35t1wj1k3OpyPddjK2VzBH50rSj

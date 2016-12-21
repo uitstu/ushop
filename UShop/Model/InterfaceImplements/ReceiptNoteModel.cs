@@ -10,18 +10,20 @@ namespace Model.InterfaceImplement
 {
     public class ReceiptNoteModel : DataModel, IReceiptNote
     {
-        private static RECEIPT_NOTE receipt_note;
-
-        public static RECEIPT_NOTE getReceiptNote()
+        public RECEIPT_NOTE getReceiptNoteByCODE(string code)
         {
-            return receipt_note;
-        }
+            RECEIPT_NOTE r = new RECEIPT_NOTE();
 
-        public RECEIPT_NOTE findReceiptNote(string id)
-        {
-            receipt_note = null;
+            foreach (RECEIPT_NOTE item in UShopDB.RECEIPT_NOTEs)
+            {
+                if (item.RN_CODE.Equals(code))
+                {
+                    r = item;
+                    break;
+                }
+            }
 
-            return receipt_note;
+            return r;
         }
 
         public System.Data.DataTable loadReceiptNoteDT()
@@ -127,7 +129,7 @@ namespace Model.InterfaceImplement
 
 
 
-        public DataTable loadSupplierDT()
+        public DataTable loadSupplierDT(bool isAll)
         {
             var result = from r in UShopDB.SUPPLIERs
                          select new
@@ -143,9 +145,19 @@ namespace Model.InterfaceImplement
             dt.Columns.Add("SUPPLIER_NAME");
             dt.Columns.Add("RECORD_STATUS");
 
-            foreach (var o in result.Where(o => o.RECORD_STATUS.Equals("A")))
+            if (isAll)
             {
-                dt.Rows.Add(o.SUPPLIER_CODE, o.SUPPLIER_NAME, o.RECORD_STATUS);
+                foreach (var o in result)
+                {
+                    dt.Rows.Add(o.SUPPLIER_CODE, o.SUPPLIER_NAME, o.RECORD_STATUS);
+                }
+            }
+            else
+            {
+                foreach (var o in result.Where(o => o.RECORD_STATUS.Equals("A")))
+                {
+                    dt.Rows.Add(o.SUPPLIER_CODE, o.SUPPLIER_NAME, o.RECORD_STATUS);
+                }
             }
 
             return dt;
@@ -175,6 +187,65 @@ namespace Model.InterfaceImplement
             return dt;
         }
 
+        public DataTable loadRN_ITEM(int RN_ID)
+        {
+            var result = from r in UShopDB.RECEIPT_NOTE_ITEMs
+                         join s in UShopDB.PRODUCTs
+                         on r.PRODUCT_ID equals s.PRODUCT_ID
+                         into final1
+                         from x in final1.DefaultIfEmpty()
+
+                         select new
+                         {
+                             r.RN_ID,
+                             x.PRODUCT_CODE,
+                             x.PRODUCT_NAME,
+                             r.QUANTITY_STOCK_S,
+                             r.QUANTITY_VOUCHER_S,
+                             r.QUANTITY_STOCK_M,
+                             r.QUANTITY_VOUCHER_M,
+                             r.QUANTITY_STOCK_L,
+                             r.QUANTITY_VOUCHER_L,
+                             r.QUANTITY_STOCK_XL,
+                             r.QUANTITY_VOUCHER_XL,
+                             r.QUANTITY_STOCK_XXL,
+                             r.QUANTITY_VOUCHER_XXL,
+                             r.TOTAL_STOCK,
+                             r.TOTAL_VOUCHER,
+                             r.PRICE,
+                             r.AMOUNT,
+                             r.RECORD_STATUS
+                         };
+
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("CODE");
+            dt.Columns.Add("NAME");
+            dt.Columns.Add("STOCK_S");
+            dt.Columns.Add("VOUCHER_S");
+            dt.Columns.Add("STOCK_M");
+            dt.Columns.Add("VOUCHER_M");
+            dt.Columns.Add("STOCK_L");
+            dt.Columns.Add("VOUCHER_L");
+            dt.Columns.Add("STOCK_XL");
+            dt.Columns.Add("VOUCHER_XL");
+            dt.Columns.Add("STOCK_XXL");
+            dt.Columns.Add("VOUCHER_XXL");
+            dt.Columns.Add("STOCK_TOTAL");
+            dt.Columns.Add("VOUCHER_TOTAL");
+            dt.Columns.Add("PRICE");
+            dt.Columns.Add("AMOUNT");
+
+            foreach (var o in result.Where(o => o.RECORD_STATUS.Equals("A") && o.RN_ID.Equals(RN_ID)))
+            {
+                dt.Rows.Add(o.PRODUCT_CODE, o.PRODUCT_NAME, o.QUANTITY_STOCK_S, o.QUANTITY_VOUCHER_S
+                    , o.QUANTITY_STOCK_M, o.QUANTITY_VOUCHER_M, o.QUANTITY_STOCK_L, o.QUANTITY_VOUCHER_L
+                    , o.QUANTITY_STOCK_XL, o.QUANTITY_VOUCHER_XL, o.QUANTITY_STOCK_XXL, o.QUANTITY_VOUCHER_XXL
+                    , o.TOTAL_STOCK, o.TOTAL_VOUCHER, o.PRICE, o.AMOUNT);
+            }
+
+            return dt;
+        }
 
         public void add(RECEIPT_NOTE obj, DataTable dtItems)
         {
@@ -246,6 +317,140 @@ namespace Model.InterfaceImplement
             }
 
             return i;
+        }
+
+
+        public string update(RECEIPT_NOTE obj, DataTable dtItems)
+        {
+            List<RECEIPT_NOTE_ITEM> lstAll = new List<RECEIPT_NOTE_ITEM>();
+
+            List<RECEIPT_NOTE_ITEM> lstDeleted = new List<RECEIPT_NOTE_ITEM>();
+            List<RECEIPT_NOTE_ITEM> lstUpdated = new List<RECEIPT_NOTE_ITEM>();
+            List<RECEIPT_NOTE_ITEM> lstInserted = new List<RECEIPT_NOTE_ITEM>();
+
+            //update
+            foreach (DataRow r in dtItems.Rows)
+            {
+                foreach (RECEIPT_NOTE_ITEM i in UShopDB.RECEIPT_NOTE_ITEMs.Where(o => o.RN_ID.Equals(obj.RN_ID)))
+                {
+                    if (Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'),5)).Equals(i.PRODUCT_ID) && i.RN_ID.Equals(obj.RN_ID) && i.RECORD_STATUS.Equals("A"))
+                    {
+                        lstUpdated.Add(i); Console.WriteLine("sua 1");
+                        break;
+                    }
+                }
+            }
+
+
+            //insert
+            foreach (DataRow r in dtItems.Rows)
+            {
+                bool isFounded = false;
+                foreach (RECEIPT_NOTE_ITEM i in UShopDB.RECEIPT_NOTE_ITEMs.Where(o => o.RN_ID.Equals(obj.RN_ID)))
+                {
+                    if (Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'), 5)).Equals(i.PRODUCT_ID) && i.RECORD_STATUS.Equals("A"))
+                    {
+                        isFounded = true;
+                        break;
+                    }
+                }
+
+                if (!isFounded)
+                {
+                    RECEIPT_NOTE_ITEM re_i = new RECEIPT_NOTE_ITEM();
+
+                    re_i.RN_ID = obj.RN_ID;
+                    re_i.PRODUCT_ID = getProductByCODE(r[0].ToString()).PRODUCT_ID; 
+                    re_i.QUANTITY_STOCK_S = Int32.Parse(r[2].ToString());
+
+                    re_i.QUANTITY_VOUCHER_S = Int32.Parse(r[3].ToString());
+
+                    re_i.QUANTITY_STOCK_M = Int32.Parse(r[4].ToString());
+                    re_i.QUANTITY_VOUCHER_M = Int32.Parse(r[5].ToString());
+                    re_i.QUANTITY_STOCK_L = Int32.Parse(r[6].ToString());
+                    re_i.QUANTITY_VOUCHER_L = Int32.Parse(r[7].ToString());
+                    re_i.QUANTITY_STOCK_XL = Int32.Parse(r[8].ToString());
+                    re_i.QUANTITY_VOUCHER_XL = Int32.Parse(r[9].ToString());
+                    re_i.QUANTITY_STOCK_XXL = Int32.Parse(r[10].ToString());
+                    re_i.QUANTITY_VOUCHER_XXL = Int32.Parse(r[11].ToString());
+                    re_i.TOTAL_STOCK = Int32.Parse(r[12].ToString());
+                    re_i.TOTAL_VOUCHER = Int32.Parse(r[13].ToString());
+                    re_i.PRICE = Int32.Parse(r[14].ToString());
+                    re_i.AMOUNT = Int32.Parse(r[15].ToString());
+
+                    lstInserted.Add(re_i);
+                }
+            }
+
+            //delete
+            foreach (RECEIPT_NOTE_ITEM i in UShopDB.RECEIPT_NOTE_ITEMs.Where(o => o.RN_ID.Equals(obj.RN_ID)))
+            {
+                bool isFounded = false;
+                foreach (DataRow r in dtItems.Rows)
+                {
+                    if (Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'),5)).Equals(i.PRODUCT_ID) && i.RN_ID.Equals(obj.RN_ID) && i.RECORD_STATUS.Equals("A"))
+                    {
+                        isFounded = true;
+                        break;
+                    }
+                }
+                if (!isFounded)
+                {
+                    lstDeleted.Add(i);
+                }
+            }
+
+            //
+
+            //delete
+            foreach (RECEIPT_NOTE_ITEM r in lstDeleted)
+            {
+                UShopDB.RECEIPT_NOTE_ITEMs.DeleteOnSubmit(r);
+            }    
+
+            //update
+            foreach (RECEIPT_NOTE_ITEM i in lstUpdated)
+            {
+                foreach (DataRow r in dtItems.Rows)
+                {
+                    if (i.PRODUCT_ID.Equals(Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'), 5))))
+                    {
+                        i.RN_ID = obj.RN_ID;
+                        i.PRODUCT_ID = getProductByCODE(r[0].ToString()).PRODUCT_ID;
+                        i.QUANTITY_STOCK_S = Int32.Parse(r[2].ToString());
+
+                        i.QUANTITY_VOUCHER_S = Int32.Parse(r[3].ToString());
+
+                        i.QUANTITY_STOCK_M = Int32.Parse(r[4].ToString());
+                        i.QUANTITY_VOUCHER_M = Int32.Parse(r[5].ToString());
+                        i.QUANTITY_STOCK_L = Int32.Parse(r[6].ToString());
+                        i.QUANTITY_VOUCHER_L = Int32.Parse(r[7].ToString());
+                        i.QUANTITY_STOCK_XL = Int32.Parse(r[8].ToString());
+                        i.QUANTITY_VOUCHER_XL = Int32.Parse(r[9].ToString());
+                        i.QUANTITY_STOCK_XXL = Int32.Parse(r[10].ToString());
+                        i.QUANTITY_VOUCHER_XXL = Int32.Parse(r[11].ToString());
+                        i.TOTAL_STOCK = Int32.Parse(r[12].ToString());
+                        i.TOTAL_VOUCHER = Int32.Parse(r[13].ToString());
+                        i.PRICE = Int32.Parse(r[14].ToString());
+                        i.AMOUNT = Int32.Parse(r[15].ToString());
+
+                        break;
+                    }
+                }
+
+            }
+
+            //insert
+
+            foreach (RECEIPT_NOTE_ITEM r in lstInserted)
+            {
+                r.RECORD_STATUS = "A";
+                UShopDB.RECEIPT_NOTE_ITEMs.InsertOnSubmit(r);
+            }
+
+            UShopDB.SubmitChanges();
+
+            return "";
         }
     }
 }

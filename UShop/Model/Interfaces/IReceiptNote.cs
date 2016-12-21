@@ -14,15 +14,19 @@ namespace Model.Interface
         void deleteReceiptNote(String id);
         void updateReceiptNote(RECEIPT_NOTE obj);
 
-        RECEIPT_NOTE findReceiptNote(String id);
+        RECEIPT_NOTE getReceiptNoteByCODE(String code);
 
         DataTable loadReceiptNoteDT();
 
-        DataTable loadSupplierDT();
+        DataTable loadSupplierDT(bool isAll);
         DataTable loadProductDT();
 
         void add(RECEIPT_NOTE obj, DataTable dtItems);
 
         PRODUCT getProductByCODE(string code);
+
+        DataTable loadRN_ITEM(int RN_ID);
+
+        string update(RECEIPT_NOTE obj, DataTable dtItems);
     }
 }

@@ -50,5 +50,17 @@ namespace View.Elements.ReceiptNote
             frmAddReceiptNote frmAdd = new frmAddReceiptNote(preReceiptNote);
             frmAdd.ShowDialog();
         }
+
+        private void btnEditReceiptNote_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            GridView gridView = gridReceiptNote.FocusedView as GridView;
+            GridColumn colCode = gridView.Columns["RN_CODE"];
+            String code = gridView.GetRowCellValue(gridView.FocusedRowHandle, colCode).ToString();
+
+            //MessageBox.Show(preReceiptNote.getReceiptNoteByCODE(code).RN_ID+"");
+
+            frmAddReceiptNote frmAdd = new frmAddReceiptNote(preReceiptNote, preReceiptNote.getReceiptNoteByCODE(code));
+            frmAdd.ShowDialog();
+        }
     }
 }

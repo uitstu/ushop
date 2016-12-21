@@ -62,9 +62,9 @@ namespace Presenter.InterfaceImplement
         }
         */
 
-        public DataTable loadSupplierDT()
+        public DataTable loadSupplierDT(bool isAll)
         {
-            return _model.loadSupplierDT();
+            return _model.loadSupplierDT(isAll);
         }
 
         public DataTable loadProdcutDT()
@@ -81,7 +81,21 @@ namespace Presenter.InterfaceImplement
         {
             return _model.getProductByCODE(code);
         }
+
+        public DataTable loadRN_ITEM(int RN_ID)
+        {
+            return _model.loadRN_ITEM(RN_ID);
+        }
+
+        public RECEIPT_NOTE getReceiptNoteByCODE(string code)
+        {
+            return _model.getReceiptNoteByCODE(code);
+        }
+
+        public string update(RECEIPT_NOTE obj, DataTable dtItems)
+        {
+            _model.update(obj,dtItems);
+            return "";
+        }
     }
-
-
 }

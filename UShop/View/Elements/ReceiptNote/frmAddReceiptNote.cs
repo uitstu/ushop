@@ -18,8 +18,10 @@ namespace View.Elements.ReceiptNote
     public partial class frmAddReceiptNote : Form
     {
         private ReceiptNotePresenter preReceiptNote;
+
         private Model.RECEIPT_NOTE obj;
         DataTable dtItems;
+
         RECEIPT_NOTE receipt_note;
 
         List<string> lstSub = new List<string>();
@@ -41,9 +43,47 @@ namespace View.Elements.ReceiptNote
         {
             this.preReceiptNote = preReceiptNote;
             this.obj = obj;
+            this.dtItems = preReceiptNote.loadRN_ITEM(obj.RN_ID);
+
             InitializeComponent();
 
-            setSource();
+            //update giao dien
+            gridItems.DataSource = dtItems;
+
+            cboxSupplier.Text = Convert.ToString(obj.SUPPLIER_ID);
+            dpickIssued.Value = obj.ISSUED_DATE ?? new DateTime();
+            dpickAccounting.Value = obj.ACCOUNTING_DATE ?? new DateTime();
+            tboxNote.Text = obj.NOTE;
+            tboxAccounted.Text = Convert.ToString(obj.ACCOUNTED);
+            lbTotal.Text = Convert.ToString(obj.TOTAL);
+            setSource(); 
+            //cboxSupplier.Text = Convert.ToString(obj.SUPPLIER_ID);
+            foreach (DataRow d in preReceiptNote.loadSupplierDT(true).Rows)
+            {
+                if (Int32.Parse(d[0].ToString().Substring(d[0].ToString().IndexOf('0'), 5)) == obj.SUPPLIER_ID)
+                {
+                    cboxSupplier.Text = d[0].ToString() + " - " + d[1].ToString();
+                    break;
+                }
+            }
+
+            //cap nhat lstSub
+            
+            foreach (DataRow d in dtItems.Rows)
+            {
+                lstSub.Add(d[0].ToString() + " - " + d[1].ToString());
+            }
+            
+            
+            List<string> lst = new List<string>();
+            foreach (DataRow d in preReceiptNote.loadProdcutDT().Rows)
+            {
+                lst.Add(d[0].ToString() + " - " + d[1].ToString());
+            }
+            removeListSub(lst);
+            cboxProduct.Properties.Items.Clear();
+            cboxProduct.Properties.Items.AddRange(lst);
+            
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -58,7 +98,7 @@ namespace View.Elements.ReceiptNote
             {
                 bool checkExist = false;
 
-                foreach (DataRow d in preReceiptNote.loadSupplierDT().Rows)
+                foreach (DataRow d in preReceiptNote.loadSupplierDT(true).Rows)
                 {
                     if (cboxSupplier.Text.Equals(d[0].ToString() + " - " + d[1].ToString()))
                     {
@@ -79,13 +119,13 @@ namespace View.Elements.ReceiptNote
             }
             else
             {
-                if (float.Parse(tboxAccounted.Text).CompareTo(float.Parse(lbTotal.Text))>=0)
+                if (float.Parse(tboxAccounted.Text).CompareTo(float.Parse(lbTotal.Text))>0)
                 {
                     strError += "\nAccounted is not rather than total";
                 }
             }
 
-            if (dpickIssued.Value.CompareTo(dpickAccounting.Value)>0)
+            if (dpickIssued.Value > dpickAccounting.Value)
             {
                 strError += "\nIssued date is not rather than accounting date";
             }
@@ -93,6 +133,22 @@ namespace View.Elements.ReceiptNote
             if (!strError.Equals(""))
             {
                 MessageBox.Show(strError);
+                return;
+            }
+
+            //
+
+            if (obj != null)
+            {
+                //chua get data obj
+                obj.SUPPLIER_ID = Int32.Parse(cboxSupplier.Text.Substring(cboxSupplier.Text.IndexOf('0'), 5));
+                obj.ACCOUNTED = Int32.Parse(tboxAccounted.Text);
+                obj.TOTAL = Int32.Parse(lbTotal.Text);
+                obj.ISSUED_DATE = dpickIssued.Value;
+                obj.ACCOUNTING_DATE = dpickAccounting.Value;
+                obj.NOTE = tboxNote.Text;
+                preReceiptNote.update(obj, dtItems);
+                Close();
                 return;
             }
 
@@ -111,8 +167,8 @@ namespace View.Elements.ReceiptNote
 
             receipt_note.PREPARER_ID = 1;
             receipt_note.RECORD_STATUS = "A";
-            receipt_note.RN_CODE = "aaaa";
-            receipt_note.TOTAL = 0;
+            //receipt_note.RN_CODE = "aaaa";
+            receipt_note.TOTAL = float.Parse(lbTotal.Text);
             //receipt_note.RN_ID = 1;
 
             preReceiptNote.add(receipt_note, dtItems);
@@ -128,8 +184,8 @@ namespace View.Elements.ReceiptNote
             //
 
             List<string> lst = new List<string>();
-            DataRow a = preReceiptNote.loadSupplierDT().Rows[0];
-            foreach (DataRow d in preReceiptNote.loadSupplierDT().Rows)
+            //DataRow a = preReceiptNote.loadSupplierDT().Rows[0];
+            foreach (DataRow d in preReceiptNote.loadSupplierDT(false).Rows)
             {
                 lst.Add(d[0].ToString() + " - " + d[1].ToString());
             }
@@ -139,7 +195,7 @@ namespace View.Elements.ReceiptNote
             //
 
             lst = new List<string>();
-            a = preReceiptNote.loadProdcutDT().Rows[0];
+            //a = preReceiptNote.loadProdcutDT().Rows[0];
             foreach (DataRow d in preReceiptNote.loadProdcutDT().Rows)
             {
                 lst.Add(d[0].ToString() + " - " + d[1].ToString());
@@ -152,8 +208,8 @@ namespace View.Elements.ReceiptNote
         private void cboxSupplier_TextChanged_1(object sender, EventArgs e)
         {
             List<string> lst = new List<string>();
-            DataRow a = preReceiptNote.loadSupplierDT().Rows[0];
-            foreach (DataRow d in preReceiptNote.loadSupplierDT().Rows)
+            //DataRow a = preReceiptNote.loadSupplierDT().Rows[0];
+            foreach (DataRow d in preReceiptNote.loadSupplierDT(false).Rows)
             {
                 if ((d[0].ToString() + " - " + d[1].ToString()).ToLower().Contains(cboxSupplier.Text.ToString().ToLower()))
                     lst.Add(d[0].ToString() + " - " + d[1].ToString());
@@ -161,13 +217,20 @@ namespace View.Elements.ReceiptNote
             cboxSupplier.Properties.Items.Clear();
             cboxSupplier.Properties.Items.AddRange(lst);
 
-            cboxSupplier.ShowPopup();
+            try
+            {
+                cboxSupplier.ShowPopup();
+            }
+            catch (Exception ex)
+            { 
+            }
+                
         }
 
         private void cboxProduct_TextChanged(object sender, EventArgs e)
         {
             List<string> lst = new List<string>();
-            DataRow a = preReceiptNote.loadProdcutDT().Rows[0];
+            //DataRow a = preReceiptNote.loadProdcutDT().Rows[0];
             foreach (DataRow d in preReceiptNote.loadProdcutDT().Rows)
             {
                 if ((d[0].ToString() + " - " + d[1].ToString()).ToLower().Contains(cboxProduct.Text.ToString().ToLower()))
@@ -230,15 +293,14 @@ namespace View.Elements.ReceiptNote
 
                 gridItems.DataSource = dtItems;
 
-                lstSub.Add(""+str);
+                lstSub.Add("" + str);
 
                 cboxProduct.Text = "";
             }
             else
             {
-                MessageBox.Show("Didn't see any thing like "+str+"!");
+                MessageBox.Show("Didn't see any thing like " + str + "!");
             }
-
         }
 
         public void removeListSub(List<string> lst)
@@ -342,6 +404,8 @@ namespace View.Elements.ReceiptNote
 
             lbTotal.Text = Convert.ToString(totalAmount);
         }
+
+
 
         private void tboxAccounted_KeyPress(object sender, KeyPressEventArgs e)
         {

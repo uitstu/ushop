@@ -40,7 +40,6 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gridReceiptNote = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.RN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -56,7 +55,6 @@
             this.btnDELETE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnDeleteReceiptNote = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridReceiptNote)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditReceiptNote)).BeginInit();
@@ -138,26 +136,17 @@
             this.barDockControlRight.Location = new System.Drawing.Point(675, 22);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 316);
             // 
-            // groupControl1
-            // 
-            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.Location = new System.Drawing.Point(0, 22);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(675, 107);
-            this.groupControl1.TabIndex = 5;
-            this.groupControl1.Text = "groupControl1";
-            // 
             // gridReceiptNote
             // 
             this.gridReceiptNote.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridReceiptNote.Location = new System.Drawing.Point(0, 129);
+            this.gridReceiptNote.Location = new System.Drawing.Point(0, 22);
             this.gridReceiptNote.MainView = this.gridView1;
             this.gridReceiptNote.MenuManager = this.barManager1;
             this.gridReceiptNote.Name = "gridReceiptNote";
             this.gridReceiptNote.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnEditReceiptNote,
             this.btnDeleteReceiptNote});
-            this.gridReceiptNote.Size = new System.Drawing.Size(675, 209);
+            this.gridReceiptNote.Size = new System.Drawing.Size(675, 316);
             this.gridReceiptNote.TabIndex = 6;
             this.gridReceiptNote.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -266,6 +255,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnEditReceiptNote.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.btnEditReceiptNote.Name = "btnEditReceiptNote";
             this.btnEditReceiptNote.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnEditReceiptNote.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnEditReceiptNote_ButtonClick);
             // 
             // btnDELETE
             // 
@@ -289,7 +279,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(675, 361);
             this.Controls.Add(this.gridReceiptNote);
-            this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -299,7 +288,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmReceiptNote_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridReceiptNote)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditReceiptNote)).EndInit();
@@ -319,7 +307,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraGrid.GridControl gridReceiptNote;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn RN_CODE;
