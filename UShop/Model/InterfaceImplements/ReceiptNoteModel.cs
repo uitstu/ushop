@@ -322,7 +322,7 @@ namespace Model.InterfaceImplement
 
         public string update(RECEIPT_NOTE obj, DataTable dtItems)
         {
-            List<RECEIPT_NOTE_ITEM> lstAll = new List<RECEIPT_NOTE_ITEM>();
+            String strError = "";
 
             List<RECEIPT_NOTE_ITEM> lstDeleted = new List<RECEIPT_NOTE_ITEM>();
             List<RECEIPT_NOTE_ITEM> lstUpdated = new List<RECEIPT_NOTE_ITEM>();
@@ -335,7 +335,7 @@ namespace Model.InterfaceImplement
                 {
                     if (Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'),5)).Equals(i.PRODUCT_ID) && i.RN_ID.Equals(obj.RN_ID) && i.RECORD_STATUS.Equals("A"))
                     {
-                        lstUpdated.Add(i); Console.WriteLine("sua 1");
+                        lstUpdated.Add(i);
                         break;
                     }
                 }
@@ -400,12 +400,92 @@ namespace Model.InterfaceImplement
                 }
             }
 
+            // Sau khi tim duoc lstInsert-Delete-Update, tien hanh kiem tra co loi hay khong
+
+            //kiem tra delete
+            foreach (RECEIPT_NOTE_ITEM r in lstDeleted)
+            {
+                foreach (PRODUCT p in UShopDB.PRODUCTs)
+                {
+                    if (p.PRODUCT_ID.Equals(r.PRODUCT_ID) && (p.SIZE_S < r.QUANTITY_STOCK_S || p.SIZE_M < r.QUANTITY_STOCK_M
+                        || p.SIZE_L < r.QUANTITY_STOCK_L || p.SIZE_XL < r.QUANTITY_STOCK_XL || p.SIZE_XXL < r.QUANTITY_STOCK_XXL))
+                    {
+                        strError += "\nSo luong " + p.PRODUCT_NAME + "khong du de delete.";
+                        break;
+                    }
+                }
+            } 
+
+            //kiem tra update
+            foreach (RECEIPT_NOTE_ITEM i in lstUpdated)
+            {
+                //DataRow rForCheck = new DataRow();
+                foreach (DataRow r in dtItems.Rows)
+                {
+                    if (i.PRODUCT_ID.Equals(Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'), 5))))
+                    {
+                        //rForCheck = r;
+
+                        //i.RN_ID = obj.RN_ID;
+                        //i.PRODUCT_ID = getProductByCODE(r[0].ToString()).PRODUCT_ID;
+                        int sTotal = Int32.Parse(r[2].ToString());
+                        int mTotal = Int32.Parse(r[4].ToString());
+                        int lTotal = Int32.Parse(r[6].ToString());
+                        int xlTotal = Int32.Parse(r[8].ToString());
+                        int xxlTotal = Int32.Parse(r[10].ToString());
+
+                        foreach (PRODUCT p in UShopDB.PRODUCTs)
+                        {
+                            if (p.PRODUCT_ID.Equals(i.PRODUCT_ID) && (p.SIZE_S + (sTotal - i.QUANTITY_STOCK_S) < 0
+                                || p.SIZE_M + (mTotal - i.QUANTITY_STOCK_M) < 0 || p.SIZE_L + (lTotal - i.QUANTITY_STOCK_L) < 0
+                                || p.SIZE_XL + (xlTotal - i.QUANTITY_STOCK_XL) < 0 || p.SIZE_XXL + (xxlTotal - i.QUANTITY_STOCK_XXL) < 0))
+                            {
+                                strError += "\nSo luong " + p.PRODUCT_NAME + "khong du de update.";
+                                break;
+                            }
+                        }
+
+                        break;
+                    }
+                    
+                }
+
+            }
+
+            //insert khong can quan tam so luong luc truoc nen khong can kiem tra
+
             //
 
+            if (!strError.Equals(""))
+            {
+                Console.WriteLine("loi roi hixx "+strError);
+                return strError;
+            }
+
+            //
+            if (dtItems.Rows.Count == 0) //chuc nang xoa RECEIPT_NOTE
+            {
+                obj.RECORD_STATUS = "D";
+            }
+            //
             //delete
             foreach (RECEIPT_NOTE_ITEM r in lstDeleted)
             {
                 UShopDB.RECEIPT_NOTE_ITEMs.DeleteOnSubmit(r);
+
+                //cap nhat PRODUCT table
+                foreach (PRODUCT p in UShopDB.PRODUCTs)
+                {
+                    if (p.PRODUCT_ID.Equals(r.PRODUCT_ID))
+                    {
+                        p.SIZE_S -= r.QUANTITY_STOCK_S;
+                        p.SIZE_M -= r.QUANTITY_STOCK_M;
+                        p.SIZE_L -= r.QUANTITY_STOCK_L;
+                        p.SIZE_XL -= r.QUANTITY_STOCK_XL;
+                        p.SIZE_XXL -= r.QUANTITY_STOCK_XXL;
+                        break;
+                    }
+                }
             }    
 
             //update
@@ -415,6 +495,27 @@ namespace Model.InterfaceImplement
                 {
                     if (i.PRODUCT_ID.Equals(Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'), 5))))
                     {
+                        int sTotal = Int32.Parse(r[2].ToString());
+                        int mTotal = Int32.Parse(r[4].ToString());
+                        int lTotal = Int32.Parse(r[6].ToString()); Console.WriteLine("lTotal aaa: "+lTotal);
+                        int xlTotal = Int32.Parse(r[8].ToString());
+                        int xxlTotal = Int32.Parse(r[10].ToString());
+
+                        foreach (PRODUCT p in UShopDB.PRODUCTs)
+                        {
+                            Console.WriteLine("chay ko du");
+                            if (p.PRODUCT_ID.Equals(i.PRODUCT_ID))
+                            {
+                                p.SIZE_S += (sTotal - i.QUANTITY_STOCK_S);
+                                p.SIZE_M += (mTotal - i.QUANTITY_STOCK_M); Console.WriteLine("QUANTITY_STOCK_L aaa: " + i.QUANTITY_STOCK_L);
+                                p.SIZE_L += (lTotal - i.QUANTITY_STOCK_L); Console.WriteLine("Tang " + (lTotal - i.QUANTITY_STOCK_L));
+                                p.SIZE_XL += (xlTotal - i.QUANTITY_STOCK_XL);
+                                p.SIZE_XXL += (xxlTotal - i.QUANTITY_STOCK_XXL);
+                                break;
+                            }
+                            
+                        }
+
                         i.RN_ID = obj.RN_ID;
                         i.PRODUCT_ID = getProductByCODE(r[0].ToString()).PRODUCT_ID;
                         i.QUANTITY_STOCK_S = Int32.Parse(r[2].ToString());
@@ -446,6 +547,19 @@ namespace Model.InterfaceImplement
             {
                 r.RECORD_STATUS = "A";
                 UShopDB.RECEIPT_NOTE_ITEMs.InsertOnSubmit(r);
+
+                foreach (PRODUCT p in UShopDB.PRODUCTs)
+                {
+                    if (p.PRODUCT_ID.Equals(r.PRODUCT_ID))
+                    {
+                        p.SIZE_S += r.QUANTITY_STOCK_S;
+                        p.SIZE_M += r.QUANTITY_STOCK_M;
+                        p.SIZE_L += r.QUANTITY_STOCK_L;
+                        p.SIZE_XL += r.QUANTITY_STOCK_XL;
+                        p.SIZE_XXL += r.QUANTITY_STOCK_XXL;
+                    }
+                    break;
+                }
             }
 
             UShopDB.SubmitChanges();

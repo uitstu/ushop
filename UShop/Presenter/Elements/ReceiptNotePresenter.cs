@@ -95,7 +95,7 @@ namespace Presenter.InterfaceImplement
         public string update(RECEIPT_NOTE obj, DataTable dtItems)
         {
             _model.update(obj,dtItems);
-            return "";
+            return _model.update(obj, dtItems);
         }
     }
 }

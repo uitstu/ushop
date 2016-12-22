@@ -31,6 +31,7 @@
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnProductManagement = new DevExpress.XtraBars.BarButtonItem();
             this.btnCategory = new DevExpress.XtraBars.BarButtonItem();
+            this.btnReceiptNote = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -38,7 +39,6 @@
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnReceiptNote = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,6 +74,14 @@
             this.btnCategory.ImageUri.Uri = "ListBullets";
             this.btnCategory.Name = "btnCategory";
             this.btnCategory.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCategory_ItemClick);
+            // 
+            // btnReceiptNote
+            // 
+            this.btnReceiptNote.Caption = "Phiếu nhập";
+            this.btnReceiptNote.Id = 9;
+            this.btnReceiptNote.ImageUri.Uri = "AddItem";
+            this.btnReceiptNote.Name = "btnReceiptNote";
+            this.btnReceiptNote.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReceiptNote_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -120,13 +128,6 @@
             this.ribbonPageGroup4.ItemLinks.Add(this.btnReceiptNote);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "Phiếu nhập";
-            // 
-            // btnReceiptNote
-            // 
-            this.btnReceiptNote.Caption = "Phiếu nhập";
-            this.btnReceiptNote.Id = 9;
-            this.btnReceiptNote.Name = "btnReceiptNote";
-            this.btnReceiptNote.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReceiptNote_ItemClick);
             // 
             // frmUShop
             // 

@@ -41,7 +41,7 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.gridReceiptNote = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.RN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SUPPLIER_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
             this.EMP_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -54,9 +54,10 @@
             this.btnEditReceiptNote = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnDELETE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnDeleteReceiptNote = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridReceiptNote)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditReceiptNote)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDeleteReceiptNote)).BeginInit();
             this.SuspendLayout();
@@ -72,9 +73,10 @@
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barButtonItem1});
+            this.barButtonItem1,
+            this.barButtonItem2});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 1;
+            this.barManager1.MaxItemId = 2;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar2
@@ -84,7 +86,8 @@
             this.bar2.DockRow = 0;
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem1, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem2, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -92,6 +95,7 @@
             // barButtonItem1
             // 
             this.barButtonItem1.Caption = "Thêm mới";
+            this.barButtonItem1.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.Glyph")));
             this.barButtonItem1.Id = 0;
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
@@ -113,7 +117,7 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(675, 22);
+            this.barDockControlTop.Size = new System.Drawing.Size(675, 24);
             // 
             // barDockControlBottom
             // 
@@ -126,34 +130,34 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 316);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 314);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(675, 22);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 316);
+            this.barDockControlRight.Location = new System.Drawing.Point(675, 24);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 314);
             // 
             // gridReceiptNote
             // 
             this.gridReceiptNote.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridReceiptNote.Location = new System.Drawing.Point(0, 22);
-            this.gridReceiptNote.MainView = this.gridView1;
+            this.gridReceiptNote.Location = new System.Drawing.Point(0, 24);
+            this.gridReceiptNote.MainView = this.gridView;
             this.gridReceiptNote.MenuManager = this.barManager1;
             this.gridReceiptNote.Name = "gridReceiptNote";
             this.gridReceiptNote.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnEditReceiptNote,
             this.btnDeleteReceiptNote});
-            this.gridReceiptNote.Size = new System.Drawing.Size(675, 316);
+            this.gridReceiptNote.Size = new System.Drawing.Size(675, 314);
             this.gridReceiptNote.TabIndex = 6;
             this.gridReceiptNote.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gridView});
             // 
-            // gridView1
+            // gridView
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.RN_CODE,
             this.SUPPLIER_NAME,
             this.EMP_NAME,
@@ -164,15 +168,16 @@
             this.NOTE,
             this.btnUPDATE,
             this.btnDELETE});
-            this.gridView1.GridControl = this.gridReceiptNote;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowAutoFilterRow = true;
+            this.gridView.GridControl = this.gridReceiptNote;
+            this.gridView.Name = "gridView";
+            this.gridView.OptionsView.ShowAutoFilterRow = true;
             // 
             // RN_CODE
             // 
             this.RN_CODE.Caption = "RN_CODE";
             this.RN_CODE.FieldName = "RN_CODE";
             this.RN_CODE.Name = "RN_CODE";
+            this.RN_CODE.OptionsColumn.AllowEdit = false;
             this.RN_CODE.Visible = true;
             this.RN_CODE.VisibleIndex = 0;
             this.RN_CODE.Width = 70;
@@ -182,6 +187,7 @@
             this.SUPPLIER_NAME.Caption = "SUPPLIER_NAME";
             this.SUPPLIER_NAME.FieldName = "SUPPLIER_NAME";
             this.SUPPLIER_NAME.Name = "SUPPLIER_NAME";
+            this.SUPPLIER_NAME.OptionsColumn.AllowEdit = false;
             this.SUPPLIER_NAME.Visible = true;
             this.SUPPLIER_NAME.VisibleIndex = 1;
             this.SUPPLIER_NAME.Width = 70;
@@ -191,6 +197,7 @@
             this.EMP_NAME.Caption = "EMP_NAME";
             this.EMP_NAME.FieldName = "EMP_NAME";
             this.EMP_NAME.Name = "EMP_NAME";
+            this.EMP_NAME.OptionsColumn.AllowEdit = false;
             this.EMP_NAME.Visible = true;
             this.EMP_NAME.VisibleIndex = 2;
             this.EMP_NAME.Width = 70;
@@ -200,6 +207,7 @@
             this.ISSUED_DATE.Caption = "ISSUED_DATE";
             this.ISSUED_DATE.FieldName = "ISSUED_DATE";
             this.ISSUED_DATE.Name = "ISSUED_DATE";
+            this.ISSUED_DATE.OptionsColumn.AllowEdit = false;
             this.ISSUED_DATE.Visible = true;
             this.ISSUED_DATE.VisibleIndex = 3;
             this.ISSUED_DATE.Width = 70;
@@ -209,6 +217,7 @@
             this.ACCOUNTING_DATE.Caption = "ACCOUNTING_DATE";
             this.ACCOUNTING_DATE.FieldName = "ACCOUNTING_DATE";
             this.ACCOUNTING_DATE.Name = "ACCOUNTING_DATE";
+            this.ACCOUNTING_DATE.OptionsColumn.AllowEdit = false;
             this.ACCOUNTING_DATE.Visible = true;
             this.ACCOUNTING_DATE.VisibleIndex = 4;
             this.ACCOUNTING_DATE.Width = 70;
@@ -218,6 +227,7 @@
             this.ACCOUNTED.Caption = "ACCOUNTED";
             this.ACCOUNTED.FieldName = "ACCOUNTED";
             this.ACCOUNTED.Name = "ACCOUNTED";
+            this.ACCOUNTED.OptionsColumn.AllowEdit = false;
             this.ACCOUNTED.Visible = true;
             this.ACCOUNTED.VisibleIndex = 5;
             this.ACCOUNTED.Width = 70;
@@ -227,6 +237,7 @@
             this.TOTAL.Caption = "TOTAL";
             this.TOTAL.FieldName = "TOTAL";
             this.TOTAL.Name = "TOTAL";
+            this.TOTAL.OptionsColumn.AllowEdit = false;
             this.TOTAL.Visible = true;
             this.TOTAL.VisibleIndex = 6;
             this.TOTAL.Width = 70;
@@ -236,6 +247,7 @@
             this.NOTE.Caption = "NOTE";
             this.NOTE.FieldName = "NOTE";
             this.NOTE.Name = "NOTE";
+            this.NOTE.OptionsColumn.AllowEdit = false;
             this.NOTE.Visible = true;
             this.NOTE.VisibleIndex = 7;
             this.NOTE.Width = 70;
@@ -272,6 +284,14 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnDeleteReceiptNote.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.btnDeleteReceiptNote.Name = "btnDeleteReceiptNote";
             this.btnDeleteReceiptNote.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnDeleteReceiptNote.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDeleteReceiptNote_ButtonClick);
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "Xuất danh sách";
+            this.barButtonItem2.Id = 1;
+            this.barButtonItem2.ImageUri.Uri = "ExportToXLSX";
+            this.barButtonItem2.Name = "barButtonItem2";
             // 
             // frmReceiptNote
             // 
@@ -289,7 +309,7 @@
             this.Load += new System.EventHandler(this.frmReceiptNote_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridReceiptNote)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditReceiptNote)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDeleteReceiptNote)).EndInit();
             this.ResumeLayout(false);
@@ -308,7 +328,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraGrid.GridControl gridReceiptNote;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView;
         private DevExpress.XtraGrid.Columns.GridColumn RN_CODE;
         private DevExpress.XtraGrid.Columns.GridColumn SUPPLIER_NAME;
         private DevExpress.XtraGrid.Columns.GridColumn EMP_NAME;
@@ -321,6 +341,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnEditReceiptNote;
         private DevExpress.XtraGrid.Columns.GridColumn btnDELETE;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDeleteReceiptNote;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
 
     }
 }

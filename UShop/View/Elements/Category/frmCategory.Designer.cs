@@ -212,6 +212,7 @@
             this.CATEGORY_CODE.Caption = "Mã danh mục";
             this.CATEGORY_CODE.FieldName = "CATEGORY_CODE";
             this.CATEGORY_CODE.Name = "CATEGORY_CODE";
+            this.CATEGORY_CODE.OptionsColumn.AllowEdit = false;
             this.CATEGORY_CODE.Visible = true;
             this.CATEGORY_CODE.VisibleIndex = 0;
             // 

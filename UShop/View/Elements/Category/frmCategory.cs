@@ -53,6 +53,16 @@ namespace View.Elements
 
         private void btnDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Are you sure delete it?", "Deleting", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+
             GridView gridView = gridCategory.FocusedView as GridView;
             //object row = gridView.GetRow(gridView.FocusedRowHandle);
 

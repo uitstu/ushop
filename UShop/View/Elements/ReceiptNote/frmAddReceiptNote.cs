@@ -113,9 +113,24 @@ namespace View.Elements.ReceiptNote
                 }
             }
 
-            if (lbTotal.Text.Equals(""))
+            bool checkItem = true;
+            if (gridItems.DataSource == null || ((DataTable)gridItems.DataSource).Rows.Count == 0)
             {
-                strError += "\nNeed at least one receipt note item";
+                checkItem = false;
+            }
+            else
+            {
+                foreach (DataRow r in ((DataTable)gridItems.DataSource).Rows)
+                {
+                    if (Int32.Parse(r[13].ToString()) == 0)
+                        checkItem = false;
+                }
+            }
+            
+
+            if (!checkItem/*lbTotal.Text.Equals("")*/)
+            {
+                strError += "\nSome product hasn't amount, check again";
             }
             else
             {
@@ -147,8 +162,17 @@ namespace View.Elements.ReceiptNote
                 obj.ISSUED_DATE = dpickIssued.Value;
                 obj.ACCOUNTING_DATE = dpickAccounting.Value;
                 obj.NOTE = tboxNote.Text;
-                preReceiptNote.update(obj, dtItems);
-                Close();
+                String strEr = preReceiptNote.update(obj, dtItems);
+                if (strEr.Equals(""))
+                {
+                    preReceiptNote.loadReceiptNotesDB();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show(strEr);
+                }
+                
                 return;
             }
 
@@ -434,6 +458,16 @@ namespace View.Elements.ReceiptNote
 
         private void btnDeleteItem_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Are you sure delete it?", "Deleting", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+
             String str = "";
             GridView gridView = gridItems.FocusedView as GridView;
 
