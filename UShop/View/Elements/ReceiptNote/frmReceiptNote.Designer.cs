@@ -35,6 +35,7 @@
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnXuatDS = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -54,7 +55,6 @@
             this.btnEditReceiptNote = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnDELETE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnDeleteReceiptNote = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridReceiptNote)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -74,7 +74,7 @@
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.barButtonItem1,
-            this.barButtonItem2});
+            this.btnXuatDS});
             this.barManager1.MainMenu = this.bar2;
             this.barManager1.MaxItemId = 2;
             this.barManager1.StatusBar = this.bar3;
@@ -87,7 +87,7 @@
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem1, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem2, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnXuatDS, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -99,6 +99,14 @@
             this.barButtonItem1.Id = 0;
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            // 
+            // btnXuatDS
+            // 
+            this.btnXuatDS.Caption = "Xuất danh sách";
+            this.btnXuatDS.Id = 1;
+            this.btnXuatDS.ImageUri.Uri = "ExportToXLSX";
+            this.btnXuatDS.Name = "btnXuatDS";
+            this.btnXuatDS.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXuatDS_ItemClick);
             // 
             // bar3
             // 
@@ -286,13 +294,6 @@
             this.btnDeleteReceiptNote.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnDeleteReceiptNote.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDeleteReceiptNote_ButtonClick);
             // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "Xuất danh sách";
-            this.barButtonItem2.Id = 1;
-            this.barButtonItem2.ImageUri.Uri = "ExportToXLSX";
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
             // frmReceiptNote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -341,7 +342,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnEditReceiptNote;
         private DevExpress.XtraGrid.Columns.GridColumn btnDELETE;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDeleteReceiptNote;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem btnXuatDS;
 
     }
 }

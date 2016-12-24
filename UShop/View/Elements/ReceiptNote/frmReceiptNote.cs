@@ -12,12 +12,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
+using app = Microsoft.Office.Interop.Excel.Application;
 
 namespace View.Elements.ReceiptNote
 {
     public partial class frmReceiptNote : Form, IReceiptNoteView
     {
         private ReceiptNotePresenter preReceiptNote;
+        private System.Data.DataTable dt;
 
         public frmReceiptNote()
         {
@@ -30,8 +33,9 @@ namespace View.Elements.ReceiptNote
             }
         }
 
-        public void loadReceiptNotesDB(DataTable dt)
+        public void loadReceiptNotesDB(System.Data.DataTable dt)
         {
+            this.dt = dt;
             gridReceiptNote.DataSource = dt;
         }
 
@@ -80,7 +84,7 @@ namespace View.Elements.ReceiptNote
             GridColumn colCode = gridView.Columns["RN_CODE"];
             String code = gridView.GetRowCellValue(gridView.FocusedRowHandle, colCode).ToString();
 
-            DataTable dtItems = new DataTable();
+            System.Data.DataTable dtItems = new System.Data.DataTable();
             dtItems.Columns.Add("CODE");
             dtItems.Columns.Add("NAME");
             dtItems.Columns.Add("STOCK_S");
@@ -105,6 +109,42 @@ namespace View.Elements.ReceiptNote
                 MessageBox.Show(strError);
             }
             preReceiptNote.loadReceiptNotesDB();
+        }
+
+        private void btnXuatDS_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            
+            FolderBrowserDialog fl = new FolderBrowserDialog();
+            //fl.SelectedPath = "D:\\";//co the lay duong dan tu file 
+            fl.ShowNewFolderButton = true;
+            if (fl.ShowDialog() == DialogResult.OK)
+            {
+                GridView gridView = gridReceiptNote.FocusedView as GridView;
+                exportExcelFile(fl.SelectedPath, "ReceiptNoteList");
+            } 
+        }
+
+        public void exportExcelFile(string path, string name)
+        {
+            app obj = new app();
+            obj.Application.Workbooks.Add(Type.Missing);
+            obj.Columns.ColumnWidth = 25;
+            for (int i = 1; i < dt.Columns.Count + 1; i++)
+            {
+                obj.Cells[1, i] = dt.Columns[i - 1].ColumnName;
+            }
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                for (int j = 0; j < dt.Columns.Count; j++)
+                {
+                    if (dt.Rows[i][j].ToString() != null)
+                    {
+                        obj.Cells[i + 2, j + 1] = dt.Rows[i][j].ToString();
+                    }
+                }
+            }
+            obj.ActiveWorkbook.SaveCopyAs(path + name + ".xlsx");
+            obj.ActiveWorkbook.Saved = true;
         }
     }
 }
