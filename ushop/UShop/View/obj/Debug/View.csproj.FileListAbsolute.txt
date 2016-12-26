@@ -1,0 +1,125 @@
+D:\Projects\UShop\View\obj\Debug\View.csprojResolveAssemblyReference.cache
+D:\Projects\UShop\View\obj\Debug\View.frmUShop.resources
+D:\Projects\UShop\View\obj\Debug\View.Properties.Resources.resources
+D:\Projects\UShop\View\obj\Debug\View.csproj.GenerateResource.Cache
+D:\Projects\UShop\View\obj\Debug\View.exe.licenses
+D:\Projects\UShop\View\bin\Debug\View.exe
+D:\Projects\UShop\View\bin\Debug\View.pdb
+D:\Projects\UShop\View\bin\Debug\Model.dll
+D:\Projects\UShop\View\bin\Debug\Presenter.dll
+D:\Projects\UShop\View\bin\Debug\Model.pdb
+D:\Projects\UShop\View\bin\Debug\Presenter.pdb
+D:\Projects\UShop\View\obj\Debug\View.exe
+D:\Projects\UShop\View\obj\Debug\View.pdb
+D:\Projects\UShop\View\obj\Debug\View.Elements.frmProductCategory.resources
+C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\bin\Debug\View.exe
+C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\bin\Debug\View.pdb
+C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\bin\Debug\Model.dll
+C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\bin\Debug\Presenter.dll
+C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\bin\Debug\Model.pdb
+C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\bin\Debug\Presenter.pdb
+C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\obj\Debug\View.csprojResolveAssemblyReference.cache
+C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\obj\Debug\View.Elements.Category.frmAddCategory.resources
+C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\obj\Debug\View.Elements.frmCategory.resources
+C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\obj\Debug\View.Elements.ReceiptNote.frmAddReceiptNote.resources
+C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\obj\Debug\View.Elements.ReceiptNote.frmReceiptNote.resources
+C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\obj\Debug\View.frmLogin.resources
+C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\obj\Debug\View.frmUShop.resources
+C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\obj\Debug\View.Properties.Resources.resources
+C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\obj\Debug\View.csproj.GenerateResource.Cache
+C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\obj\Debug\View.exe.licenses
+C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\obj\Debug\View.exe
+C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\obj\Debug\View.pdb
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.exe
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.pdb
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.csprojResolveAssemblyReference.cache
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.Category.frmAddCategory.resources
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.frmCategory.resources
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.ReceiptNote.frmAddReceiptNote.resources
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.ReceiptNote.frmReceiptNote.resources
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.frmLogin.resources
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.frmUShop.resources
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Properties.Resources.resources
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.csproj.GenerateResource.Cache
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.exe.licenses
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\View.exe
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\View.pdb
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.BonusSkins.v15.1.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.Data.v15.1.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.Printing.v15.1.Core.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.Sparkline.v15.1.Core.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.Utils.v15.1.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.XtraBars.v15.1.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.XtraEditors.v15.1.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.XtraGrid.v15.1.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.XtraLayout.v15.1.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.XtraPrinting.v15.1.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\Model.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\Presenter.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.RichEdit.v15.1.Core.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.XtraTreeList.v15.1.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.Office.v15.1.Core.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\Model.pdb
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\Presenter.pdb
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.Data.v15.1.xml
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.Printing.v15.1.Core.xml
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.Utils.v15.1.xml
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.XtraBars.v15.1.xml
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.Sparkline.v15.1.Core.xml
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.XtraEditors.v15.1.xml
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.XtraGrid.v15.1.xml
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.XtraLayout.v15.1.xml
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.XtraPrinting.v15.1.xml
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.RichEdit.v15.1.Core.xml
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.XtraTreeList.v15.1.xml
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.Office.v15.1.Core.xml
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\de\DevExpress.Data.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\es\DevExpress.Data.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ja\DevExpress.Data.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ru\DevExpress.Data.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\de\DevExpress.Printing.v15.1.Core.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\es\DevExpress.Printing.v15.1.Core.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ja\DevExpress.Printing.v15.1.Core.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ru\DevExpress.Printing.v15.1.Core.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\de\DevExpress.Utils.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\es\DevExpress.Utils.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ja\DevExpress.Utils.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ru\DevExpress.Utils.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\de\DevExpress.XtraBars.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\es\DevExpress.XtraBars.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ja\DevExpress.XtraBars.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ru\DevExpress.XtraBars.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\de\DevExpress.Sparkline.v15.1.Core.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\es\DevExpress.Sparkline.v15.1.Core.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ja\DevExpress.Sparkline.v15.1.Core.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ru\DevExpress.Sparkline.v15.1.Core.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\de\DevExpress.XtraEditors.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\es\DevExpress.XtraEditors.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ja\DevExpress.XtraEditors.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ru\DevExpress.XtraEditors.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\de\DevExpress.XtraGrid.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\es\DevExpress.XtraGrid.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ja\DevExpress.XtraGrid.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ru\DevExpress.XtraGrid.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\de\DevExpress.XtraLayout.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\es\DevExpress.XtraLayout.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ja\DevExpress.XtraLayout.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ru\DevExpress.XtraLayout.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\de\DevExpress.XtraPrinting.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\es\DevExpress.XtraPrinting.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ja\DevExpress.XtraPrinting.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ru\DevExpress.XtraPrinting.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\de\DevExpress.RichEdit.v15.1.Core.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\es\DevExpress.RichEdit.v15.1.Core.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ja\DevExpress.RichEdit.v15.1.Core.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ru\DevExpress.RichEdit.v15.1.Core.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\de\DevExpress.XtraTreeList.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\es\DevExpress.XtraTreeList.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ja\DevExpress.XtraTreeList.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ru\DevExpress.XtraTreeList.v15.1.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\de\DevExpress.Office.v15.1.Core.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\es\DevExpress.Office.v15.1.Core.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ja\DevExpress.Office.v15.1.Core.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ru\DevExpress.Office.v15.1.Core.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.Invoice.frmAddInvoice.resources
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.Invoice.frmInvoice.resources
