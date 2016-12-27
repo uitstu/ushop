@@ -88,6 +88,24 @@ namespace Model.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thất bại.
+        /// </summary>
+        public static string MB_FAILURE {
+            get {
+                return ResourceManager.GetString("MB_FAILURE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thành công.
+        /// </summary>
+        public static string MB_SUCCESS {
+            get {
+                return ResourceManager.GetString("MB_SUCCESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TM.
         /// </summary>
         public static string PM_CASH {

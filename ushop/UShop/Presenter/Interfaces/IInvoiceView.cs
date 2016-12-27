@@ -15,7 +15,7 @@ namespace Presenter.Interfaces
         //show msg dialog box
         void showMessageBox(String msg, MessageBoxIcon type);
         //load into grid view
-        void showInvoiceList(DataTable invoiceList);
-      
+        void showInvoiceList(DataTable invoiceTable);
+        DataTable getDataTable();
     }
 }

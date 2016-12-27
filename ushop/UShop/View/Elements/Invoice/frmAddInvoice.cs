@@ -1,4 +1,5 @@
-﻿using Model.Properties;
+﻿using Model;
+using Model.Properties;
 using Presenter.Elements;
 using Presenter.InterfaceImplement;
 using Presenter.Interfaces;
@@ -25,51 +26,43 @@ namespace View.Elements.Invoice
             this.presenter = presenter;
             this.presenter.InvoiceAddingView = this;
             InitializeComponent();
-            //load product name into cmb
-            presenter.loadProductName(null,false);
-            //load customer name into cmb
-            presenter.loadCustomerName(null, false);
-            //load payment method into cmb
-            cmbAIPaymentMethod.Properties.Items.AddRange
-                (new String[] {
-                     Resources.PM_CASH
-                ,    Resources.PM_TRANSFER
-                ,    Resources.PM_UNIDENTIFY });
-            txteAIVAT.Text = "0";
-            txteAIEmployee.Text =  AccountPresenter.currentEmployee.EMP_NAME;
-            txteAIInvoiceNo.Text = presenter.getTemperatoryCode();
-            cmbAISize.Properties.Items.AddRange(
-                new String[]
-                {
-                    Resources.SIZE_S,
-                    Resources.SIZE_M,
-                    Resources.SIZE_L,
-                    Resources.SIZE_XL,
-                    Resources.SIZE_XXL,
-                    Resources.SIZE_XXXL});
-            table = grdconAIItems.DataSource as DataTable;
-            if (table == null)
-            {
-                table = new DataTable();
-                var cols = table.Columns;
-                cols.Add("Mã chi tiết");
-                cols.Add("Tên sản phẩm");
-                cols.Add("Kích cỡ");
-                cols.Add("Loại");
-                cols.Add("DVT");
-                cols.Add("Giảm");
-                cols.Add("Số lượng");
-                cols.Add("Đơn giá");
-                cols.Add("Thành tiền");
-                cols.Add("Mô tả");
-
-            }
+            resetAll();
         }
+        public frmAddInvoice(Form caller, InvoicePresenter presenter,String invoiceCode)
+        {
+            this.caller = caller;
+            this.presenter = presenter;
+            this.presenter.InvoiceAddingView = this;
+            InitializeComponent();
+            resetAll();
+            presenter.loadExistedInvoice(invoiceCode);
+        }
+        private void setData(String invoiceCode)
+        {
+            /*
+            txteAIEmployee.Text = AccountPresenter.currentEmployee.EMP_NAME;
+            txteAIInvoiceNo.Text = invoice.INVOICE_CODE;
+            dpickAIDate.Value =(DateTime)invoice.DATE;
+            txteAITotalAmount.Text =invoice.TOTAL_AMOUNT+"";
+            txteAITotalPayment.Text = invoice.TOTAL_PAYMENT+"";
+            txteAINote.Text = invoice.NOTE;
+            txteAIVAT.Text = invoice.VAT_RATE+"";
+            */
+            //binding columns
+
+        }
+        
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
+        private void btnAIDeleteItem_Click(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs arg)
+        {
+            
+            presenter.removeItem(gvInvoiceItems.FocusedRowHandle);
+        }
+        
         private void bbtniAIBack_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             
@@ -88,20 +81,21 @@ namespace View.Elements.Invoice
         private void cmbAICustomer_TextChanged(object sender, EventArgs e)
         {
 
-            presenter.loadCustomerName(cmbAICustomer.Text, true);
-            //presenter.loadProductName(cmbAICustomer.Text,true);
+           // presenter.loadCustomerName(cmbAICustomer.Text, true);
         }
         private void cmbAISearchProduct_TextChanged(object sender, EventArgs e)
         {
-            presenter.loadProductName(cmbAICustomer.Text, true);
+            //presenter.loadProductName(cmbAICustomer.Text, true);
         }
         public void showProductName(List<string> productNames, bool doShowPopup)
         {
+           
             var cmbItems = cmbAISearchProduct.Properties.Items;
             cmbItems.Clear();
             cmbItems.AddRange(productNames);
             if(doShowPopup)
                 cmbAISearchProduct.ShowPopup();
+            
         }
 
         public void showMessageBox(string msg, MessageBoxIcon type)
@@ -126,20 +120,26 @@ namespace View.Elements.Invoice
 
         public void showCustomerName(List<string> customerNames, bool doShowPopup)
         {
+           
             var cmbItems = cmbAICustomer.Properties.Items;
             cmbItems.Clear();
             cmbItems.AddRange(customerNames);
-            if (doShowPopup)
-                cmbAICustomer.ShowPopup();
+            //if (doShowPopup)
+            //    cmbAICustomer.ShowPopup();
         }
 
         private void cmbAISearchProduct_SelectedIndexChanged(object sender, EventArgs e)
         {
-            presenter.loadSizeOfProduct(cmbAISearchProduct.Text);
+            String text = cmbAISearchProduct.Text;
+
+            cmbAISize.ResetText();
+            if (text != null && !text.Equals(""))
+                presenter.loadSizeOfProduct(cmbAISearchProduct.Text);
         }
 
         public void showSizeOfProduct(List<String> sizeList)
         {
+           
             var cmbItems = cmbAISize.Properties.Items;
             cmbItems.Clear();
             cmbItems.AddRange(sizeList);
@@ -177,7 +177,142 @@ namespace View.Elements.Invoice
             
             table.Rows.Add(invoiceItem);
             grdconAIItems.DataSource = table;
+            //cmbAISearchProduct.ResetText();
+            //cmbAISize.ResetText();
 
+        }
+
+        public DataTable getInvoiceItemDataTable()
+        {
+            return table;
+        }
+
+        private void gvInvoiceItems_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            
+        }
+
+        private void gvInvoiceItems_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            int selectRow = e.RowHandle;
+
+
+            if (e.Column == gvInvoiceItems.Columns["QUANTITY"] ||
+                e.Column == gvInvoiceItems.Columns["DISCOUNT_AMOUNT"] ||
+                e.Column == gvInvoiceItems.Columns["UNIT_PRICE"] ||
+                e.Column == gvInvoiceItems.Columns["AMOUNT"])
+            {
+                int quantity = Convert.ToInt16( table.Rows[selectRow]["QUANTITY"]);
+                float discount =Convert.ToSingle( table.Rows[selectRow]["DISCOUNT_AMOUNT"]);
+                float unitPrice = Convert.ToSingle(table.Rows[selectRow]["UNIT_PRICE"]);
+                double amount = Convert.ToDouble( presenter.calculateAmount(quantity, unitPrice, discount));
+
+                table.Rows[selectRow]["AMOUNT"] = amount + "";
+
+                grdconAIItems.DataSource = table;
+                presenter.sumTotalAmount();
+                //gvInvoiceItems.SetRowCellValue(selectRow, gvInvoiceItems.Columns["AMOUNT"], amount);
+            }
+        }
+
+        private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            String cusCodeName = cmbAICustomer.Text;
+            String cusCode = cusCodeName.Split(new char[] { '-' })[0];
+            
+            String paymentMethod = cmbAIPaymentMethod.Text;
+            String VAT = txteAIVAT.Text;
+            String note = txteAINote.Text;
+            DateTime date = dpickAIDate.Value;
+
+            String totalPayment = txteAITotalPayment.Text;
+            String totalAmount = txteAITotalAmount.Text;
+            presenter.insertInvoice(cusCode, paymentMethod,VAT,note,date, totalPayment, totalAmount);
+        }
+
+        public void resetAll()
+        {
+            //load product name into cmb
+            presenter.loadProductName(null, false);
+            //load customer name into cmb
+            presenter.loadCustomerName(null, false);
+            //load payment method into cmb
+            cmbAIPaymentMethod.Properties.Items.AddRange
+                (new String[] {
+                     Resources.PM_CASH
+                ,    Resources.PM_TRANSFER
+                ,    Resources.PM_UNIDENTIFY });
+            //set default values
+            txteAIVAT.Text = "0";
+            txteAIEmployee.Text = AccountPresenter.currentEmployee.EMP_NAME;
+            txteAIInvoiceNo.Text = presenter.getTemperatoryCode();
+
+
+            cmbAICustomer.ResetText();
+            cmbAIPaymentMethod.ResetText();
+            cmbAISearchProduct.ResetText();
+            cmbAISize.ResetText();
+
+            //binding columns
+            table = grdconAIItems.DataSource as DataTable;
+            if (table == null)
+            {
+                table = new DataTable();
+                var cols = table.Columns;
+                cols.Add("INVOICE_ITEM_CODE");
+                cols.Add("PRODUCT_NAME");
+                cols.Add("SIZE");
+                cols.Add("UNIT");
+                cols.Add("UNIT_PRICE");
+                cols.Add("DISCOUNT_AMOUNT");
+                cols.Add("QUANTITY");
+                cols.Add("AMOUNT");
+                cols.Add("NOTE");
+
+            }
+        }
+
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            resetAll();
+        }
+
+        private void txteAITotalPayment_EditValueChanged(object sender, EventArgs e)
+        {
+            //presenter check valid payment
+            presenter.checkValidPayment(txteAITotalAmount.Text, txteAITotalPayment.Text);  
+        }
+
+        public void showTotalPayment(double totalPayment)
+        {
+            txteAITotalPayment.Text = totalPayment+"";
+        }
+
+        public void showTotalAmount(double totalAmount)
+        {
+            txteAITotalAmount.Text = totalAmount + "";
+        }
+
+        public void showInvoiceItemGrid(DataTable table)
+        {
+            grdconAIItems.DataSource = table;
+            this.table = grdconAIItems.DataSource as DataTable;
+        }
+
+        public void showInfoComponents(INVOICE invoice)
+        {
+            CUSTOMER temp = presenter.findCustomerBy((int)invoice.BUYER_ID);
+            cmbAICustomer.Text = temp.CUS_CODE+"-"+temp.CUS_NAME;
+            cmbAIPaymentMethod.Text = invoice.PAYMENT_METHOD;
+            
+            txteAIEmployee.Text = AccountPresenter.currentEmployee.EMP_NAME;
+            txteAIInvoiceNo.Text = invoice.INVOICE_CODE;
+            dpickAIDate.Value = (DateTime)(invoice.DATE != null ? invoice.DATE : DateTime.Now) ;
+            txteAITotalAmount.Text = invoice.TOTAL_AMOUNT + "";
+            txteAITotalPayment.Text = invoice.TOTAL_PAYMENT + "";
+            txteAINote.Text = invoice.NOTE;
+            txteAIVAT.Text = invoice.VAT_RATE + "";
+            
         }
     }
 }

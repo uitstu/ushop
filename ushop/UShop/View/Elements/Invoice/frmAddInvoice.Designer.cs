@@ -30,21 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddInvoice));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
-            this.btnDeleteItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            this.btnAIDeleteItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gvInvoiceItems = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grdcolInvItemCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdcolProName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdcolSize = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grdcolCalName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdcolProUnit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdcolProUnitPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdcolProDiscountAmount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdcolInvItemQuantity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdcolInvItemAmount = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grdcolInvItemDescription = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnDelInvoiceItem = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdcolInvItemNote = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnAIDelInvoiceItem = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdconAIItems = new DevExpress.XtraGrid.GridControl();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barAIOptions = new DevExpress.XtraBars.Bar();
@@ -53,6 +52,7 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
+            this.bsiAIState = new DevExpress.XtraBars.BarStaticItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -66,6 +66,8 @@
             this.btnAIAddItem = new DevExpress.XtraEditors.SimpleButton();
             this.label6 = new System.Windows.Forms.Label();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cmbAISize = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.label9 = new System.Windows.Forms.Label();
             this.txteAIEmployee = new DevExpress.XtraEditors.TextEdit();
             this.txteAIInvoiceNo = new DevExpress.XtraEditors.TextEdit();
             this.label4 = new System.Windows.Forms.Label();
@@ -77,10 +79,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dpickAIDate = new System.Windows.Forms.DateTimePicker();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cmbAISize = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.bsiAIState = new DevExpress.XtraBars.BarStaticItem();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDeleteItem)).BeginInit();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txteAITotalPayment = new DevExpress.XtraEditors.TextEdit();
+            this.txteAITotalAmount = new DevExpress.XtraEditors.TextEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAIDeleteItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvInvoiceItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdconAIItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -88,20 +91,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbAICustomer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbAISize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAIEmployee.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAIInvoiceNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAIVAT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbAIPaymentMethod.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbAISize.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txteAITotalPayment.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txteAITotalAmount.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnDeleteItem
+            // btnAIDeleteItem
             // 
-            this.btnDeleteItem.AutoHeight = false;
-            this.btnDeleteItem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnDeleteItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
-            this.btnDeleteItem.Name = "btnDeleteItem";
-            this.btnDeleteItem.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnAIDeleteItem.AutoHeight = false;
+            this.btnAIDeleteItem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnAIDeleteItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            this.btnAIDeleteItem.Name = "btnAIDeleteItem";
+            this.btnAIDeleteItem.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnAIDeleteItem.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnAIDeleteItem_Click);
             // 
             // gvInvoiceItems
             // 
@@ -109,18 +115,19 @@
             this.grdcolInvItemCode,
             this.grdcolProName,
             this.grdcolSize,
-            this.grdcolCalName,
             this.grdcolProUnit,
             this.grdcolProUnitPrice,
             this.grdcolProDiscountAmount,
             this.grdcolInvItemQuantity,
             this.grdcolInvItemAmount,
-            this.grdcolInvItemDescription,
-            this.btnDelInvoiceItem});
+            this.grdcolInvItemNote,
+            this.btnAIDelInvoiceItem});
             this.gvInvoiceItems.GridControl = this.grdconAIItems;
             this.gvInvoiceItems.Name = "gvInvoiceItems";
             this.gvInvoiceItems.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.gvInvoiceItems.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gvInvoiceItems.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvInvoiceItems_CellValueChanged);
+            this.gvInvoiceItems.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvInvoiceItems_CellValueChanging);
             // 
             // grdcolInvItemCode
             // 
@@ -149,22 +156,13 @@
             this.grdcolSize.VisibleIndex = 2;
             this.grdcolSize.Width = 54;
             // 
-            // grdcolCalName
-            // 
-            this.grdcolCalName.Caption = "Loại";
-            this.grdcolCalName.FieldName = "CATEGORY_NAME";
-            this.grdcolCalName.Name = "grdcolCalName";
-            this.grdcolCalName.Visible = true;
-            this.grdcolCalName.VisibleIndex = 3;
-            this.grdcolCalName.Width = 60;
-            // 
             // grdcolProUnit
             // 
             this.grdcolProUnit.Caption = "ĐVT";
             this.grdcolProUnit.FieldName = "UNIT";
             this.grdcolProUnit.Name = "grdcolProUnit";
             this.grdcolProUnit.Visible = true;
-            this.grdcolProUnit.VisibleIndex = 4;
+            this.grdcolProUnit.VisibleIndex = 3;
             this.grdcolProUnit.Width = 47;
             // 
             // grdcolProUnitPrice
@@ -173,7 +171,7 @@
             this.grdcolProUnitPrice.FieldName = "UNIT_PRICE";
             this.grdcolProUnitPrice.Name = "grdcolProUnitPrice";
             this.grdcolProUnitPrice.Visible = true;
-            this.grdcolProUnitPrice.VisibleIndex = 7;
+            this.grdcolProUnitPrice.VisibleIndex = 6;
             this.grdcolProUnitPrice.Width = 105;
             // 
             // grdcolProDiscountAmount
@@ -182,7 +180,7 @@
             this.grdcolProDiscountAmount.FieldName = "DISCOUNT_AMOUNT";
             this.grdcolProDiscountAmount.Name = "grdcolProDiscountAmount";
             this.grdcolProDiscountAmount.Visible = true;
-            this.grdcolProDiscountAmount.VisibleIndex = 5;
+            this.grdcolProDiscountAmount.VisibleIndex = 4;
             this.grdcolProDiscountAmount.Width = 80;
             // 
             // grdcolInvItemQuantity
@@ -191,7 +189,7 @@
             this.grdcolInvItemQuantity.FieldName = "QUANTITY";
             this.grdcolInvItemQuantity.Name = "grdcolInvItemQuantity";
             this.grdcolInvItemQuantity.Visible = true;
-            this.grdcolInvItemQuantity.VisibleIndex = 6;
+            this.grdcolInvItemQuantity.VisibleIndex = 5;
             this.grdcolInvItemQuantity.Width = 68;
             // 
             // grdcolInvItemAmount
@@ -200,34 +198,34 @@
             this.grdcolInvItemAmount.FieldName = "AMOUNT";
             this.grdcolInvItemAmount.Name = "grdcolInvItemAmount";
             this.grdcolInvItemAmount.Visible = true;
-            this.grdcolInvItemAmount.VisibleIndex = 8;
+            this.grdcolInvItemAmount.VisibleIndex = 7;
             this.grdcolInvItemAmount.Width = 150;
             // 
-            // grdcolInvItemDescription
+            // grdcolInvItemNote
             // 
-            this.grdcolInvItemDescription.Caption = "Mô tả";
-            this.grdcolInvItemDescription.FieldName = "DESCRIPTION";
-            this.grdcolInvItemDescription.Name = "grdcolInvItemDescription";
-            this.grdcolInvItemDescription.Visible = true;
-            this.grdcolInvItemDescription.VisibleIndex = 9;
-            this.grdcolInvItemDescription.Width = 192;
+            this.grdcolInvItemNote.Caption = "Mô tả";
+            this.grdcolInvItemNote.FieldName = "NOTE";
+            this.grdcolInvItemNote.Name = "grdcolInvItemNote";
+            this.grdcolInvItemNote.Visible = true;
+            this.grdcolInvItemNote.VisibleIndex = 8;
+            this.grdcolInvItemNote.Width = 192;
             // 
-            // btnDelInvoiceItem
+            // btnAIDelInvoiceItem
             // 
-            this.btnDelInvoiceItem.Caption = "Xóa";
-            this.btnDelInvoiceItem.ColumnEdit = this.btnDeleteItem;
-            this.btnDelInvoiceItem.Name = "btnDelInvoiceItem";
-            this.btnDelInvoiceItem.Visible = true;
-            this.btnDelInvoiceItem.VisibleIndex = 10;
-            this.btnDelInvoiceItem.Width = 40;
+            this.btnAIDelInvoiceItem.Caption = "Xóa";
+            this.btnAIDelInvoiceItem.ColumnEdit = this.btnAIDeleteItem;
+            this.btnAIDelInvoiceItem.Name = "btnAIDelInvoiceItem";
+            this.btnAIDelInvoiceItem.Visible = true;
+            this.btnAIDelInvoiceItem.VisibleIndex = 9;
+            this.btnAIDelInvoiceItem.Width = 40;
             // 
             // grdconAIItems
             // 
             this.grdconAIItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdconAIItems.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level1";
             this.grdconAIItems.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.grdconAIItems.Location = new System.Drawing.Point(0, 288);
             this.grdconAIItems.MainView = this.gvInvoiceItems;
             this.grdconAIItems.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -289,6 +287,7 @@
             this.btnAdd.Id = 0;
             this.btnAdd.ImageUri.Uri = "Apply";
             this.btnAdd.Name = "btnAdd";
+            this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
             // 
             // barButtonItem1
             // 
@@ -303,6 +302,7 @@
             this.barButtonItem2.Id = 2;
             this.barButtonItem2.ImageUri.Uri = "Cancel";
             this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // bar3
             // 
@@ -317,6 +317,13 @@
             this.bar3.OptionsBar.DrawDragBorder = false;
             this.bar3.OptionsBar.UseWholeRow = true;
             this.bar3.Text = "Status bar";
+            // 
+            // bsiAIState
+            // 
+            this.bsiAIState.Caption = "State";
+            this.bsiAIState.Id = 4;
+            this.bsiAIState.Name = "bsiAIState";
+            this.bsiAIState.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // barDockControlTop
             // 
@@ -396,7 +403,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(822, 39);
+            this.label7.Location = new System.Drawing.Point(440, 39);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 17);
             this.label7.TabIndex = 13;
@@ -404,11 +411,11 @@
             // 
             // txteAINote
             // 
-            this.txteAINote.Location = new System.Drawing.Point(887, 36);
+            this.txteAINote.Location = new System.Drawing.Point(512, 29);
             this.txteAINote.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
             this.txteAINote.Multiline = true;
             this.txteAINote.Name = "txteAINote";
-            this.txteAINote.Size = new System.Drawing.Size(243, 66);
+            this.txteAINote.Size = new System.Drawing.Size(277, 70);
             this.txteAINote.TabIndex = 12;
             // 
             // btnAIAddItem
@@ -436,6 +443,10 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.txteAITotalAmount);
+            this.groupControl1.Controls.Add(this.txteAITotalPayment);
+            this.groupControl1.Controls.Add(this.label11);
+            this.groupControl1.Controls.Add(this.label10);
             this.groupControl1.Controls.Add(this.cmbAISize);
             this.groupControl1.Controls.Add(this.label9);
             this.groupControl1.Controls.Add(this.txteAIEmployee);
@@ -465,28 +476,48 @@
             this.groupControl1.TabIndex = 6;
             this.groupControl1.Text = "Thông tin hóa đơn";
             // 
+            // cmbAISize
+            // 
+            this.cmbAISize.Location = new System.Drawing.Point(512, 216);
+            this.cmbAISize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbAISize.MenuManager = this.barManager1;
+            this.cmbAISize.Name = "cmbAISize";
+            this.cmbAISize.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbAISize.Size = new System.Drawing.Size(60, 22);
+            this.cmbAISize.TabIndex = 31;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(440, 219);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 17);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Chọn cỡ:";
+            // 
             // txteAIEmployee
             // 
-            this.txteAIEmployee.Location = new System.Drawing.Point(512, 77);
+            this.txteAIEmployee.Location = new System.Drawing.Point(887, 77);
             this.txteAIEmployee.MenuManager = this.barManager1;
             this.txteAIEmployee.Name = "txteAIEmployee";
             this.txteAIEmployee.Properties.ReadOnly = true;
-            this.txteAIEmployee.Size = new System.Drawing.Size(276, 22);
+            this.txteAIEmployee.Size = new System.Drawing.Size(244, 22);
             this.txteAIEmployee.TabIndex = 29;
             // 
             // txteAIInvoiceNo
             // 
-            this.txteAIInvoiceNo.Location = new System.Drawing.Point(512, 34);
+            this.txteAIInvoiceNo.Location = new System.Drawing.Point(887, 36);
             this.txteAIInvoiceNo.MenuManager = this.barManager1;
             this.txteAIInvoiceNo.Name = "txteAIInvoiceNo";
             this.txteAIInvoiceNo.Properties.ReadOnly = true;
-            this.txteAIInvoiceNo.Size = new System.Drawing.Size(276, 22);
+            this.txteAIInvoiceNo.Size = new System.Drawing.Size(244, 22);
             this.txteAIInvoiceNo.TabIndex = 28;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(440, 80);
+            this.label4.Location = new System.Drawing.Point(815, 80);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 24, 3, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 17);
@@ -496,7 +527,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(441, 39);
+            this.label8.Location = new System.Drawing.Point(816, 39);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 17);
             this.label8.TabIndex = 25;
@@ -555,7 +586,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(440, 121);
+            this.label1.Location = new System.Drawing.Point(815, 121);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 17);
             this.label1.TabIndex = 1;
@@ -563,38 +594,49 @@
             // 
             // dpickAIDate
             // 
-            this.dpickAIDate.Location = new System.Drawing.Point(512, 116);
+            this.dpickAIDate.Location = new System.Drawing.Point(887, 117);
             this.dpickAIDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dpickAIDate.Name = "dpickAIDate";
-            this.dpickAIDate.Size = new System.Drawing.Size(277, 23);
+            this.dpickAIDate.Size = new System.Drawing.Size(244, 23);
             this.dpickAIDate.TabIndex = 0;
             // 
-            // label9
+            // label10
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(440, 219);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 17);
-            this.label9.TabIndex = 30;
-            this.label9.Text = "Chọn cỡ:";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(645, 118);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(13, 17);
+            this.label10.TabIndex = 35;
+            this.label10.Text = "/";
             // 
-            // cmbAISize
+            // label11
             // 
-            this.cmbAISize.Location = new System.Drawing.Point(512, 216);
-            this.cmbAISize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cmbAISize.MenuManager = this.barManager1;
-            this.cmbAISize.Name = "cmbAISize";
-            this.cmbAISize.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbAISize.Size = new System.Drawing.Size(60, 22);
-            this.cmbAISize.TabIndex = 31;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(440, 120);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(66, 17);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "Tổng trả:";
             // 
-            // bsiAIState
+            // txteAITotalPayment
             // 
-            this.bsiAIState.Caption = "State";
-            this.bsiAIState.Id = 4;
-            this.bsiAIState.Name = "bsiAIState";
-            this.bsiAIState.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.txteAITotalPayment.EditValue = "0";
+            this.txteAITotalPayment.Location = new System.Drawing.Point(512, 116);
+            this.txteAITotalPayment.MenuManager = this.barManager1;
+            this.txteAITotalPayment.Name = "txteAITotalPayment";
+            this.txteAITotalPayment.Size = new System.Drawing.Size(127, 22);
+            this.txteAITotalPayment.TabIndex = 37;
+            this.txteAITotalPayment.EditValueChanged += new System.EventHandler(this.txteAITotalPayment_EditValueChanged);
+            // 
+            // txteAITotalAmount
+            // 
+            this.txteAITotalAmount.EditValue = "0";
+            this.txteAITotalAmount.Location = new System.Drawing.Point(664, 116);
+            this.txteAITotalAmount.MenuManager = this.barManager1;
+            this.txteAITotalAmount.Name = "txteAITotalAmount";
+            this.txteAITotalAmount.Properties.ReadOnly = true;
+            this.txteAITotalAmount.Size = new System.Drawing.Size(125, 22);
+            this.txteAITotalAmount.TabIndex = 38;
             // 
             // frmAddInvoice
             // 
@@ -609,7 +651,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Name = "frmAddInvoice";
             this.Text = "Thêm hóa đơn";
-            ((System.ComponentModel.ISupportInitialize)(this.btnDeleteItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAIDeleteItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvInvoiceItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdconAIItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
@@ -618,11 +660,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbAISize.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAIEmployee.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAIInvoiceNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAIVAT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbAIPaymentMethod.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbAISize.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txteAITotalPayment.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txteAITotalAmount.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -660,7 +704,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn grdcolProUnitPrice;
         private DevExpress.XtraGrid.Columns.GridColumn grdcolInvItemQuantity;
         private DevExpress.XtraGrid.Columns.GridColumn grdcolInvItemAmount;
-        private DevExpress.XtraGrid.Columns.GridColumn grdcolInvItemDescription;
+        private DevExpress.XtraGrid.Columns.GridColumn grdcolInvItemNote;
         private DevExpress.XtraEditors.ComboBoxEdit cmbAIPaymentMethod;
         private System.Windows.Forms.Label label5;
         private DevExpress.XtraGrid.Columns.GridColumn grdcolProName;
@@ -671,12 +715,15 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
         private DevExpress.XtraEditors.TextEdit txteAIVAT;
-        private DevExpress.XtraGrid.Columns.GridColumn btnDelInvoiceItem;
-        private DevExpress.XtraGrid.Columns.GridColumn grdcolCalName;
+        private DevExpress.XtraGrid.Columns.GridColumn btnAIDelInvoiceItem;
         private DevExpress.XtraBars.BarButtonItem bbtniAIBack;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDeleteItem;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnAIDeleteItem;
         private DevExpress.XtraEditors.ComboBoxEdit cmbAISize;
         private System.Windows.Forms.Label label9;
         private DevExpress.XtraBars.BarStaticItem bsiAIState;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private DevExpress.XtraEditors.TextEdit txteAITotalAmount;
+        private DevExpress.XtraEditors.TextEdit txteAITotalPayment;
     }
 }

@@ -11,33 +11,34 @@ using System.Windows.Forms;
 using Model;
 using Presenter.Elements;
 using Model.InterfaceImplements;
+using Model.Properties;
+using DevExpress.XtraEditors.Controls;
 
 namespace View.Elements.Invoice
 {
     public partial class frmInvoice : Form, IInvoiceView
     {
-        //will put into Resources
-        public static String ERROR_CAPTION  =   "Lỗi";
-        public static String INFOR_CAPTION  =   "Thông báo";
-
+        DataTable table;
         InvoicePresenter presenter;
         public frmInvoice()
         {
             presenter = new InvoicePresenter(new InvoiceModel());
             presenter.InvoiceView = this;
             InitializeComponent();
+            presenter.loadInvoiceList();
         }
 
         public void showInvoiceList(DataTable invoiceTable)
         {
-            grdvILInvoice.DataSource = invoiceTable;
+            table = invoiceTable;
+            grdconILInvoice.DataSource = table;
         }
 
         public void showInvoiceList(List<INVOICE> invoiceList)
         {
             
 
-            grdvILInvoice.DataSource = invoiceList;
+            grdconILInvoice.DataSource = invoiceList;
         }
 
         public void showMessageBox(string msg, MessageBoxIcon type)
@@ -46,11 +47,11 @@ namespace View.Elements.Invoice
             {
                 case MessageBoxIcon.Error:
 
-                    MessageBox.Show(msg, ERROR_CAPTION, MessageBoxButtons.OK, type);
+                    MessageBox.Show(msg, Resources.ERROR_CAPTION, MessageBoxButtons.OK, type);
                     break;
                 case MessageBoxIcon.Information:
 
-                    MessageBox.Show(msg, INFOR_CAPTION, MessageBoxButtons.OK, type);
+                    MessageBox.Show(msg, Resources.INFOR_CAPTION, MessageBoxButtons.OK, type);
                     break;
             }
         }
@@ -63,6 +64,35 @@ namespace View.Elements.Invoice
             addInvoiceForm.MdiParent = this.MdiParent;
             addInvoiceForm.Dock = DockStyle.Fill;
             addInvoiceForm.Show();
+        }
+
+        private void btnILUpdateInvoice_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            int row = gvILInvoice.FocusedRowHandle;
+            String invoiceCode =  table.Rows[row]["INVOICE_CODE"] + "";
+            Form addInvoiceForm = new frmAddInvoice(this, presenter, invoiceCode);
+            addInvoiceForm.FormBorderStyle = FormBorderStyle.None;
+            //set fill parent
+            addInvoiceForm.MdiParent = this.MdiParent;
+            addInvoiceForm.Dock = DockStyle.Fill;
+            addInvoiceForm.Show();
+            // presenter.loadExistedInvoice(invoiceId);
+        }
+        private void btnILDeleteInvoice_ButtonClick(object sender,ButtonPressedEventArgs e)
+        {
+            int indexOfGrid = gvILInvoice.FocusedRowHandle;
+            presenter.removeInvoice(indexOfGrid);
+        }
+
+        public DataTable getDataTable()
+        {
+            return table;
+        }
+
+        private void frmInvoice_Activated(object sender, EventArgs e)
+        {
+            table.Rows.Clear();
+            presenter.loadInvoiceList();
         }
     }
 }

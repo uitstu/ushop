@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +21,21 @@ namespace Presenter.Interfaces
         void showCustomerName(List<String> customerNames, bool doShowPopup);
         //reset item adding components
         void resetItemAddingComponents();
+        //reset all components
+        void resetAll();
+
         //add new item into grid item
         void addItemIntoGrid(String[] invoiceItem);
+
+        //set value for textbox
+        void showTotalPayment(double totalPayment);
+        //set value for textbox
+        void showTotalAmount(double totalAmount);
+        //put table into gridview
+        void showInvoiceItemGrid(DataTable table);
+        //load existed invoice information
+        void showInfoComponents(INVOICE invoice);
+        //get DataTable of Invoice Items grid view 
+        DataTable getInvoiceItemDataTable();
     }
 }

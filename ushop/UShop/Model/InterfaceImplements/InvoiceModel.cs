@@ -10,63 +10,123 @@ namespace Model.InterfaceImplements
 {
     public class InvoiceModel : DataModel, IInvoice
     {
-        public INVOICE getInvoiceByCode(string code)
+        public INVOICE getInvoiceByCode(string code,RECORD_STATUS status)
         {
 
             INVOICE invoice = new INVOICE();
-
-            foreach (INVOICE item in UShopDB.INVOICEs)
+            try
             {
-                if (item.Equals(code))
-                {
-                    invoice = item;
-                    break;
-                }
-            }
 
+                var queryResult = UShopDB.INVOICEs
+                    .Where
+                    (o => o.INVOICE_CODE.Equals(code)
+                        &&(status != 0 ? o.RECORD_STATUS.Equals((char)status) : true)       //if status = 0 -> independent record status
+                    ).SingleOrDefault();
+                invoice = queryResult;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                
+            }
+           
+            
             return invoice;
         }
 
-        public bool addInvoice(INVOICE invoice)
+        public bool addInvoice(INVOICE invoice, List<INVOICE_ITEM> itemList)
         {
             try
             {
                 UShopDB.INVOICEs.InsertOnSubmit(invoice);
                 UShopDB.SubmitChanges();
-                return  true;
+                invoice.INVOICE_CODE = getCODE("INV", invoice.INVOICE_ID);
+
+                if (itemList != null && itemList.Count > 0)
+                {
+                    UShopDB.INVOICE_ITEMs.InsertAllOnSubmit(itemList);
+                    UShopDB.SubmitChanges();
+                    double totalDiscount = 0;
+                    foreach (var item in itemList)
+                    {
+                        item.INVOICE_ITEM_CODE = getCODE("INVI", item.INVOICE_ITEM_ID);
+                        item.INVOICE_ID = invoice.INVOICE_ID;
+                        totalDiscount += (double)item.DISCOUNT;
+                    }
+                    invoice.TOTAL_SALE = totalDiscount;
+                }
+                UShopDB.SubmitChanges();
+                return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 return false;
             }
         }
 
-        public bool updateInvoice(INVOICE updated)
+        public bool updateInvoice(INVOICE updated, List<INVOICE_ITEM> itemList)
         {
             int queryid = updated.INVOICE_ID;
             if (queryid > 0)
             {
-                try { 
-                    var item = UShopDB.INVOICEs.Where(o => o.INVOICE_ID == queryid).SingleOrDefault();
+                try
+                {
+                    var invoice = UShopDB.INVOICEs.Where(o => o.INVOICE_ID == queryid).SingleOrDefault();
 
-                    item.INVOICE_CODE = updated.INVOICE_CODE;
-                    item.BUYER_ID = updated.BUYER_ID;
-                    item.DATE = updated.DATE;
-                    item.NOTE = updated.NOTE;
-                    item.PAYMENT_METHOD = updated.PAYMENT_METHOD;
-                    item.TOTAL_AMOUNT = updated.TOTAL_AMOUNT;
-                    item.TOTAL_PAYMENT = updated.TOTAL_PAYMENT;
-                    item.VAT_AMOUNT = updated.VAT_AMOUNT;
-                    item.VAT_RATE = updated.VAT_RATE;
-                    item.SELLER_ID = updated.SELLER_ID;
+                    invoice.INVOICE_CODE = updated.INVOICE_CODE;
+                    invoice.BUYER_ID = updated.BUYER_ID;
+                    invoice.DATE = updated.DATE;
+                    invoice.NOTE = updated.NOTE;
+                    invoice.PAYMENT_METHOD = updated.PAYMENT_METHOD;
+                    invoice.TOTAL_AMOUNT = updated.TOTAL_AMOUNT;
+                    invoice.TOTAL_PAYMENT = updated.TOTAL_PAYMENT;
+                    invoice.VAT_AMOUNT = updated.VAT_AMOUNT;
+                    invoice.VAT_RATE = updated.VAT_RATE;
+                    invoice.SELLER_ID = updated.SELLER_ID;
 
                     UShopDB.SubmitChanges();
+
+                    if (itemList != null && itemList.Count > 0)
+                    {
+
+                        double totalDiscount = 0;
+                        //double totalAmount = 0;
+                        //double totalPayment = 0;
+                        List<INVOICE_ITEM> invoiceItemList =    UShopDB.INVOICE_ITEMs.Where(o => o.INVOICE_ID == queryid).DefaultIfEmpty().ToList();
+
+                        if (invoiceItemList != null && invoiceItemList.Count>0 )
+                        {
+                            foreach (var item in invoiceItemList)
+                            {
+                                if(item != null)
+                                    UShopDB.INVOICE_ITEMs.DeleteOnSubmit(item);
+                            }
+                            UShopDB.SubmitChanges();
+                        }
+                        UShopDB.INVOICE_ITEMs.InsertAllOnSubmit(itemList);
+                        UShopDB.SubmitChanges();
+
+                        foreach (var update in itemList)
+                        {
+                            totalDiscount += (double)update.DISCOUNT;
+                           // totalAmount += (double)update.AMOUNT;
+                            update.INVOICE_ITEM_CODE = getCODE("INVI", update.INVOICE_ITEM_ID);
+                            update.INVOICE_ID = invoice.INVOICE_ID;
+
+                        }
+
+                        UShopDB.SubmitChanges();
+                        invoice.TOTAL_SALE = totalDiscount;
+                    }
+                    UShopDB.SubmitChanges();
                     return true;
-                }catch(ArgumentNullException e)
+                }
+                catch (ArgumentNullException e)
                 {
                     Console.WriteLine(e.Message);
-                }catch(InvalidCastException e)
+                }
+                catch (InvalidCastException e)
                 {
                     Console.WriteLine(e.Message);
                 }
@@ -81,7 +141,7 @@ namespace Model.InterfaceImplements
                 try
                 {
                     var item = UShopDB.INVOICEs.Where(o => o.INVOICE_ID == queryid).SingleOrDefault();
-                    item.RECORD_STATUS = RECORD_STATUS.INACTIVE +"";
+                    item.RECORD_STATUS = ((char)RECORD_STATUS.INACTIVE) + "";
                     UShopDB.SubmitChanges();
                     return true;
                 }
@@ -102,7 +162,7 @@ namespace Model.InterfaceImplements
             try
             {
                 var item = UShopDB.INVOICEs.Where(o => o.INVOICE_CODE == code).SingleOrDefault();
-                item.RECORD_STATUS = RECORD_STATUS.INACTIVE + "";
+                item.RECORD_STATUS = ((char)RECORD_STATUS.INACTIVE) + "";
                 UShopDB.SubmitChanges();
                 return true;
             }
@@ -114,7 +174,7 @@ namespace Model.InterfaceImplements
             {
                 Console.WriteLine(e.Message);
             }
-        
+
             return false;
         }
 
@@ -147,7 +207,8 @@ namespace Model.InterfaceImplements
         public DataTable getInvoiceListBy(int empId, string date, RECORD_STATUS status)
         {
             DataTable table = null;
-            try {
+            try
+            {
                 var result = from inv in UShopDB.INVOICEs
                              join emp in UShopDB.EMPLOYEEs
                              on inv.SELLER_ID equals emp.EMP_ID
@@ -160,9 +221,9 @@ namespace Model.InterfaceImplements
                              from empinvcus in final2.DefaultIfEmpty()
 
                              where
-                             (empId != 0 ? empinv.EMP_ID == empId : true) 
+                             (empId != 0 ? empinv.EMP_ID == empId : true)
                              && (date != null ? inv.DATE.ToString().Equals(date) : true)
-                             && (status != 0 ? inv.RECORD_STATUS.Equals((char)status) : true) 
+                             && (status != 0 ? inv.RECORD_STATUS.Equals((char)status) : true)
                              select new
                              {
                                  inv.INVOICE_CODE,
@@ -175,23 +236,24 @@ namespace Model.InterfaceImplements
                              };
                 table = new DataTable();
                 var collumns = table.Columns;
-                collumns.Add("Mã hóa đơn");
-                collumns.Add("Tổng tiền");
-                collumns.Add("Đã thanh toán");
-                collumns.Add("PTTT");
-                collumns.Add("Tên KH");
-                collumns.Add("Tên NVBH");
-                collumns.Add("Ngày lập HĐ");
-
-                var rows = table.Rows;
-                foreach(var item in result)
+                collumns.Add("INVOICE_CODE");//("Mã hóa đơn");
+                collumns.Add("TOTAL_AMOUNT");//("Tổng tiền");
+                collumns.Add("TOTAL_PAYMENT");//("Đã thanh toán");
+                collumns.Add("PAYMENT_METHOD");
+                collumns.Add("EMP_NAME");
+                collumns.Add("CUS_NAME");
+                collumns.Add("DATE");
+                
+                foreach (var o in result)
                 {
-                    rows.Add(item);   
+                    table.Rows.Add(o.INVOICE_CODE, o.TOTAL_AMOUNT, o.TOTAL_PAYMENT, o.PAYMENT_METHOD, o.EMP_NAME, o.CUS_NAME, o.DATE);
                 }
-            }catch(ArgumentNullException e)
+
+            }
+            catch (ArgumentNullException e)
             {
                 Console.WriteLine(e.Message);
-                
+
             }
             //DataTable dt = new DataTable();
             //dt.Columns.Add("RN_ID");
@@ -306,7 +368,7 @@ namespace Model.InterfaceImplements
                 var queryResult = UShopDB.PRODUCT_SIZEs
                     .Where
                     (o => (status != 0 ? o.RECORD_STATUS.Equals((char)status) : true)
-                           &&(proid >= 0 ? o.PRODUCT_ID == proid : true)
+                           && (proid >= 0 ? o.PRODUCT_ID == proid : true)
                     ).DefaultIfEmpty();
                 prosizeList = queryResult.ToList();
             }
@@ -334,6 +396,86 @@ namespace Model.InterfaceImplements
                 Console.WriteLine(e.Message);
             }
             return proList;
+        }
+
+        public List<CUSTOMER> getCustomerBy(RECORD_STATUS status)
+        {
+            List<CUSTOMER> cusList = null;
+            try
+            {
+
+                var queryResult = UShopDB.CUSTOMERs
+                    .Where
+                    (o => (status != 0 ? o.RECORD_STATUS.Equals((char)status) : true)       //if status = 0 -> independent record status
+                    ).DefaultIfEmpty();
+                cusList = queryResult.ToList();
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return cusList;
+        }
+
+        public DataTable getInvoiceItemListBy(int invoiceId, RECORD_STATUS status)
+        {
+            DataTable table = null;
+            try
+            {
+                var result = from invi in UShopDB.INVOICE_ITEMs
+                             join pro in UShopDB.PRODUCTs
+                             on invi.PRODUCT_ID equals pro.PRODUCT_ID
+
+
+                             where
+                             (invoiceId != 0 ? invi.INVOICE_ID == invoiceId : true)
+                             && (status != 0 ? invi.RECORD_STATUS.Equals((char)status) : true)
+                             select new
+                             {
+                                 invi.INVOICE_ITEM_CODE,
+                                 pro.PRODUCT_CODE,
+                                 pro.PRODUCT_NAME,
+                                 invi.SIZE,
+                                 pro.UNIT,
+                                 invi.DISCOUNT,
+                                 invi.QUANTITY,
+                                 invi.PRICE,
+                                 invi.AMOUNT,
+                                 invi.NOTE
+
+                             };
+                table = new DataTable();
+                var collumns = table.Columns;
+                collumns.Add("INVOICE_ITEM_CODE");
+                collumns.Add("PRODUCT_NAME");
+                collumns.Add("SIZE");
+                collumns.Add("UNIT");
+                collumns.Add("DISCOUNT_AMOUNT");
+                collumns.Add("QUANTITY");
+                collumns.Add("UNIT_PRICE");
+                collumns.Add("AMOUNT");
+                collumns.Add("NOTE");
+
+                int index = 0;
+                foreach (var o in result)
+                {
+                    table.Rows.Add(index++,
+                        o.PRODUCT_CODE+"-"+ o.PRODUCT_NAME,
+                        o.SIZE,
+                        o.UNIT,
+                        o.DISCOUNT,
+                        o.QUANTITY,
+                        o.PRICE,
+                        o.AMOUNT,
+                        o.NOTE);
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return table;
         }
     }
 }

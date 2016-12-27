@@ -126,6 +126,12 @@
   <data name="INFOR_CAPTION" xml:space="preserve">
     <value>Thông báo</value>
   </data>
+  <data name="MB_FAILURE" xml:space="preserve">
+    <value>Thất bại</value>
+  </data>
+  <data name="MB_SUCCESS" xml:space="preserve">
+    <value>Thành công</value>
+  </data>
   <data name="PM_CASH" xml:space="preserve">
     <value>TM</value>
   </data>
