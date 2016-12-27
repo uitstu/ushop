@@ -11,4 +11,6 @@ namespace Model
         ACTIVE = 'A',
         INACTIVE = 'I'
     };
+
+    
 }

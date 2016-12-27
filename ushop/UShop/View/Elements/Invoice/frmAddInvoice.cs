@@ -16,6 +16,7 @@ namespace View.Elements.Invoice
 {
     public partial class frmAddInvoice : Form,IInvoiceAddingView
     {
+        DataTable table;
         InvoicePresenter presenter;
         Form caller;
         public frmAddInvoice(Form caller,InvoicePresenter presenter)
@@ -37,7 +38,32 @@ namespace View.Elements.Invoice
             txteAIVAT.Text = "0";
             txteAIEmployee.Text =  AccountPresenter.currentEmployee.EMP_NAME;
             txteAIInvoiceNo.Text = presenter.getTemperatoryCode();
-            
+            cmbAISize.Properties.Items.AddRange(
+                new String[]
+                {
+                    Resources.SIZE_S,
+                    Resources.SIZE_M,
+                    Resources.SIZE_L,
+                    Resources.SIZE_XL,
+                    Resources.SIZE_XXL,
+                    Resources.SIZE_XXXL});
+            table = grdconAIItems.DataSource as DataTable;
+            if (table == null)
+            {
+                table = new DataTable();
+                var cols = table.Columns;
+                cols.Add("Mã chi tiết");
+                cols.Add("Tên sản phẩm");
+                cols.Add("Kích cỡ");
+                cols.Add("Loại");
+                cols.Add("DVT");
+                cols.Add("Giảm");
+                cols.Add("Số lượng");
+                cols.Add("Đơn giá");
+                cols.Add("Thành tiền");
+                cols.Add("Mô tả");
+
+            }
         }
         private void label2_Click(object sender, EventArgs e)
         {
@@ -107,6 +133,51 @@ namespace View.Elements.Invoice
                 cmbAICustomer.ShowPopup();
         }
 
-        
+        private void cmbAISearchProduct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            presenter.loadSizeOfProduct(cmbAISearchProduct.Text);
+        }
+
+        public void showSizeOfProduct(List<String> sizeList)
+        {
+            var cmbItems = cmbAISize.Properties.Items;
+            cmbItems.Clear();
+            cmbItems.AddRange(sizeList);
+        }
+
+        private void btnAIAddItem_Click(object sender, EventArgs e)
+        {
+            presenter.addItem(cmbAISearchProduct.Text, cmbAISize.Text);
+        }
+
+        public void resetItemAddingComponents()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void addItemIntoGrid(String[] invoiceItem)
+        {
+            /*
+            int groupColumnCount = gvInvoiceItems.Columns.Count;
+            //Get the handle of the new row 
+
+            gvInvoiceItems.AddNewRow();
+            int newRowHandle = gvInvoiceItems.FocusedRowHandle;
+            object newRow = gvInvoiceItems.GetRow(newRowHandle);
+            if (groupColumnCount > 0)
+            {
+                for (int i = 0; i < groupColumnCount-2; i++)
+                {
+                    gvInvoiceItems.SetRowCellValue(newRowHandle, gvInvoiceItems.Columns[i], invoiceItem[i]);
+                }
+            }
+            gvInvoiceItems.UpdateCurrentRow();*/
+            
+            
+            
+            table.Rows.Add(invoiceItem);
+            grdconAIItems.DataSource = table;
+
+        }
     }
 }

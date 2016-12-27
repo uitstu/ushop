@@ -13,7 +13,13 @@ namespace Presenter.Interfaces
         void showMessageBox(String msg, MessageBoxIcon type);
         //load product into combo box
         void showProductName(List<String> productNames, bool doShowPopup);
+        //load size of product into combo box
+        void showSizeOfProduct(List<String> sizeList);
         //load cus name into combo box
         void showCustomerName(List<String> customerNames, bool doShowPopup);
+        //reset item adding components
+        void resetItemAddingComponents();
+        //add new item into grid item
+        void addItemIntoGrid(String[] invoiceItem);
     }
 }

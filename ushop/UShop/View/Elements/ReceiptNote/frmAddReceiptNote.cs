@@ -54,7 +54,7 @@ namespace View.Elements.ReceiptNote
             dpickIssued.Value = obj.ISSUED_DATE ?? new DateTime();
             dpickAccounting.Value = obj.ACCOUNTING_DATE ?? new DateTime();
             tboxNote.Text = obj.NOTE;
-            tboxAccounted.Text = Convert.ToString(obj.ACCOUNTED);
+            //tboxAccounted.Text = Convert.ToString(obj.ACCOUNTED);
             lbTotal.Text = Convert.ToString(obj.TOTAL);
             setSource(); 
             //cboxSupplier.Text = Convert.ToString(obj.SUPPLIER_ID);
@@ -157,7 +157,7 @@ namespace View.Elements.ReceiptNote
             {
                 //chua get data obj
                 obj.SUPPLIER_ID = Int32.Parse(cboxSupplier.Text.Substring(cboxSupplier.Text.IndexOf('0'), 5));
-                obj.ACCOUNTED = Int32.Parse(tboxAccounted.Text);
+                //obj.ACCOUNTED = Int32.Parse(tboxAccounted.Text);
                 obj.TOTAL = Int32.Parse(lbTotal.Text);
                 obj.ISSUED_DATE = dpickIssued.Value;
                 obj.ACCOUNTING_DATE = dpickAccounting.Value;
@@ -184,12 +184,12 @@ namespace View.Elements.ReceiptNote
             }
             receipt_note.SUPPLIER_ID = Int32.Parse(cboxSupplier.Text.Substring(cboxSupplier.Text.IndexOf('0'), cboxSupplier.Text.IndexOf(' ') - cboxSupplier.Text.IndexOf('0')));
 
-            receipt_note.ACCOUNTED = Int32.Parse(tboxAccounted.Text);
+            //receipt_note.ACCOUNTED = Int32.Parse(tboxAccounted.Text);
             receipt_note.ISSUED_DATE = DateTime.Parse(dpickIssued.Text);
             receipt_note.ACCOUNTING_DATE = DateTime.Parse(dpickAccounting.Text);
             receipt_note.NOTE = tboxNote.Text;
 
-            receipt_note.PREPARER_ID = 1;
+            //receipt_note.PREPARER_ID = 1;
             receipt_note.RECORD_STATUS = "A";
             //receipt_note.RN_CODE = "aaaa";
             receipt_note.TOTAL = float.Parse(lbTotal.Text);

@@ -135,4 +135,22 @@
   <data name="PM_UNIDENTIFY" xml:space="preserve">
     <value>TM/CK</value>
   </data>
+  <data name="SIZE_L" xml:space="preserve">
+    <value>L</value>
+  </data>
+  <data name="SIZE_M" xml:space="preserve">
+    <value>M</value>
+  </data>
+  <data name="SIZE_S" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="SIZE_XL" xml:space="preserve">
+    <value>XL</value>
+  </data>
+  <data name="SIZE_XXL" xml:space="preserve">
+    <value>XXL</value>
+  </data>
+  <data name="SIZE_XXXL" xml:space="preserve">
+    <value>XXXL</value>
+  </data>
 </root>

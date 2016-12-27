@@ -260,5 +260,80 @@ namespace Model.InterfaceImplements
             }
             return cusList;
         }
+
+        //public DataTable getProductsBy(RECORD_STATUS status)
+        //{
+        //    DataTable table = null;
+        //    try
+        //    {
+        //        var result = UShopDB.PRODUCTs
+        //            .Where(o => (status != 0 ? o.RECORD_STATUS.Equals((char)status) : true)).DefaultIfEmpty();
+        //        table = new DataTable();
+        //        table.Rows.Add(result.ToArray());
+        //        table.Columns.Add("PRODUCT_ID");
+        //        table.Columns.Add("PRODUCT_CODE");
+        //        table.Columns.Add("PRODUCT_NAME");
+        //        table.Columns.Add("CATEGORY_ID");
+        //        table.Columns.Add("SELLING_PRICE");
+        //        table.Columns.Add("COST_PRICE");
+        //        table.Columns.Add("DISCOUNT_AMOUNT");
+        //        table.Columns.Add("DESCRIPTION");
+        //        table.Columns.Add("PRODUCER");
+        //        table.Columns.Add("ORIGIN");
+        //        table.Columns.Add("IMAGE_SRC");
+        //        table.Columns.Add("RECORD_STATUS");
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e.Message);
+
+        //    }
+        //    return table;
+        //}
+
+        //public DataTable getSizeBy(int proid, RECORD_STATUS status)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+
+        public List<PRODUCT_SIZE> getProductSizeBy(int proid, RECORD_STATUS status)
+        {
+            List<PRODUCT_SIZE> prosizeList = null;
+            try
+            {
+
+                var queryResult = UShopDB.PRODUCT_SIZEs
+                    .Where
+                    (o => (status != 0 ? o.RECORD_STATUS.Equals((char)status) : true)
+                           &&(proid >= 0 ? o.PRODUCT_ID == proid : true)
+                    ).DefaultIfEmpty();
+                prosizeList = queryResult.ToList();
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return prosizeList;
+        }
+
+        public List<PRODUCT> getProductsBy(RECORD_STATUS status)
+        {
+            List<PRODUCT> proList = null;
+            try
+            {
+
+                var queryResult = UShopDB.PRODUCTs
+                    .Where
+                    (o => (status != 0 ? o.RECORD_STATUS.Equals((char)status) : true)       //if status = 0 -> independent record status
+                    ).DefaultIfEmpty();
+                proList = queryResult.ToList();
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return proList;
+        }
     }
 }

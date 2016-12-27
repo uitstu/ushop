@@ -113,5 +113,59 @@ namespace Model.Properties {
                 return ResourceManager.GetString("PM_UNIDENTIFY", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to L.
+        /// </summary>
+        public static string SIZE_L {
+            get {
+                return ResourceManager.GetString("SIZE_L", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to M.
+        /// </summary>
+        public static string SIZE_M {
+            get {
+                return ResourceManager.GetString("SIZE_M", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to S.
+        /// </summary>
+        public static string SIZE_S {
+            get {
+                return ResourceManager.GetString("SIZE_S", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to XL.
+        /// </summary>
+        public static string SIZE_XL {
+            get {
+                return ResourceManager.GetString("SIZE_XL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to XXL.
+        /// </summary>
+        public static string SIZE_XXL {
+            get {
+                return ResourceManager.GetString("SIZE_XXL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to XXXL.
+        /// </summary>
+        public static string SIZE_XXXL {
+            get {
+                return ResourceManager.GetString("SIZE_XXXL", resourceCulture);
+            }
+        }
     }
 }

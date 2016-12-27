@@ -16,6 +16,6 @@ namespace Presenter.Interfaces
         void showMessageBox(String msg, MessageBoxIcon type);
         //load into grid view
         void showInvoiceList(DataTable invoiceList);
-       
+      
     }
 }
