@@ -44,8 +44,12 @@
     <Compile Include="Definitions.cs" />
     <Compile Include="InterfaceImplements\CategoryModel.cs" />
     <Compile Include="InterfaceImplements\AccountModel.cs" />
+    <Compile Include="InterfaceImplements\CustomerModel.cs" />
+    <Compile Include="InterfaceImplements\EmployeeModel.cs" />
     <Compile Include="InterfaceImplements\InvoiceModel.cs" />
     <Compile Include="InterfaceImplements\ReceiptNoteModel.cs" />
+    <Compile Include="Interfaces\ICustomer.cs" />
+    <Compile Include="Interfaces\IEmployee.cs" />
     <Compile Include="Interfaces\IInvoice.cs" />
     <Compile Include="Interfaces\IReceiptNote.cs" />
     <Compile Include="Interfaces\IAccount.cs" />

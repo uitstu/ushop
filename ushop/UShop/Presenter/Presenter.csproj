@@ -42,8 +42,14 @@
   <ItemGroup>
     <Compile Include="Elements\CategoryPresenter.cs" />
     <Compile Include="Elements\AccountPresenter.cs" />
+    <Compile Include="Elements\CustomerPresenter.cs" />
+    <Compile Include="Elements\EmployeePresenter.cs" />
     <Compile Include="Elements\InvoicePresenter.cs" />
     <Compile Include="Elements\ReceiptNotePresenter.cs" />
+    <Compile Include="Interfaces\ICustomerAddingView.cs" />
+    <Compile Include="Interfaces\ICustomerView.cs" />
+    <Compile Include="Interfaces\IEmployeeAddingView.cs" />
+    <Compile Include="Interfaces\IEmployeeView.cs" />
     <Compile Include="Interfaces\IInvoiceAddingView.cs" />
     <Compile Include="Interfaces\IInvoiceView.cs" />
     <Compile Include="Interfaces\IReceiptNoteView.cs" />

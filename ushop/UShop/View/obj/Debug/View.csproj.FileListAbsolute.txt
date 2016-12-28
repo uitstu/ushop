@@ -123,3 +123,7 @@ E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ja\DevExpr
 E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ru\DevExpress.Office.v15.1.Core.resources.dll
 E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.Invoice.frmAddInvoice.resources
 E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.Invoice.frmInvoice.resources
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.Employee.frmAddEmployee.resources
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.Employee.frmEmployee.resources
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.Customer.frmAddCustomer.resources
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.Customer.frmCustomer.resources

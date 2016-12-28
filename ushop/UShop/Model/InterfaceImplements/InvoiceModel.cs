@@ -367,8 +367,9 @@ namespace Model.InterfaceImplements
 
                 var queryResult = UShopDB.PRODUCT_SIZEs
                     .Where
-                    (o => (status != 0 ? o.RECORD_STATUS.Equals((char)status) : true)
-                           && (proid >= 0 ? o.PRODUCT_ID == proid : true)
+                    (o => //(status != 0 ? o.RECORD_STATUS.Equals((char)status) : true)
+                           //&& 
+                           (proid >= 0 ? o.PRODUCT_ID == proid : true)
                     ).DefaultIfEmpty();
                 prosizeList = queryResult.ToList();
             }

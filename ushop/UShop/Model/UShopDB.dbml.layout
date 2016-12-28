@@ -26,18 +26,6 @@
         <elementListCompartment Id="58e610aa-e718-4b9b-a632-d0d5b5307000" absoluteBounds="3.765, 5.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="b5b5119f-e797-454e-b067-c96596b2d23c" absoluteBounds="6.75, 0.75, 2, 3.3093082682291666">
-      <DataClassMoniker Name="/UShopDBDataContext/EMPLOYEE" />
-      <nestedChildShapes>
-        <elementListCompartment Id="da17d2ee-ce67-4de1-af63-f66956750976" absoluteBounds="6.765, 1.21, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="79f45773-ec99-496e-ac24-23fc50590190" absoluteBounds="3.75, 9.75, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/UShopDBDataContext/PRODUCT_SIZE" />
-      <nestedChildShapes>
-        <elementListCompartment Id="126662bd-a2f7-4a9f-81ac-f83cce52d989" absoluteBounds="3.765, 10.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="61e12c74-0ad2-4e22-8add-940b77a456eb" absoluteBounds="9.75, 5.75, 2, 2.7324039713541666">
       <DataClassMoniker Name="/UShopDBDataContext/RECEIPT_NOTE" />
       <nestedChildShapes>
@@ -72,6 +60,18 @@
       <DataClassMoniker Name="/UShopDBDataContext/INVOICE_ITEM" />
       <nestedChildShapes>
         <elementListCompartment Id="1532b986-0905-49d1-8f65-e7c04cd0f472" absoluteBounds="0.64, 8.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1a558d38-1e04-4da4-9f0f-9d3ed870ab93" absoluteBounds="6.5, 0.75, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/UShopDBDataContext/EMPLOYEE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dec6db64-80ff-4373-9074-1ae6e12c3ed3" absoluteBounds="6.515, 1.21, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bfd36197-3d93-4f2c-9e12-b408897890d2" absoluteBounds="4, 8.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/UShopDBDataContext/PRODUCT_SIZE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e8b456b7-21f8-4ec1-b5c2-c9713549687e" absoluteBounds="4.015, 9.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

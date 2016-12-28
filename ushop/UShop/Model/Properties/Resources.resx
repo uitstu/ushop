@@ -123,6 +123,12 @@
   <data name="ERROR_CAPTION" xml:space="preserve">
     <value>Lỗi</value>
   </data>
+  <data name="GENDER_FEMALE" xml:space="preserve">
+    <value>Nữ</value>
+  </data>
+  <data name="GENDER_MALE" xml:space="preserve">
+    <value>Nam</value>
+  </data>
   <data name="INFOR_CAPTION" xml:space="preserve">
     <value>Thông báo</value>
   </data>
@@ -141,6 +147,12 @@
   <data name="PM_UNIDENTIFY" xml:space="preserve">
     <value>TM/CK</value>
   </data>
+  <data name="POS_EMPLOYEE" xml:space="preserve">
+    <value>Nhân viên</value>
+  </data>
+  <data name="POS_MANGER" xml:space="preserve">
+    <value>Quản lý</value>
+  </data>
   <data name="SIZE_L" xml:space="preserve">
     <value>L</value>
   </data>
@@ -158,5 +170,11 @@
   </data>
   <data name="SIZE_XXXL" xml:space="preserve">
     <value>XXXL</value>
+  </data>
+  <data name="WS_IN_WORK" xml:space="preserve">
+    <value>Đang làm</value>
+  </data>
+  <data name="WS_SEVERANCE" xml:space="preserve">
+    <value>Đã nghỉ</value>
   </data>
 </root>

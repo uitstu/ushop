@@ -79,6 +79,24 @@ namespace Model.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nữ.
+        /// </summary>
+        public static string GENDER_FEMALE {
+            get {
+                return ResourceManager.GetString("GENDER_FEMALE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nam.
+        /// </summary>
+        public static string GENDER_MALE {
+            get {
+                return ResourceManager.GetString("GENDER_MALE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thông báo.
         /// </summary>
         public static string INFOR_CAPTION {
@@ -133,6 +151,24 @@ namespace Model.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nhân viên.
+        /// </summary>
+        public static string POS_EMPLOYEE {
+            get {
+                return ResourceManager.GetString("POS_EMPLOYEE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quản lý.
+        /// </summary>
+        public static string POS_MANGER {
+            get {
+                return ResourceManager.GetString("POS_MANGER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to L.
         /// </summary>
         public static string SIZE_L {
@@ -183,6 +219,24 @@ namespace Model.Properties {
         public static string SIZE_XXXL {
             get {
                 return ResourceManager.GetString("SIZE_XXXL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Đang làm.
+        /// </summary>
+        public static string WS_IN_WORK {
+            get {
+                return ResourceManager.GetString("WS_IN_WORK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Đã nghỉ.
+        /// </summary>
+        public static string WS_SEVERANCE {
+            get {
+                return ResourceManager.GetString("WS_SEVERANCE", resourceCulture);
             }
         }
     }

@@ -42,12 +42,6 @@ namespace Model
     partial void InsertCUSTOMER(CUSTOMER instance);
     partial void UpdateCUSTOMER(CUSTOMER instance);
     partial void DeleteCUSTOMER(CUSTOMER instance);
-    partial void InsertEMPLOYEE(EMPLOYEE instance);
-    partial void UpdateEMPLOYEE(EMPLOYEE instance);
-    partial void DeleteEMPLOYEE(EMPLOYEE instance);
-    partial void InsertPRODUCT_SIZE(PRODUCT_SIZE instance);
-    partial void UpdatePRODUCT_SIZE(PRODUCT_SIZE instance);
-    partial void DeletePRODUCT_SIZE(PRODUCT_SIZE instance);
     partial void InsertRECEIPT_NOTE(RECEIPT_NOTE instance);
     partial void UpdateRECEIPT_NOTE(RECEIPT_NOTE instance);
     partial void DeleteRECEIPT_NOTE(RECEIPT_NOTE instance);
@@ -66,6 +60,12 @@ namespace Model
     partial void InsertINVOICE_ITEM(INVOICE_ITEM instance);
     partial void UpdateINVOICE_ITEM(INVOICE_ITEM instance);
     partial void DeleteINVOICE_ITEM(INVOICE_ITEM instance);
+    partial void InsertEMPLOYEE(EMPLOYEE instance);
+    partial void UpdateEMPLOYEE(EMPLOYEE instance);
+    partial void DeleteEMPLOYEE(EMPLOYEE instance);
+    partial void InsertPRODUCT_SIZE(PRODUCT_SIZE instance);
+    partial void UpdatePRODUCT_SIZE(PRODUCT_SIZE instance);
+    partial void DeletePRODUCT_SIZE(PRODUCT_SIZE instance);
     #endregion
 		
 		public UShopDBDataContext() : 
@@ -130,22 +130,6 @@ namespace Model
 			}
 		}
 		
-		public System.Data.Linq.Table<EMPLOYEE> EMPLOYEEs
-		{
-			get
-			{
-				return this.GetTable<EMPLOYEE>();
-			}
-		}
-		
-		public System.Data.Linq.Table<PRODUCT_SIZE> PRODUCT_SIZEs
-		{
-			get
-			{
-				return this.GetTable<PRODUCT_SIZE>();
-			}
-		}
-		
 		public System.Data.Linq.Table<RECEIPT_NOTE> RECEIPT_NOTEs
 		{
 			get
@@ -191,6 +175,22 @@ namespace Model
 			get
 			{
 				return this.GetTable<INVOICE_ITEM>();
+			}
+		}
+		
+		public System.Data.Linq.Table<EMPLOYEE> EMPLOYEEs
+		{
+			get
+			{
+				return this.GetTable<EMPLOYEE>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PRODUCT_SIZE> PRODUCT_SIZEs
+		{
+			get
+			{
+				return this.GetTable<PRODUCT_SIZE>();
 			}
 		}
 	}
@@ -926,490 +926,6 @@ namespace Model
 					this._BOUGHT_AMOUNT = value;
 					this.SendPropertyChanged("BOUGHT_AMOUNT");
 					this.OnBOUGHT_AMOUNTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECORD_STATUS", DbType="VarChar(1)")]
-		public string RECORD_STATUS
-		{
-			get
-			{
-				return this._RECORD_STATUS;
-			}
-			set
-			{
-				if ((this._RECORD_STATUS != value))
-				{
-					this.OnRECORD_STATUSChanging(value);
-					this.SendPropertyChanging();
-					this._RECORD_STATUS = value;
-					this.SendPropertyChanged("RECORD_STATUS");
-					this.OnRECORD_STATUSChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EMPLOYEE")]
-	public partial class EMPLOYEE : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _EMP_ID;
-		
-		private string _EMP_CODE;
-		
-		private string _EMP_NAME;
-		
-		private string _GENDER;
-		
-		private System.Nullable<System.DateTime> _BIRTHDAY;
-		
-		private string _ID_CARD_NO;
-		
-		private string _ADDRESS;
-		
-		private string _PHONE;
-		
-		private System.Nullable<System.DateTime> _APPROVE_DATE;
-		
-		private string _WORK_STATUS;
-		
-		private System.Nullable<System.DateTime> _SEV_DATE;
-		
-		private string _POSITION;
-		
-		private string _RECORD_STATUS;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnEMP_IDChanging(int value);
-    partial void OnEMP_IDChanged();
-    partial void OnEMP_CODEChanging(string value);
-    partial void OnEMP_CODEChanged();
-    partial void OnEMP_NAMEChanging(string value);
-    partial void OnEMP_NAMEChanged();
-    partial void OnGENDERChanging(string value);
-    partial void OnGENDERChanged();
-    partial void OnBIRTHDAYChanging(System.Nullable<System.DateTime> value);
-    partial void OnBIRTHDAYChanged();
-    partial void OnID_CARD_NOChanging(string value);
-    partial void OnID_CARD_NOChanged();
-    partial void OnADDRESSChanging(string value);
-    partial void OnADDRESSChanged();
-    partial void OnPHONEChanging(string value);
-    partial void OnPHONEChanged();
-    partial void OnAPPROVE_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnAPPROVE_DATEChanged();
-    partial void OnWORK_STATUSChanging(string value);
-    partial void OnWORK_STATUSChanged();
-    partial void OnSEV_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnSEV_DATEChanged();
-    partial void OnPOSITIONChanging(string value);
-    partial void OnPOSITIONChanged();
-    partial void OnRECORD_STATUSChanging(string value);
-    partial void OnRECORD_STATUSChanged();
-    #endregion
-		
-		public EMPLOYEE()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int EMP_ID
-		{
-			get
-			{
-				return this._EMP_ID;
-			}
-			set
-			{
-				if ((this._EMP_ID != value))
-				{
-					this.OnEMP_IDChanging(value);
-					this.SendPropertyChanging();
-					this._EMP_ID = value;
-					this.SendPropertyChanged("EMP_ID");
-					this.OnEMP_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_CODE", DbType="VarChar(15)")]
-		public string EMP_CODE
-		{
-			get
-			{
-				return this._EMP_CODE;
-			}
-			set
-			{
-				if ((this._EMP_CODE != value))
-				{
-					this.OnEMP_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._EMP_CODE = value;
-					this.SendPropertyChanged("EMP_CODE");
-					this.OnEMP_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_NAME", DbType="NVarChar(50)")]
-		public string EMP_NAME
-		{
-			get
-			{
-				return this._EMP_NAME;
-			}
-			set
-			{
-				if ((this._EMP_NAME != value))
-				{
-					this.OnEMP_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._EMP_NAME = value;
-					this.SendPropertyChanged("EMP_NAME");
-					this.OnEMP_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GENDER", DbType="NVarChar(3)")]
-		public string GENDER
-		{
-			get
-			{
-				return this._GENDER;
-			}
-			set
-			{
-				if ((this._GENDER != value))
-				{
-					this.OnGENDERChanging(value);
-					this.SendPropertyChanging();
-					this._GENDER = value;
-					this.SendPropertyChanged("GENDER");
-					this.OnGENDERChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BIRTHDAY", DbType="DateTime")]
-		public System.Nullable<System.DateTime> BIRTHDAY
-		{
-			get
-			{
-				return this._BIRTHDAY;
-			}
-			set
-			{
-				if ((this._BIRTHDAY != value))
-				{
-					this.OnBIRTHDAYChanging(value);
-					this.SendPropertyChanging();
-					this._BIRTHDAY = value;
-					this.SendPropertyChanged("BIRTHDAY");
-					this.OnBIRTHDAYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CARD_NO", DbType="VarChar(12)")]
-		public string ID_CARD_NO
-		{
-			get
-			{
-				return this._ID_CARD_NO;
-			}
-			set
-			{
-				if ((this._ID_CARD_NO != value))
-				{
-					this.OnID_CARD_NOChanging(value);
-					this.SendPropertyChanging();
-					this._ID_CARD_NO = value;
-					this.SendPropertyChanged("ID_CARD_NO");
-					this.OnID_CARD_NOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADDRESS", DbType="NVarChar(200)")]
-		public string ADDRESS
-		{
-			get
-			{
-				return this._ADDRESS;
-			}
-			set
-			{
-				if ((this._ADDRESS != value))
-				{
-					this.OnADDRESSChanging(value);
-					this.SendPropertyChanging();
-					this._ADDRESS = value;
-					this.SendPropertyChanged("ADDRESS");
-					this.OnADDRESSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PHONE", DbType="VarChar(11)")]
-		public string PHONE
-		{
-			get
-			{
-				return this._PHONE;
-			}
-			set
-			{
-				if ((this._PHONE != value))
-				{
-					this.OnPHONEChanging(value);
-					this.SendPropertyChanging();
-					this._PHONE = value;
-					this.SendPropertyChanged("PHONE");
-					this.OnPHONEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_APPROVE_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> APPROVE_DATE
-		{
-			get
-			{
-				return this._APPROVE_DATE;
-			}
-			set
-			{
-				if ((this._APPROVE_DATE != value))
-				{
-					this.OnAPPROVE_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._APPROVE_DATE = value;
-					this.SendPropertyChanged("APPROVE_DATE");
-					this.OnAPPROVE_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WORK_STATUS", DbType="NVarChar(7)")]
-		public string WORK_STATUS
-		{
-			get
-			{
-				return this._WORK_STATUS;
-			}
-			set
-			{
-				if ((this._WORK_STATUS != value))
-				{
-					this.OnWORK_STATUSChanging(value);
-					this.SendPropertyChanging();
-					this._WORK_STATUS = value;
-					this.SendPropertyChanged("WORK_STATUS");
-					this.OnWORK_STATUSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEV_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> SEV_DATE
-		{
-			get
-			{
-				return this._SEV_DATE;
-			}
-			set
-			{
-				if ((this._SEV_DATE != value))
-				{
-					this.OnSEV_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._SEV_DATE = value;
-					this.SendPropertyChanged("SEV_DATE");
-					this.OnSEV_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POSITION", DbType="NVarChar(9)")]
-		public string POSITION
-		{
-			get
-			{
-				return this._POSITION;
-			}
-			set
-			{
-				if ((this._POSITION != value))
-				{
-					this.OnPOSITIONChanging(value);
-					this.SendPropertyChanging();
-					this._POSITION = value;
-					this.SendPropertyChanged("POSITION");
-					this.OnPOSITIONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECORD_STATUS", DbType="VarChar(1)")]
-		public string RECORD_STATUS
-		{
-			get
-			{
-				return this._RECORD_STATUS;
-			}
-			set
-			{
-				if ((this._RECORD_STATUS != value))
-				{
-					this.OnRECORD_STATUSChanging(value);
-					this.SendPropertyChanging();
-					this._RECORD_STATUS = value;
-					this.SendPropertyChanged("RECORD_STATUS");
-					this.OnRECORD_STATUSChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PRODUCT_SIZE")]
-	public partial class PRODUCT_SIZE : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _PRODUCT_ID;
-		
-		private string _SIZE;
-		
-		private System.Nullable<int> _IN_STOCK_QUANTITY;
-		
-		private string _RECORD_STATUS;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnPRODUCT_IDChanging(int value);
-    partial void OnPRODUCT_IDChanged();
-    partial void OnSIZEChanging(string value);
-    partial void OnSIZEChanged();
-    partial void OnIN_STOCK_QUANTITYChanging(System.Nullable<int> value);
-    partial void OnIN_STOCK_QUANTITYChanged();
-    partial void OnRECORD_STATUSChanging(string value);
-    partial void OnRECORD_STATUSChanged();
-    #endregion
-		
-		public PRODUCT_SIZE()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRODUCT_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int PRODUCT_ID
-		{
-			get
-			{
-				return this._PRODUCT_ID;
-			}
-			set
-			{
-				if ((this._PRODUCT_ID != value))
-				{
-					this.OnPRODUCT_IDChanging(value);
-					this.SendPropertyChanging();
-					this._PRODUCT_ID = value;
-					this.SendPropertyChanged("PRODUCT_ID");
-					this.OnPRODUCT_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIZE", DbType="VarChar(3) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string SIZE
-		{
-			get
-			{
-				return this._SIZE;
-			}
-			set
-			{
-				if ((this._SIZE != value))
-				{
-					this.OnSIZEChanging(value);
-					this.SendPropertyChanging();
-					this._SIZE = value;
-					this.SendPropertyChanged("SIZE");
-					this.OnSIZEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IN_STOCK_QUANTITY", DbType="Int")]
-		public System.Nullable<int> IN_STOCK_QUANTITY
-		{
-			get
-			{
-				return this._IN_STOCK_QUANTITY;
-			}
-			set
-			{
-				if ((this._IN_STOCK_QUANTITY != value))
-				{
-					this.OnIN_STOCK_QUANTITYChanging(value);
-					this.SendPropertyChanging();
-					this._IN_STOCK_QUANTITY = value;
-					this.SendPropertyChanged("IN_STOCK_QUANTITY");
-					this.OnIN_STOCK_QUANTITYChanged();
 				}
 			}
 		}
@@ -3410,6 +2926,466 @@ namespace Model
 					this._RECORD_STATUS = value;
 					this.SendPropertyChanged("RECORD_STATUS");
 					this.OnRECORD_STATUSChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EMPLOYEE")]
+	public partial class EMPLOYEE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _EMP_ID;
+		
+		private string _EMP_CODE;
+		
+		private string _EMP_NAME;
+		
+		private string _GENDER;
+		
+		private System.Nullable<System.DateTime> _BIRTHDAY;
+		
+		private string _ID_CARD_NO;
+		
+		private string _ADDRESS;
+		
+		private string _PHONE;
+		
+		private System.Nullable<System.DateTime> _APPROVE_DATE;
+		
+		private string _WORK_STATUS;
+		
+		private System.Nullable<System.DateTime> _SEV_DATE;
+		
+		private string _POSITION;
+		
+		private string _RECORD_STATUS;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEMP_IDChanging(int value);
+    partial void OnEMP_IDChanged();
+    partial void OnEMP_CODEChanging(string value);
+    partial void OnEMP_CODEChanged();
+    partial void OnEMP_NAMEChanging(string value);
+    partial void OnEMP_NAMEChanged();
+    partial void OnGENDERChanging(string value);
+    partial void OnGENDERChanged();
+    partial void OnBIRTHDAYChanging(System.Nullable<System.DateTime> value);
+    partial void OnBIRTHDAYChanged();
+    partial void OnID_CARD_NOChanging(string value);
+    partial void OnID_CARD_NOChanged();
+    partial void OnADDRESSChanging(string value);
+    partial void OnADDRESSChanged();
+    partial void OnPHONEChanging(string value);
+    partial void OnPHONEChanged();
+    partial void OnAPPROVE_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnAPPROVE_DATEChanged();
+    partial void OnWORK_STATUSChanging(string value);
+    partial void OnWORK_STATUSChanged();
+    partial void OnSEV_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnSEV_DATEChanged();
+    partial void OnPOSITIONChanging(string value);
+    partial void OnPOSITIONChanged();
+    partial void OnRECORD_STATUSChanging(string value);
+    partial void OnRECORD_STATUSChanged();
+    #endregion
+		
+		public EMPLOYEE()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int EMP_ID
+		{
+			get
+			{
+				return this._EMP_ID;
+			}
+			set
+			{
+				if ((this._EMP_ID != value))
+				{
+					this.OnEMP_IDChanging(value);
+					this.SendPropertyChanging();
+					this._EMP_ID = value;
+					this.SendPropertyChanged("EMP_ID");
+					this.OnEMP_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_CODE", DbType="VarChar(15)")]
+		public string EMP_CODE
+		{
+			get
+			{
+				return this._EMP_CODE;
+			}
+			set
+			{
+				if ((this._EMP_CODE != value))
+				{
+					this.OnEMP_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._EMP_CODE = value;
+					this.SendPropertyChanged("EMP_CODE");
+					this.OnEMP_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_NAME", DbType="NVarChar(50)")]
+		public string EMP_NAME
+		{
+			get
+			{
+				return this._EMP_NAME;
+			}
+			set
+			{
+				if ((this._EMP_NAME != value))
+				{
+					this.OnEMP_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._EMP_NAME = value;
+					this.SendPropertyChanged("EMP_NAME");
+					this.OnEMP_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GENDER", DbType="NVarChar(3)")]
+		public string GENDER
+		{
+			get
+			{
+				return this._GENDER;
+			}
+			set
+			{
+				if ((this._GENDER != value))
+				{
+					this.OnGENDERChanging(value);
+					this.SendPropertyChanging();
+					this._GENDER = value;
+					this.SendPropertyChanged("GENDER");
+					this.OnGENDERChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BIRTHDAY", DbType="DateTime")]
+		public System.Nullable<System.DateTime> BIRTHDAY
+		{
+			get
+			{
+				return this._BIRTHDAY;
+			}
+			set
+			{
+				if ((this._BIRTHDAY != value))
+				{
+					this.OnBIRTHDAYChanging(value);
+					this.SendPropertyChanging();
+					this._BIRTHDAY = value;
+					this.SendPropertyChanged("BIRTHDAY");
+					this.OnBIRTHDAYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_CARD_NO", DbType="VarChar(12)")]
+		public string ID_CARD_NO
+		{
+			get
+			{
+				return this._ID_CARD_NO;
+			}
+			set
+			{
+				if ((this._ID_CARD_NO != value))
+				{
+					this.OnID_CARD_NOChanging(value);
+					this.SendPropertyChanging();
+					this._ID_CARD_NO = value;
+					this.SendPropertyChanged("ID_CARD_NO");
+					this.OnID_CARD_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADDRESS", DbType="NVarChar(200)")]
+		public string ADDRESS
+		{
+			get
+			{
+				return this._ADDRESS;
+			}
+			set
+			{
+				if ((this._ADDRESS != value))
+				{
+					this.OnADDRESSChanging(value);
+					this.SendPropertyChanging();
+					this._ADDRESS = value;
+					this.SendPropertyChanged("ADDRESS");
+					this.OnADDRESSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PHONE", DbType="VarChar(11)")]
+		public string PHONE
+		{
+			get
+			{
+				return this._PHONE;
+			}
+			set
+			{
+				if ((this._PHONE != value))
+				{
+					this.OnPHONEChanging(value);
+					this.SendPropertyChanging();
+					this._PHONE = value;
+					this.SendPropertyChanged("PHONE");
+					this.OnPHONEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_APPROVE_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> APPROVE_DATE
+		{
+			get
+			{
+				return this._APPROVE_DATE;
+			}
+			set
+			{
+				if ((this._APPROVE_DATE != value))
+				{
+					this.OnAPPROVE_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._APPROVE_DATE = value;
+					this.SendPropertyChanged("APPROVE_DATE");
+					this.OnAPPROVE_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WORK_STATUS", DbType="NVarChar(20)")]
+		public string WORK_STATUS
+		{
+			get
+			{
+				return this._WORK_STATUS;
+			}
+			set
+			{
+				if ((this._WORK_STATUS != value))
+				{
+					this.OnWORK_STATUSChanging(value);
+					this.SendPropertyChanging();
+					this._WORK_STATUS = value;
+					this.SendPropertyChanged("WORK_STATUS");
+					this.OnWORK_STATUSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEV_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> SEV_DATE
+		{
+			get
+			{
+				return this._SEV_DATE;
+			}
+			set
+			{
+				if ((this._SEV_DATE != value))
+				{
+					this.OnSEV_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._SEV_DATE = value;
+					this.SendPropertyChanged("SEV_DATE");
+					this.OnSEV_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POSITION", DbType="NVarChar(20)")]
+		public string POSITION
+		{
+			get
+			{
+				return this._POSITION;
+			}
+			set
+			{
+				if ((this._POSITION != value))
+				{
+					this.OnPOSITIONChanging(value);
+					this.SendPropertyChanging();
+					this._POSITION = value;
+					this.SendPropertyChanged("POSITION");
+					this.OnPOSITIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECORD_STATUS", DbType="VarChar(1)")]
+		public string RECORD_STATUS
+		{
+			get
+			{
+				return this._RECORD_STATUS;
+			}
+			set
+			{
+				if ((this._RECORD_STATUS != value))
+				{
+					this.OnRECORD_STATUSChanging(value);
+					this.SendPropertyChanging();
+					this._RECORD_STATUS = value;
+					this.SendPropertyChanged("RECORD_STATUS");
+					this.OnRECORD_STATUSChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PRODUCT_SIZE")]
+	public partial class PRODUCT_SIZE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _PRODUCT_ID;
+		
+		private string _SIZE;
+		
+		private System.Nullable<int> _IN_STOCK_QUANTITY;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPRODUCT_IDChanging(int value);
+    partial void OnPRODUCT_IDChanged();
+    partial void OnSIZEChanging(string value);
+    partial void OnSIZEChanged();
+    partial void OnIN_STOCK_QUANTITYChanging(System.Nullable<int> value);
+    partial void OnIN_STOCK_QUANTITYChanged();
+    #endregion
+		
+		public PRODUCT_SIZE()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRODUCT_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int PRODUCT_ID
+		{
+			get
+			{
+				return this._PRODUCT_ID;
+			}
+			set
+			{
+				if ((this._PRODUCT_ID != value))
+				{
+					this.OnPRODUCT_IDChanging(value);
+					this.SendPropertyChanging();
+					this._PRODUCT_ID = value;
+					this.SendPropertyChanged("PRODUCT_ID");
+					this.OnPRODUCT_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIZE", DbType="VarChar(3) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string SIZE
+		{
+			get
+			{
+				return this._SIZE;
+			}
+			set
+			{
+				if ((this._SIZE != value))
+				{
+					this.OnSIZEChanging(value);
+					this.SendPropertyChanging();
+					this._SIZE = value;
+					this.SendPropertyChanged("SIZE");
+					this.OnSIZEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IN_STOCK_QUANTITY", DbType="Int")]
+		public System.Nullable<int> IN_STOCK_QUANTITY
+		{
+			get
+			{
+				return this._IN_STOCK_QUANTITY;
+			}
+			set
+			{
+				if ((this._IN_STOCK_QUANTITY != value))
+				{
+					this.OnIN_STOCK_QUANTITYChanging(value);
+					this.SendPropertyChanging();
+					this._IN_STOCK_QUANTITY = value;
+					this.SendPropertyChanged("IN_STOCK_QUANTITY");
+					this.OnIN_STOCK_QUANTITYChanged();
 				}
 			}
 		}

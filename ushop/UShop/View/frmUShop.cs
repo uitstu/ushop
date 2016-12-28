@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using View.Elements;
+using View.Elements.Customer;
+using View.Elements.Employee;
 using View.Elements.Invoice;
 using View.Elements.ReceiptNote;
 
@@ -101,6 +103,50 @@ namespace View
                 invoiceListForm.FormBorderStyle = FormBorderStyle.None;
                 //show
                 invoiceListForm.Show();
+            }
+        }
+
+        private void barbtnEmployee_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form empListForm = this.checkExist(typeof(frmEmployee));
+
+            if (empListForm != null)
+            {
+                empListForm.Activate();
+            }
+            else
+            {
+                //create new one
+                empListForm = new frmEmployee();
+                empListForm.MdiParent = this;
+                //set fill parent
+                empListForm.Dock = DockStyle.Fill;
+                //turn off border style
+                empListForm.FormBorderStyle = FormBorderStyle.None;
+                //show
+                empListForm.Show();
+            }
+        }
+
+        private void barbtniCustomer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form cusListForm = this.checkExist(typeof(frmCustomer));
+
+            if (cusListForm != null)
+            {
+                cusListForm.Activate();
+            }
+            else
+            {
+                //create new one
+                cusListForm = new frmCustomer();
+                cusListForm.MdiParent = this;
+                //set fill parent
+                cusListForm.Dock = DockStyle.Fill;
+                //turn off border style
+                cusListForm.FormBorderStyle = FormBorderStyle.None;
+                //show
+                cusListForm.Show();
             }
         }
     }

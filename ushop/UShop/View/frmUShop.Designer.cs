@@ -35,6 +35,7 @@
             this.btnReceiptNote = new DevExpress.XtraBars.BarButtonItem();
             this.btnPM = new DevExpress.XtraBars.BarButtonItem();
             this.barbtnInvoice = new DevExpress.XtraBars.BarButtonItem();
+            this.barbtnEmployee = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonMiniToolbar1 = new DevExpress.XtraBars.Ribbon.RibbonMiniToolbar(this.components);
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -43,7 +44,10 @@
             this.ribpagSourceManagement = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribpaggrpInvoice = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribpaggrpEmployee = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barbtniCustomer = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,10 +60,12 @@
             this.btnCategory,
             this.btnReceiptNote,
             this.btnPM,
-            this.barbtnInvoice});
+            this.barbtnInvoice,
+            this.barbtnEmployee,
+            this.barbtniCustomer});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl1.MaxItemId = 12;
+            this.ribbonControl1.MaxItemId = 14;
             this.ribbonControl1.MiniToolbars.Add(this.ribbonMiniToolbar1);
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -106,6 +112,13 @@
             this.barbtnInvoice.Name = "barbtnInvoice";
             this.barbtnInvoice.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtnInvoice_ItemClick);
             // 
+            // barbtnEmployee
+            // 
+            this.barbtnEmployee.Caption = "Nhân sự";
+            this.barbtnEmployee.Id = 12;
+            this.barbtnEmployee.Name = "barbtnEmployee";
+            this.barbtnEmployee.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtnEmployee_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -137,7 +150,9 @@
             // 
             this.ribpagSourceManagement.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup4,
-            this.ribpaggrpInvoice});
+            this.ribpaggrpInvoice,
+            this.ribpaggrpEmployee,
+            this.ribbonPageGroup5});
             this.ribpagSourceManagement.Name = "ribpagSourceManagement";
             this.ribpagSourceManagement.Text = "Quản lý nguồn hàng";
             // 
@@ -153,11 +168,30 @@
             this.ribpaggrpInvoice.Name = "ribpaggrpInvoice";
             this.ribpaggrpInvoice.Text = "Hóa đơn";
             // 
+            // ribpaggrpEmployee
+            // 
+            this.ribpaggrpEmployee.ItemLinks.Add(this.barbtnEmployee);
+            this.ribpaggrpEmployee.Name = "ribpaggrpEmployee";
+            this.ribpaggrpEmployee.Text = "Nhân sự";
+            // 
             // ribbonPageGroup3
             // 
             this.ribbonPageGroup3.ItemLinks.Add(this.btnReceiptNote);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "Phiếu nhập";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.barbtniCustomer);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "Khách hàng";
+            // 
+            // barbtniCustomer
+            // 
+            this.barbtniCustomer.Caption = "Khách hàng";
+            this.barbtniCustomer.Id = 13;
+            this.barbtniCustomer.Name = "barbtniCustomer";
+            this.barbtniCustomer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtniCustomer_ItemClick);
             // 
             // frmUShop
             // 
@@ -197,6 +231,10 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem barbtnInvoice;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribpaggrpInvoice;
+        private DevExpress.XtraBars.BarButtonItem barbtnEmployee;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribpaggrpEmployee;
+        private DevExpress.XtraBars.BarButtonItem barbtniCustomer;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
     }
 }
 
