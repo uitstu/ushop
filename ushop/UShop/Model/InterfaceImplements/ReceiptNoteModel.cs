@@ -16,7 +16,7 @@ namespace Model.InterfaceImplement
 
             foreach (RECEIPT_NOTE item in UShopDB.RECEIPT_NOTEs)
             {
-                if (item.RN_CODE.Equals(code))
+                if (item.RN_CODE!=null && item.RN_CODE.Equals(code))
                 {
                     r = item;
                     break;
@@ -28,32 +28,32 @@ namespace Model.InterfaceImplement
 
         public System.Data.DataTable loadReceiptNoteDT()
         {
-            //var result = from r in UShopDB.RECEIPT_NOTEs 
-            //             join s in UShopDB.SUPPLIERs 
-            //             on r.SUPPLIER_ID equals s.SUPPLIER_ID 
-            //             into final1 
-            //             from x in final1.DefaultIfEmpty()
+            var result = from r in UShopDB.RECEIPT_NOTEs 
+                         join s in UShopDB.SUPPLIERs 
+                         on r.SUPPLIER_ID equals s.SUPPLIER_ID 
+                         into final1 
+                         from x in final1.DefaultIfEmpty()
                          
-            //             join e in UShopDB.EMPLOYEEs
-            //             on r.PREPARER_ID equals e.EMP_ID 
-            //             into final2
-            //             from y in final2.DefaultIfEmpty()
+                         join e in UShopDB.EMPLOYEEs
+                         on r.PREPARER_ID equals e.EMP_ID 
+                         into final2
+                         from y in final2.DefaultIfEmpty()
                          
-            //             select new
-            //             {
-            //                 r.RN_ID,
-            //                 r.RN_CODE,
-            //                 r.SUPPLIER_ID,
-            //                 x.SUPPLIER_NAME,
-            //                 r.PREPARER_ID,
-            //                 y.EMP_NAME,
-            //                 r.ISSUED_DATE,
-            //                 r.ACCOUNTING_DATE,
-            //                 r.ACCOUNTED,
-            //                 r.TOTAL,
-            //                 r.NOTE,
-            //                 r.RECORD_STATUS
-            //             };
+                         select new
+                         {
+                             r.RN_ID,
+                             r.RN_CODE,
+                             r.SUPPLIER_ID,
+                             x.SUPPLIER_NAME,
+                             r.PREPARER_ID,
+                             y.EMP_NAME,
+                             r.ISSUED_DATE,
+                             r.ACCOUNTING_DATE,
+                             r.ACCOUNTED,
+                             r.TOTAL,
+                             r.NOTE,
+                             r.RECORD_STATUS
+                         };
 
             DataTable dt = new DataTable();
             dt.Columns.Add("RN_ID");
@@ -69,11 +69,11 @@ namespace Model.InterfaceImplement
             dt.Columns.Add("NOTE");
             dt.Columns.Add("RECORD_STATUS");
 
-            //foreach (var o in result.Where(o => o.RECORD_STATUS.Equals("A")))
-            //{
-            //    dt.Rows.Add(o.RN_ID,o.RN_CODE,o.SUPPLIER_ID,o.SUPPLIER_NAME,o.PREPARER_ID,o.EMP_NAME,
-            //        o.ISSUED_DATE, o.ACCOUNTING_DATE, o.ACCOUNTED, o.TOTAL, o.NOTE, o.RECORD_STATUS);
-            //}
+            foreach (var o in result.Where(o => o.RECORD_STATUS.Equals("A")))
+            {
+                dt.Rows.Add(o.RN_ID,o.RN_CODE,o.SUPPLIER_ID,o.SUPPLIER_NAME,o.PREPARER_ID,o.EMP_NAME,
+                    o.ISSUED_DATE, o.ACCOUNTING_DATE, o.ACCOUNTED, o.TOTAL, o.NOTE, o.RECORD_STATUS);
+            }
 
             return dt;
         }
@@ -189,60 +189,60 @@ namespace Model.InterfaceImplement
 
         public DataTable loadRN_ITEM(int RN_ID)
         {
-            //var result = from r in UShopDB.RECEIPT_NOTE_ITEMs
-            //             join s in UShopDB.PRODUCTs
-            //             on r.PRODUCT_ID equals s.PRODUCT_ID
-            //             into final1
-            //             from x in final1.DefaultIfEmpty()
+            var result = from r in UShopDB.RECEIPT_NOTE_ITEMs
+                         join s in UShopDB.PRODUCTs
+                         on r.PRODUCT_ID equals s.PRODUCT_ID
+                         into final1
+                         from x in final1.DefaultIfEmpty()
 
-            //             select new
-            //             {
-            //                 r.RN_ID,
-            //                 x.PRODUCT_CODE,
-            //                 x.PRODUCT_NAME,
-            //                 r.QUANTITY_STOCK_S,
-            //                 r.QUANTITY_VOUCHER_S,
-            //                 r.QUANTITY_STOCK_M,
-            //                 r.QUANTITY_VOUCHER_M,
-            //                 r.QUANTITY_STOCK_L,
-            //                 r.QUANTITY_VOUCHER_L,
-            //                 r.QUANTITY_STOCK_XL,
-            //                 r.QUANTITY_VOUCHER_XL,
-            //                 r.QUANTITY_STOCK_XXL,
-            //                 r.QUANTITY_VOUCHER_XXL,
-            //                 r.TOTAL_STOCK,
-            //                 r.TOTAL_VOUCHER,
-            //                 r.PRICE,
-            //                 r.AMOUNT,
-            //                 r.RECORD_STATUS
-            //             };
+                         select new
+                         {
+                             r.RN_ID,
+                             x.PRODUCT_CODE,
+                             x.PRODUCT_NAME,
+                             r.QUANTITY_STOCK_S,
+                             r.QUANTITY_VOUCHER_S,
+                             r.QUANTITY_STOCK_M,
+                             r.QUANTITY_VOUCHER_M,
+                             r.QUANTITY_STOCK_L,
+                             r.QUANTITY_VOUCHER_L,
+                             r.QUANTITY_STOCK_XL,
+                             r.QUANTITY_VOUCHER_XL,
+                             r.QUANTITY_STOCK_XXL,
+                             r.QUANTITY_VOUCHER_XXL,
+                             r.TOTAL_STOCK,
+                             r.TOTAL_VOUCHER,
+                             r.PRICE,
+                             r.AMOUNT,
+                             r.RECORD_STATUS
+                         };
 
             DataTable dt = new DataTable();
 
-            //dt.Columns.Add("CODE");
-            //dt.Columns.Add("NAME");
-            //dt.Columns.Add("STOCK_S");
-            //dt.Columns.Add("VOUCHER_S");
-            //dt.Columns.Add("STOCK_M");
-            //dt.Columns.Add("VOUCHER_M");
-            //dt.Columns.Add("STOCK_L");
-            //dt.Columns.Add("VOUCHER_L");
-            //dt.Columns.Add("STOCK_XL");
-            //dt.Columns.Add("VOUCHER_XL");
-            //dt.Columns.Add("STOCK_XXL");
-            //dt.Columns.Add("VOUCHER_XXL");
-            //dt.Columns.Add("STOCK_TOTAL");
-            //dt.Columns.Add("VOUCHER_TOTAL");
-            //dt.Columns.Add("PRICE");
-            //dt.Columns.Add("AMOUNT");
+            dt.Columns.Add("CODE");
+            dt.Columns.Add("NAME");
+            dt.Columns.Add("STOCK_S");
+            dt.Columns.Add("VOUCHER_S");
+            dt.Columns.Add("STOCK_M");
+            dt.Columns.Add("VOUCHER_M");
+            dt.Columns.Add("STOCK_L");
+            dt.Columns.Add("VOUCHER_L");
+            dt.Columns.Add("STOCK_XL");
+            dt.Columns.Add("VOUCHER_XL");
+            dt.Columns.Add("STOCK_XXL");
+            dt.Columns.Add("VOUCHER_XXL");
+            dt.Columns.Add("STOCK_TOTAL");
+            dt.Columns.Add("VOUCHER_TOTAL");
+            dt.Columns.Add("PRICE");
+            dt.Columns.Add("AMOUNT");
 
-            //foreach (var o in result.Where(o => o.RECORD_STATUS.Equals("A") && o.RN_ID.Equals(RN_ID)))
-            //{
-            //    dt.Rows.Add(o.PRODUCT_CODE, o.PRODUCT_NAME, o.QUANTITY_STOCK_S, o.QUANTITY_VOUCHER_S
-            //        , o.QUANTITY_STOCK_M, o.QUANTITY_VOUCHER_M, o.QUANTITY_STOCK_L, o.QUANTITY_VOUCHER_L
-            //        , o.QUANTITY_STOCK_XL, o.QUANTITY_VOUCHER_XL, o.QUANTITY_STOCK_XXL, o.QUANTITY_VOUCHER_XXL
-            //        , o.TOTAL_STOCK, o.TOTAL_VOUCHER, o.PRICE, o.AMOUNT);
-            //}
+            foreach (var o in result.Where(o => o.RECORD_STATUS.Equals("A") && o.RN_ID.Equals(RN_ID)))
+            {
+                dt.Rows.Add(o.PRODUCT_CODE, o.PRODUCT_NAME, o.QUANTITY_STOCK_S, o.QUANTITY_VOUCHER_S
+                    , o.QUANTITY_STOCK_M, o.QUANTITY_VOUCHER_M, o.QUANTITY_STOCK_L, o.QUANTITY_VOUCHER_L
+                    , o.QUANTITY_STOCK_XL, o.QUANTITY_VOUCHER_XL, o.QUANTITY_STOCK_XXL, o.QUANTITY_VOUCHER_XXL
+                    , o.TOTAL_STOCK, o.TOTAL_VOUCHER, o.PRICE, o.AMOUNT);
+            }
 
             return dt;
         }
@@ -258,36 +258,87 @@ namespace Model.InterfaceImplement
             foreach (DataRow r in dtItems.Rows)
             {
                 RECEIPT_NOTE_ITEM item = new RECEIPT_NOTE_ITEM();
-                item.RN_ID =  obj.RN_ID;
-                //item.PRODUCT_ID = Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'), 5));
-                //item.QUANTITY_STOCK_S = Int32.Parse(r[2].ToString());
-                //item.QUANTITY_VOUCHER_S = Int32.Parse(r[3].ToString());
-                //item.QUANTITY_STOCK_M = Int32.Parse(r[4].ToString());
-                //item.QUANTITY_VOUCHER_M = Int32.Parse(r[5].ToString());
-                //item.QUANTITY_STOCK_L = Int32.Parse(r[6].ToString());
-                //item.QUANTITY_VOUCHER_L = Int32.Parse(r[7].ToString());
-                //item.QUANTITY_STOCK_XL = Int32.Parse(r[8].ToString());
-                //item.QUANTITY_VOUCHER_XL = Int32.Parse(r[9].ToString());
-                //item.QUANTITY_STOCK_XXL = Int32.Parse(r[10].ToString());
-                //item.QUANTITY_VOUCHER_XXL = Int32.Parse(r[11].ToString());
+                item.RN_ID = obj.RN_ID;
+                item.PRODUCT_ID = Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'), 5));
+                item.QUANTITY_STOCK_S = Int32.Parse(r[2].ToString());
+                item.QUANTITY_VOUCHER_S = Int32.Parse(r[3].ToString());
+                item.QUANTITY_STOCK_M = Int32.Parse(r[4].ToString());
+                item.QUANTITY_VOUCHER_M = Int32.Parse(r[5].ToString());
+                item.QUANTITY_STOCK_L = Int32.Parse(r[6].ToString());
+                item.QUANTITY_VOUCHER_L = Int32.Parse(r[7].ToString());
+                item.QUANTITY_STOCK_XL = Int32.Parse(r[8].ToString());
+                item.QUANTITY_VOUCHER_XL = Int32.Parse(r[9].ToString());
+                item.QUANTITY_STOCK_XXL = Int32.Parse(r[10].ToString());
+                item.QUANTITY_VOUCHER_XXL = Int32.Parse(r[11].ToString());
 
-                //item.TOTAL_STOCK = Int32.Parse(r[12].ToString());
-                //item.TOTAL_VOUCHER = Int32.Parse(r[13].ToString());
-                //item.PRICE = Int32.Parse(r[14].ToString());
+                item.TOTAL_STOCK = Int32.Parse(r[12].ToString());
+                item.TOTAL_VOUCHER = Int32.Parse(r[13].ToString());
+                item.PRICE = Int32.Parse(r[14].ToString());
                 item.AMOUNT = Int32.Parse(r[15].ToString());
 
                 item.RECORD_STATUS = "A";
 
                 lst.Add(item);
 
-                //foreach (PRODUCT p in UShopDB.PRODUCTs.Where(o => o.PRODUCT_ID == item.PRODUCT_ID))
-                //{
-                //    p.SIZE_S += item.QUANTITY_STOCK_S;
-                //    p.SIZE_M += item.QUANTITY_STOCK_M;
-                //    p.SIZE_L += item.QUANTITY_STOCK_L;
-                //    p.SIZE_XL += item.QUANTITY_STOCK_XL;
-                //    p.SIZE_XXL += item.QUANTITY_STOCK_XXL;
-                //}
+                foreach (PRODUCT p in UShopDB.PRODUCTs.Where(o => o.PRODUCT_ID == item.PRODUCT_ID))
+                {
+                    if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("S")).Count() > 0)
+                    {
+                        UShopDB.PRODUCT_SIZEs.First().IN_STOCK_QUANTITY += item.QUANTITY_STOCK_S;
+                    }
+                    else
+                    {
+                        if (item.QUANTITY_STOCK_S > 0)
+                            UShopDB.PRODUCT_SIZEs.InsertOnSubmit(new PRODUCT_SIZE { PRODUCT_ID = p.PRODUCT_ID, SIZE = "S", IN_STOCK_QUANTITY = item.QUANTITY_STOCK_S });
+                    }
+
+                    if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("M")).Count() > 0)
+                    {
+                        UShopDB.PRODUCT_SIZEs.First().IN_STOCK_QUANTITY += item.QUANTITY_STOCK_M;
+                    }
+                    else
+                    {
+                        if (item.QUANTITY_STOCK_M > 0)
+                            UShopDB.PRODUCT_SIZEs.InsertOnSubmit(new PRODUCT_SIZE { PRODUCT_ID = p.PRODUCT_ID, SIZE = "M", IN_STOCK_QUANTITY = item.QUANTITY_STOCK_M });
+                    }
+
+                    if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("L")).Count() > 0)
+                    {
+                        UShopDB.PRODUCT_SIZEs.First().IN_STOCK_QUANTITY += item.QUANTITY_STOCK_L;
+                    }
+                    else
+                    {
+                        if (item.QUANTITY_STOCK_L > 0)
+                            UShopDB.PRODUCT_SIZEs.InsertOnSubmit(new PRODUCT_SIZE { PRODUCT_ID = p.PRODUCT_ID, SIZE = "L", IN_STOCK_QUANTITY = item.QUANTITY_STOCK_L });
+                    }
+
+                    if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XL")).Count() > 0)
+                    {
+                        UShopDB.PRODUCT_SIZEs.First().IN_STOCK_QUANTITY += item.QUANTITY_STOCK_XL;
+                    }
+                    else
+                    {
+                        if (item.QUANTITY_STOCK_XL > 0)
+                            UShopDB.PRODUCT_SIZEs.InsertOnSubmit(new PRODUCT_SIZE { PRODUCT_ID = p.PRODUCT_ID, SIZE = "XL", IN_STOCK_QUANTITY = item.QUANTITY_STOCK_XL });
+                    }
+
+                    if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XXL")).Count() > 0)
+                    {
+                        UShopDB.PRODUCT_SIZEs.First().IN_STOCK_QUANTITY += item.QUANTITY_STOCK_XXL;
+                    }
+                    else
+                    {
+                        if (item.QUANTITY_STOCK_XXL>0)
+                            UShopDB.PRODUCT_SIZEs.InsertOnSubmit(new PRODUCT_SIZE { PRODUCT_ID = p.PRODUCT_ID, SIZE = "XXL", IN_STOCK_QUANTITY = item.QUANTITY_STOCK_XXL });
+                    }
+                    /*
+                    p.SIZE_S += item.QUANTITY_STOCK_S;
+                    p.SIZE_M += item.QUANTITY_STOCK_M;
+                    p.SIZE_L += item.QUANTITY_STOCK_L;
+                    p.SIZE_XL += item.QUANTITY_STOCK_XL;
+                    p.SIZE_XXL += item.QUANTITY_STOCK_XXL;
+                     * */
+                }
             }
 
             UShopDB.RECEIPT_NOTE_ITEMs.InsertAllOnSubmit(lst);
@@ -357,28 +408,29 @@ namespace Model.InterfaceImplement
 
                 if (!isFounded)
                 {
-                    //RECEIPT_NOTE_ITEM re_i = new RECEIPT_NOTE_ITEM();
+                    RECEIPT_NOTE_ITEM re_i = new RECEIPT_NOTE_ITEM();
 
-                    //re_i.RN_ID = obj.RN_ID;
-                    //re_i.PRODUCT_ID = getProductByCODE(r[0].ToString()).PRODUCT_ID; 
-                    //re_i.QUANTITY_STOCK_S = Int32.Parse(r[2].ToString());
+                    re_i.RN_ID = obj.RN_ID;
+                    re_i.PRODUCT_ID = getProductByCODE(r[0].ToString()).PRODUCT_ID; 
+                    re_i.QUANTITY_STOCK_S = Int32.Parse(r[2].ToString());
 
-                    //re_i.QUANTITY_VOUCHER_S = Int32.Parse(r[3].ToString());
+                    re_i.QUANTITY_VOUCHER_S = Int32.Parse(r[3].ToString());
 
-                    //re_i.QUANTITY_STOCK_M = Int32.Parse(r[4].ToString());
-                    //re_i.QUANTITY_VOUCHER_M = Int32.Parse(r[5].ToString());
-                    //re_i.QUANTITY_STOCK_L = Int32.Parse(r[6].ToString());
-                    //re_i.QUANTITY_VOUCHER_L = Int32.Parse(r[7].ToString());
-                    //re_i.QUANTITY_STOCK_XL = Int32.Parse(r[8].ToString());
-                    //re_i.QUANTITY_VOUCHER_XL = Int32.Parse(r[9].ToString());
-                    //re_i.QUANTITY_STOCK_XXL = Int32.Parse(r[10].ToString());
-                    //re_i.QUANTITY_VOUCHER_XXL = Int32.Parse(r[11].ToString());
-                    //re_i.TOTAL_STOCK = Int32.Parse(r[12].ToString());
-                    //re_i.TOTAL_VOUCHER = Int32.Parse(r[13].ToString());
-                    //re_i.PRICE = Int32.Parse(r[14].ToString());
-                    //re_i.AMOUNT = Int32.Parse(r[15].ToString());
+                    re_i.QUANTITY_STOCK_M = Int32.Parse(r[4].ToString());
+                    re_i.QUANTITY_VOUCHER_M = Int32.Parse(r[5].ToString());
+                    re_i.QUANTITY_STOCK_L = Int32.Parse(r[6].ToString());
+                    re_i.QUANTITY_VOUCHER_L = Int32.Parse(r[7].ToString());
+                    re_i.QUANTITY_STOCK_XL = Int32.Parse(r[8].ToString());
+                    re_i.QUANTITY_VOUCHER_XL = Int32.Parse(r[9].ToString());
+                    re_i.QUANTITY_STOCK_XXL = Int32.Parse(r[10].ToString());
+                    re_i.QUANTITY_VOUCHER_XXL = Int32.Parse(r[11].ToString());
+                    re_i.TOTAL_STOCK = Int32.Parse(r[12].ToString());
+                    re_i.TOTAL_VOUCHER = Int32.Parse(r[13].ToString());
+                    re_i.PRICE = Int32.Parse(r[14].ToString());
+                    re_i.AMOUNT = Int32.Parse(r[15].ToString());
 
-                    //lstInserted.Add(re_i);
+                    lstInserted.Add(re_i);
+                    
                 }
             }
 
@@ -407,12 +459,25 @@ namespace Model.InterfaceImplement
             {
                 foreach (PRODUCT p in UShopDB.PRODUCTs)
                 {
-                    //if (p.PRODUCT_ID.Equals(r.PRODUCT_ID) && (p.SIZE_S < r.QUANTITY_STOCK_S || p.SIZE_M < r.QUANTITY_STOCK_M
-                    //    || p.SIZE_L < r.QUANTITY_STOCK_L || p.SIZE_XL < r.QUANTITY_STOCK_XL || p.SIZE_XXL < r.QUANTITY_STOCK_XXL))
-                    //{
-                    //    strError += "\nSo luong " + p.PRODUCT_NAME + "khong du de delete.";
-                    //    break;
-                    //}
+                    int s,m,l,xl,xxl;
+                    s = m = l = xl = xxl = 0;
+                    if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("S")).Count()>0)
+                        s = UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("S")).First().IN_STOCK_QUANTITY ?? 0;
+                    if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("M")).Count() > 0)
+                        m = UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("M")).First().IN_STOCK_QUANTITY ?? 0;
+                    if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("L")).Count() > 0)
+                        l = UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("L")).First().IN_STOCK_QUANTITY ?? 0;
+                    if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XL")).Count() > 0)
+                        xl = UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XL")).First().IN_STOCK_QUANTITY ?? 0;
+                    if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XXL")).Count() > 0)
+                        xxl = UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XXL")).First().IN_STOCK_QUANTITY ?? 0;
+
+                    if (p.PRODUCT_ID.Equals(r.PRODUCT_ID) && (s < (r.QUANTITY_STOCK_S??0) || m < (r.QUANTITY_STOCK_M??0)
+                        || l < (r.QUANTITY_STOCK_L??0) || xl < (r.QUANTITY_STOCK_XL??0) || xxl < (r.QUANTITY_STOCK_XXL??0)))
+                    {
+                        strError += "\nSo luong " + p.PRODUCT_NAME + "khong du de delete.";
+                        break;
+                    }
                 }
             } 
 
@@ -436,13 +501,38 @@ namespace Model.InterfaceImplement
 
                         foreach (PRODUCT p in UShopDB.PRODUCTs)
                         {
-                            //if (p.PRODUCT_ID.Equals(i.PRODUCT_ID) && (p.SIZE_S + (sTotal - i.QUANTITY_STOCK_S) < 0
-                            //    || p.SIZE_M + (mTotal - i.QUANTITY_STOCK_M) < 0 || p.SIZE_L + (lTotal - i.QUANTITY_STOCK_L) < 0
-                            //    || p.SIZE_XL + (xlTotal - i.QUANTITY_STOCK_XL) < 0 || p.SIZE_XXL + (xxlTotal - i.QUANTITY_STOCK_XXL) < 0))
-                            //{
-                            //    strError += "\nSo luong " + p.PRODUCT_NAME + "khong du de update.";
-                            //    break;
-                            //}
+                            //
+                            int s, m, l, xl, xxl;
+                            s = m = l = xl = xxl = 0;
+                            if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("S")).Count() > 0)
+                                s = UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("S")).First().IN_STOCK_QUANTITY ?? 0;
+                            if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("M")).Count() > 0)
+                                m = UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("M")).First().IN_STOCK_QUANTITY ?? 0;
+                            if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("L")).Count() > 0)
+                                l = UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("L")).First().IN_STOCK_QUANTITY ?? 0;
+                            if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XL")).Count() > 0)
+                                xl = UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XL")).First().IN_STOCK_QUANTITY ?? 0;
+                            if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XXL")).Count() > 0)
+                                xxl = UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XXL")).First().IN_STOCK_QUANTITY ?? 0;
+                            //
+
+                            if (p.PRODUCT_ID.Equals(i.PRODUCT_ID) && (s + (sTotal - i.QUANTITY_STOCK_S) < 0
+                                || m + (mTotal - i.QUANTITY_STOCK_M) < 0 || l + (lTotal - i.QUANTITY_STOCK_L) < 0
+                                || xl + (xlTotal - i.QUANTITY_STOCK_XL) < 0 || xxl + (xxlTotal - i.QUANTITY_STOCK_XXL) < 0))
+                            {
+                                strError += "\nSo luong " + p.PRODUCT_NAME + "khong du de update.";
+                                break;
+                            }
+
+                            /*
+                            if (p.PRODUCT_ID.Equals(i.PRODUCT_ID) && (p.SIZE_S + (sTotal - i.QUANTITY_STOCK_S) < 0
+                                || p.SIZE_M + (mTotal - i.QUANTITY_STOCK_M) < 0 || p.SIZE_L + (lTotal - i.QUANTITY_STOCK_L) < 0
+                                || p.SIZE_XL + (xlTotal - i.QUANTITY_STOCK_XL) < 0 || p.SIZE_XXL + (xxlTotal - i.QUANTITY_STOCK_XXL) < 0))
+                            {
+                                strError += "\nSo luong " + p.PRODUCT_NAME + "khong du de update.";
+                                break;
+                            }
+                             * */
                         }
 
                         break;
@@ -458,7 +548,6 @@ namespace Model.InterfaceImplement
 
             if (!strError.Equals(""))
             {
-                Console.WriteLine("loi roi hixx "+strError);
                 return strError;
             }
 
@@ -478,17 +567,28 @@ namespace Model.InterfaceImplement
                 {
                     if (p.PRODUCT_ID.Equals(r.PRODUCT_ID))
                     {
-                        //p.SIZE_S -= r.QUANTITY_STOCK_S;
-                        //p.SIZE_M -= r.QUANTITY_STOCK_M;
-                        //p.SIZE_L -= r.QUANTITY_STOCK_L;
-                        //p.SIZE_XL -= r.QUANTITY_STOCK_XL;
-                        //p.SIZE_XXL -= r.QUANTITY_STOCK_XXL;
-                        //break;
+                        if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("S")).Count() > 0)
+                            UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("S")).First().IN_STOCK_QUANTITY -= r.QUANTITY_STOCK_S;
+
+                        if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("M")).Count() > 0)
+                            UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("M")).First().IN_STOCK_QUANTITY -= r.QUANTITY_STOCK_M;
+
+                        if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("L")).Count() > 0)
+                            UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("L")).First().IN_STOCK_QUANTITY -= r.QUANTITY_STOCK_L;
+
+                        if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XL")).Count() > 0)
+                            UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XL")).First().IN_STOCK_QUANTITY -= r.QUANTITY_STOCK_XL;
+
+                        if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XXL")).Count() > 0)
+                            UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XXL")).First().IN_STOCK_QUANTITY -= r.QUANTITY_STOCK_XXL;
+
+                        break;
                     }
                 }
             }    
 
             //update
+            
             foreach (RECEIPT_NOTE_ITEM i in lstUpdated)
             {
                 foreach (DataRow r in dtItems.Rows)
@@ -497,42 +597,79 @@ namespace Model.InterfaceImplement
                     {
                         int sTotal = Int32.Parse(r[2].ToString());
                         int mTotal = Int32.Parse(r[4].ToString());
-                        int lTotal = Int32.Parse(r[6].ToString()); Console.WriteLine("lTotal aaa: "+lTotal);
+                        int lTotal = Int32.Parse(r[6].ToString()); 
                         int xlTotal = Int32.Parse(r[8].ToString());
                         int xxlTotal = Int32.Parse(r[10].ToString());
 
                         foreach (PRODUCT p in UShopDB.PRODUCTs)
                         {
-                            Console.WriteLine("chay ko du");
+                            
                             if (p.PRODUCT_ID.Equals(i.PRODUCT_ID))
                             {
-                                //p.SIZE_S += (sTotal - i.QUANTITY_STOCK_S);
-                                //p.SIZE_M += (mTotal - i.QUANTITY_STOCK_M); Console.WriteLine("QUANTITY_STOCK_L aaa: " + i.QUANTITY_STOCK_L);
-                                //p.SIZE_L += (lTotal - i.QUANTITY_STOCK_L); Console.WriteLine("Tang " + (lTotal - i.QUANTITY_STOCK_L));
-                                //p.SIZE_XL += (xlTotal - i.QUANTITY_STOCK_XL);
-                                //p.SIZE_XXL += (xxlTotal - i.QUANTITY_STOCK_XXL);
-                                //break;
+                                //
+                                if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("S")).Count() > 0)
+                                    UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("S")).First().IN_STOCK_QUANTITY += (sTotal - i.QUANTITY_STOCK_S);
+                                else
+                                {
+                                    if (sTotal>0)
+                                        UShopDB.PRODUCT_SIZEs.InsertOnSubmit(new PRODUCT_SIZE { PRODUCT_ID = p.PRODUCT_ID, SIZE = "S", IN_STOCK_QUANTITY = sTotal });
+                                }
+                                
+                                if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("M")).Count() > 0)
+                                    UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("M")).First().IN_STOCK_QUANTITY += (mTotal - i.QUANTITY_STOCK_M);
+                                else
+                                {
+                                    if (mTotal > 0)
+                                        UShopDB.PRODUCT_SIZEs.InsertOnSubmit(new PRODUCT_SIZE { PRODUCT_ID = p.PRODUCT_ID, SIZE = "M", IN_STOCK_QUANTITY = mTotal });
+                                }
+
+                                if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("L")).Count() > 0)
+                                    UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("L")).First().IN_STOCK_QUANTITY += (lTotal - i.QUANTITY_STOCK_L);
+                                else
+                                {
+                                    if (lTotal > 0)
+                                        UShopDB.PRODUCT_SIZEs.InsertOnSubmit(new PRODUCT_SIZE { PRODUCT_ID = p.PRODUCT_ID, SIZE = "L", IN_STOCK_QUANTITY = lTotal });
+                                }
+
+                                if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XL")).Count() > 0)
+                                    UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XL")).First().IN_STOCK_QUANTITY += (xlTotal - i.QUANTITY_STOCK_XL);
+                                else
+                                {
+                                    if (xlTotal > 0)
+                                        UShopDB.PRODUCT_SIZEs.InsertOnSubmit(new PRODUCT_SIZE { PRODUCT_ID = p.PRODUCT_ID, SIZE = "XL", IN_STOCK_QUANTITY = xlTotal });
+                                }
+
+                                if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XXL")).Count() > 0)
+                                    UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XXL")).First().IN_STOCK_QUANTITY += (xxlTotal - i.QUANTITY_STOCK_XXL);
+                                else
+                                {
+                                    if (xxlTotal > 0)
+                                        UShopDB.PRODUCT_SIZEs.InsertOnSubmit(new PRODUCT_SIZE { PRODUCT_ID = p.PRODUCT_ID, SIZE = "XXL", IN_STOCK_QUANTITY = xxlTotal });
+                                }
+                                //
+                                 
+                                break;
                             }
                             
                         }
 
-                        //i.RN_ID = obj.RN_ID;
-                        //i.PRODUCT_ID = getProductByCODE(r[0].ToString()).PRODUCT_ID;
-                        //i.QUANTITY_STOCK_S = Int32.Parse(r[2].ToString());
+                        i.RN_ID = obj.RN_ID;
+                        i.PRODUCT_ID = getProductByCODE(r[0].ToString()).PRODUCT_ID;
+                        i.QUANTITY_STOCK_S = Int32.Parse(r[2].ToString());
 
-                        //i.QUANTITY_VOUCHER_S = Int32.Parse(r[3].ToString());
+                        i.QUANTITY_VOUCHER_S = Int32.Parse(r[3].ToString());
 
-                        //i.QUANTITY_STOCK_M = Int32.Parse(r[4].ToString());
-                        //i.QUANTITY_VOUCHER_M = Int32.Parse(r[5].ToString());
-                        //i.QUANTITY_STOCK_L = Int32.Parse(r[6].ToString());
-                        //i.QUANTITY_VOUCHER_L = Int32.Parse(r[7].ToString());
-                        //i.QUANTITY_STOCK_XL = Int32.Parse(r[8].ToString());
-                        //i.QUANTITY_VOUCHER_XL = Int32.Parse(r[9].ToString());
-                        //i.QUANTITY_STOCK_XXL = Int32.Parse(r[10].ToString());
-                        //i.QUANTITY_VOUCHER_XXL = Int32.Parse(r[11].ToString());
-                        //i.TOTAL_STOCK = Int32.Parse(r[12].ToString());
-                        //i.TOTAL_VOUCHER = Int32.Parse(r[13].ToString());
-                        //i.PRICE = Int32.Parse(r[14].ToString());
+                        i.QUANTITY_STOCK_M = Int32.Parse(r[4].ToString());
+                        i.QUANTITY_VOUCHER_M = Int32.Parse(r[5].ToString());
+                        i.QUANTITY_STOCK_L = Int32.Parse(r[6].ToString());
+                        i.QUANTITY_VOUCHER_L = Int32.Parse(r[7].ToString());
+                        i.QUANTITY_STOCK_XL = Int32.Parse(r[8].ToString());
+                        i.QUANTITY_VOUCHER_XL = Int32.Parse(r[9].ToString());
+                        i.QUANTITY_STOCK_XXL = Int32.Parse(r[10].ToString());
+                        i.QUANTITY_VOUCHER_XXL = Int32.Parse(r[11].ToString());
+                        i.TOTAL_STOCK = Int32.Parse(r[12].ToString());
+                        i.TOTAL_VOUCHER = Int32.Parse(r[13].ToString());
+                        i.PRICE = Int32.Parse(r[14].ToString());
                         i.AMOUNT = Int32.Parse(r[15].ToString());
 
                         break;
@@ -540,11 +677,12 @@ namespace Model.InterfaceImplement
                 }
 
             }
-
+            
             //insert
-
+            
             foreach (RECEIPT_NOTE_ITEM r in lstInserted)
             {
+                
                 r.RECORD_STATUS = "A";
                 UShopDB.RECEIPT_NOTE_ITEMs.InsertOnSubmit(r);
 
@@ -552,11 +690,48 @@ namespace Model.InterfaceImplement
                 {
                     if (p.PRODUCT_ID.Equals(r.PRODUCT_ID))
                     {
-                        //p.SIZE_S += r.QUANTITY_STOCK_S;
-                        //p.SIZE_M += r.QUANTITY_STOCK_M;
-                        //p.SIZE_L += r.QUANTITY_STOCK_L;
-                        //p.SIZE_XL += r.QUANTITY_STOCK_XL;
-                        //p.SIZE_XXL += r.QUANTITY_STOCK_XXL;
+                        //
+                        if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("S")).Count() > 0)
+                            UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("S")).First().IN_STOCK_QUANTITY += r.QUANTITY_STOCK_S;
+                        else
+                        {
+                            if (r.QUANTITY_STOCK_S>0)
+                                UShopDB.PRODUCT_SIZEs.InsertOnSubmit(new PRODUCT_SIZE { PRODUCT_ID = p.PRODUCT_ID, SIZE = "S", IN_STOCK_QUANTITY = r.QUANTITY_STOCK_S });
+                        }
+
+                        if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("M")).Count() > 0)
+                            UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("M")).First().IN_STOCK_QUANTITY += r.QUANTITY_STOCK_M;
+                        else
+                        {
+                            if (r.QUANTITY_STOCK_M > 0)
+                                UShopDB.PRODUCT_SIZEs.InsertOnSubmit(new PRODUCT_SIZE { PRODUCT_ID = p.PRODUCT_ID, SIZE = "M", IN_STOCK_QUANTITY = r.QUANTITY_STOCK_M });
+                        }
+
+                        if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("L")).Count() > 0)
+                            UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("L")).First().IN_STOCK_QUANTITY += r.QUANTITY_STOCK_L;
+                        else
+                        {
+                            if (r.QUANTITY_STOCK_L > 0)
+                                UShopDB.PRODUCT_SIZEs.InsertOnSubmit(new PRODUCT_SIZE { PRODUCT_ID = p.PRODUCT_ID, SIZE = "L", IN_STOCK_QUANTITY = r.QUANTITY_STOCK_L });
+                        }
+
+                        if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XL")).Count() > 0)
+                            UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XL")).First().IN_STOCK_QUANTITY += r.QUANTITY_STOCK_XL;
+                        else
+                        {
+                            if (r.QUANTITY_STOCK_XL > 0)
+                                UShopDB.PRODUCT_SIZEs.InsertOnSubmit(new PRODUCT_SIZE { PRODUCT_ID = p.PRODUCT_ID, SIZE = "XL", IN_STOCK_QUANTITY = r.QUANTITY_STOCK_XL });
+                        }
+
+                        if (UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XXL")).Count() > 0)
+                            UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID.Equals(p.PRODUCT_ID) && o.SIZE.Equals("XXL")).First().IN_STOCK_QUANTITY += r.QUANTITY_STOCK_XXL;
+                        else
+                        {
+                            if (r.QUANTITY_STOCK_XXL > 0)
+                                UShopDB.PRODUCT_SIZEs.InsertOnSubmit(new PRODUCT_SIZE { PRODUCT_ID = p.PRODUCT_ID, SIZE = "XXL", IN_STOCK_QUANTITY = r.QUANTITY_STOCK_XXL });
+                        }
+                        //
+
                     }
                     break;
                 }

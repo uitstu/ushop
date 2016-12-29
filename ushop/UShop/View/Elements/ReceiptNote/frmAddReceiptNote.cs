@@ -12,6 +12,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using View.Elements.Category;
+using View.Elements.Product;
+using View.Elements.Supplier;
 
 namespace View.Elements.ReceiptNote
 {
@@ -54,7 +57,7 @@ namespace View.Elements.ReceiptNote
             dpickIssued.Value = obj.ISSUED_DATE ?? new DateTime();
             dpickAccounting.Value = obj.ACCOUNTING_DATE ?? new DateTime();
             tboxNote.Text = obj.NOTE;
-            //tboxAccounted.Text = Convert.ToString(obj.ACCOUNTED);
+            tboxAccounted.Text = Convert.ToString(obj.ACCOUNTED);
             lbTotal.Text = Convert.ToString(obj.TOTAL);
             setSource(); 
             //cboxSupplier.Text = Convert.ToString(obj.SUPPLIER_ID);
@@ -157,7 +160,7 @@ namespace View.Elements.ReceiptNote
             {
                 //chua get data obj
                 obj.SUPPLIER_ID = Int32.Parse(cboxSupplier.Text.Substring(cboxSupplier.Text.IndexOf('0'), 5));
-                //obj.ACCOUNTED = Int32.Parse(tboxAccounted.Text);
+                obj.ACCOUNTED = Int32.Parse(tboxAccounted.Text);
                 obj.TOTAL = Int32.Parse(lbTotal.Text);
                 obj.ISSUED_DATE = dpickIssued.Value;
                 obj.ACCOUNTING_DATE = dpickAccounting.Value;
@@ -184,12 +187,12 @@ namespace View.Elements.ReceiptNote
             }
             receipt_note.SUPPLIER_ID = Int32.Parse(cboxSupplier.Text.Substring(cboxSupplier.Text.IndexOf('0'), cboxSupplier.Text.IndexOf(' ') - cboxSupplier.Text.IndexOf('0')));
 
-            //receipt_note.ACCOUNTED = Int32.Parse(tboxAccounted.Text);
-            receipt_note.ISSUED_DATE = DateTime.Parse(dpickIssued.Text);
-            receipt_note.ACCOUNTING_DATE = DateTime.Parse(dpickAccounting.Text);
+            receipt_note.ACCOUNTED = Int32.Parse(tboxAccounted.Text);
+            receipt_note.ISSUED_DATE = dpickIssued.Value;
+            receipt_note.ACCOUNTING_DATE = dpickAccounting.Value;
             receipt_note.NOTE = tboxNote.Text;
 
-            //receipt_note.PREPARER_ID = 1;
+            receipt_note.PREPARER_ID = 1;
             receipt_note.RECORD_STATUS = "A";
             //receipt_note.RN_CODE = "aaaa";
             receipt_note.TOTAL = float.Parse(lbTotal.Text);
@@ -203,23 +206,27 @@ namespace View.Elements.ReceiptNote
 
         public void setSource()
         {
+            try
+            {
+                cboxSupplier.Properties.Items.Clear();
+                cboxProduct.Properties.Items.Clear();
+            }
+            catch
+            { }
+
             dpickAccounting.MinDate = dpickIssued.Value;
 
             //
-
             List<string> lst = new List<string>();
-            //DataRow a = preReceiptNote.loadSupplierDT().Rows[0];
             foreach (DataRow d in preReceiptNote.loadSupplierDT(false).Rows)
             {
                 lst.Add(d[0].ToString() + " - " + d[1].ToString());
             }
             cboxSupplier.Properties.Items.AddRange(lst);
             cboxSupplier.Properties.AutoComplete = false;
-
             //
 
             lst = new List<string>();
-            //a = preReceiptNote.loadProdcutDT().Rows[0];
             foreach (DataRow d in preReceiptNote.loadProdcutDT().Rows)
             {
                 lst.Add(d[0].ToString() + " - " + d[1].ToString());
@@ -232,7 +239,6 @@ namespace View.Elements.ReceiptNote
         private void cboxSupplier_TextChanged_1(object sender, EventArgs e)
         {
             List<string> lst = new List<string>();
-            //DataRow a = preReceiptNote.loadSupplierDT().Rows[0];
             foreach (DataRow d in preReceiptNote.loadSupplierDT(false).Rows)
             {
                 if ((d[0].ToString() + " - " + d[1].ToString()).ToLower().Contains(cboxSupplier.Text.ToString().ToLower()))
@@ -254,7 +260,6 @@ namespace View.Elements.ReceiptNote
         private void cboxProduct_TextChanged(object sender, EventArgs e)
         {
             List<string> lst = new List<string>();
-            //DataRow a = preReceiptNote.loadProdcutDT().Rows[0];
             foreach (DataRow d in preReceiptNote.loadProdcutDT().Rows)
             {
                 if ((d[0].ToString() + " - " + d[1].ToString()).ToLower().Contains(cboxProduct.Text.ToString().ToLower()))
@@ -365,14 +370,15 @@ namespace View.Elements.ReceiptNote
                 GridColumn colStock = gridView1.Columns[i];
                 GridColumn colVoucher = gridView1.Columns[i+1];
 
-                int stockS = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, colStock));
-                int voucherS = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, colVoucher));
+                int stockS = Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle/*gridView1.FocusedRowHandle*/, colStock));
+                int voucherS = Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle/*gridView1.FocusedRowHandle*/, colVoucher));
 
                 if (stockS > voucherS)
                 {
                     //gridView1.SetColumnError(colStock_S, "The Voucher_S value should be less than this value.");
                     //gridView1.SetColumnError(colVoucher_S, "This value should be less than the Units In Stock value.");
                     //gridView1.SetColumnError(null, "Invalid data");
+                    //gridView1.SetColumnError(colStock, "aahi");
                     e.Valid = false;
                     e.ErrorText = "'Stock' value should be less than 'Voucher' value guy... :D";
                 }
@@ -404,8 +410,8 @@ namespace View.Elements.ReceiptNote
                 GridColumn colStock = gridView1.Columns[i];
                 GridColumn colVoucher = gridView1.Columns[i + 1];
 
-                stockTotal += Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, colStock));
-                voucherTotal += Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, colVoucher));
+                stockTotal += Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle/*gridView1.FocusedRowHandle*/, colStock));
+                voucherTotal += Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle/*gridView1.FocusedRowHandle*/, colVoucher));
             }
 
             GridColumn colStockTotal = gridView1.Columns["STOCK_TOTAL"];
@@ -418,19 +424,19 @@ namespace View.Elements.ReceiptNote
             GridColumn colPrice = gridView1.Columns["PRICE"];
 
             float price = float.Parse(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, colPrice).ToString());
-            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, colAmount, voucherTotal * price);
+            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, colAmount, (voucherTotal * price).ToString("0.##"));
 
             float totalAmount = 0;
             for (int i = 0; i < gridView1.RowCount; i++)
             {
                 totalAmount += float.Parse(gridView1.GetRowCellValue(i, colAmount).ToString());
             }
-
-            lbTotal.Text = Convert.ToString(totalAmount);
+            lbTotal.Text = totalAmount.ToString("0.##");
+            //lbTotal.Text = Convert.ToString(totalAmount);
         }
 
 
-
+        //rang buoc: chi duoc nhap so
         private void tboxAccounted_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
@@ -512,6 +518,23 @@ namespace View.Elements.ReceiptNote
             preCategory.deleteCategory(gridView.GetFocusedRowCellValue("CATEGORY_ID").ToString());
              * */
         }
+
+        private void btnNewSupplier_Click(object sender, EventArgs e)
+        {
+            frmAddSupplier frmAdd = new frmAddSupplier(new SupplierPresenter());
+            frmAdd.ShowDialog();
+        }
+
+        private void btnNewProduct_Click(object sender, EventArgs e)
+        {
+            frmAddProduct frmAdd = new frmAddProduct(new ProductPresenter());
+            frmAdd.ShowDialog();
+        }
+
+        private void frmAddReceiptNote_Activated(object sender, EventArgs e)
+        {
+            setSource();
+        } 
     }
 
     //data input: https://documentation.devexpress.com/#WindowsForms/CustomDocument114741

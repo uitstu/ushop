@@ -15,6 +15,7 @@ namespace Presenter.InterfaceImplement
         private ICategoryView _view;
 
         public CategoryPresenter()
+            : this(null, new CategoryModel())
         { 
         }
 
@@ -37,7 +38,8 @@ namespace Presenter.InterfaceImplement
         public void saveCategory(CATEGORY obj)
         {
             _model.addCategory(obj);
-            _view.loadCategories(_model.loadCategory());
+            if (_view != null)
+                _view.loadCategories(_model.loadCategory());
         }
 
         public void deleteCategory(String id)
