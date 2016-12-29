@@ -46,7 +46,10 @@
     <Compile Include="Elements\CustomerPresenter.cs" />
     <Compile Include="Elements\EmployeePresenter.cs" />
     <Compile Include="Elements\InvoicePresenter.cs" />
+    <Compile Include="Elements\ProductPresenter.cs" />
+    <Compile Include="Elements\ProductSizePresenter.cs" />
     <Compile Include="Elements\ReceiptNotePresenter.cs" />
+    <Compile Include="Elements\SupplierPresenter.cs" />
     <Compile Include="Interfaces\IAccountAddingView.cs" />
     <Compile Include="Interfaces\IAccoutnLoginView.cs" />
     <Compile Include="Interfaces\IAppointmentAddingView.cs" />
@@ -57,9 +60,12 @@
     <Compile Include="Interfaces\IEmployeeView.cs" />
     <Compile Include="Interfaces\IInvoiceAddingView.cs" />
     <Compile Include="Interfaces\IInvoiceView.cs" />
+    <Compile Include="Interfaces\IProductSizeView.cs" />
+    <Compile Include="Interfaces\IProductView.cs" />
     <Compile Include="Interfaces\IReceiptNoteView.cs" />
     <Compile Include="Interfaces\IAccountView.cs" />
     <Compile Include="Interfaces\ICategoryView.cs" />
+    <Compile Include="Interfaces\ISupplierView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -42,20 +42,21 @@
             this.btnProductSize = new DevExpress.XtraBars.BarButtonItem();
             this.btnSupplier = new DevExpress.XtraBars.BarButtonItem();
             this.barbtniAppointment = new DevExpress.XtraBars.BarButtonItem();
+            this.barbtniAccount = new DevExpress.XtraBars.BarButtonItem();
+            this.btnInvoice = new DevExpress.XtraBars.BarButtonItem();
+            this.btnAppointment = new DevExpress.XtraBars.BarButtonItem();
+            this.btnCustomer = new DevExpress.XtraBars.BarButtonItem();
+            this.btnChangePassword = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonMiniToolbar1 = new DevExpress.XtraBars.Ribbon.RibbonMiniToolbar(this.components);
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribpagProductManagement = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribpagSourceManagement = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribpaggrpInvoice = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribpaggrpEmployee = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barbtniAccount = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,25 +76,30 @@
             this.btnProductSize,
             this.btnSupplier,
             this.barbtniAppointment,
-            this.barbtniAccount});
+            this.barbtniAccount,
+            this.btnInvoice,
+            this.btnAppointment,
+            this.btnCustomer,
+            this.btnChangePassword,
+            this.btnLogout});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl1.MaxItemId = 19;
+            this.ribbonControl1.MaxItemId = 29;
             this.ribbonControl1.MiniToolbars.Add(this.ribbonMiniToolbar1);
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1,
             this.ribpagProductManagement,
             this.ribpagSourceManagement});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-            this.ribbonControl1.Size = new System.Drawing.Size(1155, 168);
+            this.ribbonControl1.Size = new System.Drawing.Size(990, 143);
             this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // btnProductManagement
             // 
-            this.btnProductManagement.Caption = "Quản lý Sản phẩm";
+            this.btnProductManagement.Caption = "Đổi mật khẩu";
+            this.btnProductManagement.Glyph = ((System.Drawing.Image)(resources.GetObject("btnProductManagement.Glyph")));
             this.btnProductManagement.Id = 1;
             this.btnProductManagement.Name = "btnProductManagement";
+            this.btnProductManagement.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnProductManagement.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnProductManagement_ItemClick);
             // 
             // btnCategory
@@ -127,9 +133,11 @@
             // 
             // barbtnEmployee
             // 
-            this.barbtnEmployee.Caption = "Nhân sự";
+            this.barbtnEmployee.Caption = "Nhân viên";
+            this.barbtnEmployee.Glyph = ((System.Drawing.Image)(resources.GetObject("barbtnEmployee.Glyph")));
             this.barbtnEmployee.Id = 12;
             this.barbtnEmployee.Name = "barbtnEmployee";
+            this.barbtnEmployee.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barbtnEmployee.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtnEmployee_ItemClick);
             // 
             // barbtniCustomer
@@ -172,25 +180,77 @@
             this.barbtniAppointment.Name = "barbtniAppointment";
             this.barbtniAppointment.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtniAppointment_ItemClick);
             // 
-            // ribbonPage1
+            // barbtniAccount
             // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "Chức năng";
+            this.barbtniAccount.Caption = "Tài khoản";
+            this.barbtniAccount.Glyph = ((System.Drawing.Image)(resources.GetObject("barbtniAccount.Glyph")));
+            this.barbtniAccount.Id = 18;
+            this.barbtniAccount.Name = "barbtniAccount";
+            this.barbtniAccount.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barbtniAccount.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtniAccount_ItemClick);
             // 
-            // ribbonPageGroup1
+            // btnInvoice
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnProductManagement);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "QLSP";
+            this.btnInvoice.Caption = "Hóa đơn";
+            this.btnInvoice.Glyph = ((System.Drawing.Image)(resources.GetObject("btnInvoice.Glyph")));
+            this.btnInvoice.Id = 19;
+            this.btnInvoice.Name = "btnInvoice";
+            this.btnInvoice.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnInvoice.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnInvoice_ItemClick);
+            // 
+            // btnAppointment
+            // 
+            this.btnAppointment.Caption = "Phiếu hẹn";
+            this.btnAppointment.Id = 20;
+            this.btnAppointment.ImageUri.Uri = "New";
+            this.btnAppointment.Name = "btnAppointment";
+            this.btnAppointment.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnAppointment.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAppointment_ItemClick);
+            // 
+            // btnCustomer
+            // 
+            this.btnCustomer.Caption = "Khách hàng";
+            this.btnCustomer.Glyph = ((System.Drawing.Image)(resources.GetObject("btnCustomer.Glyph")));
+            this.btnCustomer.Id = 21;
+            this.btnCustomer.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnCustomer.LargeGlyph")));
+            this.btnCustomer.Name = "btnCustomer";
+            this.btnCustomer.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnCustomer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCustomer_ItemClick);
+            // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.Caption = "Mật khẩu";
+            this.btnChangePassword.Glyph = ((System.Drawing.Image)(resources.GetObject("btnChangePassword.Glyph")));
+            this.btnChangePassword.Id = 27;
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Caption = "Đăng xuất";
+            this.btnLogout.Glyph = ((System.Drawing.Image)(resources.GetObject("btnLogout.Glyph")));
+            this.btnLogout.Id = 28;
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
             // 
             // ribpagProductManagement
             // 
             this.ribpagProductManagement.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup2});
+            this.ribbonPageGroup8,
+            this.ribbonPageGroup2,
+            this.ribbonPageGroup5});
             this.ribpagProductManagement.Name = "ribpagProductManagement";
-            this.ribpagProductManagement.Text = "Quản lý Sản phẩm";
+            this.ribpagProductManagement.Text = "Bán hàng";
+            // 
+            // ribbonPageGroup8
+            // 
+            this.ribbonPageGroup8.ItemLinks.Add(this.btnInvoice);
+            this.ribbonPageGroup8.ItemLinks.Add(this.btnCustomer);
+            this.ribbonPageGroup8.ItemLinks.Add(this.btnAppointment);
+            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.ShowCaptionButton = false;
+            this.ribbonPageGroup8.Text = "Bán hàng";
             // 
             // ribbonPageGroup2
             // 
@@ -199,19 +259,23 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.btnProductSize);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.ShowCaptionButton = false;
-            this.ribbonPageGroup2.Text = "Sản phẩm";
+            this.ribbonPageGroup2.Text = "Quản hàng";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnChangePassword);
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnLogout);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.ShowCaptionButton = false;
+            this.ribbonPageGroup5.Text = "Hệ thống";
             // 
             // ribpagSourceManagement
             // 
             this.ribpagSourceManagement.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup4,
-            this.ribpaggrpInvoice,
-            this.ribpaggrpEmployee,
-            this.ribbonPageGroup5,
-            this.ribbonPageGroup6,
-            this.ribbonPageGroup7});
+            this.ribpaggrpEmployee});
             this.ribpagSourceManagement.Name = "ribpagSourceManagement";
-            this.ribpagSourceManagement.Text = "Quản lý nguồn hàng";
+            this.ribpagSourceManagement.Text = "Quản lý";
             // 
             // ribbonPageGroup4
             // 
@@ -220,29 +284,12 @@
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "Nguồn hàng";
             // 
-            // ribpaggrpInvoice
-            // 
-            this.ribpaggrpInvoice.ItemLinks.Add(this.barbtnInvoice);
-            this.ribpaggrpInvoice.Name = "ribpaggrpInvoice";
-            this.ribpaggrpInvoice.Text = "Hóa đơn";
-            // 
             // ribpaggrpEmployee
             // 
             this.ribpaggrpEmployee.ItemLinks.Add(this.barbtnEmployee);
+            this.ribpaggrpEmployee.ItemLinks.Add(this.barbtniAccount);
             this.ribpaggrpEmployee.Name = "ribpaggrpEmployee";
             this.ribpaggrpEmployee.Text = "Nhân sự";
-            // 
-            // ribbonPageGroup5
-            // 
-            this.ribbonPageGroup5.ItemLinks.Add(this.barbtniCustomer);
-            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
-            this.ribbonPageGroup5.Text = "Khách hàng";
-            // 
-            // ribbonPageGroup6
-            // 
-            this.ribbonPageGroup6.ItemLinks.Add(this.barbtniAppointment);
-            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
-            this.ribbonPageGroup6.Text = "Phiếu hẹn";
             // 
             // ribbonPageGroup3
             // 
@@ -250,34 +297,21 @@
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "Phiếu nhập";
             // 
-            // ribbonPageGroup7
-            // 
-            this.ribbonPageGroup7.ItemLinks.Add(this.barbtniAccount);
-            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
-            this.ribbonPageGroup7.Text = "Tài khoản";
-            // 
-            // barbtniAccount
-            // 
-            this.barbtniAccount.Caption = "Tài khoản";
-            this.barbtniAccount.Id = 18;
-            this.barbtniAccount.Name = "barbtniAccount";
-            this.barbtniAccount.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtniAccount_ItemClick);
-            // 
             // frmUShop
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 775);
+            this.ClientSize = new System.Drawing.Size(990, 630);
             this.Controls.Add(this.ribbonControl1);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmUShop";
             this.Ribbon = this.ribbonControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UShop";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmUShop_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmUShop_FormClosed);
+            this.Load += new System.EventHandler(this.frmUShop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -287,8 +321,6 @@
         #endregion
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem btnProductManagement;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribpagProductManagement;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
@@ -300,17 +332,20 @@
         private DevExpress.XtraBars.BarButtonItem btnPM;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem barbtnInvoice;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribpaggrpInvoice;
         private DevExpress.XtraBars.BarButtonItem barbtnEmployee;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribpaggrpEmployee;
         private DevExpress.XtraBars.BarButtonItem barbtniCustomer;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.BarButtonItem btnProduct;
         private DevExpress.XtraBars.BarButtonItem btnProductSize;
         private DevExpress.XtraBars.BarButtonItem btnSupplier;
         private DevExpress.XtraBars.BarButtonItem barbtniAppointment;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.BarButtonItem barbtniAccount;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
+        private DevExpress.XtraBars.BarButtonItem btnInvoice;
+        private DevExpress.XtraBars.BarButtonItem btnAppointment;
+        private DevExpress.XtraBars.BarButtonItem btnCustomer;
+        private DevExpress.XtraBars.BarButtonItem btnChangePassword;
+        private DevExpress.XtraBars.BarButtonItem btnLogout;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
     }
 }

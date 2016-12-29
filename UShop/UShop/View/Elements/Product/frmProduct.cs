@@ -92,13 +92,20 @@ namespace View.Elements.Product
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmAddProduct frmAdd = new frmAddProduct(preProduct);
-            frmAdd.ShowDialog();
+            //frmAddProduct frmAdd = new frmAddProduct(preProduct);
+            //frmAdd.ShowDialog();
+            frmAddProduct frmAdd = new frmAddProduct(preProduct,this);
+            frmAdd.WindowState = FormWindowState.Maximized;
+            frmAdd.FormBorderStyle = FormBorderStyle.None;
+            frmAdd.MdiParent = this.MdiParent;
+            frmAdd.Dock = DockStyle.Fill;
+            frmAdd.Show();
         }
 
         private void frmProduct_Activated(object sender, EventArgs e)
         {
             preProduct.loadProductList();
+            this.WindowState = FormWindowState.Maximized;
         }
 
     }

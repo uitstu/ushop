@@ -15,6 +15,7 @@ namespace View.Elements.Product
 {
     public partial class frmAddProduct : Form
     {
+        Form beforeForm;
         private ProductPresenter preProduct;
         private Model.PRODUCT obj;
 
@@ -25,6 +26,14 @@ namespace View.Elements.Product
         public frmAddProduct(ProductPresenter preProduct)
         {
             this.preProduct = preProduct;
+            InitializeComponent();
+            setSource();
+        }
+
+        public frmAddProduct(ProductPresenter preProduct, Form beforeForm)
+        {
+            this.preProduct = preProduct;
+            this.beforeForm = beforeForm;
             InitializeComponent();
             setSource();
         }
@@ -156,13 +165,27 @@ namespace View.Elements.Product
 
         private void btnNewCategory_Click(object sender, EventArgs e)
         {
-            frmAddCategory frmAdd = new frmAddCategory(new CategoryPresenter());
-            frmAdd.ShowDialog();
+            //frmAddCategory frmAdd = new frmAddCategory(new CategoryPresenter());
+            //frmAdd.ShowDialog();
+            Form frmAdd = new frmAddCategory(new CategoryPresenter(), this);
+            frmAdd.WindowState = FormWindowState.Maximized;
+            frmAdd.FormBorderStyle = FormBorderStyle.None;
+            frmAdd.MdiParent = this.MdiParent;
+            frmAdd.Dock = DockStyle.Fill;
+            frmAdd.Show();
         }
 
         private void frmAddProduct_Activated(object sender, EventArgs e)
         {
             setSource();
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void btnBack_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //this.WindowState = FormWindowState.Minimized;
+            this.beforeForm.WindowState = FormWindowState.Maximized;
+            this.beforeForm.Activate();
         }
     }
 }

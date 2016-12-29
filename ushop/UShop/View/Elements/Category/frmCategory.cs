@@ -1,6 +1,5 @@
 ﻿using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
-using Model;
 using Presenter.Interface;
 using Presenter.InterfaceImplement;
 using System;
@@ -48,8 +47,14 @@ namespace View.Elements
 
         private void btnCategoryAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmAddCategory frmAdd = new frmAddCategory(preCategory);
-            frmAdd.ShowDialog();
+            //frmAddCategory frmAdd = new frmAddCategory(preCategory);
+            //frmAdd.ShowDialog();
+            Form frmAdd = new frmAddCategory(preCategory, this);
+            frmAdd.WindowState = FormWindowState.Maximized;
+            frmAdd.FormBorderStyle = FormBorderStyle.None;
+            frmAdd.MdiParent = this.MdiParent;
+            frmAdd.Dock = DockStyle.Fill;
+            frmAdd.Show();
         }
 
         private void btnDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -72,7 +77,6 @@ namespace View.Elements
 
         private void btnEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-           
             GridView gridView = gridCategory.FocusedView as GridView;
             Model.CATEGORY obj = new Model.CATEGORY();
 
@@ -97,6 +101,8 @@ namespace View.Elements
         private void frmCategory_Activated(object sender, EventArgs e)
         {
             preCategory.loadCategories();
+            this.WindowState = FormWindowState.Maximized;
+
         }
 
         

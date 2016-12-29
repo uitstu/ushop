@@ -52,8 +52,13 @@ namespace View.Elements.ReceiptNote
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmAddReceiptNote frmAdd = new frmAddReceiptNote(preReceiptNote);
-            frmAdd.ShowDialog();
+            //frmAddReceiptNote frmAdd = new frmAddReceiptNote(preReceiptNote);
+            //frmAdd.ShowDialog();
+            frmAddReceiptNote frmAdd = new frmAddReceiptNote(preReceiptNote, this);
+            frmAdd.FormBorderStyle = FormBorderStyle.None;
+            frmAdd.MdiParent = this.MdiParent;
+            frmAdd.Dock = DockStyle.Fill;
+            frmAdd.Show();
         }
 
         private void btnEditReceiptNote_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -130,6 +135,12 @@ namespace View.Elements.ReceiptNote
                 gridView.Columns[9].Visible = true;
 
             } 
+        }
+
+        private void frmReceiptNote_Activated(object sender, EventArgs e)
+        {
+            preReceiptNote.loadReceiptNotes();
+            this.WindowState = FormWindowState.Maximized;
         }
     }
 }

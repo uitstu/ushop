@@ -20,6 +20,7 @@ namespace View.Elements.ReceiptNote
 {
     public partial class frmAddReceiptNote : Form
     {
+        Form beforeForm;
         private ReceiptNotePresenter preReceiptNote;
 
         private Model.RECEIPT_NOTE obj;
@@ -37,6 +38,15 @@ namespace View.Elements.ReceiptNote
         public frmAddReceiptNote(ReceiptNotePresenter preReceiptNote)
         {
             this.preReceiptNote = preReceiptNote;
+            InitializeComponent();
+
+            setSource();
+        }
+
+        public frmAddReceiptNote(ReceiptNotePresenter preReceiptNote, Form beforeForm)
+        {
+            this.preReceiptNote = preReceiptNote;
+            this.beforeForm = beforeForm;
             InitializeComponent();
 
             setSource();
@@ -521,19 +531,38 @@ namespace View.Elements.ReceiptNote
 
         private void btnNewSupplier_Click(object sender, EventArgs e)
         {
-            frmAddSupplier frmAdd = new frmAddSupplier(new SupplierPresenter());
-            frmAdd.ShowDialog();
+            //frmAddSupplier frmAdd = new frmAddSupplier(new SupplierPresenter());
+            //frmAdd.ShowDialog();
+            Form frmAdd = new frmAddSupplier(new SupplierPresenter(), this);
+            frmAdd.WindowState = FormWindowState.Maximized;
+            frmAdd.FormBorderStyle = FormBorderStyle.None;
+            frmAdd.MdiParent = this.MdiParent;
+            frmAdd.Dock = DockStyle.Fill;
+            frmAdd.Show();
         }
 
         private void btnNewProduct_Click(object sender, EventArgs e)
         {
-            frmAddProduct frmAdd = new frmAddProduct(new ProductPresenter());
-            frmAdd.ShowDialog();
+            //frmAddProduct frmAdd = new frmAddProduct(new ProductPresenter());
+            //frmAdd.ShowDialog();
+            Form frmAdd = new frmAddProduct(new ProductPresenter(), this);
+            frmAdd.WindowState = FormWindowState.Maximized;
+            frmAdd.FormBorderStyle = FormBorderStyle.None;
+            frmAdd.MdiParent = this.MdiParent;
+            frmAdd.Dock = DockStyle.Fill;
+            frmAdd.Show();
         }
 
         private void frmAddReceiptNote_Activated(object sender, EventArgs e)
         {
             setSource();
+        }
+
+        private void btnBack_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //this.WindowState = FormWindowState.Minimized;
+            beforeForm.WindowState = FormWindowState.Maximized;
+            beforeForm.Activate();
         } 
     }
 

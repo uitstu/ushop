@@ -15,6 +15,7 @@ namespace View.Elements.frmProductSize
 {
     public partial class frmAddProductSize : Form
     {
+        Form beforeForm;
         private ProductSizePresenter preProductSize;
         private Model.PRODUCT_SIZE obj;
 
@@ -25,6 +26,14 @@ namespace View.Elements.frmProductSize
         public frmAddProductSize(ProductSizePresenter preProductSize)
         {
             this.preProductSize = preProductSize;
+            InitializeComponent();
+            setSource();
+        }
+
+        public frmAddProductSize(ProductSizePresenter preProductSize, Form beforeForm)
+        {
+            this.preProductSize = preProductSize;
+            this.beforeForm = beforeForm;
             InitializeComponent();
             setSource();
         }
@@ -159,13 +168,27 @@ namespace View.Elements.frmProductSize
 
         private void btnNewProduct_Click(object sender, EventArgs e)
         {
-            frmAddProduct frmAdd = new frmAddProduct(new ProductPresenter());
-            frmAdd.ShowDialog();
+            //frmAddProduct frmAdd = new frmAddProduct(new ProductPresenter());
+            //frmAdd.ShowDialog();
+            Form frmAdd = new frmAddProduct(new ProductPresenter(), this);
+            frmAdd.WindowState = FormWindowState.Maximized;
+            frmAdd.FormBorderStyle = FormBorderStyle.None;
+            frmAdd.MdiParent = this.MdiParent;
+            frmAdd.Dock = DockStyle.Fill;
+            frmAdd.Show();
         }
 
         private void frmAddProductSize_Activated(object sender, EventArgs e)
         {
             setSource();
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void btnBack_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //this.WindowState = FormWindowState.Minimized;
+            beforeForm.WindowState = FormWindowState.Maximized;
+            beforeForm.Activate();
         }
     }
 }

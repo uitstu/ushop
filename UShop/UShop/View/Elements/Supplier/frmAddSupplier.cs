@@ -15,6 +15,7 @@ namespace View.Elements.Supplier
 {
     public partial class frmAddSupplier : Form
     {
+        Form beforeForm;
         private SupplierPresenter preSupplier;
         private Model.SUPPLIER obj;
 
@@ -24,6 +25,13 @@ namespace View.Elements.Supplier
 
         public frmAddSupplier(SupplierPresenter preSupplier)
         {
+            this.preSupplier = preSupplier;
+            InitializeComponent();
+        }
+
+        public frmAddSupplier(SupplierPresenter preSupplier, Form beforeForm)
+        {
+            this.beforeForm = beforeForm;
             this.preSupplier = preSupplier;
             InitializeComponent();
         }
@@ -66,6 +74,18 @@ namespace View.Elements.Supplier
             }
 
             Close();
+        }
+
+        private void btnBack_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //this.WindowState = FormWindowState.Minimized;
+            beforeForm.WindowState = FormWindowState.Maximized;
+            beforeForm.Activate();
+        }
+
+        private void frmAddSupplier_Activated(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
         }
 
 

@@ -48,8 +48,14 @@ namespace View.Elements
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmAddSupplier frmAdd = new frmAddSupplier(preSupplier);
-            frmAdd.ShowDialog();
+            //frmAddSupplier frmAdd = new frmAddSupplier(preSupplier);
+            //frmAdd.ShowDialog();
+            frmAddSupplier frmAdd = new frmAddSupplier(preSupplier,this);
+            frmAdd.WindowState = FormWindowState.Maximized;
+            frmAdd.FormBorderStyle = FormBorderStyle.None;
+            frmAdd.MdiParent = this.MdiParent;
+            frmAdd.Dock = DockStyle.Fill;
+            frmAdd.Show();
         }
 
         private void btnDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -85,6 +91,7 @@ namespace View.Elements
         private void frmSupplier_Activated(object sender, EventArgs e)
         {
             preSupplier.loadSuppliers();
+            this.WindowState = FormWindowState.Maximized;
         }
         
     }

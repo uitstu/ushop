@@ -278,5 +278,97 @@ namespace View
                 accListForm.Show();
             }
         }
+
+        private void btnInvoice_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!AccountPresenter.checkPermission(FORM_TYPE.INVOICE))
+            {
+                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
+                return;
+            }
+            Form invoiceListForm = this.checkExist(typeof(frmInvoice));
+
+            if (invoiceListForm != null)
+            {
+                invoiceListForm.Activate();
+            }
+            else
+            {
+                //create new one
+                invoiceListForm = new frmInvoice();
+                invoiceListForm.MdiParent = this;
+                //set fill parent
+                invoiceListForm.Dock = DockStyle.Fill;
+                //turn off border style
+                invoiceListForm.FormBorderStyle = FormBorderStyle.None;
+                //show
+                invoiceListForm.Show();
+            }
+        }
+
+        private void btnAppointment_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!AccountPresenter.checkPermission(FORM_TYPE.APPOINTMENT))
+            {
+                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
+                return;
+            }
+            Form appListForm = this.checkExist(typeof(frmAppointment));
+
+            if (appListForm != null)
+            {
+                appListForm.Activate();
+            }
+            else
+            {
+                //create new one
+                appListForm = new frmAppointment();
+                appListForm.MdiParent = this;
+                //set fill parent
+                appListForm.Dock = DockStyle.Fill;
+                //turn off border style
+                appListForm.FormBorderStyle = FormBorderStyle.None;
+                //show
+                appListForm.Show();
+            }
+        }
+
+        private void btnCustomer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!AccountPresenter.checkPermission(FORM_TYPE.CUSTOMER))
+            {
+                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
+                return;
+            }
+            Form cusListForm = this.checkExist(typeof(frmCustomer));
+
+            if (cusListForm != null)
+            {
+                cusListForm.Activate();
+            }
+            else
+            {
+                //create new one
+                cusListForm = new frmCustomer();
+                cusListForm.MdiParent = this;
+                //set fill parent
+                cusListForm.Dock = DockStyle.Fill;
+                //turn off border style
+                cusListForm.FormBorderStyle = FormBorderStyle.None;
+                //show
+                cusListForm.Show();
+            }
+        }
+
+        private void btnLogout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void frmUShop_Load(object sender, EventArgs e)
+        {
+            btnInvoice.PerformClick();
+        }
+
     }
 }

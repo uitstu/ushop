@@ -167,3 +167,7 @@ E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ja\DevExpr
 E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ru\DevExpress.Office.v15.1.Core.resources.dll
 E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.exe
 E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.pdb
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Account.frmAccount.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Account.frmAddAccount.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Appointment.frmAddAppointment.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Appointment.frmAppointment.resources

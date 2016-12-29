@@ -15,6 +15,7 @@ namespace View.Elements.Category
 {
     public partial class frmAddCategory : Form
     {
+        private Form beforeForm;
         private CategoryPresenter preCategory;
         private Model.CATEGORY obj;
 
@@ -36,6 +37,13 @@ namespace View.Elements.Category
 
             edtCategoryName.Text = obj.CATEGORY_NAME;
             edtCategoryDescription.Text = obj.DESCRIPTION;
+        }
+
+        public frmAddCategory(CategoryPresenter preCategory, Form beforeForm)
+        {
+            this.preCategory = preCategory;
+            this.beforeForm = beforeForm;
+            InitializeComponent();
         }
 
         private void btnCategorySave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -60,6 +68,19 @@ namespace View.Elements.Category
             }
 
             Close();
+        }
+
+        private void btnBack_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //Close();
+            this.beforeForm.WindowState = FormWindowState.Maximized;
+            this.beforeForm.Activate();
+            //this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void frmAddCategory_Activated(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
         }
     }
 }

@@ -59,8 +59,14 @@ namespace View.Elements.frmProductSize
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmAddProductSize frmAdd = new frmAddProductSize(preProductSize);
-            frmAdd.ShowDialog();
+            //frmAddProductSize frmAdd = new frmAddProductSize(preProductSize);
+            //frmAdd.ShowDialog();
+            frmAddProductSize frmAdd = new frmAddProductSize(preProductSize, this);
+            frmAdd.WindowState = FormWindowState.Maximized;
+            frmAdd.FormBorderStyle = FormBorderStyle.None;
+            frmAdd.MdiParent = this.MdiParent;
+            frmAdd.Dock = DockStyle.Fill;
+            frmAdd.Show();
         }
 
         //btnUpdate
@@ -98,6 +104,7 @@ namespace View.Elements.frmProductSize
         private void frmProductSize_Activated(object sender, EventArgs e)
         {
             preProductSize.loadProductSizes();
+            this.WindowState = FormWindowState.Maximized;
         }
 
     }
