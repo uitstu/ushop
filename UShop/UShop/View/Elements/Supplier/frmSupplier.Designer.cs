@@ -322,6 +322,7 @@
             this.Name = "frmSupplier";
             this.Text = "Nhà cung cấp";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.frmSupplier_Activated);
             this.Load += new System.EventHandler(this.frmSupplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).EndInit();

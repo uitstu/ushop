@@ -345,6 +345,7 @@
             this.Name = "frmProduct";
             this.Text = "frmProduct";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.frmProduct_Activated);
             this.Load += new System.EventHandler(this.frmProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProduct)).EndInit();

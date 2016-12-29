@@ -126,7 +126,7 @@ namespace View.Elements.Product
                 obj.SELLING_PRICE = Int32.Parse(tboxPrice.Text);
                 obj.COST_PRICE = Int32.Parse(tboxCost.Text);
                 obj.SALE_AMOUNT = Int32.Parse(tboxSale.Text);
-                int catID = Int32.Parse(cboxCategory.Text.Substring(cboxCategory.Text.IndexOf('0'), cboxCategory.Text.IndexOf(' ') - cboxCategory.Text.IndexOf('0')));
+                int catID = Int32.Parse(cboxCategory.Text.Substring(cboxCategory.Text.IndexOf('0'), cboxCategory.Text.IndexOf(' ') - cboxCategory.Text.IndexOf('0')+1));
                 obj.CATEGORY_ID = catID;
                 obj.UNIT = cboxGender.Text;
                 obj.PRODUCER = tboxProducer.Text;

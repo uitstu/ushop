@@ -81,6 +81,11 @@ namespace View.Elements
             frmAddSupplier frmAdd = new frmAddSupplier(preSupplier, obj);
             frmAdd.ShowDialog();
         }
+
+        private void frmSupplier_Activated(object sender, EventArgs e)
+        {
+            preSupplier.loadSuppliers();
+        }
         
     }
 }

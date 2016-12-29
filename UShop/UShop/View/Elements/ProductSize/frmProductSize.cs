@@ -95,5 +95,10 @@ namespace View.Elements.frmProductSize
             preProductSize.deleteProductSize(gridView.GetFocusedRowCellValue("PRODUCT_ID").ToString(), gridView.GetFocusedRowCellValue("SIZE").ToString());
         }
 
+        private void frmProductSize_Activated(object sender, EventArgs e)
+        {
+            preProductSize.loadProductSizes();
+        }
+
     }
 }

@@ -96,5 +96,10 @@ namespace View.Elements.Product
             frmAdd.ShowDialog();
         }
 
+        private void frmProduct_Activated(object sender, EventArgs e)
+        {
+            preProduct.loadProductList();
+        }
+
     }
 }

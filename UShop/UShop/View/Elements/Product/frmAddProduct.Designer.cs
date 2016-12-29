@@ -100,9 +100,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(331, 59);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Giới tính:";
+            this.label3.Text = "Đơn vị tính:";
             // 
             // label4
             // 
