@@ -9,11 +9,17 @@ C:\Users\Huy\Desktop\gitHDT\ushop\UShop\Model\bin\Debug\Model.pdb
 C:\Users\Huy\Desktop\gitHDT\ushop\UShop\Model\obj\Debug\Model.dll
 C:\Users\Huy\Desktop\gitHDT\ushop\UShop\Model\obj\Debug\Model.pdb
 C:\Users\Huy\Desktop\gitHDT\ushop\UShop\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
-E:\UIT\Object Oriented Development\Program\ushop\UShop\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
-E:\UIT\Object Oriented Development\Program\ushop\UShop\Model\obj\Debug\Model.dll
-E:\UIT\Object Oriented Development\Program\ushop\UShop\Model\obj\Debug\Model.pdb
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Model\bin\Debug\Model.dll.config
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Model\bin\Debug\Model.dll
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Model\bin\Debug\Model.pdb
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Model\obj\Debug\Model.Properties.Resources.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Model\obj\Debug\Model.csproj.GenerateResource.Cache
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Model\obj\Debug\Model.dll
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Model\obj\Debug\Model.pdb
 E:\UIT\Object Oriented Development\Program\ushop\UShop\Model\bin\Debug\Model.dll.config
 E:\UIT\Object Oriented Development\Program\ushop\UShop\Model\bin\Debug\Model.dll
 E:\UIT\Object Oriented Development\Program\ushop\UShop\Model\bin\Debug\Model.pdb
 E:\UIT\Object Oriented Development\Program\ushop\UShop\Model\obj\Debug\Model.Properties.Resources.resources
 E:\UIT\Object Oriented Development\Program\ushop\UShop\Model\obj\Debug\Model.csproj.GenerateResource.Cache
+E:\UIT\Object Oriented Development\Program\ushop\UShop\Model\obj\Debug\Model.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\Model\obj\Debug\Model.pdb

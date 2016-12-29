@@ -94,6 +94,11 @@ namespace View.Elements
             
         }
 
+        private void frmCategory_Activated(object sender, EventArgs e)
+        {
+            preCategory.loadCategories();
+        }
+
         
     }
 }

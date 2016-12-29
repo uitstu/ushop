@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCategory));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -75,33 +75,29 @@
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 30);
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlTop.Size = new System.Drawing.Size(787, 0);
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlTop.Size = new System.Drawing.Size(675, 0);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 469);
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(787, 0);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 378);
+            this.barDockControlBottom.Size = new System.Drawing.Size(675, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 439);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 354);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(787, 30);
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 439);
+            this.barDockControlRight.Location = new System.Drawing.Point(675, 24);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 354);
             // 
             // barManager2
             // 
@@ -157,46 +153,40 @@
             this.barDockControl1.CausesValidation = false;
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
-            this.barDockControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControl1.Size = new System.Drawing.Size(787, 30);
+            this.barDockControl1.Size = new System.Drawing.Size(675, 24);
             // 
             // barDockControl2
             // 
             this.barDockControl2.CausesValidation = false;
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControl2.Location = new System.Drawing.Point(0, 469);
-            this.barDockControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControl2.Size = new System.Drawing.Size(787, 25);
+            this.barDockControl2.Location = new System.Drawing.Point(0, 378);
+            this.barDockControl2.Size = new System.Drawing.Size(675, 23);
             // 
             // barDockControl3
             // 
             this.barDockControl3.CausesValidation = false;
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControl3.Location = new System.Drawing.Point(0, 30);
-            this.barDockControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControl3.Size = new System.Drawing.Size(0, 439);
+            this.barDockControl3.Location = new System.Drawing.Point(0, 24);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 354);
             // 
             // barDockControl4
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(787, 30);
-            this.barDockControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControl4.Size = new System.Drawing.Size(0, 439);
+            this.barDockControl4.Location = new System.Drawing.Point(675, 24);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 354);
             // 
             // gridCategory
             // 
             this.gridCategory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridCategory.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gridCategory.Location = new System.Drawing.Point(0, 30);
+            this.gridCategory.Location = new System.Drawing.Point(0, 24);
             this.gridCategory.MainView = this.updateCategory;
-            this.gridCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridCategory.MenuManager = this.barManager1;
             this.gridCategory.Name = "gridCategory";
             this.gridCategory.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnEdit,
             this.btnDelete});
-            this.gridCategory.Size = new System.Drawing.Size(787, 439);
+            this.gridCategory.Size = new System.Drawing.Size(675, 354);
             this.gridCategory.TabIndex = 10;
             this.gridCategory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.updateCategory});
@@ -261,7 +251,7 @@
             // 
             this.btnEdit.AutoHeight = false;
             this.btnEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnEdit_ButtonClick);
@@ -281,16 +271,16 @@
             // 
             this.btnDelete.AutoHeight = false;
             this.btnDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnDelete.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnDelete.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDelete_ButtonClick);
             // 
             // frmCategory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(787, 494);
+            this.ClientSize = new System.Drawing.Size(675, 401);
             this.Controls.Add(this.gridCategory);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -300,10 +290,10 @@
             this.Controls.Add(this.barDockControl4);
             this.Controls.Add(this.barDockControl2);
             this.Controls.Add(this.barDockControl1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmCategory";
             this.Text = "frmCategory";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.frmCategory_Activated);
             this.Load += new System.EventHandler(this.frmCategory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).EndInit();

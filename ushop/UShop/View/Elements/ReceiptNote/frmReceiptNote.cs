@@ -12,12 +12,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using Microsoft.Office.Interop.Excel;
+//using app = Microsoft.Office.Interop.Excel.Application;
 
 namespace View.Elements.ReceiptNote
 {
     public partial class frmReceiptNote : Form, IReceiptNoteView
     {
         private ReceiptNotePresenter preReceiptNote;
+        private System.Data.DataTable dt;
 
         public frmReceiptNote()
         {
@@ -30,8 +33,9 @@ namespace View.Elements.ReceiptNote
             }
         }
 
-        public void loadReceiptNotesDB(DataTable dt)
+        public void loadReceiptNotesDB(System.Data.DataTable dt)
         {
+            this.dt = dt;
             gridReceiptNote.DataSource = dt;
         }
 
@@ -80,7 +84,7 @@ namespace View.Elements.ReceiptNote
             GridColumn colCode = gridView.Columns["RN_CODE"];
             String code = gridView.GetRowCellValue(gridView.FocusedRowHandle, colCode).ToString();
 
-            DataTable dtItems = new DataTable();
+            System.Data.DataTable dtItems = new System.Data.DataTable();
             dtItems.Columns.Add("CODE");
             dtItems.Columns.Add("NAME");
             dtItems.Columns.Add("STOCK_S");
@@ -105,6 +109,27 @@ namespace View.Elements.ReceiptNote
                 MessageBox.Show(strError);
             }
             preReceiptNote.loadReceiptNotesDB();
+        }
+
+        private void btnXuatDS_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.InitialDirectory = @"C:\";
+            saveFileDialog1.DefaultExt = "xlsx";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                GridView gridView = gridReceiptNote.FocusedView as GridView;
+
+                gridView.Columns[8].Visible = false;
+                gridView.Columns[9].Visible = false;
+
+                gridReceiptNote.ExportToXlsx(saveFileDialog1.FileName);
+
+                gridView.Columns[8].Visible = true;
+                gridView.Columns[9].Visible = true;
+
+            } 
         }
     }
 }

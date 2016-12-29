@@ -127,6 +127,30 @@
     <Compile Include="Elements\Invoice\frmInvoice.Designer.cs">
       <DependentUpon>frmInvoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Elements\ProductSize\frmAddProductSize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Elements\ProductSize\frmAddProductSize.Designer.cs">
+      <DependentUpon>frmAddProductSize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\ProductSize\frmProductSize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Elements\ProductSize\frmProductSize.Designer.cs">
+      <DependentUpon>frmProductSize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\Product\frmAddProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Elements\Product\frmAddProduct.Designer.cs">
+      <DependentUpon>frmAddProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\Product\frmProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Elements\Product\frmProduct.Designer.cs">
+      <DependentUpon>frmProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Elements\ReceiptNote\frmAddReceiptNote.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +162,18 @@
     </Compile>
     <Compile Include="Elements\ReceiptNote\frmReceiptNote.Designer.cs">
       <DependentUpon>frmReceiptNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\Supplier\frmAddSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Elements\Supplier\frmAddSupplier.Designer.cs">
+      <DependentUpon>frmAddSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\Supplier\frmSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Elements\Supplier\frmSupplier.Designer.cs">
+      <DependentUpon>frmSupplier.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -189,11 +225,29 @@
     <EmbeddedResource Include="Elements\Invoice\frmInvoice.resx">
       <DependentUpon>frmInvoice.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Elements\ProductSize\frmAddProductSize.resx">
+      <DependentUpon>frmAddProductSize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Elements\ProductSize\frmProductSize.resx">
+      <DependentUpon>frmProductSize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Elements\Product\frmAddProduct.resx">
+      <DependentUpon>frmAddProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Elements\Product\frmProduct.resx">
+      <DependentUpon>frmProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Elements\ReceiptNote\frmAddReceiptNote.resx">
       <DependentUpon>frmAddReceiptNote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Elements\ReceiptNote\frmReceiptNote.resx">
       <DependentUpon>frmReceiptNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Elements\Supplier\frmAddSupplier.resx">
+      <DependentUpon>frmAddSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Elements\Supplier\frmSupplier.resx">
+      <DependentUpon>frmSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

@@ -13,7 +13,9 @@ using View.Elements.Account;
 using View.Elements.Appointment;
 using View.Elements.Customer;
 using View.Elements.Employee;
+using View.Elements.frmProductSize;
 using View.Elements.Invoice;
+using View.Elements.Product;
 using View.Elements.ReceiptNote;
 
 namespace View
@@ -30,7 +32,7 @@ namespace View
            
         }
 
-        public Form checkExist(Type fType)
+        private Form checkExist(Type fType)
         {
             foreach (Form f in this.MdiChildren)
             {
@@ -177,6 +179,51 @@ namespace View
                 cusListForm.Show();
             }
         }
+        
+        private void btnProduct_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.checkExist(typeof(frmProduct));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                frmProduct f = new frmProduct();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnProductSize_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.checkExist(typeof(frmProductSize));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                frmProductSize f = new frmProductSize();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnSupplier_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.checkExist(typeof(frmSupplier));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                frmSupplier f = new frmSupplier();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
 
         private void barbtniAppointment_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -207,7 +254,7 @@ namespace View
 
         private void barbtniAccount_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(!AccountPresenter.checkPermission(FORM_TYPE.ACCOUNT))
+            if (!AccountPresenter.checkPermission(FORM_TYPE.ACCOUNT))
             {
                 MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
                 return;

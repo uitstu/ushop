@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUShop));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnProductManagement = new DevExpress.XtraBars.BarButtonItem();
             this.btnCategory = new DevExpress.XtraBars.BarButtonItem();
@@ -37,6 +38,9 @@
             this.barbtnInvoice = new DevExpress.XtraBars.BarButtonItem();
             this.barbtnEmployee = new DevExpress.XtraBars.BarButtonItem();
             this.barbtniCustomer = new DevExpress.XtraBars.BarButtonItem();
+            this.btnProduct = new DevExpress.XtraBars.BarButtonItem();
+            this.btnProductSize = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSupplier = new DevExpress.XtraBars.BarButtonItem();
             this.barbtniAppointment = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonMiniToolbar1 = new DevExpress.XtraBars.Ribbon.RibbonMiniToolbar(this.components);
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -67,11 +71,14 @@
             this.barbtnInvoice,
             this.barbtnEmployee,
             this.barbtniCustomer,
+            this.btnProduct,
+            this.btnProductSize,
+            this.btnSupplier,
             this.barbtniAppointment,
             this.barbtniAccount});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl1.MaxItemId = 16;
+            this.ribbonControl1.MaxItemId = 19;
             this.ribbonControl1.MiniToolbars.Add(this.ribbonMiniToolbar1);
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -99,7 +106,7 @@
             // 
             // btnReceiptNote
             // 
-            this.btnReceiptNote.Caption = "Phiếu nhập";
+            this.btnReceiptNote.Caption = "Phiếu nhập hàng";
             this.btnReceiptNote.Id = 9;
             this.btnReceiptNote.ImageUri.Uri = "AddItem";
             this.btnReceiptNote.Name = "btnReceiptNote";
@@ -132,10 +139,36 @@
             this.barbtniCustomer.Name = "barbtniCustomer";
             this.barbtniCustomer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtniCustomer_ItemClick);
             // 
+            // btnProduct
+            // 
+            this.btnProduct.Caption = "Sản phẩm";
+            this.btnProduct.Glyph = ((System.Drawing.Image)(resources.GetObject("btnProduct.Glyph")));
+            this.btnProduct.Id = 14;
+            this.btnProduct.Name = "btnProduct";
+            this.btnProduct.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnProduct.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnProduct_ItemClick);
+            // 
+            // btnProductSize
+            // 
+            this.btnProductSize.Caption = "Số lượng";
+            this.btnProductSize.Id = 15;
+            this.btnProductSize.ImageUri.Uri = "SendBehindText";
+            this.btnProductSize.Name = "btnProductSize";
+            this.btnProductSize.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnProductSize_ItemClick);
+            // 
+            // btnSupplier
+            // 
+            this.btnSupplier.Caption = "Nhà cung cấp";
+            this.btnSupplier.Glyph = ((System.Drawing.Image)(resources.GetObject("btnSupplier.Glyph")));
+            this.btnSupplier.Id = 16;
+            this.btnSupplier.Name = "btnSupplier";
+            this.btnSupplier.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnSupplier.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSupplier_ItemClick);
+            // 
             // barbtniAppointment
             // 
             this.barbtniAppointment.Caption = "Phiếu hẹn";
-            this.barbtniAppointment.Id = 14;
+            this.barbtniAppointment.Id = 17;
             this.barbtniAppointment.Name = "barbtniAppointment";
             this.barbtniAppointment.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtniAppointment_ItemClick);
             // 
@@ -162,9 +195,11 @@
             // ribbonPageGroup2
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.btnCategory);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnProduct);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnProductSize);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.ShowCaptionButton = false;
-            this.ribbonPageGroup2.Text = "#1";
+            this.ribbonPageGroup2.Text = "Sản phẩm";
             // 
             // ribpagSourceManagement
             // 
@@ -180,9 +215,10 @@
             // 
             // ribbonPageGroup4
             // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnSupplier);
             this.ribbonPageGroup4.ItemLinks.Add(this.btnReceiptNote);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.Text = "Phiếu nhập";
+            this.ribbonPageGroup4.Text = "Nguồn hàng";
             // 
             // ribpaggrpInvoice
             // 
@@ -223,7 +259,7 @@
             // barbtniAccount
             // 
             this.barbtniAccount.Caption = "Tài khoản";
-            this.barbtniAccount.Id = 15;
+            this.barbtniAccount.Id = 18;
             this.barbtniAccount.Name = "barbtniAccount";
             this.barbtniAccount.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtniAccount_ItemClick);
             // 
@@ -232,7 +268,7 @@
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 794);
+            this.ClientSize = new System.Drawing.Size(1155, 775);
             this.Controls.Add(this.ribbonControl1);
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -269,10 +305,12 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribpaggrpEmployee;
         private DevExpress.XtraBars.BarButtonItem barbtniCustomer;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
+        private DevExpress.XtraBars.BarButtonItem btnProduct;
+        private DevExpress.XtraBars.BarButtonItem btnProductSize;
+        private DevExpress.XtraBars.BarButtonItem btnSupplier;
         private DevExpress.XtraBars.BarButtonItem barbtniAppointment;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.BarButtonItem barbtniAccount;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
     }
 }
-
