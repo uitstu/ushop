@@ -46,6 +46,17 @@ namespace View.Elements.Category
             InitializeComponent();
         }
 
+        public frmAddCategory(CategoryPresenter preCategory, Model.CATEGORY obj, Form beforeForm)
+        {
+            this.preCategory = preCategory;
+            this.obj = obj;
+            this.beforeForm = beforeForm;
+            InitializeComponent();
+
+            edtCategoryName.Text = obj.CATEGORY_NAME;
+            edtCategoryDescription.Text = obj.DESCRIPTION;
+        }
+
         private void btnCategorySave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (obj == null)
@@ -67,7 +78,9 @@ namespace View.Elements.Category
                 preCategory.updateCategory(obj);
             }
 
-            Close();
+            this.beforeForm.WindowState = FormWindowState.Maximized;
+            this.beforeForm.Activate();
+            //Close();
         }
 
         private void btnBack_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

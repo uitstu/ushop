@@ -54,7 +54,7 @@ namespace Model.InterfaceImplement
                              r.NOTE,
                              r.RECORD_STATUS
                          };
-
+            
             DataTable dt = new DataTable();
             dt.Columns.Add("RN_ID");
             dt.Columns.Add("RN_CODE");
@@ -73,6 +73,7 @@ namespace Model.InterfaceImplement
             {
                 dt.Rows.Add(o.RN_ID,o.RN_CODE,o.SUPPLIER_ID,o.SUPPLIER_NAME,o.PREPARER_ID,o.EMP_NAME,
                     o.ISSUED_DATE, o.ACCOUNTING_DATE, o.ACCOUNTED, o.TOTAL, o.NOTE, o.RECORD_STATUS);
+
             }
 
             return dt;
@@ -102,32 +103,6 @@ namespace Model.InterfaceImplement
             }
             
         }
-
-
-        public void deleteReceiptNote(string id)
-        {
-            /*
-            Category obj = UShopDB.Categories.Where(o => o.CategoryID == Convert.ToInt32(id)).SingleOrDefault();
-            UShopDB.Categories.DeleteOnSubmit(obj);
-            UShopDB.SubmitChanges();
-             * */
-
-        }
-
-
-        public void updateReceiptNote(RECEIPT_NOTE receipt_note)
-        {
-            /*
-            Category obj = UShopDB.Categories.Where(o => o.CategoryID == Convert.ToInt32(category.CategoryID)).SingleOrDefault();
-            obj.CategoryName = category.CategoryName;
-            obj.CategoryDescription = category.CategoryDescription;
-            UShopDB.SubmitChanges();
-             * */
-        }
-
-
-
-
 
         public DataTable loadSupplierDT(bool isAll)
         {
@@ -219,8 +194,8 @@ namespace Model.InterfaceImplement
 
             DataTable dt = new DataTable();
 
-            dt.Columns.Add("CODE");
-            dt.Columns.Add("NAME");
+            dt.Columns.Add("PRODUCT_CODE");
+            dt.Columns.Add("PRODUCT_NAME");
             dt.Columns.Add("STOCK_S");
             dt.Columns.Add("VOUCHER_S");
             dt.Columns.Add("STOCK_M");
@@ -242,6 +217,7 @@ namespace Model.InterfaceImplement
                     , o.QUANTITY_STOCK_M, o.QUANTITY_VOUCHER_M, o.QUANTITY_STOCK_L, o.QUANTITY_VOUCHER_L
                     , o.QUANTITY_STOCK_XL, o.QUANTITY_VOUCHER_XL, o.QUANTITY_STOCK_XXL, o.QUANTITY_VOUCHER_XXL
                     , o.TOTAL_STOCK, o.TOTAL_VOUCHER, o.PRICE, o.AMOUNT);
+                Console.WriteLine("tete: " + o.PRODUCT_CODE);
             }
 
             return dt;
@@ -259,7 +235,7 @@ namespace Model.InterfaceImplement
             {
                 RECEIPT_NOTE_ITEM item = new RECEIPT_NOTE_ITEM();
                 item.RN_ID = obj.RN_ID;
-                item.PRODUCT_ID = Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'), 5));
+                item.PRODUCT_ID = Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'), r[0].ToString().Length - r[0].ToString().IndexOf('0')));
                 item.QUANTITY_STOCK_S = Int32.Parse(r[2].ToString());
                 item.QUANTITY_VOUCHER_S = Int32.Parse(r[3].ToString());
                 item.QUANTITY_STOCK_M = Int32.Parse(r[4].ToString());
@@ -384,7 +360,7 @@ namespace Model.InterfaceImplement
             {
                 foreach (RECEIPT_NOTE_ITEM i in UShopDB.RECEIPT_NOTE_ITEMs.Where(o => o.RN_ID.Equals(obj.RN_ID)))
                 {
-                    if (Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'),5)).Equals(i.PRODUCT_ID) && i.RN_ID.Equals(obj.RN_ID) && i.RECORD_STATUS.Equals("A"))
+                    if (Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'), r[0].ToString().Length - r[0].ToString().IndexOf('0'))).Equals(i.PRODUCT_ID) && i.RN_ID.Equals(obj.RN_ID) && i.RECORD_STATUS.Equals("A"))
                     {
                         lstUpdated.Add(i);
                         break;
@@ -399,7 +375,7 @@ namespace Model.InterfaceImplement
                 bool isFounded = false;
                 foreach (RECEIPT_NOTE_ITEM i in UShopDB.RECEIPT_NOTE_ITEMs.Where(o => o.RN_ID.Equals(obj.RN_ID)))
                 {
-                    if (Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'), 5)).Equals(i.PRODUCT_ID) && i.RECORD_STATUS.Equals("A"))
+                    if (Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'), r[0].ToString().Length - r[0].ToString().IndexOf('0'))).Equals(i.PRODUCT_ID) && i.RECORD_STATUS.Equals("A"))
                     {
                         isFounded = true;
                         break;
@@ -440,7 +416,7 @@ namespace Model.InterfaceImplement
                 bool isFounded = false;
                 foreach (DataRow r in dtItems.Rows)
                 {
-                    if (Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'),5)).Equals(i.PRODUCT_ID) && i.RN_ID.Equals(obj.RN_ID) && i.RECORD_STATUS.Equals("A"))
+                    if (Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'), r[0].ToString().Length - r[0].ToString().IndexOf('0'))).Equals(i.PRODUCT_ID) && i.RN_ID.Equals(obj.RN_ID) && i.RECORD_STATUS.Equals("A"))
                     {
                         isFounded = true;
                         break;
@@ -487,7 +463,7 @@ namespace Model.InterfaceImplement
                 //DataRow rForCheck = new DataRow();
                 foreach (DataRow r in dtItems.Rows)
                 {
-                    if (i.PRODUCT_ID.Equals(Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'), 5))))
+                    if (i.PRODUCT_ID.Equals(Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'), r[0].ToString().Length - r[0].ToString().IndexOf('0')))))
                     {
                         //rForCheck = r;
 
@@ -593,7 +569,7 @@ namespace Model.InterfaceImplement
             {
                 foreach (DataRow r in dtItems.Rows)
                 {
-                    if (i.PRODUCT_ID.Equals(Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'), 5))))
+                    if (i.PRODUCT_ID.Equals(Int32.Parse(r[0].ToString().Substring(r[0].ToString().IndexOf('0'), r[0].ToString().Length - r[0].ToString().IndexOf('0')))))
                     {
                         int sTotal = Int32.Parse(r[2].ToString());
                         int mTotal = Int32.Parse(r[4].ToString());

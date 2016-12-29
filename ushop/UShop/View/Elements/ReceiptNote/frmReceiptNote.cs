@@ -38,13 +38,13 @@ namespace View.Elements.ReceiptNote
             this.dt = dt;
             gridReceiptNote.DataSource = dt;
         }
-
+        /*
         public void loadReceiptNotes(List<Model.RECEIPT_NOTE> listObj)
         {
             gridReceiptNote.DataSource = listObj;
             
         }
-
+        */
         private void frmReceiptNote_Load(object sender, EventArgs e)
         {
             preReceiptNote.loadReceiptNotesDB();
@@ -69,8 +69,13 @@ namespace View.Elements.ReceiptNote
 
             //MessageBox.Show(preReceiptNote.getReceiptNoteByCODE(code).RN_ID+"");
 
-            frmAddReceiptNote frmAdd = new frmAddReceiptNote(preReceiptNote, preReceiptNote.getReceiptNoteByCODE(code));
-            frmAdd.ShowDialog();
+            //frmAddReceiptNote frmAdd = new frmAddReceiptNote(preReceiptNote, preReceiptNote.getReceiptNoteByCODE(code));
+            //frmAdd.ShowDialog();
+            frmAddReceiptNote frmAdd = new frmAddReceiptNote(preReceiptNote, preReceiptNote.getReceiptNoteByCODE(code), this);
+            frmAdd.FormBorderStyle = FormBorderStyle.None;
+            frmAdd.MdiParent = this.MdiParent;
+            frmAdd.Dock = DockStyle.Fill;
+            frmAdd.Show();
         }
 
         private void btnDeleteReceiptNote_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -139,7 +144,7 @@ namespace View.Elements.ReceiptNote
 
         private void frmReceiptNote_Activated(object sender, EventArgs e)
         {
-            preReceiptNote.loadReceiptNotes();
+            preReceiptNote.loadReceiptNotesDB();
             this.WindowState = FormWindowState.Maximized;
         }
     }

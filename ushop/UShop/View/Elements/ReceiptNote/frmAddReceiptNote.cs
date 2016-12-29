@@ -52,6 +52,12 @@ namespace View.Elements.ReceiptNote
             setSource();
         }
 
+        public frmAddReceiptNote(ReceiptNotePresenter preReceiptNote, Model.RECEIPT_NOTE obj, Form beforeForm)
+            : this(preReceiptNote, obj)
+        {
+            this.beforeForm = beforeForm;
+        }
+
         public frmAddReceiptNote(ReceiptNotePresenter preReceiptNote, Model.RECEIPT_NOTE obj)
         {
             this.preReceiptNote = preReceiptNote;
@@ -64,6 +70,7 @@ namespace View.Elements.ReceiptNote
             gridItems.DataSource = dtItems;
 
             cboxSupplier.Text = Convert.ToString(obj.SUPPLIER_ID);
+
             dpickIssued.Value = obj.ISSUED_DATE ?? new DateTime();
             dpickAccounting.Value = obj.ACCOUNTING_DATE ?? new DateTime();
             tboxNote.Text = obj.NOTE;
@@ -73,7 +80,7 @@ namespace View.Elements.ReceiptNote
             //cboxSupplier.Text = Convert.ToString(obj.SUPPLIER_ID);
             foreach (DataRow d in preReceiptNote.loadSupplierDT(true).Rows)
             {
-                if (Int32.Parse(d[0].ToString().Substring(d[0].ToString().IndexOf('0'), 5)) == obj.SUPPLIER_ID)
+                if (Int32.Parse(d[0].ToString().Substring(d[0].ToString().IndexOf('0'), d[0].ToString().Length - d[0].ToString().IndexOf('0'))) == obj.SUPPLIER_ID)
                 {
                     cboxSupplier.Text = d[0].ToString() + " - " + d[1].ToString();
                     break;
@@ -169,7 +176,7 @@ namespace View.Elements.ReceiptNote
             if (obj != null)
             {
                 //chua get data obj
-                obj.SUPPLIER_ID = Int32.Parse(cboxSupplier.Text.Substring(cboxSupplier.Text.IndexOf('0'), 5));
+                obj.SUPPLIER_ID = Int32.Parse(cboxSupplier.Text.Substring(cboxSupplier.Text.IndexOf('0'), cboxSupplier.Text.IndexOf(' ') - cboxSupplier.Text.IndexOf('0') + 1));
                 obj.ACCOUNTED = Int32.Parse(tboxAccounted.Text);
                 obj.TOTAL = Int32.Parse(lbTotal.Text);
                 obj.ISSUED_DATE = dpickIssued.Value;
@@ -211,7 +218,10 @@ namespace View.Elements.ReceiptNote
             preReceiptNote.add(receipt_note, dtItems);
 
             preReceiptNote.loadReceiptNotesDB();
-            Close();
+
+            beforeForm.WindowState = FormWindowState.Maximized;
+            beforeForm.Activate();
+            //Close();
         }
 
         public void setSource()
@@ -291,8 +301,8 @@ namespace View.Elements.ReceiptNote
             if (dtItems == null)
             {
                 dtItems = new DataTable();
-                dtItems.Columns.Add("CODE");
-                dtItems.Columns.Add("NAME");
+                dtItems.Columns.Add("PRODUCT_CODE");
+                dtItems.Columns.Add("PRODUCT_NAME");
                 dtItems.Columns.Add("STOCK_S");
                 dtItems.Columns.Add("VOUCHER_S");
                 dtItems.Columns.Add("STOCK_M");

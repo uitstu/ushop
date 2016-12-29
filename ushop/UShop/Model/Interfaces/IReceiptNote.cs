@@ -11,8 +11,6 @@ namespace Model.Interface
     {
         List<RECEIPT_NOTE> loadReceiptNote();
         void addReceiptNote(RECEIPT_NOTE obj);
-        void deleteReceiptNote(String id);
-        void updateReceiptNote(RECEIPT_NOTE obj);
 
         RECEIPT_NOTE getReceiptNoteByCODE(String code);
 

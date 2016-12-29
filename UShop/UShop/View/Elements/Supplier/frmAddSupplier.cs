@@ -36,6 +36,12 @@ namespace View.Elements.Supplier
             InitializeComponent();
         }
 
+        public frmAddSupplier(SupplierPresenter preSupplier, Model.SUPPLIER obj, Form beforeForm)
+            : this(preSupplier, obj)
+        {
+            this.beforeForm = beforeForm;
+        }
+
         public frmAddSupplier(SupplierPresenter preSupplier, Model.SUPPLIER obj)
         {
             this.preSupplier = preSupplier;
@@ -73,7 +79,9 @@ namespace View.Elements.Supplier
                 preSupplier.updateSupplier(obj);
             }
 
-            Close();
+            beforeForm.WindowState = FormWindowState.Maximized;
+            beforeForm.Activate();
+            //Close();
         }
 
         private void btnBack_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

@@ -84,8 +84,14 @@ namespace View.Elements
             obj.PHONE = gridView.GetFocusedRowCellValue("PHONE").ToString();
             obj.ADDRESS = gridView.GetFocusedRowCellValue("ADDRESS").ToString();
 
-            frmAddSupplier frmAdd = new frmAddSupplier(preSupplier, obj);
-            frmAdd.ShowDialog();
+            //frmAddSupplier frmAdd = new frmAddSupplier(preSupplier, obj);
+            //frmAdd.ShowDialog();
+            frmAddSupplier frmAdd = new frmAddSupplier(preSupplier, obj, this);
+            frmAdd.WindowState = FormWindowState.Maximized;
+            frmAdd.FormBorderStyle = FormBorderStyle.None;
+            frmAdd.MdiParent = this.MdiParent;
+            frmAdd.Dock = DockStyle.Fill;
+            frmAdd.Show();
         }
 
         private void frmSupplier_Activated(object sender, EventArgs e)

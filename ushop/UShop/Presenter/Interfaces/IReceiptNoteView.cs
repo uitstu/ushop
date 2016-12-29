@@ -10,7 +10,7 @@ namespace Presenter.Interface
 {
     public interface IReceiptNoteView
     {
-        void loadReceiptNotes(List<RECEIPT_NOTE> listObj);
+        //void loadReceiptNotes(List<RECEIPT_NOTE> listObj);
         //void saveCategory(Category obj);
         //void deleteCategory(String id);
 

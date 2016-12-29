@@ -84,8 +84,14 @@ namespace View.Elements
             obj.CATEGORY_NAME = gridView.GetFocusedRowCellValue("CATEGORY_NAME").ToString();
             obj.DESCRIPTION = gridView.GetFocusedRowCellValue("DESCRIPTION").ToString();
 
-            frmAddCategory frmAdd = new frmAddCategory(preCategory, obj);
-            frmAdd.ShowDialog();
+            //frmAddCategory frmAdd = new frmAddCategory(preCategory, obj);
+            //frmAdd.ShowDialog();
+            Form frmAdd = new frmAddCategory(preCategory, obj, this);
+            frmAdd.WindowState = FormWindowState.Maximized;
+            frmAdd.FormBorderStyle = FormBorderStyle.None;
+            frmAdd.MdiParent = this.MdiParent;
+            frmAdd.Dock = DockStyle.Fill;
+            frmAdd.Show();
         }
 
         private void updateCategory_FilterEditorCreated(object sender, DevExpress.XtraGrid.Views.Base.FilterControlEventArgs e)

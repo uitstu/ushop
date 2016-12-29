@@ -67,12 +67,19 @@ namespace View.Elements.Product
             obj.DESCRIPTION = gridView.GetFocusedRowCellValue("DESCRIPTION").ToString();
             obj.ORIGIN = gridView.GetFocusedRowCellValue("ORIGIN").ToString();
             obj.DESCRIPTION = gridView.GetFocusedRowCellValue("DESCRIPTION").ToString();
+            obj.PRODUCER = gridView.GetFocusedRowCellValue("PRODUCER").ToString();
 
-            frmAddProduct frmAdd = new frmAddProduct(preProduct, obj);
-            frmAdd.ShowDialog();
+            //frmAddProduct frmAdd = new frmAddProduct(preProduct, obj);
+            //frmAdd.ShowDialog();
+            frmAddProduct frmAdd = new frmAddProduct(preProduct, obj, this);
+            frmAdd.WindowState = FormWindowState.Maximized;
+            frmAdd.FormBorderStyle = FormBorderStyle.None;
+            frmAdd.MdiParent = this.MdiParent;
+            frmAdd.Dock = DockStyle.Fill;
+            frmAdd.Show();
         }
 
-        //benDelete
+        //btnDelete
         private void repositoryItemButtonEdit2_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure delete it?", "Deleting", MessageBoxButtons.YesNo);

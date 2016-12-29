@@ -32,7 +32,7 @@ namespace View.Elements.frmProductSize
             try
             {
                 gridView.ClearGrouping();
-                gridView.Columns["PRODUCT_NAME"].GroupIndex = 0;
+                gridView.Columns["PRODUCT_CODE_NAME"].GroupIndex = 0;
             }
             finally
             {
@@ -79,8 +79,14 @@ namespace View.Elements.frmProductSize
             obj.SIZE = gridView.GetFocusedRowCellValue("SIZE").ToString();
             obj.IN_STOCK_QUANTITY = Convert.ToInt32(gridView.GetFocusedRowCellValue("IN_STOCK_QUANTITY").ToString());
 
-            frmAddProductSize frmAdd = new frmAddProductSize(preProductSize, obj);
-            frmAdd.ShowDialog();
+            //frmAddProductSize frmAdd = new frmAddProductSize(preProductSize, obj);
+            //frmAdd.ShowDialog();
+            frmAddProductSize frmAdd = new frmAddProductSize(preProductSize, obj, this);
+            frmAdd.WindowState = FormWindowState.Maximized;
+            frmAdd.FormBorderStyle = FormBorderStyle.None;
+            frmAdd.MdiParent = this.MdiParent;
+            frmAdd.Dock = DockStyle.Fill;
+            frmAdd.Show();
         }
 
         //btnDelete

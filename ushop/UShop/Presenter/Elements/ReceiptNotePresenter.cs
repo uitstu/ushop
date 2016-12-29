@@ -31,12 +31,12 @@ namespace Presenter.InterfaceImplement
             _model = model;
         }
 
-
+        /*
         public void loadReceiptNotes()
         {
             _view.loadReceiptNotes(_model.loadReceiptNote());
         }
-
+        */
         public void loadReceiptNotesDB()
         {
             _view.loadReceiptNotesDB(_model.loadReceiptNoteDT());

@@ -12,13 +12,6 @@ C:\Users\Huy\Desktop\gitHDT\ushop\UShop\Presenter\bin\Debug\Model.pdb
 C:\Users\Huy\Desktop\gitHDT\ushop\UShop\Presenter\obj\Debug\Presenter.csprojResolveAssemblyReference.cache
 C:\Users\Huy\Desktop\gitHDT\ushop\UShop\Presenter\obj\Debug\Presenter.dll
 C:\Users\Huy\Desktop\gitHDT\ushop\UShop\Presenter\obj\Debug\Presenter.pdb
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Presenter\bin\Debug\Presenter.dll
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Presenter\bin\Debug\Presenter.pdb
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Presenter\bin\Debug\Model.dll
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Presenter\bin\Debug\Model.pdb
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Presenter\obj\Debug\Presenter.csprojResolveAssemblyReference.cache
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Presenter\obj\Debug\Presenter.dll
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Presenter\obj\Debug\Presenter.pdb
 E:\UIT\Object Oriented Development\Program\ushop\UShop\Presenter\obj\Debug\Presenter.csprojResolveAssemblyReference.cache
 E:\UIT\Object Oriented Development\Program\ushop\UShop\Presenter\bin\Debug\Presenter.dll
 E:\UIT\Object Oriented Development\Program\ushop\UShop\Presenter\bin\Debug\Presenter.pdb
@@ -26,3 +19,10 @@ E:\UIT\Object Oriented Development\Program\ushop\UShop\Presenter\bin\Debug\Model
 E:\UIT\Object Oriented Development\Program\ushop\UShop\Presenter\bin\Debug\Model.pdb
 E:\UIT\Object Oriented Development\Program\ushop\UShop\Presenter\obj\Debug\Presenter.dll
 E:\UIT\Object Oriented Development\Program\ushop\UShop\Presenter\obj\Debug\Presenter.pdb
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Presenter\bin\Debug\Presenter.dll
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Presenter\bin\Debug\Presenter.pdb
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Presenter\bin\Debug\Model.dll
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Presenter\bin\Debug\Model.pdb
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Presenter\obj\Debug\Presenter.csprojResolveAssemblyReference.cache
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Presenter\obj\Debug\Presenter.dll
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Presenter\obj\Debug\Presenter.pdb

@@ -38,6 +38,12 @@ namespace View.Elements.Product
             setSource();
         }
 
+        public frmAddProduct(ProductPresenter preProduct, Model.PRODUCT obj, Form beforeForm)
+            : this(preProduct, obj)
+        {
+            this.beforeForm = beforeForm;
+        }
+
         public frmAddProduct(ProductPresenter preProduct, Model.PRODUCT obj)
         {
             this.preProduct = preProduct;
@@ -77,8 +83,6 @@ namespace View.Elements.Product
                     break;
                 }
             }
-            //edtCategoryName.Text = obj.CATEGORY_NAME;
-            //edtCategoryDescription.Text = obj.DESCRIPTION;
             
         }
 
@@ -159,8 +163,10 @@ namespace View.Elements.Product
                 obj.RECORD_STATUS = "A";
                 preProduct.updateProduct(obj);
             }
-            
-            Close();
+
+            this.beforeForm.WindowState = FormWindowState.Maximized;
+            this.beforeForm.Activate();
+            //Close();
         }
 
         private void btnNewCategory_Click(object sender, EventArgs e)

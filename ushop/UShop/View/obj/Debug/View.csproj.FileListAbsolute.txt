@@ -30,36 +30,6 @@ C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\obj\Debug\View.csproj.GenerateResou
 C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\obj\Debug\View.exe.licenses
 C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\obj\Debug\View.exe
 C:\Users\Huy\Desktop\gitHDT\ushop\UShop\View\obj\Debug\View.pdb
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.exe
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.pdb
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\bin\Debug\View.exe
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\bin\Debug\View.pdb
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\bin\Debug\Model.dll
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\bin\Debug\Presenter.dll
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\bin\Debug\Model.pdb
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\bin\Debug\Presenter.pdb
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.csprojResolveAssemblyReference.cache
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Category.frmAddCategory.resources
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.frmCategory.resources
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Customer.frmAddCustomer.resources
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Customer.frmCustomer.resources
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Employee.frmAddEmployee.resources
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Employee.frmEmployee.resources
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Invoice.frmAddInvoice.resources
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Invoice.frmInvoice.resources
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.ReceiptNote.frmAddReceiptNote.resources
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.ReceiptNote.frmReceiptNote.resources
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.frmLogin.resources
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.frmUShop.resources
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Properties.Resources.resources
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.csproj.GenerateResource.Cache
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.exe.licenses
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.frmProductSize.frmAddProductSize.resources
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.frmProductSize.frmProductSize.resources
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Product.frmAddProduct.resources
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Product.frmProduct.resources
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Supplier.frmAddSupplier.resources
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.frmSupplier.resources
 E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.csprojResolveAssemblyReference.cache
 E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.Account.frmAccount.resources
 E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.Account.frmAddAccount.resources
@@ -167,7 +137,37 @@ E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ja\DevExpr
 E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ru\DevExpress.Office.v15.1.Core.resources.dll
 E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.exe
 E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.pdb
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\bin\Debug\View.exe
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\bin\Debug\View.pdb
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\bin\Debug\Model.dll
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\bin\Debug\Presenter.dll
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\bin\Debug\Model.pdb
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\bin\Debug\Presenter.pdb
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.csprojResolveAssemblyReference.cache
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Account.frmAccount.resources
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Account.frmAddAccount.resources
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Appointment.frmAddAppointment.resources
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Appointment.frmAppointment.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Category.frmAddCategory.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.frmCategory.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Customer.frmAddCustomer.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Customer.frmCustomer.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Employee.frmAddEmployee.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Employee.frmEmployee.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Invoice.frmAddInvoice.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Invoice.frmInvoice.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.frmProductSize.frmAddProductSize.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.frmProductSize.frmProductSize.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Product.frmAddProduct.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Product.frmProduct.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.ReceiptNote.frmAddReceiptNote.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.ReceiptNote.frmReceiptNote.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Supplier.frmAddSupplier.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.frmSupplier.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.frmLogin.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.frmUShop.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Properties.Resources.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.csproj.GenerateResource.Cache
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.exe.licenses
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.exe
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.pdb

@@ -38,6 +38,12 @@ namespace View.Elements.frmProductSize
             setSource();
         }
 
+        public frmAddProductSize(ProductSizePresenter preProductSize, Model.PRODUCT_SIZE obj, Form beforeForm)
+            : this(preProductSize, obj)
+        {
+            this.beforeForm = beforeForm;
+        }
+
         public frmAddProductSize(ProductSizePresenter preProductSize, Model.PRODUCT_SIZE obj)
         {
             this.preProductSize = preProductSize;
@@ -163,7 +169,9 @@ namespace View.Elements.frmProductSize
                 preProductSize.updateProductSize(obj);
             }
 
-            Close();
+            beforeForm.WindowState = FormWindowState.Maximized;
+            beforeForm.Activate();
+            //Close();
         }
 
         private void btnNewProduct_Click(object sender, EventArgs e)

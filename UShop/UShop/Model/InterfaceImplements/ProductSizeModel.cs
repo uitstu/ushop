@@ -32,13 +32,14 @@ namespace Model.InterfaceImplement
             dt.Columns.Add("PRODUCT_ID");
             dt.Columns.Add("PRODUCT_CODE");
             dt.Columns.Add("PRODUCT_NAME");
+            dt.Columns.Add("PRODUCT_CODE_NAME");
             dt.Columns.Add("SIZE");
             dt.Columns.Add("IN_STOCK_QUANTITY");
             //dt.Columns.Add("RECORD_STATUS");
 
             foreach (var o in result.Where(o => o.RECORD_STATUS.Equals("A")))
             {
-                dt.Rows.Add(o.PRODUCT_ID, o.PRODUCT_CODE, o.PRODUCT_NAME, o.SIZE, o.IN_STOCK_QUANTITY);
+                dt.Rows.Add(o.PRODUCT_ID, o.PRODUCT_CODE, o.PRODUCT_NAME, o.PRODUCT_CODE + " - " + o.PRODUCT_NAME, o.SIZE, o.IN_STOCK_QUANTITY);
             }
 
             return dt;
