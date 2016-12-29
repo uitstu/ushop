@@ -138,6 +138,9 @@
   <data name="MB_SUCCESS" xml:space="preserve">
     <value>Thành công</value>
   </data>
+  <data name="MB_WELCOME" xml:space="preserve">
+    <value>Chào mừng bạn đăng nhập thành công vào UShop</value>
+  </data>
   <data name="PM_CASH" xml:space="preserve">
     <value>TM</value>
   </data>

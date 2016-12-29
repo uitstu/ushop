@@ -36,6 +36,8 @@
             this.btnPM = new DevExpress.XtraBars.BarButtonItem();
             this.barbtnInvoice = new DevExpress.XtraBars.BarButtonItem();
             this.barbtnEmployee = new DevExpress.XtraBars.BarButtonItem();
+            this.barbtniCustomer = new DevExpress.XtraBars.BarButtonItem();
+            this.barbtniAppointment = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonMiniToolbar1 = new DevExpress.XtraBars.Ribbon.RibbonMiniToolbar(this.components);
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -45,9 +47,11 @@
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribpaggrpInvoice = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribpaggrpEmployee = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barbtniCustomer = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barbtniAccount = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,10 +66,12 @@
             this.btnPM,
             this.barbtnInvoice,
             this.barbtnEmployee,
-            this.barbtniCustomer});
+            this.barbtniCustomer,
+            this.barbtniAppointment,
+            this.barbtniAccount});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl1.MaxItemId = 14;
+            this.ribbonControl1.MaxItemId = 16;
             this.ribbonControl1.MiniToolbars.Add(this.ribbonMiniToolbar1);
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -119,6 +125,20 @@
             this.barbtnEmployee.Name = "barbtnEmployee";
             this.barbtnEmployee.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtnEmployee_ItemClick);
             // 
+            // barbtniCustomer
+            // 
+            this.barbtniCustomer.Caption = "Khách hàng";
+            this.barbtniCustomer.Id = 13;
+            this.barbtniCustomer.Name = "barbtniCustomer";
+            this.barbtniCustomer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtniCustomer_ItemClick);
+            // 
+            // barbtniAppointment
+            // 
+            this.barbtniAppointment.Caption = "Phiếu hẹn";
+            this.barbtniAppointment.Id = 14;
+            this.barbtniAppointment.Name = "barbtniAppointment";
+            this.barbtniAppointment.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtniAppointment_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -152,7 +172,9 @@
             this.ribbonPageGroup4,
             this.ribpaggrpInvoice,
             this.ribpaggrpEmployee,
-            this.ribbonPageGroup5});
+            this.ribbonPageGroup5,
+            this.ribbonPageGroup6,
+            this.ribbonPageGroup7});
             this.ribpagSourceManagement.Name = "ribpagSourceManagement";
             this.ribpagSourceManagement.Text = "Quản lý nguồn hàng";
             // 
@@ -174,24 +196,36 @@
             this.ribpaggrpEmployee.Name = "ribpaggrpEmployee";
             this.ribpaggrpEmployee.Text = "Nhân sự";
             // 
-            // ribbonPageGroup3
-            // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.btnReceiptNote);
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.Text = "Phiếu nhập";
-            // 
             // ribbonPageGroup5
             // 
             this.ribbonPageGroup5.ItemLinks.Add(this.barbtniCustomer);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.Text = "Khách hàng";
             // 
-            // barbtniCustomer
+            // ribbonPageGroup6
             // 
-            this.barbtniCustomer.Caption = "Khách hàng";
-            this.barbtniCustomer.Id = 13;
-            this.barbtniCustomer.Name = "barbtniCustomer";
-            this.barbtniCustomer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtniCustomer_ItemClick);
+            this.ribbonPageGroup6.ItemLinks.Add(this.barbtniAppointment);
+            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
+            this.ribbonPageGroup6.Text = "Phiếu hẹn";
+            // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnReceiptNote);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.Text = "Phiếu nhập";
+            // 
+            // ribbonPageGroup7
+            // 
+            this.ribbonPageGroup7.ItemLinks.Add(this.barbtniAccount);
+            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
+            this.ribbonPageGroup7.Text = "Tài khoản";
+            // 
+            // barbtniAccount
+            // 
+            this.barbtniAccount.Caption = "Tài khoản";
+            this.barbtniAccount.Id = 15;
+            this.barbtniAccount.Name = "barbtniAccount";
+            this.barbtniAccount.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtniAccount_ItemClick);
             // 
             // frmUShop
             // 
@@ -235,6 +269,10 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribpaggrpEmployee;
         private DevExpress.XtraBars.BarButtonItem barbtniCustomer;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
+        private DevExpress.XtraBars.BarButtonItem barbtniAppointment;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
+        private DevExpress.XtraBars.BarButtonItem barbtniAccount;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
     }
 }
 

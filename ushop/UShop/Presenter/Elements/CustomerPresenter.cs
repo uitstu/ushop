@@ -76,7 +76,7 @@ namespace Presenter.Elements
 
         public String getTemperatoryCode()
         {
-            String tempCode = ((DataModel)model).getCODE("EMP", model.getCustomerCount());
+            String tempCode = ((DataModel)model).getCODE("CUS", model.getCustomerCount() + 1);
             return tempCode;
         }
 
@@ -85,7 +85,7 @@ namespace Presenter.Elements
 
             DataTable table = cusView.getCustomerTable();
 
-            if (model.deleteCustomer(table.Rows[index]["EMP_CODE"] + ""))
+            if (model.deleteCustomer(table.Rows[index]["CUS_CODE"] + ""))
             {
                 //delete in grid
                 table.Rows.RemoveAt(index);

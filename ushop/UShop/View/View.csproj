@@ -55,6 +55,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elements\Account\frmAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Elements\Account\frmAccount.Designer.cs">
+      <DependentUpon>frmAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\Account\frmAddAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Elements\Account\frmAddAccount.Designer.cs">
+      <DependentUpon>frmAddAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\Appointment\frmAddAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Elements\Appointment\frmAddAppointment.Designer.cs">
+      <DependentUpon>frmAddAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\Appointment\frmAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Elements\Appointment\frmAppointment.Designer.cs">
+      <DependentUpon>frmAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Elements\Category\frmAddCategory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +153,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Elements\Account\frmAccount.resx">
+      <DependentUpon>frmAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Elements\Account\frmAddAccount.resx">
+      <DependentUpon>frmAddAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Elements\Appointment\frmAddAppointment.resx">
+      <DependentUpon>frmAddAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Elements\Appointment\frmAppointment.resx">
+      <DependentUpon>frmAppointment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Elements\Category\frmAddCategory.resx">
       <DependentUpon>frmAddCategory.cs</DependentUpon>
     </EmbeddedResource>

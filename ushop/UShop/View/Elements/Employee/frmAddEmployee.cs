@@ -152,5 +152,20 @@ namespace View.Elements.Employee
         {
             refreshAll();
         }
+
+        private void dpkAESevDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dpkAEApproveDate_ValueChanged(object sender, EventArgs e)
+        {
+            dpkAESevDate.MinDate = dpkAEApproveDate.Value;
+        }
+
+        private void dpickAEBirthday_ValueChanged(object sender, EventArgs e)
+        {
+            dpkAEApproveDate.MinDate = dpickAEBirthday.Value;
+        }
     }
 }

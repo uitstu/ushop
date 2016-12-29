@@ -41,20 +41,20 @@
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.btnELDeleteInvoice = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.btnCLDeleteCustomer = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnDELETE = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnELUpdateInvoice = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.btnCLUpdateCustomer = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnUPDATE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gvCLCustomer = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.grdconCLCustomer = new DevExpress.XtraGrid.GridControl();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdconCLCustomer = new DevExpress.XtraGrid.GridControl();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnELDeleteInvoice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnELUpdateInvoice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCLDeleteCustomer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCLUpdateCustomer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCLCustomer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdconCLCustomer)).BeginInit();
             this.SuspendLayout();
@@ -108,6 +108,7 @@
             this.bbtniCLAddCustomer.Glyph = ((System.Drawing.Image)(resources.GetObject("bbtniCLAddCustomer.Glyph")));
             this.bbtniCLAddCustomer.Id = 0;
             this.bbtniCLAddCustomer.Name = "bbtniCLAddCustomer";
+            this.bbtniCLAddCustomer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtniCLAddCustomer_ItemClick);
             // 
             // barManager1
             // 
@@ -147,33 +148,35 @@
             this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.barDockControlLeft.Size = new System.Drawing.Size(0, 458);
             // 
-            // btnELDeleteInvoice
+            // btnCLDeleteCustomer
             // 
-            this.btnELDeleteInvoice.AutoHeight = false;
-            this.btnELDeleteInvoice.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnELDeleteInvoice.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
-            this.btnELDeleteInvoice.Name = "btnELDeleteInvoice";
-            this.btnELDeleteInvoice.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnCLDeleteCustomer.AutoHeight = false;
+            this.btnCLDeleteCustomer.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnCLDeleteCustomer.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            this.btnCLDeleteCustomer.Name = "btnCLDeleteCustomer";
+            this.btnCLDeleteCustomer.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnCLDeleteCustomer.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(btnCLDeleteCustomer_ButtonClick);
             // 
             // btnDELETE
             // 
-            this.btnDELETE.ColumnEdit = this.btnELDeleteInvoice;
+            this.btnDELETE.ColumnEdit = this.btnCLDeleteCustomer;
             this.btnDELETE.Name = "btnDELETE";
             this.btnDELETE.Visible = true;
             this.btnDELETE.VisibleIndex = 6;
             this.btnDELETE.Width = 48;
             // 
-            // btnELUpdateInvoice
+            // btnCLUpdateCustomer
             // 
-            this.btnELUpdateInvoice.AutoHeight = false;
-            this.btnELUpdateInvoice.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnELUpdateInvoice.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
-            this.btnELUpdateInvoice.Name = "btnELUpdateInvoice";
-            this.btnELUpdateInvoice.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnCLUpdateCustomer.AutoHeight = false;
+            this.btnCLUpdateCustomer.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnCLUpdateCustomer.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            this.btnCLUpdateCustomer.Name = "btnCLUpdateCustomer";
+            this.btnCLUpdateCustomer.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnCLUpdateCustomer.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(btnCLUpdateCustomer_ButtonClick);
             // 
             // btnUPDATE
             // 
-            this.btnUPDATE.ColumnEdit = this.btnELUpdateInvoice;
+            this.btnUPDATE.ColumnEdit = this.btnCLUpdateCustomer;
             this.btnUPDATE.Name = "btnUPDATE";
             this.btnUPDATE.Visible = true;
             this.btnUPDATE.VisibleIndex = 5;
@@ -193,6 +196,46 @@
             this.gvCLCustomer.Name = "gvCLCustomer";
             this.gvCLCustomer.OptionsView.ShowAutoFilterRow = true;
             // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Mã Khách hàng";
+            this.gridColumn6.FieldName = "CUS_CODE";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 0;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Tên Khách hàng";
+            this.gridColumn5.FieldName = "CUS_NAME";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 1;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Địa chỉ";
+            this.gridColumn4.FieldName = "ADDRESS";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 2;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "SDT";
+            this.gridColumn3.FieldName = "PHONE";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 3;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Đã mua";
+            this.gridColumn2.FieldName = "BOUGHT_AMOUNT";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 4;
+            // 
             // grdconCLCustomer
             // 
             this.grdconCLCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -203,52 +246,12 @@
             this.grdconCLCustomer.MenuManager = this.barManager1;
             this.grdconCLCustomer.Name = "grdconCLCustomer";
             this.grdconCLCustomer.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.btnELUpdateInvoice,
-            this.btnELDeleteInvoice});
+            this.btnCLUpdateCustomer,
+            this.btnCLDeleteCustomer});
             this.grdconCLCustomer.Size = new System.Drawing.Size(815, 458);
             this.grdconCLCustomer.TabIndex = 9;
             this.grdconCLCustomer.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCLCustomer});
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "Đã mua";
-            this.gridColumn2.FieldName = "BOUGHT_AMOUNT";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 4;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "SDT";
-            this.gridColumn3.FieldName = "PHONE";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 3;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "Địa chỉ";
-            this.gridColumn4.FieldName = "ADDRESS";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 2;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "Tên Khách hàng";
-            this.gridColumn5.FieldName = "CUS_NAME";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 1;
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "Mã Khách hàng";
-            this.gridColumn6.FieldName = "CUS_CODE";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 0;
             // 
             // frmCustomer
             // 
@@ -262,9 +265,10 @@
             this.Controls.Add(this.barDockControlTop);
             this.Name = "frmCustomer";
             this.Text = "frmCustomer";
+            this.Activated += new System.EventHandler(this.frmCustomer_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnELDeleteInvoice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnELUpdateInvoice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCLDeleteCustomer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCLUpdateCustomer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCLCustomer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdconCLCustomer)).EndInit();
             this.ResumeLayout(false);
@@ -291,8 +295,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn btnUPDATE;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnELUpdateInvoice;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnCLUpdateCustomer;
         private DevExpress.XtraGrid.Columns.GridColumn btnDELETE;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnELDeleteInvoice;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnCLDeleteCustomer;
     }
 }

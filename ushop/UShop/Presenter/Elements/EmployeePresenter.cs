@@ -76,7 +76,7 @@ namespace Presenter.Elements
 
         public String getTemperatoryCode()
         {
-            String tempCode = ((DataModel)model).getCODE("EMP", model.getEmployeeCount());
+            String tempCode = ((DataModel)model).getCODE("EMP", model.getEmployeeCount() + 1);
             return tempCode;
         }
 

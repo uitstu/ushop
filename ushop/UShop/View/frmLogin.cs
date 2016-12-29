@@ -11,10 +11,11 @@ using DevExpress.XtraEditors;
 using Presenter.Interface;
 using Presenter.InterfaceImplement;
 using Model;
+using Presenter.Interfaces;
 
 namespace View
 {
-    public partial class frmLogin : DevExpress.XtraEditors.XtraForm, IAccountView
+    public partial class frmLogin : DevExpress.XtraEditors.XtraForm, IAccountLoginView
     {
         private AccountPresenter preAccount;
 
@@ -43,13 +44,26 @@ namespace View
             }
             else
             {
-                
+                MessageBox.Show(message);
                 frmUShop frm = new frmUShop();
                 frm.Show();
                 Hide();
             }
         }
 
-        
+        public void showAccountList(DataTable table)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DataTable getAccountTable()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void showMessageBox(string mB_FAILURE, MessageBoxIcon information)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

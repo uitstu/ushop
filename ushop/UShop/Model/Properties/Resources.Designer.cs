@@ -124,6 +124,15 @@ namespace Model.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chào mừng bạn đăng nhập thành công vào UShop.
+        /// </summary>
+        public static string MB_WELCOME {
+            get {
+                return ResourceManager.GetString("MB_WELCOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TM.
         /// </summary>
         public static string PM_CASH {

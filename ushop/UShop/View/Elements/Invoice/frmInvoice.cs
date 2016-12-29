@@ -13,6 +13,7 @@ using Presenter.Elements;
 using Model.InterfaceImplements;
 using Model.Properties;
 using DevExpress.XtraEditors.Controls;
+using Presenter.InterfaceImplement;
 
 namespace View.Elements.Invoice
 {
@@ -58,6 +59,12 @@ namespace View.Elements.Invoice
 
         private void bbtniILAddInvoice_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //Check permission for INVOICE ! Look it and just change form type for current form
+            if (!AccountPresenter.checkPermission(FORM_TYPE.ADDING_INVOICE))
+            {
+                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
+                return;
+            }
             Form addInvoiceForm = new frmAddInvoice(this,presenter);
             addInvoiceForm.FormBorderStyle = FormBorderStyle.None;
             //set fill parent
@@ -68,6 +75,12 @@ namespace View.Elements.Invoice
 
         private void btnILUpdateInvoice_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
+            //Check permission for INVOICE ! Look it and just change form type for current form
+            if (!AccountPresenter.checkPermission(FORM_TYPE.ADDING_INVOICE))
+            {
+                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
+                return;
+            }
             int row = gvILInvoice.FocusedRowHandle;
             String invoiceCode =  table.Rows[row]["INVOICE_CODE"] + "";
             Form addInvoiceForm = new frmAddInvoice(this, presenter, invoiceCode);

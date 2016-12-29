@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddCustomer));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barAIOptions = new DevExpress.XtraBars.Bar();
-            this.bbtniAEBack = new DevExpress.XtraBars.BarButtonItem();
-            this.bbtniAEAdd = new DevExpress.XtraBars.BarButtonItem();
-            this.bbtniAEPrint = new DevExpress.XtraBars.BarButtonItem();
-            this.bbtniAEReset = new DevExpress.XtraBars.BarButtonItem();
+            this.bbtniACBack = new DevExpress.XtraBars.BarButtonItem();
+            this.bbtniACAdd = new DevExpress.XtraBars.BarButtonItem();
+            this.bbtniACPrint = new DevExpress.XtraBars.BarButtonItem();
+            this.bbtniACReset = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.bsiAIState = new DevExpress.XtraBars.BarStaticItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -51,10 +51,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.txteACBoughtAmount = new DevExpress.XtraEditors.TextEdit();
+            this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAIDeleteItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txteACBoughtAmount = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteACPhone.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteACAddress.Properties)).BeginInit();
@@ -62,8 +62,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txteACCusCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAIDeleteItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteACBoughtAmount.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAIDeleteItem)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -77,10 +77,10 @@
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.bbtniAEAdd,
-            this.bbtniAEPrint,
-            this.bbtniAEReset,
-            this.bbtniAEBack,
+            this.bbtniACAdd,
+            this.bbtniACPrint,
+            this.bbtniACReset,
+            this.bbtniACBack,
             this.bsiAIState});
             this.barManager1.MainMenu = this.barAIOptions;
             this.barManager1.MaxItemId = 5;
@@ -94,42 +94,45 @@
             this.barAIOptions.DockRow = 0;
             this.barAIOptions.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.barAIOptions.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniAEBack, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniAEAdd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniAEPrint, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniAEReset, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniACBack, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniACAdd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniACPrint, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniACReset, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.barAIOptions.OptionsBar.AllowQuickCustomization = false;
             this.barAIOptions.OptionsBar.MultiLine = true;
             this.barAIOptions.OptionsBar.UseWholeRow = true;
             this.barAIOptions.Text = "Main menu";
             // 
-            // bbtniAEBack
+            // bbtniACBack
             // 
-            this.bbtniAEBack.Caption = "Quay về";
-            this.bbtniAEBack.Id = 3;
-            this.bbtniAEBack.ImageUri.Uri = "Undo";
-            this.bbtniAEBack.Name = "bbtniAEBack";
+            this.bbtniACBack.Caption = "Quay về";
+            this.bbtniACBack.Id = 3;
+            this.bbtniACBack.ImageUri.Uri = "Undo";
+            this.bbtniACBack.Name = "bbtniACBack";
+            this.bbtniACBack.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtniACBack_ItemClick_1);
             // 
-            // bbtniAEAdd
+            // bbtniACAdd
             // 
-            this.bbtniAEAdd.Caption = "Lưu";
-            this.bbtniAEAdd.Id = 0;
-            this.bbtniAEAdd.ImageUri.Uri = "Apply";
-            this.bbtniAEAdd.Name = "bbtniAEAdd";
+            this.bbtniACAdd.Caption = "Lưu";
+            this.bbtniACAdd.Id = 0;
+            this.bbtniACAdd.ImageUri.Uri = "Apply";
+            this.bbtniACAdd.Name = "bbtniACAdd";
+            this.bbtniACAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtniACAdd_ItemClick_1);
             // 
-            // bbtniAEPrint
+            // bbtniACPrint
             // 
-            this.bbtniAEPrint.Caption = "In";
-            this.bbtniAEPrint.Id = 1;
-            this.bbtniAEPrint.ImageUri.Uri = "Print";
-            this.bbtniAEPrint.Name = "bbtniAEPrint";
+            this.bbtniACPrint.Caption = "In";
+            this.bbtniACPrint.Id = 1;
+            this.bbtniACPrint.ImageUri.Uri = "Print";
+            this.bbtniACPrint.Name = "bbtniACPrint";
             // 
-            // bbtniAEReset
+            // bbtniACReset
             // 
-            this.bbtniAEReset.Caption = "Xóa";
-            this.bbtniAEReset.Id = 2;
-            this.bbtniAEReset.ImageUri.Uri = "Cancel";
-            this.bbtniAEReset.Name = "bbtniAEReset";
+            this.bbtniACReset.Caption = "Xóa";
+            this.bbtniACReset.Id = 2;
+            this.bbtniACReset.ImageUri.Uri = "Cancel";
+            this.bbtniACReset.Name = "bbtniACReset";
+            this.bbtniACReset.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtniACReset_ItemClick_1);
             // 
             // bar3
             // 
@@ -264,7 +267,26 @@
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(902, 263);
             this.groupControl1.TabIndex = 9;
-            this.groupControl1.Text = "Thông tin nhân sự";
+            this.groupControl1.Text = "Thông tin khách hàng";
+            // 
+            // txteACBoughtAmount
+            // 
+            this.txteACBoughtAmount.Location = new System.Drawing.Point(126, 77);
+            this.txteACBoughtAmount.MenuManager = this.barManager1;
+            this.txteACBoughtAmount.Name = "txteACBoughtAmount";
+            this.txteACBoughtAmount.Properties.ReadOnly = true;
+            this.txteACBoughtAmount.Size = new System.Drawing.Size(228, 22);
+            this.txteACBoughtAmount.TabIndex = 39;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 80);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 24, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 17);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "Đã mua:";
             // 
             // label5
             // 
@@ -280,28 +302,9 @@
             // 
             this.btnAIDeleteItem.AutoHeight = false;
             this.btnAIDeleteItem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnAIDeleteItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnAIDeleteItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.btnAIDeleteItem.Name = "btnAIDeleteItem";
             this.btnAIDeleteItem.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 80);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 24, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 17);
-            this.label1.TabIndex = 38;
-            this.label1.Text = "Đã mua:";
-            // 
-            // txteACBoughtAmount
-            // 
-            this.txteACBoughtAmount.Location = new System.Drawing.Point(126, 77);
-            this.txteACBoughtAmount.MenuManager = this.barManager1;
-            this.txteACBoughtAmount.Name = "txteACBoughtAmount";
-            this.txteACBoughtAmount.Properties.ReadOnly = true;
-            this.txteACBoughtAmount.Size = new System.Drawing.Size(228, 22);
-            this.txteACBoughtAmount.TabIndex = 39;
             // 
             // frmAddCustomer
             // 
@@ -323,8 +326,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAIDeleteItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteACBoughtAmount.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAIDeleteItem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -334,10 +337,10 @@
 
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar barAIOptions;
-        private DevExpress.XtraBars.BarButtonItem bbtniAEBack;
-        private DevExpress.XtraBars.BarButtonItem bbtniAEAdd;
-        private DevExpress.XtraBars.BarButtonItem bbtniAEPrint;
-        private DevExpress.XtraBars.BarButtonItem bbtniAEReset;
+        private DevExpress.XtraBars.BarButtonItem bbtniACBack;
+        private DevExpress.XtraBars.BarButtonItem bbtniACAdd;
+        private DevExpress.XtraBars.BarButtonItem bbtniACPrint;
+        private DevExpress.XtraBars.BarButtonItem bbtniACReset;
         private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarStaticItem bsiAIState;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;

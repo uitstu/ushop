@@ -203,7 +203,7 @@ namespace Presenter.Elements
         public String getTemperatoryCode()
         {
 
-            return ((DataModel)model).getCODE("INV", model.getInvoiceCount());
+            return ((DataModel)model).getCODE("INV", model.getInvoiceCount() + 1);
         }
 
         public PRODUCT findProductBy(String code)

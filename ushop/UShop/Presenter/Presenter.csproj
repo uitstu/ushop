@@ -40,12 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elements\AppoinmentPresenter.cs" />
     <Compile Include="Elements\CategoryPresenter.cs" />
     <Compile Include="Elements\AccountPresenter.cs" />
     <Compile Include="Elements\CustomerPresenter.cs" />
     <Compile Include="Elements\EmployeePresenter.cs" />
     <Compile Include="Elements\InvoicePresenter.cs" />
     <Compile Include="Elements\ReceiptNotePresenter.cs" />
+    <Compile Include="Interfaces\IAccountAddingView.cs" />
+    <Compile Include="Interfaces\IAccoutnLoginView.cs" />
+    <Compile Include="Interfaces\IAppointmentAddingView.cs" />
+    <Compile Include="Interfaces\IAppointmentView.cs" />
     <Compile Include="Interfaces\ICustomerAddingView.cs" />
     <Compile Include="Interfaces\ICustomerView.cs" />
     <Compile Include="Interfaces\IEmployeeAddingView.cs" />

@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
+using Model;
 using Presenter.Interface;
 using Presenter.InterfaceImplement;
 using System;
@@ -71,6 +72,7 @@ namespace View.Elements
 
         private void btnEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
+           
             GridView gridView = gridCategory.FocusedView as GridView;
             Model.CATEGORY obj = new Model.CATEGORY();
 

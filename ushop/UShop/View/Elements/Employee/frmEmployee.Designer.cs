@@ -199,7 +199,7 @@ namespace View.Elements.Employee
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnELUpdateInvoice.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.btnELUpdateInvoice.Name = "btnELUpdateInvoice";
             this.btnELUpdateInvoice.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.btnELUpdateInvoice.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnELUpdateInvoice_ButtonClick);
+            this.btnELUpdateInvoice.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnELUpdateEmployee_ButtonClick);
             // 
             // btnDELETE
             // 
@@ -271,7 +271,7 @@ namespace View.Elements.Employee
             this.bbtniELAddInvoice.Glyph = ((System.Drawing.Image)(resources.GetObject("bbtniELAddInvoice.Glyph")));
             this.bbtniELAddInvoice.Id = 0;
             this.bbtniELAddInvoice.Name = "bbtniELAddInvoice";
-            this.bbtniELAddInvoice.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtniELAddInvoice_ItemClick);
+            this.bbtniELAddInvoice.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtniELAddEmployee_ItemClick);
             // 
             // bbtniELExport
             // 

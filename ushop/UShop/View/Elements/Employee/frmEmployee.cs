@@ -1,6 +1,8 @@
 ﻿using DevExpress.XtraEditors.Controls;
+using Model;
 using Model.Properties;
 using Presenter.Elements;
+using Presenter.InterfaceImplement;
 using Presenter.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -54,8 +56,14 @@ namespace View.Elements.Employee
             }
         }
 
-        private void bbtniELAddInvoice_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void bbtniELAddEmployee_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //Check permission for ADDING_CUSTOMER ! Look it and just change form type for current form
+            if (!AccountPresenter.checkPermission(FORM_TYPE.ADDING_EMPLOYEE))
+            {
+                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
+                return;
+            }
             Form addEmpForm = new frmAddEmployee(this,presenter);
             addEmpForm.FormBorderStyle = FormBorderStyle.None;
             //set fill parent
@@ -64,8 +72,14 @@ namespace View.Elements.Employee
             addEmpForm.Show();
         }
 
-        private void btnELUpdateInvoice_ButtonClick(object sender, ButtonPressedEventArgs e)
+        private void btnELUpdateEmployee_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
+            //Check permission for ADDING_CUSTOMER ! Look it and just change form type for current form
+            if (!AccountPresenter.checkPermission(FORM_TYPE.ADDING_EMPLOYEE))
+            {
+                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
+                return;
+            }
             Form addEmpForm = new frmAddEmployee(this, presenter,table.Rows[gvELEmployee.FocusedRowHandle]["EMP_CODE"]+"");
             addEmpForm.FormBorderStyle = FormBorderStyle.None;
             //set fill parent

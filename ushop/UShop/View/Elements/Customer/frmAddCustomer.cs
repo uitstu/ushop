@@ -101,30 +101,31 @@ namespace View.Elements.Customer
                     break;
             }
         }
-
-        private void bbtniAEAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            String name = txteACCusName.Text;
-            String address = txteACAddress.Text;
-            String phone = txteACPhone.Text;
-            //String boughtAmount = txteACBoughtAmount.Text;
-            presenter.insertOrUpdateCustomer(name,address,phone);
-        }
-
-        private void bbtniAEBack_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            backPreviousForm();
-        }
-
-        private void bbtniAEReset_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            refreshAll();
-        }
+        
+      
 
         public frmAddCustomer()
         {
             InitializeComponent();
         }
-        
+
+        private void bbtniACBack_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            backPreviousForm();
+        }
+
+        private void bbtniACAdd_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            String name = txteACCusName.Text;
+            String address = txteACAddress.Text;
+            String phone = txteACPhone.Text;
+            //String boughtAmount = txteACBoughtAmount.Text;
+            presenter.insertOrUpdateCustomer(name, address, phone);
+        }
+
+        private void bbtniACReset_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            refreshAll();
+        }
     }
 }

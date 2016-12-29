@@ -146,7 +146,7 @@
   <metadata name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="btnELUpdateInvoice.Buttons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnCLUpdateCustomer.Buttons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         EwAACxMBAJqcGAAAAMJJREFUOE/V0s0KAVEYxvGDDfdgJcUViNi6AGspxYJLUOxslAuw8rFzHUqUsmVh
@@ -155,7 +155,7 @@
         LpDv3UURZpwKBuhE2CGyIIkVjh8cIP/ET0WpB345PmH0cpBPAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnELDeleteInvoice.Buttons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnCLDeleteCustomer.Buttons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         EwAACxMBAJqcGAAAAcFJREFUOE9jGFxguYxk8loV+clQLgaYz8DAsVVL7eBqedlGqBACLJMRT7rp4/z/

@@ -96,15 +96,19 @@ namespace Model.InterfaceImplements
                 if (o != null)
                 {
                     var boughtAmountResult =
-                          UShopDB.INVOICEs.Where(i => i.SELLER_ID == o.CUS_ID).Select(i => i.TOTAL_AMOUNT).Sum();
+                          UShopDB.INVOICEs.Where
+                          (i => i.SELLER_ID == o.CUS_ID
+                          &&  i.RECORD_STATUS.Equals((char)RECORD_STATUS.ACTIVE)
+                          )
+                          .Select(i => i.TOTAL_AMOUNT).Sum();
                         
-                    
+
                     table.Rows.Add(
                         o.CUS_CODE,
                         o.CUS_NAME,
                         o.PHONE,
                         o.ADDRESS,
-                        boughtAmountResult
+                        boughtAmountResult > 0? boughtAmountResult: 0
                         );
                 }
             }
@@ -132,6 +136,7 @@ namespace Model.InterfaceImplements
                           );
 
                 cus.BOUGHT_AMOUNT = boughtAmountResult.Sum();
+                UShopDB.SubmitChanges();
                 ret = true;
             }
             catch (Exception e)

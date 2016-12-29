@@ -1,6 +1,8 @@
 ﻿using DevExpress.XtraEditors.Controls;
+using Model;
 using Model.Properties;
 using Presenter.Elements;
+using Presenter.InterfaceImplement;
 using Presenter.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -54,19 +56,16 @@ namespace View.Elements.Customer
                     break;
             }
         }
+        
 
-        private void bbtniELAddInvoice_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnCLUpdateCustomer_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            Form addCusForm = new frmAddCustomer(this, presenter);
-            addCusForm.FormBorderStyle = FormBorderStyle.None;
-            //set fill parent
-            addCusForm.MdiParent = this.MdiParent;
-            addCusForm.Dock = DockStyle.Fill;
-            addCusForm.Show();
-        }
-
-        private void btnELUpdateInvoice_ButtonClick(object sender, ButtonPressedEventArgs e)
-        {
+            //Check permission for ADDING_CUSTOMER ! Look it and just change form type for current form
+            if (!AccountPresenter.checkPermission(FORM_TYPE.ADDING_CUSTOMER))
+            {
+                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
+                return;
+            }
             Form addCusForm = new frmAddCustomer(this, presenter, table.Rows[gvCLCustomer.FocusedRowHandle]["CUS_CODE"] + "");
             addCusForm.FormBorderStyle = FormBorderStyle.None;
             //set fill parent
@@ -75,13 +74,30 @@ namespace View.Elements.Customer
             addCusForm.Show();
         }
 
-        private void btnELDeleteInvoice_ButtonClick(object sender, ButtonPressedEventArgs e)
+        private void btnCLDeleteCustomer_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             int index = gvCLCustomer.FocusedRowHandle;
             presenter.removeCustomer(index);
         }
+        
 
-        private void frmEmployee_Activated(object sender, EventArgs e)
+        private void bbtniCLAddCustomer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //Check permission for ADDING_CUSTOMER ! Look it and just change form type for current form
+            if (!AccountPresenter.checkPermission(FORM_TYPE.ADDING_CUSTOMER))
+            {
+                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
+                return;
+            }
+            Form addCusForm = new frmAddCustomer(this, presenter);
+            addCusForm.FormBorderStyle = FormBorderStyle.None;
+            //set fill parent
+            addCusForm.MdiParent = this.MdiParent;
+            addCusForm.Dock = DockStyle.Fill;
+            addCusForm.Show();
+        }
+
+        private void frmCustomer_Activated(object sender, EventArgs e)
         {
             table.Rows.Clear();
             presenter.loadCustomerList();

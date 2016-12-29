@@ -127,3 +127,7 @@ E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Eleme
 E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.Employee.frmEmployee.resources
 E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.Customer.frmAddCustomer.resources
 E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.Customer.frmCustomer.resources
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.Appointment.frmAddAppointment.resources
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.Appointment.frmAppointment.resources
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.Account.frmAccount.resources
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.Account.frmAddAccount.resources

@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddEmployee));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barAIOptions = new DevExpress.XtraBars.Bar();
             this.bbtniAEBack = new DevExpress.XtraBars.BarButtonItem();
@@ -51,6 +51,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txteAEEmpCode = new DevExpress.XtraEditors.TextEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cmbAEPosition = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dpkAESevDate = new System.Windows.Forms.DateTimePicker();
             this.cmbAEWorkStatus = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -65,20 +67,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cmbAEGender = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txteAEEmpName = new DevExpress.XtraEditors.TextEdit();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbAEPosition = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAIDeleteItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAEEmpCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbAEPosition.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbAEWorkStatus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAEPhone.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAEAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAEIDNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbAEGender.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAEEmpName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbAEPosition.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -206,7 +206,7 @@
             // 
             this.btnAIDeleteItem.AutoHeight = false;
             this.btnAIDeleteItem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnAIDeleteItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnAIDeleteItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.btnAIDeleteItem.Name = "btnAIDeleteItem";
             this.btnAIDeleteItem.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -217,6 +217,7 @@
             this.dpickAEBirthday.Name = "dpickAEBirthday";
             this.dpickAEBirthday.Size = new System.Drawing.Size(228, 23);
             this.dpickAEBirthday.TabIndex = 0;
+            this.dpickAEBirthday.ValueChanged += new System.EventHandler(this.dpickAEBirthday_ValueChanged);
             // 
             // label5
             // 
@@ -298,6 +299,27 @@
             this.groupControl1.TabIndex = 8;
             this.groupControl1.Text = "Thông tin nhân sự";
             // 
+            // cmbAEPosition
+            // 
+            this.cmbAEPosition.Location = new System.Drawing.Point(115, 241);
+            this.cmbAEPosition.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbAEPosition.MenuManager = this.barManager1;
+            this.cmbAEPosition.Name = "cmbAEPosition";
+            this.cmbAEPosition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbAEPosition.Size = new System.Drawing.Size(228, 22);
+            this.cmbAEPosition.TabIndex = 45;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 244);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 24, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 17);
+            this.label1.TabIndex = 44;
+            this.label1.Text = "Vị trí:";
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -315,6 +337,7 @@
             this.dpkAESevDate.Name = "dpkAESevDate";
             this.dpkAESevDate.Size = new System.Drawing.Size(228, 23);
             this.dpkAESevDate.TabIndex = 42;
+            this.dpkAESevDate.ValueChanged += new System.EventHandler(this.dpkAESevDate_ValueChanged);
             // 
             // cmbAEWorkStatus
             // 
@@ -354,6 +377,7 @@
             this.dpkAEApproveDate.Name = "dpkAEApproveDate";
             this.dpkAEApproveDate.Size = new System.Drawing.Size(228, 23);
             this.dpkAEApproveDate.TabIndex = 38;
+            this.dpkAEApproveDate.ValueChanged += new System.EventHandler(this.dpkAEApproveDate_ValueChanged);
             // 
             // txteAEPhone
             // 
@@ -428,27 +452,6 @@
             this.txteAEEmpName.Size = new System.Drawing.Size(228, 22);
             this.txteAEEmpName.TabIndex = 30;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 244);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 24, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 17);
-            this.label1.TabIndex = 44;
-            this.label1.Text = "Vị trí:";
-            // 
-            // cmbAEPosition
-            // 
-            this.cmbAEPosition.Location = new System.Drawing.Point(115, 241);
-            this.cmbAEPosition.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cmbAEPosition.MenuManager = this.barManager1;
-            this.cmbAEPosition.Name = "cmbAEPosition";
-            this.cmbAEPosition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbAEPosition.Size = new System.Drawing.Size(228, 22);
-            this.cmbAEPosition.TabIndex = 45;
-            // 
             // frmAddEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -467,13 +470,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbAEPosition.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbAEWorkStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAEPhone.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAEAddress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAEIDNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbAEGender.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAEEmpName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbAEPosition.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
