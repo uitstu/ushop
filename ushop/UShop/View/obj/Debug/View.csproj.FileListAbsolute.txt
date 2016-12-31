@@ -171,3 +171,4 @@ C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.csproj.Gene
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.exe.licenses
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.exe
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.pdb
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.Account.frmEditAccount.resources

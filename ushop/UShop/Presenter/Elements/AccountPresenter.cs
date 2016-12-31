@@ -158,6 +158,21 @@ namespace Presenter.InterfaceImplement
                 loginView.veryfyAccount(null);
             }
         }
+        public void loadExistedAccountByEmp(EMPLOYEE emp)
+        {
+            acc = model.getAccountByEmpCode(emp.EMP_CODE, RECORD_STATUS.ACTIVE);
+
+            if (acc != null)
+            {
+                isUpdated = true;
+                accAddingView.showInforComponents(acc, emp.EMP_CODE + "-" + emp.EMP_NAME);
+                empList.Add(emp);
+            }
+            else
+                isUpdated = false;
+
+        }
+        
 
         public void loadEmployeeNames(String filter)
         {

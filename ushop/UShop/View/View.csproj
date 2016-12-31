@@ -67,6 +67,12 @@
     <Compile Include="Elements\Account\frmAddAccount.Designer.cs">
       <DependentUpon>frmAddAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Elements\Account\frmEditAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Elements\Account\frmEditAccount.Designer.cs">
+      <DependentUpon>frmEditAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Elements\Appointment\frmAddAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Elements\Account\frmAddAccount.resx">
       <DependentUpon>frmAddAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Elements\Account\frmEditAccount.resx">
+      <DependentUpon>frmEditAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Elements\Appointment\frmAddAppointment.resx">
       <DependentUpon>frmAddAppointment.cs</DependentUpon>

@@ -1,4 +1,5 @@
 ﻿using Model;
+using Model.Properties;
 using Presenter.InterfaceImplement;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,10 @@ namespace View
         public frmUShop()
         {
             InitializeComponent();
+            if (!AccountPresenter.currentEmployee.POSITION.Equals(Resources.POS_MANGER))
+            {
+                ribpagSourceManagement.Visible = false;
+            }
         }
         private void btnProductManagement_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -46,11 +51,7 @@ namespace View
 
         private void btnCategory_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!AccountPresenter.checkPermission(FORM_TYPE.CATEGORY))
-            {
-                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
-                return;
-            }
+            
             Form frm = this.checkExist(typeof(frmCategory));
             if (frm != null)
             {
@@ -76,11 +77,7 @@ namespace View
 
         private void btnReceiptNote_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!AccountPresenter.checkPermission(FORM_TYPE.RECEIPTNOTE))
-            {
-                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
-                return;
-            }
+          
             Form frm = this.checkExist(typeof(frmReceiptNote));
             if (frm != null)
             {
@@ -101,11 +98,6 @@ namespace View
 
         private void barbtnInvoice_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!AccountPresenter.checkPermission(FORM_TYPE.INVOICE))
-            {
-                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
-                return;
-            }
             Form invoiceListForm = this.checkExist(typeof(frmInvoice));
 
             if(invoiceListForm != null)
@@ -128,11 +120,7 @@ namespace View
 
         private void barbtnEmployee_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!AccountPresenter.checkPermission(FORM_TYPE.EMPLOYEE))
-            {
-                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
-                return;
-            }
+           
             Form empListForm = this.checkExist(typeof(frmEmployee));
 
             if (empListForm != null)
@@ -155,11 +143,7 @@ namespace View
 
         private void barbtniCustomer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!AccountPresenter.checkPermission(FORM_TYPE.CUSTOMER))
-            {
-                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
-                return;
-            }
+            
             Form cusListForm = this.checkExist(typeof(frmCustomer));
 
             if (cusListForm != null)
@@ -227,11 +211,7 @@ namespace View
 
         private void barbtniAppointment_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!AccountPresenter.checkPermission(FORM_TYPE.APPOINTMENT))
-            {
-                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
-                return;
-            }
+           
             Form appListForm = this.checkExist(typeof(frmAppointment));
 
             if (appListForm != null)
@@ -254,11 +234,7 @@ namespace View
 
         private void barbtniAccount_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!AccountPresenter.checkPermission(FORM_TYPE.ACCOUNT))
-            {
-                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
-                return;
-            }
+           
             Form accListForm = this.checkExist(typeof(frmAccount));
 
             if (accListForm != null)
@@ -281,11 +257,7 @@ namespace View
 
         private void btnInvoice_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!AccountPresenter.checkPermission(FORM_TYPE.INVOICE))
-            {
-                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
-                return;
-            }
+           
             Form invoiceListForm = this.checkExist(typeof(frmInvoice));
 
             if (invoiceListForm != null)
@@ -308,11 +280,7 @@ namespace View
 
         private void btnAppointment_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!AccountPresenter.checkPermission(FORM_TYPE.APPOINTMENT))
-            {
-                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
-                return;
-            }
+           
             Form appListForm = this.checkExist(typeof(frmAppointment));
 
             if (appListForm != null)
@@ -335,11 +303,7 @@ namespace View
 
         private void btnCustomer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!AccountPresenter.checkPermission(FORM_TYPE.CUSTOMER))
-            {
-                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
-                return;
-            }
+            
             Form cusListForm = this.checkExist(typeof(frmCustomer));
 
             if (cusListForm != null)
@@ -362,7 +326,10 @@ namespace View
 
         private void btnLogout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Application.Restart();
+            var result = MessageBox.Show( Resources.MB_SIGN_OUT_MSG,Resources.MB_SIGN_OUT, MessageBoxButtons.OKCancel);
+            if(result == DialogResult.OK)
+                Application.Restart();
+            
         }
 
         private void frmUShop_Load(object sender, EventArgs e)
@@ -370,5 +337,17 @@ namespace View
             btnInvoice.PerformClick();
         }
 
+        private void btnChangePassword_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            Form frmEditAccount = new frmEditAccount(this, new AccountPresenter());
+            frmEditAccount.MdiParent = this;
+            //set fill parent
+            frmEditAccount.Dock = DockStyle.Fill;
+            //turn off border style
+            frmEditAccount.FormBorderStyle = FormBorderStyle.None;
+            //show
+            frmEditAccount.Show();
+        }
     }
 }

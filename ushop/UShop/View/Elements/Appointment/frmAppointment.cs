@@ -54,11 +54,7 @@ namespace View.Elements.Appointment
 
         private void btnALUpdateAppointment_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            if (!AccountPresenter.checkPermission(FORM_TYPE.ADDING_APPOINTMENT))
-            {
-                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
-                return;
-            }
+          
             Form addAppForm = new frmAddAppointment(this, presenter, table.Rows[gvALAppointment.FocusedRowHandle]["APP_CODE"] + "");
             addAppForm.FormBorderStyle = FormBorderStyle.None;
             //set fill parent
@@ -76,11 +72,7 @@ namespace View.Elements.Appointment
 
         private void bbtniALAddAppointment_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!AccountPresenter.checkPermission(FORM_TYPE.ADDING_APPOINTMENT))
-            {
-                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
-                return;
-            }
+          
             Form addAppForm = new frmAddAppointment(this, presenter);
             addAppForm.FormBorderStyle = FormBorderStyle.None;
             //set fill parent

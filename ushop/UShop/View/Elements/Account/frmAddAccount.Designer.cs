@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddAccount));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnAACNewEmployee = new System.Windows.Forms.Button();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barAAOptions = new DevExpress.XtraBars.Bar();
@@ -47,18 +47,18 @@
             this.cmbAACEmployeeCodeName = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.txteAACPassword = new DevExpress.XtraEditors.TextEdit();
+            this.txteAACAccountCode = new DevExpress.XtraEditors.TextEdit();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnAIDeleteItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.txteAACAccountCode = new DevExpress.XtraEditors.TextEdit();
-            this.txteAACPassword = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbAACEmployeeCodeName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAIDeleteItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txteAACAccountCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAACPassword.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txteAACAccountCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAIDeleteItem)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAACNewEmployee
@@ -70,6 +70,7 @@
             this.btnAACNewEmployee.TabIndex = 49;
             this.btnAACNewEmployee.Text = "NV Mới";
             this.btnAACNewEmployee.UseVisualStyleBackColor = true;
+            this.btnAACNewEmployee.Click += new System.EventHandler(this.btnAACNewEmployee_Click);
             // 
             // barManager1
             // 
@@ -229,6 +230,22 @@
             this.groupControl1.TabIndex = 11;
             this.groupControl1.Text = "Thông tin Tài khoản";
             // 
+            // txteAACPassword
+            // 
+            this.txteAACPassword.Location = new System.Drawing.Point(126, 118);
+            this.txteAACPassword.MenuManager = this.barManager1;
+            this.txteAACPassword.Name = "txteAACPassword";
+            this.txteAACPassword.Size = new System.Drawing.Size(210, 22);
+            this.txteAACPassword.TabIndex = 51;
+            // 
+            // txteAACAccountCode
+            // 
+            this.txteAACAccountCode.Location = new System.Drawing.Point(126, 77);
+            this.txteAACAccountCode.MenuManager = this.barManager1;
+            this.txteAACAccountCode.Name = "txteAACAccountCode";
+            this.txteAACAccountCode.Size = new System.Drawing.Size(210, 22);
+            this.txteAACAccountCode.TabIndex = 50;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -253,25 +270,9 @@
             // 
             this.btnAIDeleteItem.AutoHeight = false;
             this.btnAIDeleteItem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnAIDeleteItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnAIDeleteItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.btnAIDeleteItem.Name = "btnAIDeleteItem";
             this.btnAIDeleteItem.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            // 
-            // txteAACAccountCode
-            // 
-            this.txteAACAccountCode.Location = new System.Drawing.Point(126, 77);
-            this.txteAACAccountCode.MenuManager = this.barManager1;
-            this.txteAACAccountCode.Name = "txteAACAccountCode";
-            this.txteAACAccountCode.Size = new System.Drawing.Size(210, 22);
-            this.txteAACAccountCode.TabIndex = 50;
-            // 
-            // txteAACPassword
-            // 
-            this.txteAACPassword.Location = new System.Drawing.Point(126, 118);
-            this.txteAACPassword.MenuManager = this.barManager1;
-            this.txteAACPassword.Name = "txteAACPassword";
-            this.txteAACPassword.Size = new System.Drawing.Size(210, 22);
-            this.txteAACPassword.TabIndex = 51;
             // 
             // frmAddAccount
             // 
@@ -290,9 +291,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAIDeleteItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txteAACAccountCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAACPassword.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txteAACAccountCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAIDeleteItem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

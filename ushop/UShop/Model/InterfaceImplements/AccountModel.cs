@@ -203,5 +203,27 @@ namespace Model.InterfaceImplement
             }
             return empList;
         }
+
+        public ACCOUNT getAccountByEmpCode(string empCode, RECORD_STATUS status)
+        {
+            ACCOUNT account = null;
+            try
+            {
+                var result = from acc in UShopDB.ACCOUNTs
+                          join emp in UShopDB.EMPLOYEEs
+                          on acc.EMP_ID equals emp.EMP_ID
+                          where (emp.EMP_CODE.Equals(empCode)
+                           && (status != 0 ? emp.RECORD_STATUS.Equals((char)status) : true)
+                           && (status != 0 ? acc.RECORD_STATUS.Equals((char)status) : true)
+                          )
+                          select acc;
+                account = result.SingleOrDefault();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return account;
+        }
     }
 }

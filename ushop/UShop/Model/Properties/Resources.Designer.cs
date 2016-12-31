@@ -115,6 +115,24 @@ namespace Model.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Xác nhận.
+        /// </summary>
+        public static string MB_SIGN_OUT {
+            get {
+                return ResourceManager.GetString("MB_SIGN_OUT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bạn thực sự muốn đăng xuất khỏi hệ thống?.
+        /// </summary>
+        public static string MB_SIGN_OUT_MSG {
+            get {
+                return ResourceManager.GetString("MB_SIGN_OUT_MSG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thành công.
         /// </summary>
         public static string MB_SUCCESS {

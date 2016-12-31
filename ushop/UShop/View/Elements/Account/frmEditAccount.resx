@@ -117,73 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="EMPTY_ITEM" xml:space="preserve">
-    <value>&lt;rỗng&gt;</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnAIDeleteItem.Buttons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAAcFJREFUOE9jGFxguYxk8loV+clQLgaYz8DAsVVL7eBqedlGqBACLJMRT7rp4/z/
+        YbDX/9VyMu1QYTiYKCTEt1NX/erzSP//O7U1bkCFEWC1jFTbXS+n/y+ABtz1dPy/UlqiECrFMI2bW2yP
+        jvpDkNx+Pe1ns/n4hKBSqGCltHj5DUer/899XP7fcLD6v1xCNHY+P7/CQV3N1yCxwwaa7+dwckpBlWMH
+        y8RFki5bGP975mr3/6KF0b8jOhpfQOzjelrf5vHyqkKV4QcLhYX9z+tp/Xlqa/4fhE9pq/+aL8pvAJUm
+        DBaK8rmf1VD5/cTM8D8In9BQ+jGPm1sXKo0fLBUWiD6vpvz3sZ7W/4vqKv+OKMl/A7EPK8p9mcXPrwhV
+        hh0sExIquKwk//+Rusr/q8oK/5cKCqYBQ1zlgKT4e5DYAWnxN7O5ucWhylHBCiGh+muyUv8fKsj+vyEn
+        /X+lkEAVVIoBFPK7xUWfgeR2iok8nikoyA+VQoClfHxZl8VE/98UF/u/gp9vIlQYDkBxv1VQ4PZ9CfH/
+        W4T4r0CFUQHQkJw1Atxz/zMwMEKFUMAicXHuzQL8p1YK8HVChQYcMDAAAHinoPYXRMnwAAAAAElFTkSu
+        QmCC
+</value>
   </data>
-  <data name="ERROR_CAPTION" xml:space="preserve">
-    <value>Lỗi</value>
-  </data>
-  <data name="GENDER_FEMALE" xml:space="preserve">
-    <value>Nữ</value>
-  </data>
-  <data name="GENDER_MALE" xml:space="preserve">
-    <value>Nam</value>
-  </data>
-  <data name="INFOR_CAPTION" xml:space="preserve">
-    <value>Thông báo</value>
-  </data>
-  <data name="MB_FAILURE" xml:space="preserve">
-    <value>Thất bại</value>
-  </data>
-  <data name="MB_SIGN_OUT" xml:space="preserve">
-    <value>Xác nhận</value>
-  </data>
-  <data name="MB_SIGN_OUT_MSG" xml:space="preserve">
-    <value>Bạn thực sự muốn đăng xuất khỏi hệ thống?</value>
-  </data>
-  <data name="MB_SUCCESS" xml:space="preserve">
-    <value>Thành công</value>
-  </data>
-  <data name="MB_WELCOME" xml:space="preserve">
-    <value>Chào mừng bạn đăng nhập thành công vào UShop</value>
-  </data>
-  <data name="PM_CASH" xml:space="preserve">
-    <value>TM</value>
-  </data>
-  <data name="PM_TRANSFER" xml:space="preserve">
-    <value>CK</value>
-  </data>
-  <data name="PM_UNIDENTIFY" xml:space="preserve">
-    <value>TM/CK</value>
-  </data>
-  <data name="POS_EMPLOYEE" xml:space="preserve">
-    <value>Nhân viên</value>
-  </data>
-  <data name="POS_MANGER" xml:space="preserve">
-    <value>Quản lý</value>
-  </data>
-  <data name="SIZE_L" xml:space="preserve">
-    <value>L</value>
-  </data>
-  <data name="SIZE_M" xml:space="preserve">
-    <value>M</value>
-  </data>
-  <data name="SIZE_S" xml:space="preserve">
-    <value>S</value>
-  </data>
-  <data name="SIZE_XL" xml:space="preserve">
-    <value>XL</value>
-  </data>
-  <data name="SIZE_XXL" xml:space="preserve">
-    <value>XXL</value>
-  </data>
-  <data name="SIZE_XXXL" xml:space="preserve">
-    <value>XXXL</value>
-  </data>
-  <data name="WS_IN_WORK" xml:space="preserve">
-    <value>Đang làm</value>
-  </data>
-  <data name="WS_SEVERANCE" xml:space="preserve">
-    <value>Đã nghỉ</value>
-  </data>
+  <metadata name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

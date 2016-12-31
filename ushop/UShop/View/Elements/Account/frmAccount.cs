@@ -53,11 +53,7 @@ namespace View.Elements.Account
 
         private void btnAMUpdateAccount_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            if (!AccountPresenter.checkPermission(FORM_TYPE.ADDING_ACCOUNT))
-            {
-                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
-                return;
-            }
+          
             String accCode = table.Rows[gvAMAccount.FocusedRowHandle]["ACC_CODE"] + "";
             Form addAccForm = new frmAddAccount(this, presenter, accCode);
             addAccForm.FormBorderStyle = FormBorderStyle.None;
@@ -85,11 +81,7 @@ namespace View.Elements.Account
 
         private void bbtniAMAddAccount_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!AccountPresenter.checkPermission(FORM_TYPE.ADDING_ACCOUNT))
-            {
-                MessageBox.Show("Không được cấp quyền sử dụng chức năng này!");
-                return;
-            }
+           
             Form addAccForm = new frmAddAccount(this, presenter);
             addAccForm.FormBorderStyle = FormBorderStyle.None;
             //set fill parent

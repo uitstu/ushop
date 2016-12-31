@@ -11,13 +11,14 @@ using Presenter.InterfaceImplement;
 using Presenter.Interfaces;
 using Model;
 using Model.Properties;
+using View.Elements.Employee;
 
 namespace View.Elements.Account
 {
     public partial class frmAddAccount : Form,IAccountAddingView
     {
         private Form caller;
-        private string updatedAppCode;
+        private string updatedAccCode;
         private AccountPresenter presenter;
         
         public frmAddAccount(Form caller, AccountPresenter presenter)
@@ -30,18 +31,18 @@ namespace View.Elements.Account
             refreshAll();
         }
 
-        public frmAddAccount(Form caller, AccountPresenter presenter, string v)
+        public frmAddAccount(Form caller, AccountPresenter presenter, string accCode)
         {
             InitializeComponent();
             this.caller = caller;
             this.presenter = presenter;
-            this.updatedAppCode = v;
+            this.updatedAccCode = accCode;
         
             presenter.AccAddingView = this;
 
             refreshAll();
 
-            presenter.loadExistedAccount(updatedAppCode);
+            presenter.loadExistedAccount(updatedAccCode);
 
         }
 
@@ -135,6 +136,16 @@ namespace View.Elements.Account
         private void bbtniAACReset_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             refreshAll();
+        }
+
+        private void btnAACNewEmployee_Click(object sender, EventArgs e)
+        {
+            Form addEmployForm = new frmAddEmployee(this, new Presenter.Elements.EmployeePresenter());
+            addEmployForm.FormBorderStyle = FormBorderStyle.None;
+            //set fill parent
+            addEmployForm.MdiParent = this.MdiParent;
+            addEmployForm.Dock = DockStyle.Fill;
+            addEmployForm.Show();
         }
     }
 }

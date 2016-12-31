@@ -11,6 +11,7 @@ using Model;
 using Presenter.Elements;
 using Presenter.Interfaces;
 using Model.Properties;
+using View.Elements.Customer;
 
 namespace View.Elements.Appointment
 {
@@ -152,6 +153,16 @@ namespace View.Elements.Appointment
             //if (doShowPopup)
             //    cmbAICustomer.ShowPopup();
         
+        }
+
+        private void btnAENewCustomer_Click(object sender, EventArgs e)
+        {
+            Form addCusForm = new frmAddCustomer(this, new CustomerPresenter());
+            addCusForm.FormBorderStyle = FormBorderStyle.None;
+            //set fill parent
+            addCusForm.MdiParent = this.MdiParent;
+            addCusForm.Dock = DockStyle.Fill;
+            addCusForm.Show();
         }
     }
 }

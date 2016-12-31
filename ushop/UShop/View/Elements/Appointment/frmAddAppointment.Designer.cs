@@ -51,6 +51,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btnAENewCustomer = new System.Windows.Forms.Button();
             this.txteAAEmployee = new DevExpress.XtraEditors.TextEdit();
             this.txteAANote = new System.Windows.Forms.TextBox();
             this.txteAADescription = new System.Windows.Forms.TextBox();
@@ -59,7 +60,6 @@
             this.cmbAACusId = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnAENewCustomer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btnAIDeleteItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAAAppCode.Properties)).BeginInit();
@@ -282,6 +282,17 @@
             this.groupControl1.TabIndex = 10;
             this.groupControl1.Text = "Thông tin Phiếu hẹn";
             // 
+            // btnAENewCustomer
+            // 
+            this.btnAENewCustomer.Location = new System.Drawing.Point(355, 36);
+            this.btnAENewCustomer.Margin = new System.Windows.Forms.Padding(16, 3, 3, 3);
+            this.btnAENewCustomer.Name = "btnAENewCustomer";
+            this.btnAENewCustomer.Size = new System.Drawing.Size(75, 23);
+            this.btnAENewCustomer.TabIndex = 49;
+            this.btnAENewCustomer.Text = "KH Mới";
+            this.btnAENewCustomer.UseVisualStyleBackColor = true;
+            this.btnAENewCustomer.Click += new System.EventHandler(this.btnAENewCustomer_Click);
+            // 
             // txteAAEmployee
             // 
             this.txteAAEmployee.Location = new System.Drawing.Point(592, 77);
@@ -352,16 +363,6 @@
             this.label2.Size = new System.Drawing.Size(68, 17);
             this.label2.TabIndex = 40;
             this.label2.Text = "Nội dung:";
-            // 
-            // btnAENewCustomer
-            // 
-            this.btnAENewCustomer.Location = new System.Drawing.Point(355, 36);
-            this.btnAENewCustomer.Margin = new System.Windows.Forms.Padding(16, 3, 3, 3);
-            this.btnAENewCustomer.Name = "btnAENewCustomer";
-            this.btnAENewCustomer.Size = new System.Drawing.Size(75, 23);
-            this.btnAENewCustomer.TabIndex = 49;
-            this.btnAENewCustomer.Text = "KH Mới";
-            this.btnAENewCustomer.UseVisualStyleBackColor = true;
             // 
             // frmAddAppointment
             // 

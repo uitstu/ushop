@@ -44,7 +44,7 @@ namespace View.Elements.Employee
             updatedEmpCode = empCode;
             presenter.loadExistedEmployee(updatedEmpCode);
         }
-
+        
         public void backPreviousForm()
         {
             foreach (var form in MdiParent.MdiChildren)
@@ -146,6 +146,7 @@ namespace View.Elements.Employee
         private void bbtniAEBack_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             backPreviousForm();
+            this.Close();
         }
 
         private void bbtniAEReset_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

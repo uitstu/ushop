@@ -12,6 +12,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using View.Elements.Employee;
+using View.Elements.Product;
 
 namespace View.Elements.Invoice
 {
@@ -313,6 +315,28 @@ namespace View.Elements.Invoice
             txteAINote.Text = invoice.NOTE;
             txteAIVAT.Text = invoice.VAT_RATE + "";
             
+        }
+
+        private void btnAINewCustomer_Click(object sender, EventArgs e)
+        {
+            Form addEmployForm = new frmAddEmployee(this, new EmployeePresenter());
+            addEmployForm.FormBorderStyle = FormBorderStyle.None;
+            //set fill parent
+            addEmployForm.MdiParent = this.MdiParent;
+            addEmployForm.Dock = DockStyle.Fill;
+            addEmployForm.Show();
+            
+        }
+
+        private void btnAINewProduct_Click(object sender, EventArgs e)
+        {
+            Form addProductForm = new frmAddProduct(new ProductPresenter(), this);
+            addProductForm.FormBorderStyle = FormBorderStyle.None;
+            //set fill parent
+            addProductForm.MdiParent = this.MdiParent;
+            addProductForm.Dock = DockStyle.Fill;
+            addProductForm.Show();
+
         }
     }
 }
