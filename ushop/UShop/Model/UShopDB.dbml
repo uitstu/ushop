@@ -1,11 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="UShopDB" Class="UShopDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=ALIENWARE\SQLEXPRESS;Initial Catalog=UShopDB;Integrated Security=True" SettingsObjectName="Model.Properties.Settings" SettingsPropertyName="UShopDBConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=HUY;Initial Catalog=UShopDB;Integrated Security=True" SettingsObjectName="Model.Properties.Settings" SettingsPropertyName="UShopDBConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ACCOUNT" Member="ACCOUNTs">
     <Type Name="ACCOUNT">
       <Column Name="ACC_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ACC_CODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="EMP_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PASSWORD" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RECORD_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SUPPLIER" Member="SUPPLIERs">
+    <Type Name="SUPPLIER">
+      <Column Name="SUPPLIER_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SUPPLIER_CODE" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="SUPPLIER_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TAX_CODE" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="PHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ADDRESS" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="RECORD_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
     </Type>
   </Table>
@@ -126,6 +137,7 @@
       <Column Name="ACCOUNTED" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="TOTAL" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="NOTE" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="STATUS" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
       <Column Name="RECORD_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
     </Type>
   </Table>
@@ -137,29 +149,9 @@
       <Column Name="PRODUCT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="QUANTITY_STOCK_S" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="QUANTITY_VOUCHER_S" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QUANTITY_STOCK_M" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QUANTITY_VOUCHER_M" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QUANTITY_STOCK_L" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QUANTITY_VOUCHER_L" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QUANTITY_STOCK_XL" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QUANTITY_VOUCHER_XL" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QUANTITY_STOCK_XXL" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="QUANTITY_VOUCHER_XXL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SIZE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Column Name="PRICE" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="TOTAL_STOCK" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TOTAL_VOUCHER" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="AMOUNT" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="RECORD_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.SUPPLIER" Member="SUPPLIERs">
-    <Type Name="SUPPLIER">
-      <Column Name="SUPPLIER_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="SUPPLIER_CODE" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="SUPPLIER_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="TAX_CODE" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="PHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="ADDRESS" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="RECORD_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
     </Type>
   </Table>

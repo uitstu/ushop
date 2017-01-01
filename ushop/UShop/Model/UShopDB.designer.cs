@@ -33,6 +33,9 @@ namespace Model
     partial void InsertACCOUNT(ACCOUNT instance);
     partial void UpdateACCOUNT(ACCOUNT instance);
     partial void DeleteACCOUNT(ACCOUNT instance);
+    partial void InsertSUPPLIER(SUPPLIER instance);
+    partial void UpdateSUPPLIER(SUPPLIER instance);
+    partial void DeleteSUPPLIER(SUPPLIER instance);
     partial void InsertAPPOINTMENT(APPOINTMENT instance);
     partial void UpdateAPPOINTMENT(APPOINTMENT instance);
     partial void DeleteAPPOINTMENT(APPOINTMENT instance);
@@ -63,13 +66,10 @@ namespace Model
     partial void InsertRECEIPT_NOTE_ITEM(RECEIPT_NOTE_ITEM instance);
     partial void UpdateRECEIPT_NOTE_ITEM(RECEIPT_NOTE_ITEM instance);
     partial void DeleteRECEIPT_NOTE_ITEM(RECEIPT_NOTE_ITEM instance);
-    partial void InsertSUPPLIER(SUPPLIER instance);
-    partial void UpdateSUPPLIER(SUPPLIER instance);
-    partial void DeleteSUPPLIER(SUPPLIER instance);
     #endregion
 		
 		public UShopDBDataContext() : 
-				base(global::Model.Properties.Settings.Default.UShopDBConnectionString1, mappingSource)
+				base(global::Model.Properties.Settings.Default.UShopDBConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -103,6 +103,14 @@ namespace Model
 			get
 			{
 				return this.GetTable<ACCOUNT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SUPPLIER> SUPPLIERs
+		{
+			get
+			{
+				return this.GetTable<SUPPLIER>();
 			}
 		}
 		
@@ -183,14 +191,6 @@ namespace Model
 			get
 			{
 				return this.GetTable<RECEIPT_NOTE_ITEM>();
-			}
-		}
-		
-		public System.Data.Linq.Table<SUPPLIER> SUPPLIERs
-		{
-			get
-			{
-				return this.GetTable<SUPPLIER>();
 			}
 		}
 	}
@@ -308,6 +308,212 @@ namespace Model
 					this._PASSWORD = value;
 					this.SendPropertyChanged("PASSWORD");
 					this.OnPASSWORDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECORD_STATUS", DbType="VarChar(1)")]
+		public string RECORD_STATUS
+		{
+			get
+			{
+				return this._RECORD_STATUS;
+			}
+			set
+			{
+				if ((this._RECORD_STATUS != value))
+				{
+					this.OnRECORD_STATUSChanging(value);
+					this.SendPropertyChanging();
+					this._RECORD_STATUS = value;
+					this.SendPropertyChanged("RECORD_STATUS");
+					this.OnRECORD_STATUSChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SUPPLIER")]
+	public partial class SUPPLIER : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _SUPPLIER_ID;
+		
+		private string _SUPPLIER_CODE;
+		
+		private string _SUPPLIER_NAME;
+		
+		private string _TAX_CODE;
+		
+		private string _PHONE;
+		
+		private string _ADDRESS;
+		
+		private string _RECORD_STATUS;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSUPPLIER_IDChanging(int value);
+    partial void OnSUPPLIER_IDChanged();
+    partial void OnSUPPLIER_CODEChanging(string value);
+    partial void OnSUPPLIER_CODEChanged();
+    partial void OnSUPPLIER_NAMEChanging(string value);
+    partial void OnSUPPLIER_NAMEChanged();
+    partial void OnTAX_CODEChanging(string value);
+    partial void OnTAX_CODEChanged();
+    partial void OnPHONEChanging(string value);
+    partial void OnPHONEChanged();
+    partial void OnADDRESSChanging(string value);
+    partial void OnADDRESSChanged();
+    partial void OnRECORD_STATUSChanging(string value);
+    partial void OnRECORD_STATUSChanged();
+    #endregion
+		
+		public SUPPLIER()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUPPLIER_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int SUPPLIER_ID
+		{
+			get
+			{
+				return this._SUPPLIER_ID;
+			}
+			set
+			{
+				if ((this._SUPPLIER_ID != value))
+				{
+					this.OnSUPPLIER_IDChanging(value);
+					this.SendPropertyChanging();
+					this._SUPPLIER_ID = value;
+					this.SendPropertyChanged("SUPPLIER_ID");
+					this.OnSUPPLIER_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUPPLIER_CODE", DbType="VarChar(15)")]
+		public string SUPPLIER_CODE
+		{
+			get
+			{
+				return this._SUPPLIER_CODE;
+			}
+			set
+			{
+				if ((this._SUPPLIER_CODE != value))
+				{
+					this.OnSUPPLIER_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._SUPPLIER_CODE = value;
+					this.SendPropertyChanged("SUPPLIER_CODE");
+					this.OnSUPPLIER_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUPPLIER_NAME", DbType="NVarChar(100)")]
+		public string SUPPLIER_NAME
+		{
+			get
+			{
+				return this._SUPPLIER_NAME;
+			}
+			set
+			{
+				if ((this._SUPPLIER_NAME != value))
+				{
+					this.OnSUPPLIER_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._SUPPLIER_NAME = value;
+					this.SendPropertyChanged("SUPPLIER_NAME");
+					this.OnSUPPLIER_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TAX_CODE", DbType="VarChar(15)")]
+		public string TAX_CODE
+		{
+			get
+			{
+				return this._TAX_CODE;
+			}
+			set
+			{
+				if ((this._TAX_CODE != value))
+				{
+					this.OnTAX_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._TAX_CODE = value;
+					this.SendPropertyChanged("TAX_CODE");
+					this.OnTAX_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PHONE", DbType="VarChar(20)")]
+		public string PHONE
+		{
+			get
+			{
+				return this._PHONE;
+			}
+			set
+			{
+				if ((this._PHONE != value))
+				{
+					this.OnPHONEChanging(value);
+					this.SendPropertyChanging();
+					this._PHONE = value;
+					this.SendPropertyChanged("PHONE");
+					this.OnPHONEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADDRESS", DbType="NVarChar(100)")]
+		public string ADDRESS
+		{
+			get
+			{
+				return this._ADDRESS;
+			}
+			set
+			{
+				if ((this._ADDRESS != value))
+				{
+					this.OnADDRESSChanging(value);
+					this.SendPropertyChanging();
+					this._ADDRESS = value;
+					this.SendPropertyChanged("ADDRESS");
+					this.OnADDRESSChanged();
 				}
 			}
 		}
@@ -2457,6 +2663,8 @@ namespace Model
 		
 		private string _NOTE;
 		
+		private string _STATUS;
+		
 		private string _RECORD_STATUS;
 		
     #region Extensibility Method Definitions
@@ -2481,6 +2689,8 @@ namespace Model
     partial void OnTOTALChanged();
     partial void OnNOTEChanging(string value);
     partial void OnNOTEChanged();
+    partial void OnSTATUSChanging(string value);
+    partial void OnSTATUSChanged();
     partial void OnRECORD_STATUSChanging(string value);
     partial void OnRECORD_STATUSChanged();
     #endregion
@@ -2670,6 +2880,26 @@ namespace Model
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS", DbType="NVarChar(15)")]
+		public string STATUS
+		{
+			get
+			{
+				return this._STATUS;
+			}
+			set
+			{
+				if ((this._STATUS != value))
+				{
+					this.OnSTATUSChanging(value);
+					this.SendPropertyChanging();
+					this._STATUS = value;
+					this.SendPropertyChanged("STATUS");
+					this.OnSTATUSChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECORD_STATUS", DbType="VarChar(1)")]
 		public string RECORD_STATUS
 		{
@@ -2729,27 +2959,9 @@ namespace Model
 		
 		private System.Nullable<int> _QUANTITY_VOUCHER_S;
 		
-		private System.Nullable<int> _QUANTITY_STOCK_M;
-		
-		private System.Nullable<int> _QUANTITY_VOUCHER_M;
-		
-		private System.Nullable<int> _QUANTITY_STOCK_L;
-		
-		private System.Nullable<int> _QUANTITY_VOUCHER_L;
-		
-		private System.Nullable<int> _QUANTITY_STOCK_XL;
-		
-		private System.Nullable<int> _QUANTITY_VOUCHER_XL;
-		
-		private System.Nullable<int> _QUANTITY_STOCK_XXL;
-		
-		private System.Nullable<int> _QUANTITY_VOUCHER_XXL;
+		private string _SIZE;
 		
 		private System.Nullable<double> _PRICE;
-		
-		private System.Nullable<int> _TOTAL_STOCK;
-		
-		private System.Nullable<int> _TOTAL_VOUCHER;
 		
 		private System.Nullable<double> _AMOUNT;
 		
@@ -2771,28 +2983,10 @@ namespace Model
     partial void OnQUANTITY_STOCK_SChanged();
     partial void OnQUANTITY_VOUCHER_SChanging(System.Nullable<int> value);
     partial void OnQUANTITY_VOUCHER_SChanged();
-    partial void OnQUANTITY_STOCK_MChanging(System.Nullable<int> value);
-    partial void OnQUANTITY_STOCK_MChanged();
-    partial void OnQUANTITY_VOUCHER_MChanging(System.Nullable<int> value);
-    partial void OnQUANTITY_VOUCHER_MChanged();
-    partial void OnQUANTITY_STOCK_LChanging(System.Nullable<int> value);
-    partial void OnQUANTITY_STOCK_LChanged();
-    partial void OnQUANTITY_VOUCHER_LChanging(System.Nullable<int> value);
-    partial void OnQUANTITY_VOUCHER_LChanged();
-    partial void OnQUANTITY_STOCK_XLChanging(System.Nullable<int> value);
-    partial void OnQUANTITY_STOCK_XLChanged();
-    partial void OnQUANTITY_VOUCHER_XLChanging(System.Nullable<int> value);
-    partial void OnQUANTITY_VOUCHER_XLChanged();
-    partial void OnQUANTITY_STOCK_XXLChanging(System.Nullable<int> value);
-    partial void OnQUANTITY_STOCK_XXLChanged();
-    partial void OnQUANTITY_VOUCHER_XXLChanging(System.Nullable<int> value);
-    partial void OnQUANTITY_VOUCHER_XXLChanged();
+    partial void OnSIZEChanging(string value);
+    partial void OnSIZEChanged();
     partial void OnPRICEChanging(System.Nullable<double> value);
     partial void OnPRICEChanged();
-    partial void OnTOTAL_STOCKChanging(System.Nullable<int> value);
-    partial void OnTOTAL_STOCKChanged();
-    partial void OnTOTAL_VOUCHERChanging(System.Nullable<int> value);
-    partial void OnTOTAL_VOUCHERChanged();
     partial void OnAMOUNTChanging(System.Nullable<double> value);
     partial void OnAMOUNTChanged();
     partial void OnRECORD_STATUSChanging(string value);
@@ -2924,162 +3118,22 @@ namespace Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUANTITY_STOCK_M", DbType="Int")]
-		public System.Nullable<int> QUANTITY_STOCK_M
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIZE", DbType="VarChar(3)")]
+		public string SIZE
 		{
 			get
 			{
-				return this._QUANTITY_STOCK_M;
+				return this._SIZE;
 			}
 			set
 			{
-				if ((this._QUANTITY_STOCK_M != value))
+				if ((this._SIZE != value))
 				{
-					this.OnQUANTITY_STOCK_MChanging(value);
+					this.OnSIZEChanging(value);
 					this.SendPropertyChanging();
-					this._QUANTITY_STOCK_M = value;
-					this.SendPropertyChanged("QUANTITY_STOCK_M");
-					this.OnQUANTITY_STOCK_MChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUANTITY_VOUCHER_M", DbType="Int")]
-		public System.Nullable<int> QUANTITY_VOUCHER_M
-		{
-			get
-			{
-				return this._QUANTITY_VOUCHER_M;
-			}
-			set
-			{
-				if ((this._QUANTITY_VOUCHER_M != value))
-				{
-					this.OnQUANTITY_VOUCHER_MChanging(value);
-					this.SendPropertyChanging();
-					this._QUANTITY_VOUCHER_M = value;
-					this.SendPropertyChanged("QUANTITY_VOUCHER_M");
-					this.OnQUANTITY_VOUCHER_MChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUANTITY_STOCK_L", DbType="Int")]
-		public System.Nullable<int> QUANTITY_STOCK_L
-		{
-			get
-			{
-				return this._QUANTITY_STOCK_L;
-			}
-			set
-			{
-				if ((this._QUANTITY_STOCK_L != value))
-				{
-					this.OnQUANTITY_STOCK_LChanging(value);
-					this.SendPropertyChanging();
-					this._QUANTITY_STOCK_L = value;
-					this.SendPropertyChanged("QUANTITY_STOCK_L");
-					this.OnQUANTITY_STOCK_LChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUANTITY_VOUCHER_L", DbType="Int")]
-		public System.Nullable<int> QUANTITY_VOUCHER_L
-		{
-			get
-			{
-				return this._QUANTITY_VOUCHER_L;
-			}
-			set
-			{
-				if ((this._QUANTITY_VOUCHER_L != value))
-				{
-					this.OnQUANTITY_VOUCHER_LChanging(value);
-					this.SendPropertyChanging();
-					this._QUANTITY_VOUCHER_L = value;
-					this.SendPropertyChanged("QUANTITY_VOUCHER_L");
-					this.OnQUANTITY_VOUCHER_LChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUANTITY_STOCK_XL", DbType="Int")]
-		public System.Nullable<int> QUANTITY_STOCK_XL
-		{
-			get
-			{
-				return this._QUANTITY_STOCK_XL;
-			}
-			set
-			{
-				if ((this._QUANTITY_STOCK_XL != value))
-				{
-					this.OnQUANTITY_STOCK_XLChanging(value);
-					this.SendPropertyChanging();
-					this._QUANTITY_STOCK_XL = value;
-					this.SendPropertyChanged("QUANTITY_STOCK_XL");
-					this.OnQUANTITY_STOCK_XLChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUANTITY_VOUCHER_XL", DbType="Int")]
-		public System.Nullable<int> QUANTITY_VOUCHER_XL
-		{
-			get
-			{
-				return this._QUANTITY_VOUCHER_XL;
-			}
-			set
-			{
-				if ((this._QUANTITY_VOUCHER_XL != value))
-				{
-					this.OnQUANTITY_VOUCHER_XLChanging(value);
-					this.SendPropertyChanging();
-					this._QUANTITY_VOUCHER_XL = value;
-					this.SendPropertyChanged("QUANTITY_VOUCHER_XL");
-					this.OnQUANTITY_VOUCHER_XLChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUANTITY_STOCK_XXL", DbType="Int")]
-		public System.Nullable<int> QUANTITY_STOCK_XXL
-		{
-			get
-			{
-				return this._QUANTITY_STOCK_XXL;
-			}
-			set
-			{
-				if ((this._QUANTITY_STOCK_XXL != value))
-				{
-					this.OnQUANTITY_STOCK_XXLChanging(value);
-					this.SendPropertyChanging();
-					this._QUANTITY_STOCK_XXL = value;
-					this.SendPropertyChanged("QUANTITY_STOCK_XXL");
-					this.OnQUANTITY_STOCK_XXLChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUANTITY_VOUCHER_XXL", DbType="Int")]
-		public System.Nullable<int> QUANTITY_VOUCHER_XXL
-		{
-			get
-			{
-				return this._QUANTITY_VOUCHER_XXL;
-			}
-			set
-			{
-				if ((this._QUANTITY_VOUCHER_XXL != value))
-				{
-					this.OnQUANTITY_VOUCHER_XXLChanging(value);
-					this.SendPropertyChanging();
-					this._QUANTITY_VOUCHER_XXL = value;
-					this.SendPropertyChanged("QUANTITY_VOUCHER_XXL");
-					this.OnQUANTITY_VOUCHER_XXLChanged();
+					this._SIZE = value;
+					this.SendPropertyChanged("SIZE");
+					this.OnSIZEChanged();
 				}
 			}
 		}
@@ -3104,46 +3158,6 @@ namespace Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL_STOCK", DbType="Int")]
-		public System.Nullable<int> TOTAL_STOCK
-		{
-			get
-			{
-				return this._TOTAL_STOCK;
-			}
-			set
-			{
-				if ((this._TOTAL_STOCK != value))
-				{
-					this.OnTOTAL_STOCKChanging(value);
-					this.SendPropertyChanging();
-					this._TOTAL_STOCK = value;
-					this.SendPropertyChanged("TOTAL_STOCK");
-					this.OnTOTAL_STOCKChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL_VOUCHER", DbType="Int")]
-		public System.Nullable<int> TOTAL_VOUCHER
-		{
-			get
-			{
-				return this._TOTAL_VOUCHER;
-			}
-			set
-			{
-				if ((this._TOTAL_VOUCHER != value))
-				{
-					this.OnTOTAL_VOUCHERChanging(value);
-					this.SendPropertyChanging();
-					this._TOTAL_VOUCHER = value;
-					this.SendPropertyChanged("TOTAL_VOUCHER");
-					this.OnTOTAL_VOUCHERChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMOUNT", DbType="Float")]
 		public System.Nullable<double> AMOUNT
 		{
@@ -3160,212 +3174,6 @@ namespace Model
 					this._AMOUNT = value;
 					this.SendPropertyChanged("AMOUNT");
 					this.OnAMOUNTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECORD_STATUS", DbType="VarChar(1)")]
-		public string RECORD_STATUS
-		{
-			get
-			{
-				return this._RECORD_STATUS;
-			}
-			set
-			{
-				if ((this._RECORD_STATUS != value))
-				{
-					this.OnRECORD_STATUSChanging(value);
-					this.SendPropertyChanging();
-					this._RECORD_STATUS = value;
-					this.SendPropertyChanged("RECORD_STATUS");
-					this.OnRECORD_STATUSChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SUPPLIER")]
-	public partial class SUPPLIER : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _SUPPLIER_ID;
-		
-		private string _SUPPLIER_CODE;
-		
-		private string _SUPPLIER_NAME;
-		
-		private string _TAX_CODE;
-		
-		private string _PHONE;
-		
-		private string _ADDRESS;
-		
-		private string _RECORD_STATUS;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnSUPPLIER_IDChanging(int value);
-    partial void OnSUPPLIER_IDChanged();
-    partial void OnSUPPLIER_CODEChanging(string value);
-    partial void OnSUPPLIER_CODEChanged();
-    partial void OnSUPPLIER_NAMEChanging(string value);
-    partial void OnSUPPLIER_NAMEChanged();
-    partial void OnTAX_CODEChanging(string value);
-    partial void OnTAX_CODEChanged();
-    partial void OnPHONEChanging(string value);
-    partial void OnPHONEChanged();
-    partial void OnADDRESSChanging(string value);
-    partial void OnADDRESSChanged();
-    partial void OnRECORD_STATUSChanging(string value);
-    partial void OnRECORD_STATUSChanged();
-    #endregion
-		
-		public SUPPLIER()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUPPLIER_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int SUPPLIER_ID
-		{
-			get
-			{
-				return this._SUPPLIER_ID;
-			}
-			set
-			{
-				if ((this._SUPPLIER_ID != value))
-				{
-					this.OnSUPPLIER_IDChanging(value);
-					this.SendPropertyChanging();
-					this._SUPPLIER_ID = value;
-					this.SendPropertyChanged("SUPPLIER_ID");
-					this.OnSUPPLIER_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUPPLIER_CODE", DbType="VarChar(15)")]
-		public string SUPPLIER_CODE
-		{
-			get
-			{
-				return this._SUPPLIER_CODE;
-			}
-			set
-			{
-				if ((this._SUPPLIER_CODE != value))
-				{
-					this.OnSUPPLIER_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._SUPPLIER_CODE = value;
-					this.SendPropertyChanged("SUPPLIER_CODE");
-					this.OnSUPPLIER_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUPPLIER_NAME", DbType="NVarChar(100)")]
-		public string SUPPLIER_NAME
-		{
-			get
-			{
-				return this._SUPPLIER_NAME;
-			}
-			set
-			{
-				if ((this._SUPPLIER_NAME != value))
-				{
-					this.OnSUPPLIER_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._SUPPLIER_NAME = value;
-					this.SendPropertyChanged("SUPPLIER_NAME");
-					this.OnSUPPLIER_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TAX_CODE", DbType="VarChar(15)")]
-		public string TAX_CODE
-		{
-			get
-			{
-				return this._TAX_CODE;
-			}
-			set
-			{
-				if ((this._TAX_CODE != value))
-				{
-					this.OnTAX_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._TAX_CODE = value;
-					this.SendPropertyChanged("TAX_CODE");
-					this.OnTAX_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PHONE", DbType="VarChar(20)")]
-		public string PHONE
-		{
-			get
-			{
-				return this._PHONE;
-			}
-			set
-			{
-				if ((this._PHONE != value))
-				{
-					this.OnPHONEChanging(value);
-					this.SendPropertyChanging();
-					this._PHONE = value;
-					this.SendPropertyChanged("PHONE");
-					this.OnPHONEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADDRESS", DbType="NVarChar(100)")]
-		public string ADDRESS
-		{
-			get
-			{
-				return this._ADDRESS;
-			}
-			set
-			{
-				if ((this._ADDRESS != value))
-				{
-					this.OnADDRESSChanging(value);
-					this.SendPropertyChanging();
-					this._ADDRESS = value;
-					this.SendPropertyChanged("ADDRESS");
-					this.OnADDRESSChanged();
 				}
 			}
 		}

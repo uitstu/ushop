@@ -43,10 +43,11 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cboxSize = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnNewSupplier = new DevExpress.XtraEditors.SimpleButton();
             this.btnNewProduct = new DevExpress.XtraEditors.SimpleButton();
             this.label8 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.cboxProduct = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cboxSupplier = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label7 = new System.Windows.Forms.Label();
@@ -67,16 +68,7 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -84,6 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboxSize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboxProduct.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboxSupplier.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridItems)).BeginInit();
@@ -196,10 +189,11 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.cboxSize);
+            this.groupControl1.Controls.Add(this.label9);
             this.groupControl1.Controls.Add(this.btnNewSupplier);
             this.groupControl1.Controls.Add(this.btnNewProduct);
             this.groupControl1.Controls.Add(this.label8);
-            this.groupControl1.Controls.Add(this.label5);
             this.groupControl1.Controls.Add(this.cboxProduct);
             this.groupControl1.Controls.Add(this.cboxSupplier);
             this.groupControl1.Controls.Add(this.label7);
@@ -221,6 +215,25 @@
             this.groupControl1.TabIndex = 4;
             this.groupControl1.Text = "groupControl1";
             // 
+            // cboxSize
+            // 
+            this.cboxSize.Location = new System.Drawing.Point(406, 136);
+            this.cboxSize.MenuManager = this.barManager1;
+            this.cboxSize.Name = "cboxSize";
+            this.cboxSize.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboxSize.Size = new System.Drawing.Size(62, 20);
+            this.cboxSize.TabIndex = 22;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(370, 139);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(30, 13);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Size:";
+            // 
             // btnNewSupplier
             // 
             this.btnNewSupplier.Location = new System.Drawing.Point(232, 30);
@@ -232,7 +245,7 @@
             // 
             // btnNewProduct
             // 
-            this.btnNewProduct.Location = new System.Drawing.Point(359, 134);
+            this.btnNewProduct.Location = new System.Drawing.Point(278, 134);
             this.btnNewProduct.Name = "btnNewProduct";
             this.btnNewProduct.Size = new System.Drawing.Size(75, 23);
             this.btnNewProduct.TabIndex = 19;
@@ -247,15 +260,6 @@
             this.label8.Size = new System.Drawing.Size(11, 13);
             this.label8.TabIndex = 18;
             this.label8.Text = "/";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(836, 143);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(150, 13);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "STO: STOCK, VOU: VOUCHER";
             // 
             // cboxProduct
             // 
@@ -298,7 +302,7 @@
             // 
             // btnAddItem
             // 
-            this.btnAddItem.Location = new System.Drawing.Point(278, 134);
+            this.btnAddItem.Location = new System.Drawing.Point(500, 133);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(75, 23);
             this.btnAddItem.TabIndex = 11;
@@ -320,7 +324,7 @@
             this.lbTotal.Name = "lbTotal";
             this.lbTotal.Size = new System.Drawing.Size(116, 13);
             this.lbTotal.TabIndex = 8;
-            this.lbTotal.Text = "0";
+            this.lbTotal.Text = "1";
             // 
             // tboxAccounted
             // 
@@ -409,16 +413,7 @@
             this.gridColumn3,
             this.gridColumn5,
             this.gridColumn6,
-            this.gridColumn8,
-            this.gridColumn9,
-            this.gridColumn11,
-            this.gridColumn12,
-            this.gridColumn14,
-            this.gridColumn15,
-            this.gridColumn17,
-            this.gridColumn18,
-            this.gridColumn19,
-            this.gridColumn20,
+            this.gridColumn7,
             this.gridColumn21,
             this.gridColumn1,
             this.gridColumn4});
@@ -432,7 +427,7 @@
             // 
             // gridColumn2
             // 
-            this.gridColumn2.Caption = "CODE";
+            this.gridColumn2.Caption = "Mã hàng";
             this.gridColumn2.FieldName = "PRODUCT_CODE";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.AllowEdit = false;
@@ -442,7 +437,7 @@
             // 
             // gridColumn3
             // 
-            this.gridColumn3.Caption = "NAME";
+            this.gridColumn3.Caption = "Tên hàng";
             this.gridColumn3.FieldName = "PRODUCT_NAME";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.OptionsColumn.AllowEdit = false;
@@ -452,9 +447,11 @@
             // 
             // gridColumn5
             // 
-            this.gridColumn5.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.gridColumn5.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.gridColumn5.AppearanceCell.Options.UseBackColor = true;
-            this.gridColumn5.Caption = "STO_S";
+            this.gridColumn5.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.gridColumn5.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn5.Caption = "Thực nhập";
             this.gridColumn5.FieldName = "STOCK_S";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
@@ -462,133 +459,43 @@
             // 
             // gridColumn6
             // 
-            this.gridColumn6.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.gridColumn6.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.gridColumn6.AppearanceCell.Options.UseBackColor = true;
-            this.gridColumn6.Caption = "VOU_S";
+            this.gridColumn6.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.gridColumn6.AppearanceHeader.Options.UseBackColor = true;
+            this.gridColumn6.Caption = "Yêu cầu";
             this.gridColumn6.FieldName = "VOUCHER_S";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 3;
             // 
-            // gridColumn8
+            // gridColumn7
             // 
-            this.gridColumn8.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.gridColumn8.AppearanceCell.Options.UseBackColor = true;
-            this.gridColumn8.Caption = "STO_M";
-            this.gridColumn8.FieldName = "STOCK_M";
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 4;
-            // 
-            // gridColumn9
-            // 
-            this.gridColumn9.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.gridColumn9.AppearanceCell.Options.UseBackColor = true;
-            this.gridColumn9.Caption = "VOU_M";
-            this.gridColumn9.FieldName = "VOUCHER_M";
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 5;
-            // 
-            // gridColumn11
-            // 
-            this.gridColumn11.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.gridColumn11.AppearanceCell.Options.UseBackColor = true;
-            this.gridColumn11.Caption = "STO_L";
-            this.gridColumn11.FieldName = "STOCK_L";
-            this.gridColumn11.Name = "gridColumn11";
-            this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 6;
-            // 
-            // gridColumn12
-            // 
-            this.gridColumn12.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.gridColumn12.AppearanceCell.Options.UseBackColor = true;
-            this.gridColumn12.Caption = "VOU_L";
-            this.gridColumn12.FieldName = "VOUCHER_L";
-            this.gridColumn12.Name = "gridColumn12";
-            this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 7;
-            // 
-            // gridColumn14
-            // 
-            this.gridColumn14.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridColumn14.AppearanceCell.Options.UseBackColor = true;
-            this.gridColumn14.Caption = "STO_XL";
-            this.gridColumn14.FieldName = "STOCK_XL";
-            this.gridColumn14.Name = "gridColumn14";
-            this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 8;
-            // 
-            // gridColumn15
-            // 
-            this.gridColumn15.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gridColumn15.AppearanceCell.Options.UseBackColor = true;
-            this.gridColumn15.Caption = "VOU_XL";
-            this.gridColumn15.FieldName = "VOUCHER_XL";
-            this.gridColumn15.Name = "gridColumn15";
-            this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 9;
-            // 
-            // gridColumn17
-            // 
-            this.gridColumn17.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.gridColumn17.AppearanceCell.Options.UseBackColor = true;
-            this.gridColumn17.Caption = "STO_XXL";
-            this.gridColumn17.FieldName = "STOCK_XXL";
-            this.gridColumn17.Name = "gridColumn17";
-            this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 10;
-            // 
-            // gridColumn18
-            // 
-            this.gridColumn18.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.gridColumn18.AppearanceCell.Options.UseBackColor = true;
-            this.gridColumn18.Caption = "VOU_XXL";
-            this.gridColumn18.FieldName = "VOUCHER_XXL";
-            this.gridColumn18.Name = "gridColumn18";
-            this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 11;
-            // 
-            // gridColumn19
-            // 
-            this.gridColumn19.Caption = "STO_ALL";
-            this.gridColumn19.FieldName = "STOCK_TOTAL";
-            this.gridColumn19.Name = "gridColumn19";
-            this.gridColumn19.OptionsColumn.AllowEdit = false;
-            this.gridColumn19.OptionsColumn.ReadOnly = true;
-            this.gridColumn19.Visible = true;
-            this.gridColumn19.VisibleIndex = 12;
-            // 
-            // gridColumn20
-            // 
-            this.gridColumn20.Caption = "VOU_ALL";
-            this.gridColumn20.FieldName = "VOUCHER_TOTAL";
-            this.gridColumn20.Name = "gridColumn20";
-            this.gridColumn20.OptionsColumn.AllowEdit = false;
-            this.gridColumn20.OptionsColumn.ReadOnly = true;
-            this.gridColumn20.Visible = true;
-            this.gridColumn20.VisibleIndex = 13;
+            this.gridColumn7.Caption = "Kích cỡ";
+            this.gridColumn7.FieldName = "SIZE";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 4;
             // 
             // gridColumn21
             // 
-            this.gridColumn21.Caption = "PRICE";
+            this.gridColumn21.Caption = "Giá";
             this.gridColumn21.FieldName = "PRICE";
             this.gridColumn21.Name = "gridColumn21";
             this.gridColumn21.OptionsColumn.AllowEdit = false;
             this.gridColumn21.OptionsColumn.ReadOnly = true;
             this.gridColumn21.Visible = true;
-            this.gridColumn21.VisibleIndex = 14;
+            this.gridColumn21.VisibleIndex = 5;
             // 
             // gridColumn1
             // 
-            this.gridColumn1.Caption = "AMOUNT";
+            this.gridColumn1.Caption = "Thành tiền";
             this.gridColumn1.FieldName = "AMOUNT";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.OptionsColumn.ReadOnly = true;
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 15;
+            this.gridColumn1.VisibleIndex = 6;
             this.gridColumn1.Width = 100;
             // 
             // gridColumn4
@@ -597,7 +504,7 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.FixedWidth = true;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 16;
+            this.gridColumn4.VisibleIndex = 7;
             this.gridColumn4.Width = 20;
             // 
             // btnDeleteItem
@@ -628,6 +535,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboxSize.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboxProduct.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboxSupplier.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridItems)).EndInit();
@@ -654,16 +562,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private System.Windows.Forms.DateTimePicker dpickIssued;
@@ -682,7 +580,6 @@
         private DevExpress.XtraEditors.ComboBoxEdit cboxSupplier;
         private DevExpress.XtraEditors.ComboBoxEdit cboxProduct;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDeleteItem;
         private DevExpress.XtraEditors.SimpleButton btnNewSupplier;
@@ -690,5 +587,8 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem btnBack;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraEditors.ComboBoxEdit cboxSize;
+        private System.Windows.Forms.Label label9;
     }
 }

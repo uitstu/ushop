@@ -142,7 +142,7 @@ namespace View.Elements.ReceiptNote
             {
                 foreach (DataRow r in ((DataTable)gridItems.DataSource).Rows)
                 {
-                    if (Int32.Parse(r[13].ToString()) == 0)
+                    if (Int32.Parse(r[2].ToString()) == 0)
                         checkItem = false;
                 }
             }
@@ -182,11 +182,20 @@ namespace View.Elements.ReceiptNote
                 obj.ISSUED_DATE = dpickIssued.Value;
                 obj.ACCOUNTING_DATE = dpickAccounting.Value;
                 obj.NOTE = tboxNote.Text;
+
+                obj.STATUS = "Chưa thanh toán";
+                if (lbTotal.Text.Equals(tboxAccounted.Text))
+                {
+                    obj.STATUS = "Đã thanh toán";
+                }
+
                 String strEr = preReceiptNote.update(obj, dtItems);
                 if (strEr.Equals(""))
                 {
                     preReceiptNote.loadReceiptNotesDB();
                     Close();
+                    beforeForm.WindowState = FormWindowState.Maximized;
+                    beforeForm.Activate();
                 }
                 else
                 {
@@ -208,6 +217,12 @@ namespace View.Elements.ReceiptNote
             receipt_note.ISSUED_DATE = dpickIssued.Value;
             receipt_note.ACCOUNTING_DATE = dpickAccounting.Value;
             receipt_note.NOTE = tboxNote.Text;
+
+            receipt_note.STATUS = "Chưa thanh toán";
+            if (lbTotal.Text.Equals(tboxAccounted.Text))
+            {
+                receipt_note.STATUS = "Đã thanh toán";
+            }
 
             receipt_note.PREPARER_ID = 1;
             receipt_note.RECORD_STATUS = "A";
@@ -254,6 +269,11 @@ namespace View.Elements.ReceiptNote
             removeListSub(lst);
             cboxProduct.Properties.Items.AddRange(lst);
             cboxProduct.Properties.AutoComplete = false;
+
+            cboxSize.Properties.Items.Clear();
+            cboxSize.Properties.Items.Add("M");
+            cboxSize.Properties.Items.Add("L");
+            cboxSize.Properties.Items.Add("XL");
         }
 
         private void cboxSupplier_TextChanged_1(object sender, EventArgs e)
@@ -305,16 +325,7 @@ namespace View.Elements.ReceiptNote
                 dtItems.Columns.Add("PRODUCT_NAME");
                 dtItems.Columns.Add("STOCK_S");
                 dtItems.Columns.Add("VOUCHER_S");
-                dtItems.Columns.Add("STOCK_M");
-                dtItems.Columns.Add("VOUCHER_M");
-                dtItems.Columns.Add("STOCK_L");
-                dtItems.Columns.Add("VOUCHER_L");
-                dtItems.Columns.Add("STOCK_XL");
-                dtItems.Columns.Add("VOUCHER_XL");
-                dtItems.Columns.Add("STOCK_XXL");
-                dtItems.Columns.Add("VOUCHER_XXL");
-                dtItems.Columns.Add("STOCK_TOTAL");
-                dtItems.Columns.Add("VOUCHER_TOTAL");
+                dtItems.Columns.Add("SIZE");
                 dtItems.Columns.Add("PRICE");
                 dtItems.Columns.Add("AMOUNT");
                 //dtItems.Columns.Add("DELETE");
@@ -333,27 +344,46 @@ namespace View.Elements.ReceiptNote
                 }
             }
 
+            if (!checkExist)
+            {
+                MessageBox.Show("Không có sản phẩm " + str + "!");
+            }
+
+            if (cboxSize.Text.Equals(""))
+            {
+                checkExist = false;
+                MessageBox.Show("Chưa nhập size!");
+            }
+
+            foreach (DataRow d in dtItems.Rows)
+            {
+                if (d[0].ToString().Equals(str.Substring(0, str.IndexOf(' '))) && d[4].ToString().ToUpper().Equals(cboxSize.Text.ToUpper()))
+                {
+                    checkExist = false;
+                    MessageBox.Show("Đã có trong danh sách!");
+                    break;
+                }
+            }
+
             if (checkExist)
             {
                 String strCODE = str.Substring(0, str.IndexOf(' '));
                 String strNAME = str.Substring(str.IndexOf(' ') + 3, str.Length - (str.IndexOf(' ') + 3));
 
-                dtItems.Rows.Add(strCODE, strNAME, "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", preReceiptNote.getProductByCODE(strCODE).COST_PRICE, "0");
+                dtItems.Rows.Add(strCODE, strNAME, "0", "0", cboxSize.Text.ToUpper(), preReceiptNote.getProductByCODE(strCODE).COST_PRICE, "0");
 
                 gridItems.DataSource = dtItems;
 
                 lstSub.Add("" + str);
 
                 cboxProduct.Text = "";
-            }
-            else
-            {
-                MessageBox.Show("Didn't see any thing like " + str + "!");
+                cboxSize.Text = "";
             }
         }
-
+        
         public void removeListSub(List<string> lst)
         {
+            /*
             for (int i = lst.Count - 1; i >= 0; i--)
             {
                 for (int j = 0; j < lstSub.Count; j++)
@@ -365,10 +395,12 @@ namespace View.Elements.ReceiptNote
                     }
                 }
             }
+             * */
         }
-
+        
         private void gridView1_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
         {
+            /*
             int num = 0;
             if (!Int32.TryParse(e.Value as String, out num))
             {
@@ -381,17 +413,19 @@ namespace View.Elements.ReceiptNote
                     e.Valid = false;
                     e.ErrorText = "Must rather than -1 guy... :D";
                 }
+             * */
         }
 
         private void gridView1_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
+            /*
             for (int i = 2; i < 11; i += 2)
             {
                 GridColumn colStock = gridView1.Columns[i];
                 GridColumn colVoucher = gridView1.Columns[i+1];
 
-                int stockS = Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle/*gridView1.FocusedRowHandle*/, colStock));
-                int voucherS = Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle/*gridView1.FocusedRowHandle*/, colVoucher));
+                int stockS = Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle, colStock));
+                int voucherS = Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle, colVoucher));
 
                 if (stockS > voucherS)
                 {
@@ -402,7 +436,8 @@ namespace View.Elements.ReceiptNote
                     e.Valid = false;
                     e.ErrorText = "'Stock' value should be less than 'Voucher' value guy... :D";
                 }
-            }
+            }*/
+        
         }
 
         private void gridView1_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
@@ -418,6 +453,7 @@ namespace View.Elements.ReceiptNote
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
+            /*
             if (e.Column.FieldName.Equals("STOCK_TOTAL") || e.Column.FieldName.Equals("VOUCHER_TOTAL")
                 || e.Column.FieldName.Equals("AMOUNT"))
                 return;
@@ -430,8 +466,8 @@ namespace View.Elements.ReceiptNote
                 GridColumn colStock = gridView1.Columns[i];
                 GridColumn colVoucher = gridView1.Columns[i + 1];
 
-                stockTotal += Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle/*gridView1.FocusedRowHandle*/, colStock));
-                voucherTotal += Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle/*gridView1.FocusedRowHandle*/, colVoucher));
+                stockTotal += Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle, colStock));
+                voucherTotal += Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle, colVoucher));
             }
 
             GridColumn colStockTotal = gridView1.Columns["STOCK_TOTAL"];
@@ -453,6 +489,7 @@ namespace View.Elements.ReceiptNote
             }
             lbTotal.Text = totalAmount.ToString("0.##");
             //lbTotal.Text = Convert.ToString(totalAmount);
+             * */
         }
 
 
@@ -497,8 +534,8 @@ namespace View.Elements.ReceiptNote
             String str = "";
             GridView gridView = gridItems.FocusedView as GridView;
 
-            GridColumn colCode = gridView1.Columns["CODE"];
-            GridColumn colName = gridView1.Columns["NAME"];
+            GridColumn colCode = gridView1.Columns["PRODUCT_CODE"];
+            GridColumn colName = gridView1.Columns["PRODUCT_NAME"];
 
             str = gridView.GetRowCellValue(gridView.FocusedRowHandle, colCode).ToString();
             str += " - " + gridView.GetRowCellValue(gridView.FocusedRowHandle, colName).ToString();

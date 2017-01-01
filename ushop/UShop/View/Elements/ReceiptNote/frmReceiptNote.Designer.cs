@@ -55,6 +55,7 @@
             this.btnEditReceiptNote = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnDELETE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnDeleteReceiptNote = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.STATUS = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridReceiptNote)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -174,6 +175,7 @@
             this.ACCOUNTED,
             this.TOTAL,
             this.NOTE,
+            this.STATUS,
             this.btnUPDATE,
             this.btnDELETE});
             this.gridView.GridControl = this.gridReceiptNote;
@@ -265,7 +267,7 @@
             this.btnUPDATE.ColumnEdit = this.btnEditReceiptNote;
             this.btnUPDATE.Name = "btnUPDATE";
             this.btnUPDATE.Visible = true;
-            this.btnUPDATE.VisibleIndex = 8;
+            this.btnUPDATE.VisibleIndex = 9;
             this.btnUPDATE.Width = 20;
             // 
             // btnEditReceiptNote
@@ -282,7 +284,7 @@
             this.btnDELETE.ColumnEdit = this.btnDeleteReceiptNote;
             this.btnDELETE.Name = "btnDELETE";
             this.btnDELETE.Visible = true;
-            this.btnDELETE.VisibleIndex = 9;
+            this.btnDELETE.VisibleIndex = 10;
             this.btnDELETE.Width = 20;
             // 
             // btnDeleteReceiptNote
@@ -293,6 +295,14 @@
             this.btnDeleteReceiptNote.Name = "btnDeleteReceiptNote";
             this.btnDeleteReceiptNote.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnDeleteReceiptNote.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDeleteReceiptNote_ButtonClick);
+            // 
+            // STATUS
+            // 
+            this.STATUS.Caption = "STATUS";
+            this.STATUS.FieldName = "STATUS";
+            this.STATUS.Name = "STATUS";
+            this.STATUS.Visible = true;
+            this.STATUS.VisibleIndex = 8;
             // 
             // frmReceiptNote
             // 
@@ -344,6 +354,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn btnDELETE;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDeleteReceiptNote;
         private DevExpress.XtraBars.BarButtonItem btnXuatDS;
+        private DevExpress.XtraGrid.Columns.GridColumn STATUS;
 
     }
 }
