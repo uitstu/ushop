@@ -43,6 +43,7 @@
     <Reference Include="DevExpress.XtraGrid.v15.1, Version=15.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v15.1, Version=15.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v15.1, Version=15.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -55,6 +56,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UShopDataSet.cs">
+      <DependentUpon>UShopDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UShopDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UShopDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Elements\Account\frmAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +191,12 @@
     <Compile Include="Elements\Supplier\frmSupplier.Designer.cs">
       <DependentUpon>frmSupplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="Elements\UShop\frmUShop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Elements\UShop\frmUShop.Designer.cs">
+      <DependentUpon>frmUShop.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +250,7 @@
     <EmbeddedResource Include="Elements\Invoice\frmInvoice.resx">
       <DependentUpon>frmInvoice.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Elements\Invoice\ReportInvoice.rdlc" />
     <EmbeddedResource Include="Elements\ProductSize\frmAddProductSize.resx">
       <DependentUpon>frmAddProductSize.cs</DependentUpon>
     </EmbeddedResource>
@@ -252,11 +269,15 @@
     <EmbeddedResource Include="Elements\ReceiptNote\frmReceiptNote.resx">
       <DependentUpon>frmReceiptNote.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Elements\ReceiptNote\ReportReceiptNote.rdlc" />
     <EmbeddedResource Include="Elements\Supplier\frmAddSupplier.resx">
       <DependentUpon>frmAddSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Elements\Supplier\frmSupplier.resx">
       <DependentUpon>frmSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Elements\UShop\frmUShop.resx">
+      <DependentUpon>frmUShop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -274,6 +295,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="UShopDataSet.xsc">
+      <DependentUpon>UShopDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="UShopDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UShopDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="UShopDataSet.xss">
+      <DependentUpon>UShopDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

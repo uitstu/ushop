@@ -39,13 +39,13 @@ namespace Model.InterfaceImplements
                         o.EMP_CODE,
                         o.EMP_NAME,
                         o.GENDER,
-                        o.BIRTHDAY != null ? ((DateTime)o.BIRTHDAY).ToString("d"):"",
+                        o.BIRTHDAY != null ? ((DateTime)o.BIRTHDAY).ToString("dd/MM/yyyy"):"",
                         o.ID_CARD_NO,
                         o.ADDRESS,
                         o.PHONE,
-                        o.APPROVE_DATE != null ? ((DateTime)o.APPROVE_DATE).ToString("d"):"",
+                        o.APPROVE_DATE != null ? ((DateTime)o.APPROVE_DATE).ToString("dd/MM/yyyy") : "",
                         o.WORK_STATUS,
-                        o.SEV_DATE!= null? ((DateTime)o.SEV_DATE).ToString("d"):"",
+                        o.SEV_DATE != null ? ((DateTime)o.SEV_DATE).ToString("dd/MM/yyyy") : "",
                         o.POSITION
                         );
                 }

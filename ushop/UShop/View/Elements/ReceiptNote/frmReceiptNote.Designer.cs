@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReceiptNote));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -51,11 +51,11 @@
             this.ACCOUNTED = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TOTAL = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NOTE = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.STATUS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnUPDATE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnEditReceiptNote = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnDELETE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnDeleteReceiptNote = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.STATUS = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridReceiptNote)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -262,6 +262,14 @@
             this.NOTE.VisibleIndex = 7;
             this.NOTE.Width = 70;
             // 
+            // STATUS
+            // 
+            this.STATUS.Caption = "STATUS";
+            this.STATUS.FieldName = "STATUS";
+            this.STATUS.Name = "STATUS";
+            this.STATUS.Visible = true;
+            this.STATUS.VisibleIndex = 8;
+            // 
             // btnUPDATE
             // 
             this.btnUPDATE.ColumnEdit = this.btnEditReceiptNote;
@@ -274,7 +282,7 @@
             // 
             this.btnEditReceiptNote.AutoHeight = false;
             this.btnEditReceiptNote.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnEditReceiptNote.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnEditReceiptNote.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
             this.btnEditReceiptNote.Name = "btnEditReceiptNote";
             this.btnEditReceiptNote.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnEditReceiptNote.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnEditReceiptNote_ButtonClick);
@@ -291,18 +299,10 @@
             // 
             this.btnDeleteReceiptNote.AutoHeight = false;
             this.btnDeleteReceiptNote.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnDeleteReceiptNote.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnDeleteReceiptNote.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
             this.btnDeleteReceiptNote.Name = "btnDeleteReceiptNote";
             this.btnDeleteReceiptNote.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnDeleteReceiptNote.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDeleteReceiptNote_ButtonClick);
-            // 
-            // STATUS
-            // 
-            this.STATUS.Caption = "STATUS";
-            this.STATUS.FieldName = "STATUS";
-            this.STATUS.Name = "STATUS";
-            this.STATUS.Visible = true;
-            this.STATUS.VisibleIndex = 8;
             // 
             // frmReceiptNote
             // 

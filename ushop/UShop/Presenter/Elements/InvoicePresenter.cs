@@ -467,7 +467,7 @@ namespace Presenter.Elements
 
 
                 //create params
-                float discount = 0;
+                float discount = (float)curProduct.SALE_AMOUNT;
                 int quantity = 1;
                 double amount = calculateAmount(quantity, (float)curProduct.COST_PRICE,discount);
                 String note = "";
@@ -476,6 +476,7 @@ namespace Presenter.Elements
                 paramList.Add(productCodeName);
                 paramList.Add(size);
                 paramList.Add(curProduct.UNIT);
+
                 paramList.Add(discount + "");
                 paramList.Add(quantity + "");
                 paramList.Add(curProduct.COST_PRICE + "");

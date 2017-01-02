@@ -49,7 +49,7 @@
             this.barAIOptions = new DevExpress.XtraBars.Bar();
             this.bbtniAIBack = new DevExpress.XtraBars.BarButtonItem();
             this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPrint = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.bsiAIState = new DevExpress.XtraBars.BarStaticItem();
@@ -222,16 +222,14 @@
             // grdconAIItems
             // 
             this.grdconAIItems.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdconAIItems.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             gridLevelNode1.RelationName = "Level1";
             this.grdconAIItems.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
             gridLevelNode1});
-            this.grdconAIItems.Location = new System.Drawing.Point(0, 288);
+            this.grdconAIItems.Location = new System.Drawing.Point(0, 234);
             this.grdconAIItems.MainView = this.gvInvoiceItems;
-            this.grdconAIItems.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grdconAIItems.MenuManager = this.barManager1;
             this.grdconAIItems.Name = "grdconAIItems";
-            this.grdconAIItems.Size = new System.Drawing.Size(1143, 320);
+            this.grdconAIItems.Size = new System.Drawing.Size(980, 263);
             this.grdconAIItems.TabIndex = 7;
             this.grdconAIItems.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvInvoiceItems});
@@ -248,7 +246,7 @@
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.btnAdd,
-            this.barButtonItem1,
+            this.btnPrint,
             this.barButtonItem2,
             this.bbtniAIBack,
             this.bsiAIState});
@@ -266,7 +264,7 @@
             this.barAIOptions.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniAIBack, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnAdd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem1, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPrint, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem2, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.barAIOptions.OptionsBar.AllowQuickCustomization = false;
             this.barAIOptions.OptionsBar.MultiLine = true;
@@ -289,12 +287,13 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
             // 
-            // barButtonItem1
+            // btnPrint
             // 
-            this.barButtonItem1.Caption = "In";
-            this.barButtonItem1.Id = 1;
-            this.barButtonItem1.ImageUri.Uri = "Print";
-            this.barButtonItem1.Name = "barButtonItem1";
+            this.btnPrint.Caption = "In";
+            this.btnPrint.Id = 1;
+            this.btnPrint.ImageUri.Uri = "Print";
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPrint_ItemClick);
             // 
             // barButtonItem2
             // 
@@ -330,94 +329,85 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlTop.Size = new System.Drawing.Size(1143, 30);
+            this.barDockControlTop.Size = new System.Drawing.Size(980, 24);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 608);
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1143, 34);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 497);
+            this.barDockControlBottom.Size = new System.Drawing.Size(980, 25);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 578);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 473);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1143, 30);
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 578);
+            this.barDockControlRight.Location = new System.Drawing.Point(980, 24);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 473);
             // 
             // btnAINewCustomer
             // 
-            this.btnAINewCustomer.Location = new System.Drawing.Point(349, 33);
-            this.btnAINewCustomer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAINewCustomer.Location = new System.Drawing.Point(299, 27);
             this.btnAINewCustomer.Name = "btnAINewCustomer";
-            this.btnAINewCustomer.Size = new System.Drawing.Size(84, 28);
+            this.btnAINewCustomer.Size = new System.Drawing.Size(72, 23);
             this.btnAINewCustomer.TabIndex = 20;
             this.btnAINewCustomer.Text = "KH mới";
             this.btnAINewCustomer.Click += new System.EventHandler(this.btnAINewCustomer_Click);
             // 
             // btnAINewProduct
             // 
-            this.btnAINewProduct.Location = new System.Drawing.Point(349, 213);
-            this.btnAINewProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAINewProduct.Location = new System.Drawing.Point(299, 173);
             this.btnAINewProduct.Name = "btnAINewProduct";
-            this.btnAINewProduct.Size = new System.Drawing.Size(78, 28);
+            this.btnAINewProduct.Size = new System.Drawing.Size(67, 23);
             this.btnAINewProduct.TabIndex = 19;
             this.btnAINewProduct.Text = "Hàng mới";
             this.btnAINewProduct.Click += new System.EventHandler(this.btnAINewProduct_Click);
             // 
             // cmbAISearchProduct
             // 
-            this.cmbAISearchProduct.Location = new System.Drawing.Point(110, 216);
-            this.cmbAISearchProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbAISearchProduct.Location = new System.Drawing.Point(94, 176);
             this.cmbAISearchProduct.MenuManager = this.barManager1;
             this.cmbAISearchProduct.Name = "cmbAISearchProduct";
             this.cmbAISearchProduct.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbAISearchProduct.Size = new System.Drawing.Size(233, 22);
+            this.cmbAISearchProduct.Size = new System.Drawing.Size(200, 20);
             this.cmbAISearchProduct.TabIndex = 16;
             this.cmbAISearchProduct.SelectedIndexChanged += new System.EventHandler(this.cmbAISearchProduct_SelectedIndexChanged);
             this.cmbAISearchProduct.TextChanged += new System.EventHandler(this.cmbAISearchProduct_TextChanged);
             // 
             // cmbAICustomer
             // 
-            this.cmbAICustomer.Location = new System.Drawing.Point(115, 36);
-            this.cmbAICustomer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbAICustomer.Location = new System.Drawing.Point(99, 29);
             this.cmbAICustomer.MenuManager = this.barManager1;
             this.cmbAICustomer.Name = "cmbAICustomer";
             this.cmbAICustomer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbAICustomer.Size = new System.Drawing.Size(228, 22);
+            this.cmbAICustomer.Size = new System.Drawing.Size(195, 20);
             this.cmbAICustomer.TabIndex = 15;
             this.cmbAICustomer.TextChanged += new System.EventHandler(this.cmbAICustomer_TextChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(440, 39);
+            this.label7.Location = new System.Drawing.Point(377, 32);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 17);
+            this.label7.Size = new System.Drawing.Size(46, 13);
             this.label7.TabIndex = 13;
             this.label7.Text = "Ghi chú:";
             // 
             // txteAINote
             // 
-            this.txteAINote.Location = new System.Drawing.Point(512, 29);
-            this.txteAINote.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
+            this.txteAINote.Location = new System.Drawing.Point(439, 24);
             this.txteAINote.Multiline = true;
             this.txteAINote.Name = "txteAINote";
-            this.txteAINote.Size = new System.Drawing.Size(277, 70);
+            this.txteAINote.Size = new System.Drawing.Size(238, 58);
             this.txteAINote.TabIndex = 12;
             // 
             // btnAIAddItem
@@ -426,10 +416,9 @@
             this.btnAIAddItem.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.btnAIAddItem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAIAddItem.Image = ((System.Drawing.Image)(resources.GetObject("btnAIAddItem.Image")));
-            this.btnAIAddItem.Location = new System.Drawing.Point(678, 208);
-            this.btnAIAddItem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAIAddItem.Location = new System.Drawing.Point(581, 169);
             this.btnAIAddItem.Name = "btnAIAddItem";
-            this.btnAIAddItem.Size = new System.Drawing.Size(111, 37);
+            this.btnAIAddItem.Size = new System.Drawing.Size(95, 30);
             this.btnAIAddItem.TabIndex = 11;
             this.btnAIAddItem.Text = "Thêm vào";
             this.btnAIAddItem.Click += new System.EventHandler(this.btnAIAddItem_Click);
@@ -437,9 +426,9 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 219);
+            this.label6.Location = new System.Drawing.Point(12, 178);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 17);
+            this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 10;
             this.label6.Text = "Tìm hàng:";
             // 
@@ -471,188 +460,193 @@
             this.groupControl1.Controls.Add(this.label1);
             this.groupControl1.Controls.Add(this.dpickAIDate);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.Location = new System.Drawing.Point(0, 30);
-            this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupControl1.Location = new System.Drawing.Point(0, 24);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1143, 258);
+            this.groupControl1.Size = new System.Drawing.Size(980, 210);
             this.groupControl1.TabIndex = 6;
             this.groupControl1.Text = "Thông tin hóa đơn";
             // 
             // txteAITotalAmount
             // 
             this.txteAITotalAmount.EditValue = "0";
-            this.txteAITotalAmount.Location = new System.Drawing.Point(664, 116);
+            this.txteAITotalAmount.Location = new System.Drawing.Point(569, 94);
+            this.txteAITotalAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txteAITotalAmount.MenuManager = this.barManager1;
             this.txteAITotalAmount.Name = "txteAITotalAmount";
             this.txteAITotalAmount.Properties.ReadOnly = true;
-            this.txteAITotalAmount.Size = new System.Drawing.Size(125, 22);
+            this.txteAITotalAmount.Size = new System.Drawing.Size(107, 20);
             this.txteAITotalAmount.TabIndex = 38;
             // 
             // txteAITotalPayment
             // 
             this.txteAITotalPayment.EditValue = "0";
-            this.txteAITotalPayment.Location = new System.Drawing.Point(512, 116);
+            this.txteAITotalPayment.Location = new System.Drawing.Point(439, 94);
+            this.txteAITotalPayment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txteAITotalPayment.MenuManager = this.barManager1;
             this.txteAITotalPayment.Name = "txteAITotalPayment";
-            this.txteAITotalPayment.Size = new System.Drawing.Size(127, 22);
+            this.txteAITotalPayment.Size = new System.Drawing.Size(109, 20);
             this.txteAITotalPayment.TabIndex = 37;
             this.txteAITotalPayment.EditValueChanged += new System.EventHandler(this.txteAITotalPayment_EditValueChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(440, 120);
+            this.label11.Location = new System.Drawing.Point(377, 98);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(66, 17);
+            this.label11.Size = new System.Drawing.Size(52, 13);
             this.label11.TabIndex = 36;
             this.label11.Text = "Tổng trả:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(645, 118);
+            this.label10.Location = new System.Drawing.Point(553, 96);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(13, 17);
+            this.label10.Size = new System.Drawing.Size(11, 13);
             this.label10.TabIndex = 35;
             this.label10.Text = "/";
             // 
             // cmbAISize
             // 
-            this.cmbAISize.Location = new System.Drawing.Point(512, 216);
-            this.cmbAISize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbAISize.Location = new System.Drawing.Point(439, 176);
             this.cmbAISize.MenuManager = this.barManager1;
             this.cmbAISize.Name = "cmbAISize";
             this.cmbAISize.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbAISize.Size = new System.Drawing.Size(60, 22);
+            this.cmbAISize.Size = new System.Drawing.Size(51, 20);
             this.cmbAISize.TabIndex = 31;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(440, 219);
+            this.label9.Location = new System.Drawing.Point(377, 178);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 17);
+            this.label9.Size = new System.Drawing.Size(50, 13);
             this.label9.TabIndex = 30;
             this.label9.Text = "Chọn cỡ:";
             // 
             // txteAIEmployee
             // 
-            this.txteAIEmployee.Location = new System.Drawing.Point(887, 77);
+            this.txteAIEmployee.Location = new System.Drawing.Point(760, 63);
+            this.txteAIEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txteAIEmployee.MenuManager = this.barManager1;
             this.txteAIEmployee.Name = "txteAIEmployee";
             this.txteAIEmployee.Properties.ReadOnly = true;
-            this.txteAIEmployee.Size = new System.Drawing.Size(244, 22);
+            this.txteAIEmployee.Size = new System.Drawing.Size(209, 20);
             this.txteAIEmployee.TabIndex = 29;
             // 
             // txteAIInvoiceNo
             // 
-            this.txteAIInvoiceNo.Location = new System.Drawing.Point(887, 36);
+            this.txteAIInvoiceNo.Location = new System.Drawing.Point(760, 29);
+            this.txteAIInvoiceNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txteAIInvoiceNo.MenuManager = this.barManager1;
             this.txteAIInvoiceNo.Name = "txteAIInvoiceNo";
             this.txteAIInvoiceNo.Properties.ReadOnly = true;
-            this.txteAIInvoiceNo.Size = new System.Drawing.Size(244, 22);
+            this.txteAIInvoiceNo.Size = new System.Drawing.Size(209, 20);
             this.txteAIInvoiceNo.TabIndex = 28;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(815, 80);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 24, 3, 0);
+            this.label4.Location = new System.Drawing.Point(699, 65);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 17);
+            this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 27;
             this.label4.Text = "NV lập:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(816, 39);
+            this.label8.Location = new System.Drawing.Point(699, 32);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 17);
+            this.label8.Size = new System.Drawing.Size(51, 13);
             this.label8.TabIndex = 25;
             this.label8.Text = "Hóa đơn:";
             // 
             // txteAIVAT
             // 
-            this.txteAIVAT.Location = new System.Drawing.Point(115, 118);
+            this.txteAIVAT.Location = new System.Drawing.Point(99, 96);
+            this.txteAIVAT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txteAIVAT.MenuManager = this.barManager1;
             this.txteAIVAT.Name = "txteAIVAT";
-            this.txteAIVAT.Size = new System.Drawing.Size(228, 22);
+            this.txteAIVAT.Size = new System.Drawing.Size(195, 20);
             this.txteAIVAT.TabIndex = 24;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 121);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 24, 3, 0);
+            this.label2.Location = new System.Drawing.Point(12, 98);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 17);
+            this.label2.Size = new System.Drawing.Size(30, 13);
             this.label2.TabIndex = 23;
             this.label2.Text = "VAT:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // cmbAIPaymentMethod
             // 
-            this.cmbAIPaymentMethod.Location = new System.Drawing.Point(115, 77);
-            this.cmbAIPaymentMethod.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbAIPaymentMethod.Location = new System.Drawing.Point(99, 63);
             this.cmbAIPaymentMethod.MenuManager = this.barManager1;
             this.cmbAIPaymentMethod.Name = "cmbAIPaymentMethod";
             this.cmbAIPaymentMethod.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbAIPaymentMethod.Size = new System.Drawing.Size(228, 22);
+            this.cmbAIPaymentMethod.Size = new System.Drawing.Size(195, 20);
             this.cmbAIPaymentMethod.TabIndex = 22;
             this.cmbAIPaymentMethod.TextChanged += new System.EventHandler(this.cmbAIPaymentMethod_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 80);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 24, 3, 0);
+            this.label5.Location = new System.Drawing.Point(12, 65);
+            this.label5.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 17);
+            this.label5.Size = new System.Drawing.Size(73, 13);
             this.label5.TabIndex = 21;
             this.label5.Text = "Phương thức:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 39);
+            this.label3.Location = new System.Drawing.Point(12, 32);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 17);
+            this.label3.Size = new System.Drawing.Size(67, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Khách hàng:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(815, 121);
+            this.label1.Location = new System.Drawing.Point(699, 98);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 17);
+            this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Ngày lập:";
             // 
             // dpickAIDate
             // 
-            this.dpickAIDate.Location = new System.Drawing.Point(887, 117);
-            this.dpickAIDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dpickAIDate.CustomFormat = "dd/MM/yyyy";
+            this.dpickAIDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpickAIDate.Location = new System.Drawing.Point(760, 95);
             this.dpickAIDate.Name = "dpickAIDate";
-            this.dpickAIDate.Size = new System.Drawing.Size(244, 23);
+            this.dpickAIDate.Size = new System.Drawing.Size(210, 21);
             this.dpickAIDate.TabIndex = 0;
             // 
             // frmAddInvoice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1143, 642);
+            this.ClientSize = new System.Drawing.Size(980, 522);
             this.Controls.Add(this.grdconAIItems);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmAddInvoice";
             this.Text = "Thêm hóa đơn";
+            this.Activated += new System.EventHandler(this.frmAddInvoice_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.btnAIDeleteItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvInvoiceItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdconAIItems)).EndInit();
@@ -681,7 +675,7 @@
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar barAIOptions;
         private DevExpress.XtraBars.BarButtonItem btnAdd;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem btnPrint;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;

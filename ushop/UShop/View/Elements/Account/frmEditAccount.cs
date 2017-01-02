@@ -34,12 +34,27 @@ namespace View.Elements.Account
         }
 
       
-
+        private string oldPassword;
         private void bbtniEAAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             string empCode = txteEAEmployeeCodeName.Text.ToString().Split(new char[] { '-' })[0];
             string id = txteEAAccountCode.Text;
             string password = txteEACPassword.Text;
+            //string oldPassword = presenter.getOldPassword(id);
+
+            if (!tboxOldPassword.Text.Equals(oldPassword))
+            {
+                MessageBox.Show("Mật khẩu cũ không đúng");
+                return;
+            }
+
+            if (!tboxAgainPassword.Text.Equals(password))
+            {
+                MessageBox.Show("Mật khẩu mới nhập không khớp");
+                return;
+            }
+
+            
             presenter.insertOrUpdateAccount(empCode, id, password);
         }
 
@@ -48,16 +63,15 @@ namespace View.Elements.Account
             backPreviousForm();
         }
         
-        
-
-
 
         public void showInforComponents(ACCOUNT acc, String cusCodeName)
         {
             try
             {
                 txteEAAccountCode.Text = acc.ACC_CODE;
-                txteEACPassword.Text = acc.PASSWORD;
+                //txteEACPassword.Text = acc.PASSWORD;
+                oldPassword = acc.PASSWORD;
+
                 txteEAEmployeeCodeName.Text = cusCodeName;
             }
             catch (Exception e)

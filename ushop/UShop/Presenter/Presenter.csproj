@@ -43,6 +43,7 @@
     <Compile Include="Elements\AppoinmentPresenter.cs" />
     <Compile Include="Elements\CategoryPresenter.cs" />
     <Compile Include="Elements\AccountPresenter.cs" />
+    <Compile Include="Elements\UShopPresenter.cs" />
     <Compile Include="Elements\CustomerPresenter.cs" />
     <Compile Include="Elements\EmployeePresenter.cs" />
     <Compile Include="Elements\InvoicePresenter.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="Elements\ProductSizePresenter.cs" />
     <Compile Include="Elements\ReceiptNotePresenter.cs" />
     <Compile Include="Elements\SupplierPresenter.cs" />
+    <Compile Include="Interfaces\IUShop.cs" />
     <Compile Include="Interfaces\IAccountAddingView.cs" />
     <Compile Include="Interfaces\IAccoutnLoginView.cs" />
     <Compile Include="Interfaces\IAppointmentAddingView.cs" />

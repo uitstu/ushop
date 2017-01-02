@@ -35,6 +35,18 @@ namespace Model.InterfaceImplement
             return account;
         }
 
+        public ACCOUNT findAccountByCODE(String code)
+        {
+            ACCOUNT acc = new ACCOUNT();
+
+            if (UShopDB.ACCOUNTs.Where(o => o.ACC_CODE.Equals(code)).Count() > 0)
+            {
+                acc = UShopDB.ACCOUNTs.Where(o => o.ACC_CODE.Equals(code)).First();
+            }
+
+            return acc;
+        }
+
         public List<Model.ACCOUNT> loadAccount()
         {
             return UShopDB.ACCOUNTs.ToList();

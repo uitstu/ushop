@@ -26,5 +26,7 @@ namespace Model.Interface
         DataTable loadRN_ITEM(int RN_ID);
 
         string update(RECEIPT_NOTE obj, DataTable dtItems);
+
+        SUPPLIER getSupplierByCODE(string code);
     }
 }

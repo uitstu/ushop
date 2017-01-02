@@ -136,6 +136,13 @@ namespace Presenter.InterfaceImplement
                     error += "Mật khẩu không được để trống!";
                     throw new Exception();
                 }
+
+                if (!model.findAccountByCODE(id).PASSWORD.Equals(password))
+                {
+                    error += "Mật khẩu sai!";
+                    throw new Exception();
+                }
+
                 //get employee by ACC_CODE 
 
                 /*add new RECORD_STATUS param to check some misstake:
@@ -150,6 +157,8 @@ namespace Presenter.InterfaceImplement
                 }
 
                 //show welcome msg
+                
+
                 loginView.veryfyAccount(Resources.MB_WELCOME); // sai chinh ta verify ??Huy sua lai nhe
             }
             catch(Exception e)
@@ -257,6 +266,15 @@ namespace Presenter.InterfaceImplement
             {
                 accView.showMessageBox(Resources.MB_FAILURE, System.Windows.Forms.MessageBoxIcon.Information);
             }
+        }
+
+        public string getOldPassword(string code)
+        {
+            string str = "";
+
+            str = model.findAccountByCODE(code).PASSWORD;
+
+            return str;
         }
 
         public void insertOrUpdateAccount(string empCode,string id,string password)

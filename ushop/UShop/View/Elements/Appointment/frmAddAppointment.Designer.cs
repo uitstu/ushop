@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddAppointment));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnAIDeleteItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barAAOptions = new DevExpress.XtraBars.Bar();
@@ -51,9 +51,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cboxStatus = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btnAENewCustomer = new System.Windows.Forms.Button();
             this.txteAAEmployee = new DevExpress.XtraEditors.TextEdit();
-            this.txteAANote = new System.Windows.Forms.TextBox();
             this.txteAADescription = new System.Windows.Forms.TextBox();
             this.dpkAAAppDate = new System.Windows.Forms.DateTimePicker();
             this.dpkAACreatedDate = new System.Windows.Forms.DateTimePicker();
@@ -65,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txteAAAppCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboxStatus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAAEmployee.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbAACusId.Properties)).BeginInit();
             this.SuspendLayout();
@@ -73,7 +74,7 @@
             // 
             this.btnAIDeleteItem.AutoHeight = false;
             this.btnAIDeleteItem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnAIDeleteItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnAIDeleteItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.btnAIDeleteItem.Name = "btnAIDeleteItem";
             this.btnAIDeleteItem.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -172,96 +173,93 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlTop.Size = new System.Drawing.Size(785, 30);
+            this.barDockControlTop.Size = new System.Drawing.Size(673, 24);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 361);
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(785, 34);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 296);
+            this.barDockControlBottom.Size = new System.Drawing.Size(673, 25);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 331);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 272);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(785, 30);
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 331);
+            this.barDockControlRight.Location = new System.Drawing.Point(673, 24);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 272);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 39);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 24, 3, 0);
+            this.label1.Location = new System.Drawing.Point(12, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 17);
+            this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 38;
             this.label1.Text = "Khách hàng:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(14, 80);
-            this.label7.Margin = new System.Windows.Forms.Padding(3, 24, 3, 0);
+            this.label7.Location = new System.Drawing.Point(12, 65);
+            this.label7.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 17);
+            this.label7.Size = new System.Drawing.Size(53, 13);
             this.label7.TabIndex = 35;
             this.label7.Text = "Ngày lập:";
             // 
             // txteAAAppCode
             // 
-            this.txteAAAppCode.Location = new System.Drawing.Point(592, 34);
+            this.txteAAAppCode.Location = new System.Drawing.Point(507, 28);
+            this.txteAAAppCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txteAAAppCode.MenuManager = this.barManager1;
             this.txteAAAppCode.Name = "txteAAAppCode";
             this.txteAAAppCode.Properties.ReadOnly = true;
-            this.txteAAAppCode.Size = new System.Drawing.Size(181, 22);
+            this.txteAAAppCode.Size = new System.Drawing.Size(155, 20);
             this.txteAAAppCode.TabIndex = 28;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 121);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 24, 3, 0);
+            this.label4.Location = new System.Drawing.Point(12, 98);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 17);
+            this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 27;
             this.label4.Text = "Ngày trả:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(492, 37);
+            this.label8.Location = new System.Drawing.Point(422, 30);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(94, 17);
+            this.label8.Size = new System.Drawing.Size(75, 13);
             this.label8.TabIndex = 25;
             this.label8.Text = "Mã phiếu hẹn:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(492, 80);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 24, 3, 0);
+            this.label5.Location = new System.Drawing.Point(422, 65);
+            this.label5.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 17);
+            this.label5.Size = new System.Drawing.Size(76, 13);
             this.label5.TabIndex = 21;
             this.label5.Text = "Nhân viên lập:";
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.cboxStatus);
             this.groupControl1.Controls.Add(this.btnAENewCustomer);
             this.groupControl1.Controls.Add(this.txteAAEmployee);
-            this.groupControl1.Controls.Add(this.txteAANote);
             this.groupControl1.Controls.Add(this.txteAADescription);
             this.groupControl1.Controls.Add(this.dpkAAAppDate);
             this.groupControl1.Controls.Add(this.dpkAACreatedDate);
@@ -275,19 +273,29 @@
             this.groupControl1.Controls.Add(this.label8);
             this.groupControl1.Controls.Add(this.label5);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.Location = new System.Drawing.Point(0, 30);
-            this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupControl1.Location = new System.Drawing.Point(0, 24);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(785, 329);
+            this.groupControl1.Size = new System.Drawing.Size(673, 267);
             this.groupControl1.TabIndex = 10;
             this.groupControl1.Text = "Thông tin Phiếu hẹn";
             // 
+            // cboxStatus
+            // 
+            this.cboxStatus.EditValue = "Đang hoàn tất";
+            this.cboxStatus.Location = new System.Drawing.Point(108, 195);
+            this.cboxStatus.MenuManager = this.barManager1;
+            this.cboxStatus.Name = "cboxStatus";
+            this.cboxStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboxStatus.Size = new System.Drawing.Size(100, 20);
+            this.cboxStatus.TabIndex = 50;
+            // 
             // btnAENewCustomer
             // 
-            this.btnAENewCustomer.Location = new System.Drawing.Point(355, 36);
-            this.btnAENewCustomer.Margin = new System.Windows.Forms.Padding(16, 3, 3, 3);
+            this.btnAENewCustomer.Location = new System.Drawing.Point(304, 29);
+            this.btnAENewCustomer.Margin = new System.Windows.Forms.Padding(14, 2, 3, 2);
             this.btnAENewCustomer.Name = "btnAENewCustomer";
-            this.btnAENewCustomer.Size = new System.Drawing.Size(75, 23);
+            this.btnAENewCustomer.Size = new System.Drawing.Size(64, 19);
             this.btnAENewCustomer.TabIndex = 49;
             this.btnAENewCustomer.Text = "KH Mới";
             this.btnAENewCustomer.UseVisualStyleBackColor = true;
@@ -295,93 +303,96 @@
             // 
             // txteAAEmployee
             // 
-            this.txteAAEmployee.Location = new System.Drawing.Point(592, 77);
+            this.txteAAEmployee.Location = new System.Drawing.Point(507, 63);
+            this.txteAAEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txteAAEmployee.MenuManager = this.barManager1;
             this.txteAAEmployee.Name = "txteAAEmployee";
             this.txteAAEmployee.Properties.ReadOnly = true;
-            this.txteAAEmployee.Size = new System.Drawing.Size(181, 22);
+            this.txteAAEmployee.Size = new System.Drawing.Size(155, 20);
             this.txteAAEmployee.TabIndex = 48;
-            // 
-            // txteAANote
-            // 
-            this.txteAANote.Location = new System.Drawing.Point(126, 241);
-            this.txteAANote.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
-            this.txteAANote.Multiline = true;
-            this.txteAANote.Name = "txteAANote";
-            this.txteAANote.Size = new System.Drawing.Size(210, 64);
-            this.txteAANote.TabIndex = 47;
             // 
             // txteAADescription
             // 
-            this.txteAADescription.Location = new System.Drawing.Point(126, 159);
-            this.txteAADescription.Margin = new System.Windows.Forms.Padding(3, 4, 4, 4);
+            this.txteAADescription.Location = new System.Drawing.Point(108, 129);
             this.txteAADescription.Multiline = true;
             this.txteAADescription.Name = "txteAADescription";
-            this.txteAADescription.Size = new System.Drawing.Size(210, 64);
+            this.txteAADescription.Size = new System.Drawing.Size(181, 53);
             this.txteAADescription.TabIndex = 46;
             // 
             // dpkAAAppDate
             // 
-            this.dpkAAAppDate.Location = new System.Drawing.Point(126, 116);
+            this.dpkAAAppDate.CustomFormat = "dd/MM/yyyy";
+            this.dpkAAAppDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpkAAAppDate.Location = new System.Drawing.Point(108, 94);
+            this.dpkAAAppDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dpkAAAppDate.Name = "dpkAAAppDate";
-            this.dpkAAAppDate.Size = new System.Drawing.Size(210, 23);
+            this.dpkAAAppDate.Size = new System.Drawing.Size(181, 21);
             this.dpkAAAppDate.TabIndex = 45;
+            this.dpkAAAppDate.ValueChanged += new System.EventHandler(this.dpkAAAppDate_ValueChanged);
             // 
             // dpkAACreatedDate
             // 
-            this.dpkAACreatedDate.Location = new System.Drawing.Point(126, 75);
+            this.dpkAACreatedDate.CustomFormat = "dd/MM/yyyy";
+            this.dpkAACreatedDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpkAACreatedDate.Location = new System.Drawing.Point(108, 61);
+            this.dpkAACreatedDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dpkAACreatedDate.Name = "dpkAACreatedDate";
-            this.dpkAACreatedDate.Size = new System.Drawing.Size(210, 23);
+            this.dpkAACreatedDate.Size = new System.Drawing.Size(181, 21);
             this.dpkAACreatedDate.TabIndex = 44;
+            this.dpkAACreatedDate.ValueChanged += new System.EventHandler(this.dpkAACreatedDate_ValueChanged);
             // 
             // cmbAACusId
             // 
-            this.cmbAACusId.Location = new System.Drawing.Point(126, 36);
+            this.cmbAACusId.Location = new System.Drawing.Point(108, 29);
+            this.cmbAACusId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbAACusId.MenuManager = this.barManager1;
             this.cmbAACusId.Name = "cmbAACusId";
             this.cmbAACusId.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbAACusId.Size = new System.Drawing.Size(210, 22);
+            this.cmbAACusId.Size = new System.Drawing.Size(180, 20);
             this.cmbAACusId.TabIndex = 42;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 244);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 24, 3, 0);
+            this.label3.Location = new System.Drawing.Point(12, 198);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 17);
+            this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 41;
-            this.label3.Text = "Ghi chú:";
+            this.label3.Text = "Tình trạng:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 162);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 24, 3, 0);
+            this.label2.Location = new System.Drawing.Point(12, 132);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 17);
+            this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 40;
             this.label2.Text = "Nội dung:";
             // 
             // frmAddAppointment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 395);
+            this.ClientSize = new System.Drawing.Size(673, 321);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmAddAppointment";
             this.Text = "Chỉnh sửa phiếu hẹn";
+            this.Load += new System.EventHandler(this.frmAddAppointment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnAIDeleteItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAAAppCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboxStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteAAEmployee.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbAACusId.Properties)).EndInit();
             this.ResumeLayout(false);
@@ -416,9 +427,9 @@
         private DevExpress.XtraEditors.ComboBoxEdit cmbAACusId;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txteAANote;
         private System.Windows.Forms.TextBox txteAADescription;
         private DevExpress.XtraEditors.TextEdit txteAAEmployee;
         private System.Windows.Forms.Button btnAENewCustomer;
+        private DevExpress.XtraEditors.ComboBoxEdit cboxStatus;
     }
 }

@@ -111,8 +111,8 @@ namespace Model.InterfaceImplements
                         o.APP_CODE,
                         o.CUS_NAME,
                         o.EMP_NAME,
-                        o.CREATED_DATE,
-                        o.APP_DATE,
+                        ((DateTime)(o.CREATED_DATE)).ToString("dd/MM/yyyy"),
+                        ((DateTime)(o.APP_DATE)).ToString("dd/MM/yyyy"),
                         o.DESCRIPTION,
                         o.NOTE
                         );

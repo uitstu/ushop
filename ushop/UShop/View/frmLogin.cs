@@ -44,7 +44,7 @@ namespace View
             }
             else
             {
-                MessageBox.Show(message);
+                //MessageBox.Show(message);
                 frmUShop frm = new frmUShop();
                 frm.Show();
                 Hide();

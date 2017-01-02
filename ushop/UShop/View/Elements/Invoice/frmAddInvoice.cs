@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Microsoft.Reporting.WinForms;
+using Model;
 using Model.Properties;
 using Presenter.Elements;
 using Presenter.InterfaceImplement;
@@ -8,10 +9,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using View.Elements.Customer;
 using View.Elements.Employee;
 using View.Elements.Product;
 
@@ -265,9 +270,11 @@ namespace View.Elements.Invoice
                 cols.Add("PRODUCT_NAME");
                 cols.Add("SIZE");
                 cols.Add("UNIT");
-                cols.Add("UNIT_PRICE");
                 cols.Add("DISCOUNT_AMOUNT");
                 cols.Add("QUANTITY");
+                cols.Add("UNIT_PRICE");
+                
+                
                 cols.Add("AMOUNT");
                 cols.Add("NOTE");
 
@@ -293,6 +300,8 @@ namespace View.Elements.Invoice
         public void showTotalAmount(double totalAmount)
         {
             txteAITotalAmount.Text = totalAmount + "";
+            txteAIVAT.Text = (totalAmount / 10) + "";
+            txteAITotalPayment.Text = totalAmount + "";
         }
 
         public void showInvoiceItemGrid(DataTable table)
@@ -319,13 +328,20 @@ namespace View.Elements.Invoice
 
         private void btnAINewCustomer_Click(object sender, EventArgs e)
         {
+            /*
             Form addEmployForm = new frmAddEmployee(this, new EmployeePresenter());
             addEmployForm.FormBorderStyle = FormBorderStyle.None;
             //set fill parent
             addEmployForm.MdiParent = this.MdiParent;
             addEmployForm.Dock = DockStyle.Fill;
             addEmployForm.Show();
-            
+            */
+            Form addCustomerForm = new frmAddCustomer(this, new CustomerPresenter());
+            addCustomerForm.FormBorderStyle = FormBorderStyle.None;
+            //set fill parent
+            addCustomerForm.MdiParent = this.MdiParent;
+            addCustomerForm.Dock = DockStyle.Fill;
+            addCustomerForm.Show();
         }
 
         private void btnAINewProduct_Click(object sender, EventArgs e)
@@ -337,6 +353,150 @@ namespace View.Elements.Invoice
             addProductForm.Dock = DockStyle.Fill;
             addProductForm.Show();
 
+        }
+
+        private void btnPrint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LocalReport localReport = new LocalReport();
+            localReport.ReportEmbeddedResource = "View.Elements.Invoice.ReportInvoice.rdlc";
+            localReport.DataSources.Clear();
+
+            DataTable dt = table;
+
+            dt.TableName = "DataSet1";
+            ReportDataSource newDataSource =
+                new ReportDataSource(dt.TableName, dt);
+            localReport.DataSources.Add(newDataSource);
+            
+            //
+
+            List<ReportParameter> lstt = new List<ReportParameter>();
+
+            String str1, str2, str3, str4, str5;
+
+            SUPPLIER s1 = (new UShopPresenter()).getUShop();
+            str1 = s1.SUPPLIER_NAME;
+            str2 = "Hóa đơn: " + txteAIInvoiceNo.Text + ", Ngày lập: " + dpickAIDate.Text + ", Người lập: " + txteAIEmployee.Text;
+            str3 = "Khách hàng: " + cmbAICustomer.Text;
+            str4 = "Đã thanh toán/Tổng thành tiền: " + txteAITotalPayment.Text + "/" + txteAITotalAmount.Text + ", Phương thức: " + cmbAIPaymentMethod.Text;
+            str5 = "Ghi chú: " + txteAINote.Text;
+
+            ReportParameter param1 = new ReportParameter("UShop", str1);
+            lstt.Add(param1);
+            ReportParameter param2 = new ReportParameter("Info", str2);
+            lstt.Add(param2);
+            ReportParameter param3 = new ReportParameter("Customer", str3);
+            lstt.Add(param3);
+            ReportParameter param4 = new ReportParameter("Total", str4);
+            lstt.Add(param4);
+            ReportParameter param5 = new ReportParameter("Note", str5);
+            lstt.Add(param5);
+            
+            localReport.SetParameters(lstt);
+            
+            Run(localReport);
+        }
+
+        #region
+        private int m_currentPageIndex;
+        private IList<Stream> m_streams;
+        // Routine to provide to the report renderer, in order to
+        //    save an image for each page of the report.
+        private Stream CreateStream(string name,
+          string fileNameExtension, Encoding encoding,
+          string mimeType, bool willSeek)
+        {
+            Stream stream = new MemoryStream();
+            m_streams.Add(stream);
+            return stream;
+        }
+        // Export the given report as an EMF (Enhanced Metafile) file.
+        private void Export(LocalReport report)
+        {
+            string deviceInfo =
+              @"<DeviceInfo>
+                <OutputFormat>EMF</OutputFormat>
+                <PageWidth>8.5in</PageWidth>
+                <PageHeight>11in</PageHeight>
+                <MarginTop>0.25in</MarginTop>
+                <MarginLeft>0.25in</MarginLeft>
+                <MarginRight>0.25in</MarginRight>
+                <MarginBottom>0.25in</MarginBottom>
+            </DeviceInfo>";
+            Warning[] warnings;
+            m_streams = new List<Stream>();
+            report.Render("Image", deviceInfo, CreateStream,
+               out warnings);
+            foreach (Stream stream in m_streams)
+                stream.Position = 0;
+        }
+        // Handler for PrintPageEvents
+        private void PrintPage(object sender, PrintPageEventArgs ev)
+        {
+            Metafile pageImage = new
+               Metafile(m_streams[m_currentPageIndex]);
+
+            // Adjust rectangular area with printer margins.
+            Rectangle adjustedRect = new Rectangle(
+                ev.PageBounds.Left - (int)ev.PageSettings.HardMarginX,
+                ev.PageBounds.Top - (int)ev.PageSettings.HardMarginY,
+                ev.PageBounds.Width,
+                ev.PageBounds.Height);
+
+            // Draw a white background for the report
+            ev.Graphics.FillRectangle(Brushes.White, adjustedRect);
+
+            // Draw the report content
+            ev.Graphics.DrawImage(pageImage, adjustedRect);
+
+            // Prepare for the next page. Make sure we haven't hit the end.
+            m_currentPageIndex++;
+            ev.HasMorePages = (m_currentPageIndex < m_streams.Count);
+        }
+
+        private void Print()
+        {
+            if (m_streams == null || m_streams.Count == 0)
+                throw new Exception("Error: no stream to print.");
+            PrintDocument printDoc = new PrintDocument();
+            if (!printDoc.PrinterSettings.IsValid)
+            {
+                throw new Exception("Error: cannot find the default printer.");
+            }
+            else
+            {
+                printDoc.PrintPage += new PrintPageEventHandler(PrintPage);
+                m_currentPageIndex = 0;
+                printDoc.Print();
+            }
+        }
+        // Create a local report for Report.rdlc, load the data,
+        //    export the report to an .emf file, and print it.
+        private void Run(LocalReport report)
+        {
+            //LocalReport report = new LocalReport();
+            //report.ReportPath = @"..\..\Report.rdlc";
+            //report.DataSources.Add(
+            //   new ReportDataSource("Sales", LoadSalesData()));
+            Export(report);
+            Print();
+        }
+
+        public void Dispose()
+        {
+            if (m_streams != null)
+            {
+                foreach (Stream stream in m_streams)
+                    stream.Close();
+                m_streams = null;
+            }
+        }
+        #endregion
+
+        private void frmAddInvoice_Activated(object sender, EventArgs e)
+        {
+            presenter.loadCustomerName(null, false);
+            presenter.loadProductName(null, false);
         }
     }
 }

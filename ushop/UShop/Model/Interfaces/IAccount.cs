@@ -21,5 +21,7 @@ namespace Model.Interface
         ACCOUNT getAccountByEmpCode(string empCode, RECORD_STATUS status);
         ACCOUNT getAccountBy(string accCode, RECORD_STATUS aCTIVE);
         List<EMPLOYEE> getEmployeesBy(RECORD_STATUS aCTIVE);
+
+        ACCOUNT findAccountByCODE(String code);
     }
 }

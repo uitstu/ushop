@@ -33,6 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.edtPassword = new DevExpress.XtraEditors.TextEdit();
             this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.edtID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtPassword.Properties)).BeginInit();
             this.SuspendLayout();
@@ -40,7 +41,7 @@
             // edtID
             // 
             this.edtID.EditValue = "uitstu";
-            this.edtID.Location = new System.Drawing.Point(133, 48);
+            this.edtID.Location = new System.Drawing.Point(85, 28);
             this.edtID.Name = "edtID";
             this.edtID.Size = new System.Drawing.Size(214, 20);
             this.edtID.TabIndex = 0;
@@ -48,7 +49,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(70, 51);
+            this.label1.Location = new System.Drawing.Point(22, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 1;
@@ -57,7 +58,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(70, 88);
+            this.label2.Location = new System.Drawing.Point(22, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 3;
@@ -66,25 +67,37 @@
             // edtPassword
             // 
             this.edtPassword.EditValue = "123456";
-            this.edtPassword.Location = new System.Drawing.Point(133, 85);
+            this.edtPassword.Location = new System.Drawing.Point(85, 65);
             this.edtPassword.Name = "edtPassword";
+            this.edtPassword.Properties.PasswordChar = '*';
             this.edtPassword.Size = new System.Drawing.Size(214, 20);
             this.edtPassword.TabIndex = 2;
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(173, 133);
+            this.btnLogin.Location = new System.Drawing.Point(124, 123);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(219, 92);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(67, 17);
+            this.checkBox1.TabIndex = 5;
+            this.checkBox1.Text = "Ghi nhớ?";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(415, 185);
+            this.ClientSize = new System.Drawing.Size(320, 158);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.edtPassword);
@@ -107,5 +120,6 @@
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.TextEdit edtPassword;
         private DevExpress.XtraEditors.SimpleButton btnLogin;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

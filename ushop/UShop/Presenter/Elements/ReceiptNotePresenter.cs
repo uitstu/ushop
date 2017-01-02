@@ -42,6 +42,11 @@ namespace Presenter.InterfaceImplement
             _view.loadReceiptNotesDB(_model.loadReceiptNoteDT());
         }
 
+        public SUPPLIER getSupplierByCODE(string code)
+        {
+            return _model.getSupplierByCODE(code);
+        }
+
         /*
         public void saveCategory(Category obj)
         {

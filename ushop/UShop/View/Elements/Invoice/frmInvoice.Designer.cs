@@ -33,8 +33,8 @@ namespace View.Elements.Invoice
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInvoice));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnILDeleteInvoice = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnILUpdateInvoice = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnUPDATE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -68,7 +68,7 @@ namespace View.Elements.Invoice
             // 
             this.btnILDeleteInvoice.AutoHeight = false;
             this.btnILDeleteInvoice.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnILDeleteInvoice.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnILDeleteInvoice.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
             this.btnILDeleteInvoice.Name = "btnILDeleteInvoice";
             this.btnILDeleteInvoice.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnILDeleteInvoice.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnILDeleteInvoice_ButtonClick);
@@ -77,7 +77,7 @@ namespace View.Elements.Invoice
             // 
             this.btnILUpdateInvoice.AutoHeight = false;
             this.btnILUpdateInvoice.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnILUpdateInvoice.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnILUpdateInvoice.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
             this.btnILUpdateInvoice.Name = "btnILUpdateInvoice";
             this.btnILUpdateInvoice.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnILUpdateInvoice.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnILUpdateInvoice_ButtonClick);
@@ -103,33 +103,29 @@ namespace View.Elements.Invoice
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 287);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 231);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(769, 30);
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 287);
+            this.barDockControlRight.Location = new System.Drawing.Point(659, 24);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 231);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 317);
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(769, 25);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 255);
+            this.barDockControlBottom.Size = new System.Drawing.Size(659, 23);
             // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlTop.Size = new System.Drawing.Size(769, 30);
+            this.barDockControlTop.Size = new System.Drawing.Size(659, 24);
             // 
             // bar3
             // 
@@ -270,30 +266,29 @@ namespace View.Elements.Invoice
             // grdconILInvoice
             // 
             this.grdconILInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdconILInvoice.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.grdconILInvoice.Location = new System.Drawing.Point(0, 30);
+            this.grdconILInvoice.Location = new System.Drawing.Point(0, 24);
             this.grdconILInvoice.MainView = this.gvILInvoice;
-            this.grdconILInvoice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grdconILInvoice.MenuManager = this.barManager1;
             this.grdconILInvoice.Name = "grdconILInvoice";
             this.grdconILInvoice.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnILUpdateInvoice,
             this.btnILDeleteInvoice});
-            this.grdconILInvoice.Size = new System.Drawing.Size(769, 287);
+            this.grdconILInvoice.Size = new System.Drawing.Size(659, 231);
             this.grdconILInvoice.TabIndex = 7;
             this.grdconILInvoice.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvILInvoice});
             // 
             // frmInvoice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(769, 342);
+            this.ClientSize = new System.Drawing.Size(659, 278);
             this.Controls.Add(this.grdconILInvoice);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmInvoice";
             this.Text = "frmInvoice";
             this.Activated += new System.EventHandler(this.frmInvoice_Activated);

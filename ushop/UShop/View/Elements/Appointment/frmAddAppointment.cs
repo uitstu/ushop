@@ -54,7 +54,7 @@ namespace View.Elements.Appointment
         {
             string cusCode = cmbAACusId.Text.ToString().Split(new char[] { '-' })[0];
             string description = txteAADescription.Text;
-            string note = txteAANote.Text;
+            string note = cboxStatus.Text;
 
             DateTime createdDT = dpkAACreatedDate.Value;
             DateTime appDT = dpkAAAppDate.Value;
@@ -83,7 +83,7 @@ namespace View.Elements.Appointment
                 txteAAAppCode.Text = app.APP_CODE;
                 txteAADescription.Text = app.DESCRIPTION;
                 txteAAEmployee.Text = empName;
-                txteAANote.Text = app.NOTE;
+                cboxStatus.Text = app.NOTE;
 
                 cmbAACusId.Text = cusCodeName;
                 dpkAAAppDate.Value = (DateTime)app.APP_DATE;
@@ -115,7 +115,7 @@ namespace View.Elements.Appointment
             txteAAAppCode.ResetText();
             txteAADescription.ResetText();
             txteAAEmployee.ResetText();
-            txteAANote.ResetText();
+            //cboxStatus.ResetText();
 
             cmbAACusId.ResetText();
             dpkAAAppDate.Value = DateTime.Now;
@@ -163,6 +163,32 @@ namespace View.Elements.Appointment
             addCusForm.MdiParent = this.MdiParent;
             addCusForm.Dock = DockStyle.Fill;
             addCusForm.Show();
+        }
+
+        private void frmAddAppointment_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                cboxStatus.Properties.Items.Clear();
+            }
+            catch
+            { }
+
+            List<string> lst = new List<string>();
+            lst.Add("Đã hoàn tất");
+            lst.Add("Đang hoàn tất");
+
+            cboxStatus.Properties.Items.AddRange(lst);
+        }
+
+        private void dpkAACreatedDate_ValueChanged(object sender, EventArgs e)
+        {
+            dpkAAAppDate.MinDate = dpkAACreatedDate.Value;
+        }
+
+        private void dpkAAAppDate_ValueChanged(object sender, EventArgs e)
+        {
+            dpkAACreatedDate.MaxDate = dpkAAAppDate.Value;
         }
     }
 }

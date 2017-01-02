@@ -30,9 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAppointment));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gvALAppointment = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnUPDATE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnALUpdateAppointment = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnDELETE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -47,13 +54,6 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvALAppointment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnALUpdateAppointment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnALDeleteAppointment)).BeginInit();
@@ -77,6 +77,62 @@
             this.gvALAppointment.Name = "gvALAppointment";
             this.gvALAppointment.OptionsView.ShowAutoFilterRow = true;
             // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "Mã phiếu hẹn";
+            this.gridColumn7.FieldName = "APP_CODE";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 0;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Tên Khách hàng";
+            this.gridColumn4.FieldName = "CUS_NAME";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 1;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Nhân viên lập";
+            this.gridColumn3.FieldName = "EMP_NAME";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Ngày lập";
+            this.gridColumn2.FieldName = "CREATED_DATE";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 3;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Ngày trả";
+            this.gridColumn1.FieldName = "APP_DATE";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 4;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Nội dung";
+            this.gridColumn5.FieldName = "DESCRIPTION";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 5;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Tình trạng";
+            this.gridColumn6.FieldName = "NOTE";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 6;
+            // 
             // btnUPDATE
             // 
             this.btnUPDATE.ColumnEdit = this.btnALUpdateAppointment;
@@ -89,10 +145,10 @@
             // 
             this.btnALUpdateAppointment.AutoHeight = false;
             this.btnALUpdateAppointment.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnALUpdateAppointment.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnALUpdateAppointment.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.btnALUpdateAppointment.Name = "btnALUpdateAppointment";
             this.btnALUpdateAppointment.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.btnALUpdateAppointment.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(btnALUpdateAppointment_ButtonClick);
+            this.btnALUpdateAppointment.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnALUpdateAppointment_ButtonClick);
             // 
             // btnDELETE
             // 
@@ -106,24 +162,22 @@
             // 
             this.btnALDeleteAppointment.AutoHeight = false;
             this.btnALDeleteAppointment.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnALDeleteAppointment.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnALDeleteAppointment.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.btnALDeleteAppointment.Name = "btnALDeleteAppointment";
             this.btnALDeleteAppointment.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.btnALDeleteAppointment.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(btnALDeleteAppointment_ButtonClick);
+            this.btnALDeleteAppointment.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnALDeleteAppointment_ButtonClick);
             // 
             // grdconALAppointment
             // 
             this.grdconALAppointment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdconALAppointment.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.grdconALAppointment.Location = new System.Drawing.Point(0, 30);
+            this.grdconALAppointment.Location = new System.Drawing.Point(0, 24);
             this.grdconALAppointment.MainView = this.gvALAppointment;
-            this.grdconALAppointment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grdconALAppointment.MenuManager = this.barManager1;
             this.grdconALAppointment.Name = "grdconALAppointment";
             this.grdconALAppointment.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnALUpdateAppointment,
             this.btnALDeleteAppointment});
-            this.grdconALAppointment.Size = new System.Drawing.Size(768, 516);
+            this.grdconALAppointment.Size = new System.Drawing.Size(658, 417);
             this.grdconALAppointment.TabIndex = 10;
             this.grdconALAppointment.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvALAppointment});
@@ -190,99 +244,40 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlTop.Size = new System.Drawing.Size(768, 30);
+            this.barDockControlTop.Size = new System.Drawing.Size(658, 24);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 546);
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(768, 25);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 441);
+            this.barDockControlBottom.Size = new System.Drawing.Size(658, 23);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 516);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 417);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(768, 30);
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 516);
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Ngày trả";
-            this.gridColumn1.FieldName = "APP_DATE";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 4;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "Ngày lập";
-            this.gridColumn2.FieldName = "CREATED_DATE";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 3;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "Nhân viên lập";
-            this.gridColumn3.FieldName = "EMP_NAME";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "Tên Khách hàng";
-            this.gridColumn4.FieldName = "CUS_NAME";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 1;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "Nội dung";
-            this.gridColumn5.FieldName = "DESCRIPTION";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 5;
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "Ghi chú";
-            this.gridColumn6.FieldName = "NOTE";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 6;
-            // 
-            // gridColumn7
-            // 
-            this.gridColumn7.Caption = "Mã phiếu hẹn";
-            this.gridColumn7.FieldName = "APP_CODE";
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 0;
+            this.barDockControlRight.Location = new System.Drawing.Point(658, 24);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 417);
             // 
             // frmAppointment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(768, 571);
+            this.ClientSize = new System.Drawing.Size(658, 464);
             this.Controls.Add(this.grdconALAppointment);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmAppointment";
             this.Text = "frmAppointment";
             this.Activated += new System.EventHandler(this.frmAppointment_Activated_1);

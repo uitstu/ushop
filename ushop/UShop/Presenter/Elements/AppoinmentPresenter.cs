@@ -195,7 +195,7 @@ namespace Presenter.Elements
                     error += "Nội dung rỗng hoặc không hợp lệ \n";//"Name is empty or invalid\n";
                     throw new Exception();
                 }
-               
+               /*
                 if (!checkValidCreatedDate(createdDT))
                 {
                     error += "Ngày lập phiếu không hợp lệ \n";//"Address is empty or invalid\n";
@@ -207,6 +207,7 @@ namespace Presenter.Elements
                     error += "Ngày trả phiếu không hợp lệ \n";//"Sev Date is empty or invalid\n";
                     throw new Exception();
                 }
+                * */
                 app.CUS_ID = currentCus.CUS_ID;
                 app.PREPARER_ID = AccountPresenter.currentEmployee.EMP_ID;
                 app.CREATED_DATE = createdDT;

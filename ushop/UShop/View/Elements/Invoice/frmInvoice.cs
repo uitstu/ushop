@@ -14,6 +14,7 @@ using Model.InterfaceImplements;
 using Model.Properties;
 using DevExpress.XtraEditors.Controls;
 using Presenter.InterfaceImplement;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace View.Elements.Invoice
 {

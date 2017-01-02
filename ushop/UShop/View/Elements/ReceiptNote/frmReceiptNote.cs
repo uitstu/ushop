@@ -48,6 +48,11 @@ namespace View.Elements.ReceiptNote
         private void frmReceiptNote_Load(object sender, EventArgs e)
         {
             preReceiptNote.loadReceiptNotesDB();
+            /*
+            GridView gridView = gridReceiptNote.FocusedView as GridView;
+            gridView.Columns["ACCOUNTING_DATE"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            gridView.Columns["ACCOUNTING_DATE"].DisplayFormat.FormatString = "dd/MM/yyyy";
+             * */
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -147,5 +152,6 @@ namespace View.Elements.ReceiptNote
             preReceiptNote.loadReceiptNotesDB();
             this.WindowState = FormWindowState.Maximized;
         }
+
     }
 }

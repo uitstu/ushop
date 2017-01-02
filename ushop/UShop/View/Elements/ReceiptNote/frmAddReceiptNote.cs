@@ -8,6 +8,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +18,7 @@ using System.Windows.Forms;
 using View.Elements.Category;
 using View.Elements.Product;
 using View.Elements.Supplier;
+using Microsoft.Reporting.WinForms;
 
 namespace View.Elements.ReceiptNote
 {
@@ -112,7 +116,7 @@ namespace View.Elements.ReceiptNote
 
             if (cboxSupplier.Text.Equals(""))
             {
-                strError += "\nSuppiler is null";
+                strError += "\nNhà cung cấp trống";
             }
             else
             {
@@ -129,7 +133,7 @@ namespace View.Elements.ReceiptNote
 
                 if (!checkExist)
                 {
-                    strError += "\nDidn't see any supplier like " + cboxSupplier.Text;
+                    strError += "\nKhông tìm thấy " + cboxSupplier.Text;
                 }
             }
 
@@ -150,21 +154,21 @@ namespace View.Elements.ReceiptNote
 
             if (!checkItem/*lbTotal.Text.Equals("")*/)
             {
-                strError += "\nSome product hasn't amount, check again";
+                strError += "\nHàng hóa phải có số lượng";
             }
             else
             {
                 if (float.Parse(tboxAccounted.Text).CompareTo(float.Parse(lbTotal.Text))>0)
                 {
-                    strError += "\nAccounted is not rather than total";
+                    strError += "\nTiền thanh toán không được lớn hơn tổng tiền";
                 }
             }
-
+            /*
             if (dpickIssued.Value > dpickAccounting.Value)
             {
                 strError += "\nIssued date is not rather than accounting date";
             }
-
+            */
             if (!strError.Equals(""))
             {
                 MessageBox.Show(strError);
@@ -610,10 +614,152 @@ namespace View.Elements.ReceiptNote
             //this.WindowState = FormWindowState.Minimized;
             beforeForm.WindowState = FormWindowState.Maximized;
             beforeForm.Activate();
-        } 
+        }
+
+        private void btnPrint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LocalReport localReport = new LocalReport();
+            localReport.ReportEmbeddedResource = "View.Elements.ReceiptNote.ReportReceiptNote.rdlc";
+            localReport.DataSources.Clear();
+
+            DataTable dt = dtItems;
+
+            dt.TableName = "DataSetReceiptNote";
+            Microsoft.Reporting.WinForms.ReportDataSource newDataSource =
+                new Microsoft.Reporting.WinForms.ReportDataSource(dt.TableName, dt);
+            localReport.DataSources.Add(newDataSource);
+            
+            List<ReportParameter> lstt = new List<ReportParameter>();
+
+            String str1, str2, str3, str4, str5;
+            str1 = "Người lập: " + AccountPresenter.currentEmployee.EMP_NAME + ", Ngày lập: " + dpickIssued.Text + ", Ngày hạch toán: " + dpickAccounting.Text;
+
+            string supplierCODE = cboxSupplier.Text.Substring(0, cboxSupplier.Text.IndexOf(' '));
+
+            SUPPLIER s1 = (new UShopPresenter()).getUShop();
+            SUPPLIER s2 = preReceiptNote.getSupplierByCODE(supplierCODE);
+            str2 = "Bên gửi: " + s1.SUPPLIER_NAME+", Địa chỉ: "+s1.ADDRESS+", SĐT: "+s1.PHONE + ", MST: "+s1.TAX_CODE;
+            str3 = "Bên nhận: " + s2.SUPPLIER_NAME + ", Địa chỉ: " + s2.ADDRESS + ", SĐT: " + s2.PHONE + ", MST: " + s2.TAX_CODE;
+
+            str4 = "Đã thanh toán/Tổng thành tiền: " + tboxAccounted.Text + "/" + lbTotal.Text;
+            str5 = "Nội dung: "+tboxNote.Text;
+
+            ReportParameter param1 = new ReportParameter("ReportParameterNgay", str1);
+            lstt.Add(param1);
+            ReportParameter param2 = new ReportParameter("ReportParameterBenGui", str2);
+            lstt.Add(param2);
+            ReportParameter param3 = new ReportParameter("ReportParameterBenNhan", str3);
+            lstt.Add(param3);
+            ReportParameter param4 = new ReportParameter("ReportParameterDaThanhToan", str4);
+            lstt.Add(param4);
+            ReportParameter param5 = new ReportParameter("ReportParameterNoiDung", str5);
+            lstt.Add(param5);
+
+            localReport.SetParameters(lstt);
+            
+            Run(localReport);
+        }
+
+        #region
+        private int m_currentPageIndex;
+        private IList<Stream> m_streams;
+        // Routine to provide to the report renderer, in order to
+        //    save an image for each page of the report.
+        private Stream CreateStream(string name,
+          string fileNameExtension, Encoding encoding,
+          string mimeType, bool willSeek)
+        {
+            Stream stream = new MemoryStream();
+            m_streams.Add(stream);
+            return stream;
+        }
+        // Export the given report as an EMF (Enhanced Metafile) file.
+        private void Export(LocalReport report)
+        {
+            string deviceInfo =
+              @"<DeviceInfo>
+                <OutputFormat>EMF</OutputFormat>
+                <PageWidth>8.5in</PageWidth>
+                <PageHeight>11in</PageHeight>
+                <MarginTop>0.25in</MarginTop>
+                <MarginLeft>0.25in</MarginLeft>
+                <MarginRight>0.25in</MarginRight>
+                <MarginBottom>0.25in</MarginBottom>
+            </DeviceInfo>";
+            Warning[] warnings;
+            m_streams = new List<Stream>();
+            report.Render("Image", deviceInfo, CreateStream,
+               out warnings);
+            foreach (Stream stream in m_streams)
+                stream.Position = 0;
+        }
+        // Handler for PrintPageEvents
+        private void PrintPage(object sender, PrintPageEventArgs ev)
+        {
+            Metafile pageImage = new
+               Metafile(m_streams[m_currentPageIndex]);
+
+            // Adjust rectangular area with printer margins.
+            Rectangle adjustedRect = new Rectangle(
+                ev.PageBounds.Left - (int)ev.PageSettings.HardMarginX,
+                ev.PageBounds.Top - (int)ev.PageSettings.HardMarginY,
+                ev.PageBounds.Width,
+                ev.PageBounds.Height);
+
+            // Draw a white background for the report
+            ev.Graphics.FillRectangle(Brushes.White, adjustedRect);
+
+            // Draw the report content
+            ev.Graphics.DrawImage(pageImage, adjustedRect);
+
+            // Prepare for the next page. Make sure we haven't hit the end.
+            m_currentPageIndex++;
+            ev.HasMorePages = (m_currentPageIndex < m_streams.Count);
+        }
+
+        private void Print()
+        {
+            if (m_streams == null || m_streams.Count == 0)
+                throw new Exception("Error: no stream to print.");
+            PrintDocument printDoc = new PrintDocument();
+            if (!printDoc.PrinterSettings.IsValid)
+            {
+                throw new Exception("Error: cannot find the default printer.");
+            }
+            else
+            {
+                printDoc.PrintPage += new PrintPageEventHandler(PrintPage);
+                m_currentPageIndex = 0;
+                printDoc.Print();
+            }
+        }
+        // Create a local report for Report.rdlc, load the data,
+        //    export the report to an .emf file, and print it.
+        private void Run(LocalReport report)
+        {
+            //LocalReport report = new LocalReport();
+            //report.ReportPath = @"..\..\Report.rdlc";
+            //report.DataSources.Add(
+            //   new ReportDataSource("Sales", LoadSalesData()));
+            Export(report);
+            Print();
+        }
+
+        public void Dispose()
+        {
+            if (m_streams != null)
+            {
+                foreach (Stream stream in m_streams)
+                    stream.Close();
+                m_streams = null;
+            }
+        }
+        #endregion
     }
 
     //data input: https://documentation.devexpress.com/#WindowsForms/CustomDocument114741
     //https://www.youtube.com/watch?v=povVd1iJkHc&list=PL8h4jt35t1wj1k3OpyPddjK2VzBH50rSj
+    //printer: https://www.codeproject.com/Questions/86383/Print-rdlc-report-without-preview
+    //http://caulacbovb.com/forum/viewtopic.php?t=15790
 
 }

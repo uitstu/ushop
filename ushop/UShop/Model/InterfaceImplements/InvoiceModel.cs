@@ -246,7 +246,7 @@ namespace Model.InterfaceImplements
                 
                 foreach (var o in result)
                 {
-                    table.Rows.Add(o.INVOICE_CODE, o.TOTAL_AMOUNT, o.TOTAL_PAYMENT, o.PAYMENT_METHOD, o.EMP_NAME, o.CUS_NAME, o.DATE);
+                    table.Rows.Add(o.INVOICE_CODE, o.TOTAL_AMOUNT, o.TOTAL_PAYMENT, o.PAYMENT_METHOD, o.EMP_NAME, o.CUS_NAME, ((DateTime)(o.DATE)).ToString("dd/MM/yyyy"));
                 }
 
             }

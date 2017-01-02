@@ -74,10 +74,10 @@ namespace Model.InterfaceImplement
             foreach (var o in result.Where(o => o.RECORD_STATUS.Equals("A")))
             {
                 dt.Rows.Add(o.RN_ID,o.RN_CODE,o.SUPPLIER_ID,o.SUPPLIER_NAME,o.PREPARER_ID,o.EMP_NAME,
-                    o.ISSUED_DATE, o.ACCOUNTING_DATE, o.ACCOUNTED, o.TOTAL, o.NOTE, o.STATUS, o.RECORD_STATUS);
+                    ((DateTime)(o.ISSUED_DATE)).ToString("dd/MM/yyyy"), ((DateTime)(o.ACCOUNTING_DATE)).ToString("dd/MM/yyyy"), o.ACCOUNTED, o.TOTAL, o.NOTE, o.STATUS, o.RECORD_STATUS);
 
             }
-
+            
             return dt;
         }
 
@@ -604,6 +604,16 @@ namespace Model.InterfaceImplement
             UShopDB.SubmitChanges();
 
             return "";
+        }
+
+        public SUPPLIER getSupplierByCODE(string code)
+        {
+            SUPPLIER s = new SUPPLIER();
+            if (UShopDB.SUPPLIERs.Where(o => o.SUPPLIER_CODE.Equals(code)).Count()>0)
+            {
+                s = UShopDB.SUPPLIERs.Where(o => o.SUPPLIER_CODE.Equals(code)).First();
+            }
+            return s;
         }
     }
 }

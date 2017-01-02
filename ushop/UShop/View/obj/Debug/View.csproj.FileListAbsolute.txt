@@ -166,10 +166,13 @@ C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Re
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.ReceiptNote.frmReceiptNote.resources
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.Supplier.frmAddSupplier.resources
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.frmSupplier.resources
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.frmUShop.resources
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.frmLogin.resources
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.frmUShop.resources
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Properties.Resources.resources
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.csproj.GenerateResource.Cache
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.exe.licenses
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\RdlCompile.cache
+C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\RdlCompile.compiled
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.exe
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.pdb
