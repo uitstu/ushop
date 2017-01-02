@@ -48,6 +48,8 @@
             this.btnCustomer = new DevExpress.XtraBars.BarButtonItem();
             this.btnChangePassword = new DevExpress.XtraBars.BarButtonItem();
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
+            this.btnInfo = new DevExpress.XtraBars.BarButtonItem();
+            this.btnAnalyze = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonMiniToolbar1 = new DevExpress.XtraBars.Ribbon.RibbonMiniToolbar(this.components);
             this.ribpagProductManagement = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -56,6 +58,7 @@
             this.ribpagSourceManagement = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribpaggrpEmployee = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
@@ -81,17 +84,18 @@
             this.btnAppointment,
             this.btnCustomer,
             this.btnChangePassword,
-            this.btnLogout});
+            this.btnLogout,
+            this.btnInfo,
+            this.btnAnalyze});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl1.MaxItemId = 29;
+            this.ribbonControl1.MaxItemId = 31;
             this.ribbonControl1.MiniToolbars.Add(this.ribbonMiniToolbar1);
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribpagProductManagement,
             this.ribpagSourceManagement});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-            this.ribbonControl1.Size = new System.Drawing.Size(1155, 168);
+            this.ribbonControl1.Size = new System.Drawing.Size(990, 143);
             this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // btnProductManagement
@@ -236,6 +240,24 @@
             this.btnLogout.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
             // 
+            // btnInfo
+            // 
+            this.btnInfo.Caption = "Cửa hàng";
+            this.btnInfo.Glyph = ((System.Drawing.Image)(resources.GetObject("btnInfo.Glyph")));
+            this.btnInfo.Id = 29;
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnInfo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnInfo_ItemClick);
+            // 
+            // btnAnalyze
+            // 
+            this.btnAnalyze.Caption = "Thống kê";
+            this.btnAnalyze.Id = 30;
+            this.btnAnalyze.ImageUri.Uri = "Pie";
+            this.btnAnalyze.Name = "btnAnalyze";
+            this.btnAnalyze.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnAnalyze.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAnalyze_ItemClick);
+            // 
             // ribpagProductManagement
             // 
             this.ribpagProductManagement.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -275,7 +297,8 @@
             // 
             this.ribpagSourceManagement.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup4,
-            this.ribpaggrpEmployee});
+            this.ribpaggrpEmployee,
+            this.ribbonPageGroup1});
             this.ribpagSourceManagement.Name = "ribpagSourceManagement";
             this.ribpagSourceManagement.Text = "Quản lý";
             // 
@@ -284,6 +307,7 @@
             this.ribbonPageGroup4.ItemLinks.Add(this.btnSupplier);
             this.ribbonPageGroup4.ItemLinks.Add(this.btnReceiptNote);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.ShowCaptionButton = false;
             this.ribbonPageGroup4.Text = "Nguồn hàng";
             // 
             // ribpaggrpEmployee
@@ -291,7 +315,16 @@
             this.ribpaggrpEmployee.ItemLinks.Add(this.barbtnEmployee);
             this.ribpaggrpEmployee.ItemLinks.Add(this.barbtniAccount);
             this.ribpaggrpEmployee.Name = "ribpaggrpEmployee";
+            this.ribpaggrpEmployee.ShowCaptionButton = false;
             this.ribpaggrpEmployee.Text = "Nhân sự";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnInfo);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnAnalyze);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.ShowCaptionButton = false;
+            this.ribbonPageGroup1.Text = "Thông tin";
             // 
             // ribbonPageGroup3
             // 
@@ -302,12 +335,11 @@
             // frmUShop
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 775);
+            this.ClientSize = new System.Drawing.Size(990, 630);
             this.Controls.Add(this.ribbonControl1);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmUShop";
             this.Ribbon = this.ribbonControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -350,5 +382,8 @@
         private DevExpress.XtraBars.BarButtonItem btnLogout;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
+        private DevExpress.XtraBars.BarButtonItem btnInfo;
+        private DevExpress.XtraBars.BarButtonItem btnAnalyze;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
     }
 }

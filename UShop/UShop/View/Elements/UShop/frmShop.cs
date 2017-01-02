@@ -16,18 +16,18 @@ using View.Elements.Supplier;
 
 namespace View.Elements
 {
-    public partial class frmUShop : Form, IUShopView
+    public partial class frmShop : Form, IUShopView
     {
         Form beforeForm;
         private UShopPresenter preUShop;
 
-        public frmUShop()
+        public frmShop()
         {
             InitializeComponent();
             preUShop = new UShopPresenter(this);
         }
 
-        public frmUShop(Form beforeForm)
+        public frmShop(Form beforeForm)
         {
             InitializeComponent();
             preUShop = new UShopPresenter(this);
@@ -36,17 +36,24 @@ namespace View.Elements
 
         private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (tboxAddress.Text.Equals("") || tboxMST.Text.Equals("") || tboxName.Text.Equals("") || tboxPhone.Text.Equals(""))
+            try
             {
-                MessageBox.Show("Hãy nhập đủ thông tin");
-                return;
+                if (tboxAddress.Text.Equals("") || tboxMST.Text.Equals("") || tboxName.Text.Equals("") || tboxPhone.Text.Equals(""))
+                {
+                    MessageBox.Show("Hãy nhập đủ thông tin");
+                    return;
+                }
+                SUPPLIER ushop = new SUPPLIER();
+                ushop.SUPPLIER_NAME = tboxName.Text;
+                ushop.ADDRESS = tboxAddress.Text;
+                ushop.PHONE = tboxPhone.Text;
+                ushop.TAX_CODE = tboxMST.Text;
+                preUShop.updateUShop(ushop);
+
+                MessageBox.Show("Đã lưu");
             }
-            SUPPLIER ushop = new SUPPLIER();
-            ushop.SUPPLIER_NAME = tboxName.Text;
-            ushop.ADDRESS = tboxAddress.Text;
-            ushop.PHONE = tboxPhone.Text;
-            ushop.TAX_CODE = tboxMST.Text;
-            preUShop.updateUShop(ushop);
+            catch (Exception ex)
+            { }
         }
 
         public void loadUShop(Model.SUPPLIER ushop)

@@ -45,6 +45,7 @@
     <Compile Include="InterfaceImplements\AppointmentModel.cs" />
     <Compile Include="InterfaceImplements\CategoryModel.cs" />
     <Compile Include="InterfaceImplements\AccountModel.cs" />
+    <Compile Include="InterfaceImplements\AnalyzingModel.cs" />
     <Compile Include="InterfaceImplements\UShopModel.cs" />
     <Compile Include="InterfaceImplements\CustomerModel.cs" />
     <Compile Include="InterfaceImplements\EmployeeModel.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="InterfaceImplements\ProductModel.cs" />
     <Compile Include="InterfaceImplements\ProductSizeModel.cs" />
     <Compile Include="InterfaceImplements\ReceiptNoteModel.cs" />
+    <Compile Include="Interfaces\IAnalyzing.cs" />
     <Compile Include="Interfaces\IUShop.cs" />
     <Compile Include="Interfaces\IAppointment.cs" />
     <Compile Include="InterfaceImplements\SupplierModel.cs" />

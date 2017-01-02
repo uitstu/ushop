@@ -349,5 +349,35 @@ namespace View
             //show
             frmEditAccount.Show();
         }
+
+        private void btnInfo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.checkExist(typeof(frmShop));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                frmShop f = new frmShop();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnAnalyze_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.checkExist(typeof(frmAnalyzing));
+            if (frm != null)
+            {
+                frm.Activate();
+            }
+            else
+            {
+                frmAnalyzing f = new frmAnalyzing();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

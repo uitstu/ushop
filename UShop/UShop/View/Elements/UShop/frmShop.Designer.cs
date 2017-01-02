@@ -1,6 +1,6 @@
 ﻿namespace View.Elements
 {
-    partial class frmUShop
+    partial class frmShop
     {
         /// <summary>
         /// Required designer variable.
@@ -268,7 +268,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên cửa hàng:";
             // 
-            // frmUShop
+            // frmShop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -282,7 +282,7 @@
             this.Controls.Add(this.barDockControl4);
             this.Controls.Add(this.barDockControl2);
             this.Controls.Add(this.barDockControl1);
-            this.Name = "frmUShop";
+            this.Name = "frmShop";
             this.Text = "Quản lý thông tin cửa hàng";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Activated += new System.EventHandler(this.frmUShop_Activated);

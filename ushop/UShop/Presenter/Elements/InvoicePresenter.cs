@@ -340,8 +340,8 @@ namespace Presenter.Elements
         public void insertInvoice(string cusCode, string paymentMethod, string vAT, string note, DateTime date,string totalPayment,string totalAmount)
         {
             int cusId = findCustomerBy(cusCode).CUS_ID;
-            invoice.SELLER_ID = cusId;
-            invoice.BUYER_ID = AccountPresenter.currentEmployee.EMP_ID;
+            invoice.SELLER_ID = AccountPresenter.currentEmployee.EMP_ID;
+            invoice.BUYER_ID = cusId;
             invoice.PAYMENT_METHOD = paymentMethod;
             invoice.DATE = date;
             invoice.NOTE = note;

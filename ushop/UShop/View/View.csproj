@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elements\Analyzing\frmAnalying.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Elements\Analyzing\frmAnalying.Designer.cs">
+      <DependentUpon>frmAnalying.cs</DependentUpon>
+    </Compile>
     <Compile Include="UShopDataSet.cs">
       <DependentUpon>UShopDataSet.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -191,11 +197,11 @@
     <Compile Include="Elements\Supplier\frmSupplier.Designer.cs">
       <DependentUpon>frmSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="Elements\UShop\frmUShop.cs">
+    <Compile Include="Elements\UShop\frmShop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Elements\UShop\frmUShop.Designer.cs">
-      <DependentUpon>frmUShop.cs</DependentUpon>
+    <Compile Include="Elements\UShop\frmShop.Designer.cs">
+      <DependentUpon>frmShop.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -219,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Elements\Account\frmEditAccount.resx">
       <DependentUpon>frmEditAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Elements\Analyzing\frmAnalying.resx">
+      <DependentUpon>frmAnalying.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Elements\Appointment\frmAddAppointment.resx">
       <DependentUpon>frmAddAppointment.cs</DependentUpon>
@@ -276,8 +285,8 @@
     <EmbeddedResource Include="Elements\Supplier\frmSupplier.resx">
       <DependentUpon>frmSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Elements\UShop\frmUShop.resx">
-      <DependentUpon>frmUShop.cs</DependentUpon>
+    <EmbeddedResource Include="Elements\UShop\frmShop.resx">
+      <DependentUpon>frmShop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
