@@ -198,5 +198,11 @@ namespace View.Elements.frmProductSize
             beforeForm.WindowState = FormWindowState.Maximized;
             beforeForm.Activate();
         }
+
+        private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            cboxSize.Text = "";
+            tboxQuantity.Text = "";
+        }
     }
 }

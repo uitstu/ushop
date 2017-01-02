@@ -96,6 +96,20 @@ namespace View.Elements.Supplier
             this.WindowState = FormWindowState.Maximized;
         }
 
+        private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            tboxAddress.Text = "";
+            tboxName.Text = "";
+            tboxPhone.Text = "";
+            tboxTaxCode.Text = "";
+        }
+
+        private void btnBackForm_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            beforeForm.WindowState = FormWindowState.Maximized;
+            beforeForm.Activate();
+        }
+
 
     }
 }

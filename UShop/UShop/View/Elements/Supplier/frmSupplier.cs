@@ -60,7 +60,7 @@ namespace View.Elements
 
         private void btnDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure delete it?", "Deleting", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn xóa?", "Xóa", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 GridView gridView = gridSupplier.FocusedView as GridView;
@@ -98,6 +98,46 @@ namespace View.Elements
         {
             preSupplier.loadSuppliers();
             this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void btnExcel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.InitialDirectory = @"C:\";
+            saveFileDialog1.DefaultExt = "xlsx";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                GridView gridView = gridSupplier.FocusedView as GridView;
+
+                gridView.Columns[7].Visible = false;
+                gridView.Columns[8].Visible = false;
+
+                gridSupplier.ExportToXlsx(saveFileDialog1.FileName);
+
+                gridView.Columns[7].Visible = true;
+                gridView.Columns[8].Visible = true;
+            }
+        }
+
+        private void btnPDF_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.InitialDirectory = @"C:\";
+            saveFileDialog1.DefaultExt = "pdf";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                GridView gridView = gridSupplier.FocusedView as GridView;
+
+                gridView.Columns[7].Visible = false;
+                gridView.Columns[8].Visible = false;
+
+                gridSupplier.ExportToPdf(saveFileDialog1.FileName);
+
+                gridView.Columns[7].Visible = true;
+                gridView.Columns[8].Visible = true;
+            }
         }
         
     }

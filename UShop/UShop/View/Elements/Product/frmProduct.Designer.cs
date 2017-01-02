@@ -30,14 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProduct));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.bar3 = new DevExpress.XtraBars.Bar();
+            this.btnExcel = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPDF = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -70,8 +69,7 @@
             // barManager1
             // 
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar2,
-            this.bar3});
+            this.bar2});
             this.barManager1.DockControls.Add(this.barDockControlTop);
             this.barManager1.DockControls.Add(this.barDockControlBottom);
             this.barManager1.DockControls.Add(this.barDockControlLeft);
@@ -79,11 +77,10 @@
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.btnAdd,
-            this.barButtonItem2,
-            this.barButtonItem3});
+            this.btnExcel,
+            this.btnPDF});
             this.barManager1.MainMenu = this.bar2;
             this.barManager1.MaxItemId = 3;
-            this.barManager1.StatusBar = this.bar3;
             // 
             // bar2
             // 
@@ -93,8 +90,8 @@
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnAdd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem2, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem3, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnExcel, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPDF, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -107,31 +104,21 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAdd_ItemClick);
             // 
-            // barButtonItem2
+            // btnExcel
             // 
-            this.barButtonItem2.Caption = "Xuất danh sách";
-            this.barButtonItem2.Id = 1;
-            this.barButtonItem2.ImageUri.Uri = "ExportToXLSX";
-            this.barButtonItem2.Name = "barButtonItem2";
+            this.btnExcel.Caption = "Xuất danh sách";
+            this.btnExcel.Id = 1;
+            this.btnExcel.ImageUri.Uri = "ExportToXLSX";
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExcel_ItemClick);
             // 
-            // barButtonItem3
+            // btnPDF
             // 
-            this.barButtonItem3.Caption = "Xuất danh sách";
-            this.barButtonItem3.Id = 2;
-            this.barButtonItem3.ImageUri.Uri = "ExportToPDF";
-            this.barButtonItem3.Name = "barButtonItem3";
-            // 
-            // bar3
-            // 
-            this.bar3.BarName = "Status bar";
-            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.bar3.DockCol = 0;
-            this.bar3.DockRow = 0;
-            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.bar3.OptionsBar.AllowQuickCustomization = false;
-            this.bar3.OptionsBar.DrawDragBorder = false;
-            this.bar3.OptionsBar.UseWholeRow = true;
-            this.bar3.Text = "Status bar";
+            this.btnPDF.Caption = "Xuất danh sách";
+            this.btnPDF.Id = 2;
+            this.btnPDF.ImageUri.Uri = "ExportToPDF";
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPDF_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -144,22 +131,22 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 331);
-            this.barDockControlBottom.Size = new System.Drawing.Size(700, 23);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 354);
+            this.barDockControlBottom.Size = new System.Drawing.Size(700, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 307);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 330);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(700, 24);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 307);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 330);
             // 
             // gridProduct
             // 
@@ -171,7 +158,7 @@
             this.gridProduct.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1,
             this.repositoryItemButtonEdit2});
-            this.gridProduct.Size = new System.Drawing.Size(700, 307);
+            this.gridProduct.Size = new System.Drawing.Size(700, 330);
             this.gridProduct.TabIndex = 4;
             this.gridProduct.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -195,93 +182,104 @@
             this.CATEGORY_ID});
             this.gridView1.GridControl = this.gridProduct;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowAutoFilterRow = true;
             // 
             // PRODUCT_CODE
             // 
-            this.PRODUCT_CODE.Caption = "PRODUCT_CODE";
+            this.PRODUCT_CODE.Caption = "Mã hàng";
             this.PRODUCT_CODE.FieldName = "PRODUCT_CODE";
             this.PRODUCT_CODE.Name = "PRODUCT_CODE";
+            this.PRODUCT_CODE.OptionsColumn.AllowEdit = false;
             this.PRODUCT_CODE.Visible = true;
             this.PRODUCT_CODE.VisibleIndex = 0;
             this.PRODUCT_CODE.Width = 56;
             // 
             // PRODUCT_NAME
             // 
-            this.PRODUCT_NAME.Caption = "PRODUCT_NAME";
+            this.PRODUCT_NAME.Caption = "Tên hàng";
             this.PRODUCT_NAME.FieldName = "PRODUCT_NAME";
             this.PRODUCT_NAME.Name = "PRODUCT_NAME";
+            this.PRODUCT_NAME.OptionsColumn.AllowEdit = false;
             this.PRODUCT_NAME.Visible = true;
             this.PRODUCT_NAME.VisibleIndex = 1;
             this.PRODUCT_NAME.Width = 56;
             // 
             // CATEGORY_NAME
             // 
-            this.CATEGORY_NAME.Caption = "CATEGORY_NAME";
+            this.CATEGORY_NAME.Caption = "Danh mục";
             this.CATEGORY_NAME.FieldName = "CATEGORY_NAME";
             this.CATEGORY_NAME.Name = "CATEGORY_NAME";
+            this.CATEGORY_NAME.OptionsColumn.AllowEdit = false;
             this.CATEGORY_NAME.Visible = true;
             this.CATEGORY_NAME.VisibleIndex = 2;
             this.CATEGORY_NAME.Width = 56;
             // 
             // UNIT
             // 
-            this.UNIT.Caption = "UNIT";
+            this.UNIT.Caption = "Đơn vị";
             this.UNIT.FieldName = "UNIT";
             this.UNIT.Name = "UNIT";
+            this.UNIT.OptionsColumn.AllowEdit = false;
             this.UNIT.Visible = true;
             this.UNIT.VisibleIndex = 3;
             this.UNIT.Width = 56;
             // 
             // SELLING_PRICE
             // 
-            this.SELLING_PRICE.Caption = "SELLING_PRICE";
+            this.SELLING_PRICE.Caption = "Giá bán";
             this.SELLING_PRICE.FieldName = "SELLING_PRICE";
             this.SELLING_PRICE.Name = "SELLING_PRICE";
+            this.SELLING_PRICE.OptionsColumn.AllowEdit = false;
             this.SELLING_PRICE.Visible = true;
             this.SELLING_PRICE.VisibleIndex = 4;
             this.SELLING_PRICE.Width = 56;
             // 
             // COST_PRICE
             // 
-            this.COST_PRICE.Caption = "COST_PRICE";
+            this.COST_PRICE.Caption = "Giá nhập";
             this.COST_PRICE.FieldName = "COST_PRICE";
             this.COST_PRICE.Name = "COST_PRICE";
+            this.COST_PRICE.OptionsColumn.AllowEdit = false;
             this.COST_PRICE.Visible = true;
             this.COST_PRICE.VisibleIndex = 5;
             this.COST_PRICE.Width = 56;
             // 
             // SALE_AMOUNT
             // 
-            this.SALE_AMOUNT.Caption = "SALE_AMOUNT";
+            this.SALE_AMOUNT.Caption = "Tiền giảm";
             this.SALE_AMOUNT.FieldName = "SALE_AMOUNT";
             this.SALE_AMOUNT.Name = "SALE_AMOUNT";
+            this.SALE_AMOUNT.OptionsColumn.AllowEdit = false;
             this.SALE_AMOUNT.Visible = true;
             this.SALE_AMOUNT.VisibleIndex = 6;
             this.SALE_AMOUNT.Width = 56;
             // 
             // DESCRIPTION
             // 
-            this.DESCRIPTION.Caption = "DESCRIPTION";
+            this.DESCRIPTION.Caption = "Mô tả";
             this.DESCRIPTION.FieldName = "DESCRIPTION";
             this.DESCRIPTION.Name = "DESCRIPTION";
+            this.DESCRIPTION.OptionsColumn.AllowEdit = false;
             this.DESCRIPTION.Visible = true;
             this.DESCRIPTION.VisibleIndex = 7;
             this.DESCRIPTION.Width = 56;
             // 
             // PRODUCER
             // 
-            this.PRODUCER.Caption = "PRODUCER";
+            this.PRODUCER.Caption = "Nhà sản xuất";
             this.PRODUCER.FieldName = "PRODUCER";
             this.PRODUCER.Name = "PRODUCER";
+            this.PRODUCER.OptionsColumn.AllowEdit = false;
             this.PRODUCER.Visible = true;
             this.PRODUCER.VisibleIndex = 8;
             this.PRODUCER.Width = 56;
             // 
             // ORIGIN
             // 
-            this.ORIGIN.Caption = "ORIGIN";
+            this.ORIGIN.Caption = "Xuất sứ";
             this.ORIGIN.FieldName = "ORIGIN";
             this.ORIGIN.Name = "ORIGIN";
+            this.ORIGIN.OptionsColumn.AllowEdit = false;
             this.ORIGIN.Visible = true;
             this.ORIGIN.VisibleIndex = 9;
             this.ORIGIN.Width = 56;
@@ -298,7 +296,7 @@
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit1.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit1.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEdit1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit1_ButtonClick);
@@ -315,7 +313,7 @@
             // 
             this.repositoryItemButtonEdit2.AutoHeight = false;
             this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit2.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit2.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
             this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
             this.repositoryItemButtonEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEdit2.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit2_ButtonClick);
@@ -343,7 +341,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "frmProduct";
-            this.Text = "frmProduct";
+            this.Text = "Quản lý sản phẩm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Activated += new System.EventHandler(this.frmProduct_Activated);
             this.Load += new System.EventHandler(this.frmProduct_Load);
@@ -362,9 +360,8 @@
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarButtonItem btnAdd;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraBars.Bar bar3;
+        private DevExpress.XtraBars.BarButtonItem btnExcel;
+        private DevExpress.XtraBars.BarButtonItem btnPDF;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;

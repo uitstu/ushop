@@ -1,4 +1,6 @@
 ﻿using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
 using Model;
 using Model.Properties;
 using Presenter.Elements;
@@ -27,6 +29,12 @@ namespace View.Elements.Employee
             presenter = new EmployeePresenter();
             presenter.EmpView = this;
             presenter.loadEmployeList();
+
+            GridView gridView = grdconELEmployee.FocusedView as GridView;
+            foreach (GridColumn col in gridView.Columns)
+            {
+                col.OptionsFilter.AutoFilterCondition = AutoFilterCondition.Contains;
+            }
         }
 
         public DataTable getEmployeeTable()
@@ -80,6 +88,16 @@ namespace View.Elements.Employee
 
         private void btnELDeleteInvoice_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn xóa?", "Xóa", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+
             int index = gvELEmployee.FocusedRowHandle;
             presenter.removeEmployee(index);
         }
@@ -88,6 +106,46 @@ namespace View.Elements.Employee
         {
             table.Rows.Clear();
             presenter.loadEmployeList();
+        }
+
+        private void btnExcel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.InitialDirectory = @"C:\";
+            saveFileDialog1.DefaultExt = "xlsx";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                GridView gridView = grdconELEmployee.FocusedView as GridView;
+
+                gridView.Columns[11].Visible = false;
+                gridView.Columns[12].Visible = false;
+
+                grdconELEmployee.ExportToXlsx(saveFileDialog1.FileName);
+
+                gridView.Columns[11].Visible = true;
+                gridView.Columns[12].Visible = true;
+            }
+        }
+
+        private void btnPDF_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.InitialDirectory = @"C:\";
+            saveFileDialog1.DefaultExt = "pdf";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                GridView gridView = grdconELEmployee.FocusedView as GridView;
+
+                gridView.Columns[11].Visible = false;
+                gridView.Columns[12].Visible = false;
+
+                grdconELEmployee.ExportToPdf(saveFileDialog1.FileName);
+
+                gridView.Columns[11].Visible = true;
+                gridView.Columns[12].Visible = true;
+            }
         }
     }
 }

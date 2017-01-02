@@ -17,13 +17,13 @@ namespace Model.InterfaceImplement
             {
                 SUPPLIER ushop = new SUPPLIER();
                 ushop.TAX_CODE = "0000";
-                ushop.ADDRESS = "Địa chỉ rỗng!";
+                ushop.ADDRESS = "Quận 3, TP HCM";
                 ushop.SUPPLIER_NAME = "UShop";
                 ushop.RECORD_STATUS = "U";
-                ushop.PHONE = "0000";
+                ushop.PHONE = "0975862516";
                 UShopDB.SUPPLIERs.InsertOnSubmit(ushop);
                 UShopDB.SubmitChanges();
-                ushop.SUPPLIER_CODE = getCODE("NCC",ushop.SUPPLIER_ID);
+                ushop.SUPPLIER_CODE = getCODE("SUP",ushop.SUPPLIER_ID);
                 UShopDB.SubmitChanges();
             }
             return UShopDB.SUPPLIERs.Where(o => o.RECORD_STATUS.Equals("U")).First();

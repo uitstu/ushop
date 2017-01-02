@@ -15,6 +15,7 @@ using Model.Properties;
 using DevExpress.XtraEditors.Controls;
 using Presenter.InterfaceImplement;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Columns;
 
 namespace View.Elements.Invoice
 {
@@ -28,6 +29,12 @@ namespace View.Elements.Invoice
             presenter.InvoiceView = this;
             InitializeComponent();
             presenter.loadInvoiceList();
+
+            GridView gridView = grdconILInvoice.FocusedView as GridView;
+            foreach (GridColumn col in gridView.Columns)
+            {
+                col.OptionsFilter.AutoFilterCondition = AutoFilterCondition.Contains;
+            }
         }
 
         public void showInvoiceList(DataTable invoiceTable)
@@ -84,6 +91,16 @@ namespace View.Elements.Invoice
         }
         private void btnILDeleteInvoice_ButtonClick(object sender,ButtonPressedEventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn xóa?", "Xóa", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+
             int indexOfGrid = gvILInvoice.FocusedRowHandle;
             presenter.removeInvoice(indexOfGrid);
         }
@@ -97,6 +114,46 @@ namespace View.Elements.Invoice
         {
             table.Rows.Clear();
             presenter.loadInvoiceList();
+        }
+
+        private void btnExcel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.InitialDirectory = @"C:\";
+            saveFileDialog1.DefaultExt = "xlsx";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                GridView gridView = grdconILInvoice.FocusedView as GridView;
+
+                gridView.Columns[7].Visible = false;
+                gridView.Columns[8].Visible = false;
+
+                grdconILInvoice.ExportToXlsx(saveFileDialog1.FileName);
+
+                gridView.Columns[7].Visible = true;
+                gridView.Columns[8].Visible = true;
+            }
+        }
+
+        private void btnPDF_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.InitialDirectory = @"C:\";
+            saveFileDialog1.DefaultExt = "pdf";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                GridView gridView = grdconILInvoice.FocusedView as GridView;
+
+                gridView.Columns[7].Visible = false;
+                gridView.Columns[8].Visible = false;
+
+                grdconILInvoice.ExportToPdf(saveFileDialog1.FileName);
+
+                gridView.Columns[7].Visible = true;
+                gridView.Columns[8].Visible = true;
+            }
         }
     }
 }

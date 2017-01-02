@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAccount));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.bar3 = new DevExpress.XtraBars.Bar();
-            this.bbtniAMExport = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPrintExcel = new DevExpress.XtraBars.BarButtonItem();
             this.bbtniAMAddAccount = new DevExpress.XtraBars.BarButtonItem();
             this.bar2 = new DevExpress.XtraBars.Bar();
+            this.btnPrintPDF = new DevExpress.XtraBars.BarButtonItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.grdconAMAccount = new DevExpress.XtraGrid.GridControl();
@@ -62,50 +62,36 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(856, 30);
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 428);
+            this.barDockControlRight.Location = new System.Drawing.Point(734, 24);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 368);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 458);
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(856, 25);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 392);
+            this.barDockControlBottom.Size = new System.Drawing.Size(734, 0);
             // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlTop.Size = new System.Drawing.Size(856, 30);
+            this.barDockControlTop.Size = new System.Drawing.Size(734, 24);
             // 
-            // bar3
+            // btnPrintExcel
             // 
-            this.bar3.BarName = "Status bar";
-            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.bar3.DockCol = 0;
-            this.bar3.DockRow = 0;
-            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.bar3.OptionsBar.AllowQuickCustomization = false;
-            this.bar3.OptionsBar.DrawDragBorder = false;
-            this.bar3.OptionsBar.UseWholeRow = true;
-            this.bar3.Text = "Status bar";
-            // 
-            // bbtniAMExport
-            // 
-            this.bbtniAMExport.Caption = "Xuất danh sách";
-            this.bbtniAMExport.Id = 1;
-            this.bbtniAMExport.ImageUri.Uri = "ExportToXLSX";
-            this.bbtniAMExport.Name = "bbtniAMExport";
+            this.btnPrintExcel.Caption = "Xuất danh sách";
+            this.btnPrintExcel.Id = 1;
+            this.btnPrintExcel.ImageUri.Uri = "ExportToXLSX";
+            this.btnPrintExcel.Name = "btnPrintExcel";
+            this.btnPrintExcel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPrintExcel_ItemClick);
             // 
             // bbtniAMAddAccount
             // 
             this.bbtniAMAddAccount.Caption = "Thêm mới";
-            this.bbtniAMAddAccount.Glyph = ((System.Drawing.Image)(resources.GetObject("bbtniAMAddAccount.Glyph")));
             this.bbtniAMAddAccount.Id = 0;
+            this.bbtniAMAddAccount.ImageUri.Uri = "Add";
             this.bbtniAMAddAccount.Name = "bbtniAMAddAccount";
             this.bbtniAMAddAccount.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtniAMAddAccount_ItemClick_1);
             // 
@@ -117,16 +103,24 @@
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniAMAddAccount, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniAMExport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPrintExcel, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPrintPDF, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
             // 
+            // btnPrintPDF
+            // 
+            this.btnPrintPDF.Caption = "Xuất danh sách";
+            this.btnPrintPDF.Id = 2;
+            this.btnPrintPDF.ImageUri.Uri = "ExportToPDF";
+            this.btnPrintPDF.Name = "btnPrintPDF";
+            this.btnPrintPDF.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPrintPDF_ItemClick);
+            // 
             // barManager1
             // 
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar2,
-            this.bar3});
+            this.bar2});
             this.barManager1.DockControls.Add(this.barDockControlTop);
             this.barManager1.DockControls.Add(this.barDockControlBottom);
             this.barManager1.DockControls.Add(this.barDockControlLeft);
@@ -134,32 +128,29 @@
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.bbtniAMAddAccount,
-            this.bbtniAMExport});
+            this.btnPrintExcel,
+            this.btnPrintPDF});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 2;
-            this.barManager1.StatusBar = this.bar3;
+            this.barManager1.MaxItemId = 3;
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 428);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 368);
             // 
             // grdconAMAccount
             // 
             this.grdconAMAccount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdconAMAccount.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.grdconAMAccount.Location = new System.Drawing.Point(0, 30);
+            this.grdconAMAccount.Location = new System.Drawing.Point(0, 24);
             this.grdconAMAccount.MainView = this.gvAMAccount;
-            this.grdconAMAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grdconAMAccount.MenuManager = this.barManager1;
             this.grdconAMAccount.Name = "grdconAMAccount";
             this.grdconAMAccount.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnALUpdateAppointment,
             this.btnALDeleteAppointment});
-            this.grdconAMAccount.Size = new System.Drawing.Size(856, 428);
+            this.grdconAMAccount.Size = new System.Drawing.Size(734, 368);
             this.grdconAMAccount.TabIndex = 11;
             this.grdconAMAccount.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvAMAccount});
@@ -182,6 +173,7 @@
             this.gridColumn6.Caption = "Mã nhân sự";
             this.gridColumn6.FieldName = "EMP_CODE";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 0;
             this.gridColumn6.Width = 165;
@@ -191,6 +183,7 @@
             this.gridColumn5.Caption = "Tên tài khoản";
             this.gridColumn5.FieldName = "ACC_CODE";
             this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 1;
             this.gridColumn5.Width = 240;
@@ -200,6 +193,7 @@
             this.gridColumn4.Caption = "Mật khẩu";
             this.gridColumn4.FieldName = "PASSWORD";
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 2;
             this.gridColumn4.Width = 217;
@@ -209,6 +203,7 @@
             this.gridColumn3.Caption = "Cấp bậc";
             this.gridColumn3.FieldName = "POSITION";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 3;
             this.gridColumn3.Width = 113;
@@ -219,13 +214,13 @@
             this.btnUPDATE.Name = "btnUPDATE";
             this.btnUPDATE.Visible = true;
             this.btnUPDATE.VisibleIndex = 4;
-            this.btnUPDATE.Width = 55;
+            this.btnUPDATE.Width = 20;
             // 
             // btnALUpdateAppointment
             // 
             this.btnALUpdateAppointment.AutoHeight = false;
             this.btnALUpdateAppointment.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnALUpdateAppointment.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnALUpdateAppointment.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.btnALUpdateAppointment.Name = "btnALUpdateAppointment";
             this.btnALUpdateAppointment.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnALUpdateAppointment.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnAMUpdateAccount_ButtonClick);
@@ -236,27 +231,28 @@
             this.btnDELETE.Name = "btnDELETE";
             this.btnDELETE.Visible = true;
             this.btnDELETE.VisibleIndex = 5;
-            this.btnDELETE.Width = 46;
+            this.btnDELETE.Width = 20;
             // 
             // btnALDeleteAppointment
             // 
             this.btnALDeleteAppointment.AutoHeight = false;
             this.btnALDeleteAppointment.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnALDeleteAppointment.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnALDeleteAppointment.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
             this.btnALDeleteAppointment.Name = "btnALDeleteAppointment";
             this.btnALDeleteAppointment.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnALDeleteAppointment.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnAMDeleteAccount_ButtonClick);
             // 
             // frmAccount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(856, 483);
+            this.ClientSize = new System.Drawing.Size(734, 392);
             this.Controls.Add(this.grdconAMAccount);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmAccount";
             this.Text = "Quản lý tài khoản";
             this.Activated += new System.EventHandler(this.frmAccount_Activated);
@@ -275,8 +271,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
-        private DevExpress.XtraBars.Bar bar3;
-        private DevExpress.XtraBars.BarButtonItem bbtniAMExport;
+        private DevExpress.XtraBars.BarButtonItem btnPrintExcel;
         private DevExpress.XtraBars.BarButtonItem bbtniAMAddAccount;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarManager barManager1;
@@ -291,5 +286,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnALUpdateAppointment;
         private DevExpress.XtraGrid.Columns.GridColumn btnDELETE;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnALDeleteAppointment;
+        private DevExpress.XtraBars.BarButtonItem btnPrintPDF;
     }
 }

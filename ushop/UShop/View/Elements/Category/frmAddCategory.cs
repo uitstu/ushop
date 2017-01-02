@@ -95,5 +95,11 @@ namespace View.Elements.Category
         {
             this.WindowState = FormWindowState.Maximized;
         }
+
+        private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            edtCategoryName.Text = "";
+            edtCategoryDescription.Text = "";
+        }
     }
 }

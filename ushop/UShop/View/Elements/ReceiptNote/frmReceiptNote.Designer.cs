@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReceiptNote));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.btnXuatDS = new DevExpress.XtraBars.BarButtonItem();
-            this.bar3 = new DevExpress.XtraBars.Bar();
+            this.btnPDF = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -66,8 +66,7 @@
             // barManager1
             // 
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar2,
-            this.bar3});
+            this.bar2});
             this.barManager1.DockControls.Add(this.barDockControlTop);
             this.barManager1.DockControls.Add(this.barDockControlBottom);
             this.barManager1.DockControls.Add(this.barDockControlLeft);
@@ -75,10 +74,10 @@
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.barButtonItem1,
-            this.btnXuatDS});
+            this.btnXuatDS,
+            this.btnPDF});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 2;
-            this.barManager1.StatusBar = this.bar3;
+            this.barManager1.MaxItemId = 3;
             // 
             // bar2
             // 
@@ -88,7 +87,8 @@
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem1, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnXuatDS, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnXuatDS, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPDF, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -96,8 +96,8 @@
             // barButtonItem1
             // 
             this.barButtonItem1.Caption = "Thêm mới";
-            this.barButtonItem1.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.Glyph")));
             this.barButtonItem1.Id = 0;
+            this.barButtonItem1.ImageUri.Uri = "Add";
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
@@ -109,17 +109,13 @@
             this.btnXuatDS.Name = "btnXuatDS";
             this.btnXuatDS.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXuatDS_ItemClick);
             // 
-            // bar3
+            // btnPDF
             // 
-            this.bar3.BarName = "Status bar";
-            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.bar3.DockCol = 0;
-            this.bar3.DockRow = 0;
-            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.bar3.OptionsBar.AllowQuickCustomization = false;
-            this.bar3.OptionsBar.DrawDragBorder = false;
-            this.bar3.OptionsBar.UseWholeRow = true;
-            this.bar3.Text = "Status bar";
+            this.btnPDF.Caption = "Xuất danh sách";
+            this.btnPDF.Id = 2;
+            this.btnPDF.ImageUri.Uri = "ExportToPDF";
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPDF_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -132,22 +128,22 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 338);
-            this.barDockControlBottom.Size = new System.Drawing.Size(675, 23);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 361);
+            this.barDockControlBottom.Size = new System.Drawing.Size(675, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 314);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 337);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(675, 24);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 314);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 337);
             // 
             // gridReceiptNote
             // 
@@ -159,7 +155,7 @@
             this.gridReceiptNote.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnEditReceiptNote,
             this.btnDeleteReceiptNote});
-            this.gridReceiptNote.Size = new System.Drawing.Size(675, 314);
+            this.gridReceiptNote.Size = new System.Drawing.Size(675, 337);
             this.gridReceiptNote.TabIndex = 6;
             this.gridReceiptNote.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView});
@@ -184,7 +180,7 @@
             // 
             // RN_CODE
             // 
-            this.RN_CODE.Caption = "RN_CODE";
+            this.RN_CODE.Caption = "Mã phiếu nhập";
             this.RN_CODE.FieldName = "RN_CODE";
             this.RN_CODE.Name = "RN_CODE";
             this.RN_CODE.OptionsColumn.AllowEdit = false;
@@ -194,7 +190,7 @@
             // 
             // SUPPLIER_NAME
             // 
-            this.SUPPLIER_NAME.Caption = "SUPPLIER_NAME";
+            this.SUPPLIER_NAME.Caption = "Nhà cung cấp";
             this.SUPPLIER_NAME.FieldName = "SUPPLIER_NAME";
             this.SUPPLIER_NAME.Name = "SUPPLIER_NAME";
             this.SUPPLIER_NAME.OptionsColumn.AllowEdit = false;
@@ -204,7 +200,7 @@
             // 
             // EMP_NAME
             // 
-            this.EMP_NAME.Caption = "EMP_NAME";
+            this.EMP_NAME.Caption = "Người lập";
             this.EMP_NAME.FieldName = "EMP_NAME";
             this.EMP_NAME.Name = "EMP_NAME";
             this.EMP_NAME.OptionsColumn.AllowEdit = false;
@@ -214,7 +210,7 @@
             // 
             // ISSUED_DATE
             // 
-            this.ISSUED_DATE.Caption = "ISSUED_DATE";
+            this.ISSUED_DATE.Caption = "Ngày lập";
             this.ISSUED_DATE.FieldName = "ISSUED_DATE";
             this.ISSUED_DATE.Name = "ISSUED_DATE";
             this.ISSUED_DATE.OptionsColumn.AllowEdit = false;
@@ -224,7 +220,7 @@
             // 
             // ACCOUNTING_DATE
             // 
-            this.ACCOUNTING_DATE.Caption = "ACCOUNTING_DATE";
+            this.ACCOUNTING_DATE.Caption = "Ngày hạch toán";
             this.ACCOUNTING_DATE.FieldName = "ACCOUNTING_DATE";
             this.ACCOUNTING_DATE.Name = "ACCOUNTING_DATE";
             this.ACCOUNTING_DATE.OptionsColumn.AllowEdit = false;
@@ -234,7 +230,7 @@
             // 
             // ACCOUNTED
             // 
-            this.ACCOUNTED.Caption = "ACCOUNTED";
+            this.ACCOUNTED.Caption = "Đã thanh toán";
             this.ACCOUNTED.FieldName = "ACCOUNTED";
             this.ACCOUNTED.Name = "ACCOUNTED";
             this.ACCOUNTED.OptionsColumn.AllowEdit = false;
@@ -244,7 +240,7 @@
             // 
             // TOTAL
             // 
-            this.TOTAL.Caption = "TOTAL";
+            this.TOTAL.Caption = "Tổng số";
             this.TOTAL.FieldName = "TOTAL";
             this.TOTAL.Name = "TOTAL";
             this.TOTAL.OptionsColumn.AllowEdit = false;
@@ -254,7 +250,7 @@
             // 
             // NOTE
             // 
-            this.NOTE.Caption = "NOTE";
+            this.NOTE.Caption = "Ghi chú";
             this.NOTE.FieldName = "NOTE";
             this.NOTE.Name = "NOTE";
             this.NOTE.OptionsColumn.AllowEdit = false;
@@ -264,9 +260,10 @@
             // 
             // STATUS
             // 
-            this.STATUS.Caption = "STATUS";
+            this.STATUS.Caption = "Trạng thái";
             this.STATUS.FieldName = "STATUS";
             this.STATUS.Name = "STATUS";
+            this.STATUS.OptionsColumn.AllowEdit = false;
             this.STATUS.Visible = true;
             this.STATUS.VisibleIndex = 8;
             // 
@@ -282,7 +279,7 @@
             // 
             this.btnEditReceiptNote.AutoHeight = false;
             this.btnEditReceiptNote.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnEditReceiptNote.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnEditReceiptNote.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
             this.btnEditReceiptNote.Name = "btnEditReceiptNote";
             this.btnEditReceiptNote.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnEditReceiptNote.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnEditReceiptNote_ButtonClick);
@@ -299,7 +296,7 @@
             // 
             this.btnDeleteReceiptNote.AutoHeight = false;
             this.btnDeleteReceiptNote.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnDeleteReceiptNote.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnDeleteReceiptNote.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
             this.btnDeleteReceiptNote.Name = "btnDeleteReceiptNote";
             this.btnDeleteReceiptNote.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnDeleteReceiptNote.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDeleteReceiptNote_ButtonClick);
@@ -315,7 +312,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "frmReceiptNote";
-            this.Text = "frmReceiptNote";
+            this.Text = "Quản lý phiếu nhập";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Activated += new System.EventHandler(this.frmReceiptNote_Activated);
             this.Load += new System.EventHandler(this.frmReceiptNote_Load);
@@ -333,7 +330,6 @@
 
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar2;
-        private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
@@ -355,6 +351,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDeleteReceiptNote;
         private DevExpress.XtraBars.BarButtonItem btnXuatDS;
         private DevExpress.XtraGrid.Columns.GridColumn STATUS;
+        private DevExpress.XtraBars.BarButtonItem btnPDF;
 
     }
 }

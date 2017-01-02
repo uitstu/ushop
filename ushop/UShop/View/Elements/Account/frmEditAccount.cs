@@ -128,6 +128,13 @@ namespace View.Elements.Account
 
         }
 
+        private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            txteEACPassword.Text = "";
+            tboxAgainPassword.Text = "";
+            tboxOldPassword.Text = "";
+        }
+
        
     }
 }

@@ -30,20 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddAccount));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnAACNewEmployee = new System.Windows.Forms.Button();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barAAOptions = new DevExpress.XtraBars.Bar();
             this.bbtniAABack = new DevExpress.XtraBars.BarButtonItem();
             this.bbtniAAAdd = new DevExpress.XtraBars.BarButtonItem();
-            this.bbtniAAPrint = new DevExpress.XtraBars.BarButtonItem();
             this.bbtniAAReset = new DevExpress.XtraBars.BarButtonItem();
-            this.bar3 = new DevExpress.XtraBars.Bar();
             this.bsiAIState = new DevExpress.XtraBars.BarStaticItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.bbtniAAPrint = new DevExpress.XtraBars.BarButtonItem();
             this.cmbAACEmployeeCodeName = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
@@ -63,10 +62,10 @@
             // 
             // btnAACNewEmployee
             // 
-            this.btnAACNewEmployee.Location = new System.Drawing.Point(355, 36);
-            this.btnAACNewEmployee.Margin = new System.Windows.Forms.Padding(16, 3, 3, 3);
+            this.btnAACNewEmployee.Location = new System.Drawing.Point(304, 29);
+            this.btnAACNewEmployee.Margin = new System.Windows.Forms.Padding(14, 2, 3, 2);
             this.btnAACNewEmployee.Name = "btnAACNewEmployee";
-            this.btnAACNewEmployee.Size = new System.Drawing.Size(75, 23);
+            this.btnAACNewEmployee.Size = new System.Drawing.Size(64, 19);
             this.btnAACNewEmployee.TabIndex = 49;
             this.btnAACNewEmployee.Text = "NV Mới";
             this.btnAACNewEmployee.UseVisualStyleBackColor = true;
@@ -75,8 +74,7 @@
             // barManager1
             // 
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.barAAOptions,
-            this.bar3});
+            this.barAAOptions});
             this.barManager1.DockControls.Add(this.barDockControlTop);
             this.barManager1.DockControls.Add(this.barDockControlBottom);
             this.barManager1.DockControls.Add(this.barDockControlLeft);
@@ -90,7 +88,6 @@
             this.bsiAIState});
             this.barManager1.MainMenu = this.barAAOptions;
             this.barManager1.MaxItemId = 5;
-            this.barManager1.StatusBar = this.bar3;
             // 
             // barAAOptions
             // 
@@ -102,7 +99,6 @@
             this.barAAOptions.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniAABack, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniAAAdd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniAAPrint, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniAAReset, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.barAAOptions.OptionsBar.AllowQuickCustomization = false;
             this.barAAOptions.OptionsBar.MultiLine = true;
@@ -125,13 +121,6 @@
             this.bbtniAAAdd.Name = "bbtniAAAdd";
             this.bbtniAAAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtniAACAdd_ItemClick);
             // 
-            // bbtniAAPrint
-            // 
-            this.bbtniAAPrint.Caption = "In";
-            this.bbtniAAPrint.Id = 1;
-            this.bbtniAAPrint.ImageUri.Uri = "Print";
-            this.bbtniAAPrint.Name = "bbtniAAPrint";
-            // 
             // bbtniAAReset
             // 
             this.bbtniAAReset.Caption = "Xóa";
@@ -139,20 +128,6 @@
             this.bbtniAAReset.ImageUri.Uri = "Cancel";
             this.bbtniAAReset.Name = "bbtniAAReset";
             this.bbtniAAReset.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtniAACReset_ItemClick);
-            // 
-            // bar3
-            // 
-            this.bar3.BarName = "Status bar";
-            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.bar3.DockCol = 0;
-            this.bar3.DockRow = 0;
-            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.bar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.bsiAIState)});
-            this.bar3.OptionsBar.AllowQuickCustomization = false;
-            this.bar3.OptionsBar.DrawDragBorder = false;
-            this.bar3.OptionsBar.UseWholeRow = true;
-            this.bar3.Text = "Status bar";
             // 
             // bsiAIState
             // 
@@ -166,50 +141,54 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlTop.Size = new System.Drawing.Size(745, 30);
+            this.barDockControlTop.Size = new System.Drawing.Size(639, 24);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 200);
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(745, 34);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 190);
+            this.barDockControlBottom.Size = new System.Drawing.Size(639, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 170);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 166);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(745, 30);
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 170);
+            this.barDockControlRight.Location = new System.Drawing.Point(639, 24);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 166);
+            // 
+            // bbtniAAPrint
+            // 
+            this.bbtniAAPrint.Caption = "In";
+            this.bbtniAAPrint.Id = 1;
+            this.bbtniAAPrint.ImageUri.Uri = "Print";
+            this.bbtniAAPrint.Name = "bbtniAAPrint";
             // 
             // cmbAACEmployeeCodeName
             // 
-            this.cmbAACEmployeeCodeName.Location = new System.Drawing.Point(126, 36);
+            this.cmbAACEmployeeCodeName.Location = new System.Drawing.Point(108, 29);
+            this.cmbAACEmployeeCodeName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbAACEmployeeCodeName.MenuManager = this.barManager1;
             this.cmbAACEmployeeCodeName.Name = "cmbAACEmployeeCodeName";
             this.cmbAACEmployeeCodeName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbAACEmployeeCodeName.Size = new System.Drawing.Size(210, 22);
+            this.cmbAACEmployeeCodeName.Size = new System.Drawing.Size(180, 20);
             this.cmbAACEmployeeCodeName.TabIndex = 42;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 39);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 24, 3, 0);
+            this.label1.Location = new System.Drawing.Point(12, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 17);
+            this.label1.Size = new System.Drawing.Size(59, 13);
             this.label1.TabIndex = 38;
             this.label1.Text = "Nhân viên:";
             // 
@@ -222,47 +201,48 @@
             this.groupControl1.Controls.Add(this.label1);
             this.groupControl1.Controls.Add(this.label7);
             this.groupControl1.Controls.Add(this.label4);
-            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.Location = new System.Drawing.Point(0, 30);
-            this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl1.Location = new System.Drawing.Point(0, 24);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(745, 174);
+            this.groupControl1.Size = new System.Drawing.Size(639, 166);
             this.groupControl1.TabIndex = 11;
             this.groupControl1.Text = "Thông tin Tài khoản";
             // 
             // txteAACPassword
             // 
-            this.txteAACPassword.Location = new System.Drawing.Point(126, 118);
+            this.txteAACPassword.Location = new System.Drawing.Point(108, 96);
+            this.txteAACPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txteAACPassword.MenuManager = this.barManager1;
             this.txteAACPassword.Name = "txteAACPassword";
-            this.txteAACPassword.Size = new System.Drawing.Size(210, 22);
+            this.txteAACPassword.Size = new System.Drawing.Size(180, 20);
             this.txteAACPassword.TabIndex = 51;
             // 
             // txteAACAccountCode
             // 
-            this.txteAACAccountCode.Location = new System.Drawing.Point(126, 77);
+            this.txteAACAccountCode.Location = new System.Drawing.Point(108, 63);
+            this.txteAACAccountCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txteAACAccountCode.MenuManager = this.barManager1;
             this.txteAACAccountCode.Name = "txteAACAccountCode";
-            this.txteAACAccountCode.Size = new System.Drawing.Size(210, 22);
+            this.txteAACAccountCode.Size = new System.Drawing.Size(180, 20);
             this.txteAACAccountCode.TabIndex = 50;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(14, 80);
-            this.label7.Margin = new System.Windows.Forms.Padding(3, 24, 3, 0);
+            this.label7.Location = new System.Drawing.Point(12, 65);
+            this.label7.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 17);
+            this.label7.Size = new System.Drawing.Size(57, 13);
             this.label7.TabIndex = 35;
             this.label7.Text = "Tài khoản:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 121);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 24, 3, 0);
+            this.label4.Location = new System.Drawing.Point(12, 98);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 17);
+            this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 27;
             this.label4.Text = "Mật khẩu:";
             // 
@@ -270,22 +250,23 @@
             // 
             this.btnAIDeleteItem.AutoHeight = false;
             this.btnAIDeleteItem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnAIDeleteItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnAIDeleteItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
             this.btnAIDeleteItem.Name = "btnAIDeleteItem";
             this.btnAIDeleteItem.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
             // frmAddAccount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 234);
+            this.ClientSize = new System.Drawing.Size(639, 190);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmAddAccount";
-            this.Text = "frmAddAccount";
+            this.Text = "Tài khoản";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbAACEmployeeCodeName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
@@ -308,7 +289,6 @@
         private DevExpress.XtraBars.BarButtonItem bbtniAAAdd;
         private DevExpress.XtraBars.BarButtonItem bbtniAAPrint;
         private DevExpress.XtraBars.BarButtonItem bbtniAAReset;
-        private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarStaticItem bsiAIState;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;

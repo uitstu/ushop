@@ -51,7 +51,6 @@
             this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
             this.btnPrint = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.bar3 = new DevExpress.XtraBars.Bar();
             this.bsiAIState = new DevExpress.XtraBars.BarStaticItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -134,90 +133,99 @@
             this.grdcolInvItemCode.Caption = "Mã chi tiết";
             this.grdcolInvItemCode.FieldName = "INVOICE_ITEM_CODE";
             this.grdcolInvItemCode.Name = "grdcolInvItemCode";
+            this.grdcolInvItemCode.OptionsColumn.AllowEdit = false;
             this.grdcolInvItemCode.Visible = true;
             this.grdcolInvItemCode.VisibleIndex = 0;
-            this.grdcolInvItemCode.Width = 95;
+            this.grdcolInvItemCode.Width = 94;
             // 
             // grdcolProName
             // 
             this.grdcolProName.Caption = "Tên sản phẩm";
             this.grdcolProName.FieldName = "PRODUCT_NAME";
             this.grdcolProName.Name = "grdcolProName";
+            this.grdcolProName.OptionsColumn.AllowEdit = false;
             this.grdcolProName.Visible = true;
             this.grdcolProName.VisibleIndex = 1;
-            this.grdcolProName.Width = 137;
+            this.grdcolProName.Width = 136;
             // 
             // grdcolSize
             // 
             this.grdcolSize.Caption = "Kích cỡ";
             this.grdcolSize.FieldName = "SIZE";
             this.grdcolSize.Name = "grdcolSize";
+            this.grdcolSize.OptionsColumn.AllowEdit = false;
             this.grdcolSize.Visible = true;
             this.grdcolSize.VisibleIndex = 2;
-            this.grdcolSize.Width = 54;
+            this.grdcolSize.Width = 53;
             // 
             // grdcolProUnit
             // 
             this.grdcolProUnit.Caption = "ĐVT";
             this.grdcolProUnit.FieldName = "UNIT";
             this.grdcolProUnit.Name = "grdcolProUnit";
+            this.grdcolProUnit.OptionsColumn.AllowEdit = false;
             this.grdcolProUnit.Visible = true;
             this.grdcolProUnit.VisibleIndex = 3;
-            this.grdcolProUnit.Width = 47;
+            this.grdcolProUnit.Width = 46;
             // 
             // grdcolProUnitPrice
             // 
             this.grdcolProUnitPrice.Caption = "Đơn giá";
             this.grdcolProUnitPrice.FieldName = "UNIT_PRICE";
             this.grdcolProUnitPrice.Name = "grdcolProUnitPrice";
+            this.grdcolProUnitPrice.OptionsColumn.AllowEdit = false;
             this.grdcolProUnitPrice.Visible = true;
             this.grdcolProUnitPrice.VisibleIndex = 6;
-            this.grdcolProUnitPrice.Width = 105;
+            this.grdcolProUnitPrice.Width = 104;
             // 
             // grdcolProDiscountAmount
             // 
-            this.grdcolProDiscountAmount.Caption = "Giảm";
+            this.grdcolProDiscountAmount.Caption = "Giảm/1 Hàng hóa";
             this.grdcolProDiscountAmount.FieldName = "DISCOUNT_AMOUNT";
             this.grdcolProDiscountAmount.Name = "grdcolProDiscountAmount";
+            this.grdcolProDiscountAmount.OptionsColumn.AllowEdit = false;
             this.grdcolProDiscountAmount.Visible = true;
             this.grdcolProDiscountAmount.VisibleIndex = 4;
-            this.grdcolProDiscountAmount.Width = 80;
+            this.grdcolProDiscountAmount.Width = 79;
             // 
             // grdcolInvItemQuantity
             // 
+            this.grdcolInvItemQuantity.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.grdcolInvItemQuantity.AppearanceCell.Options.UseBackColor = true;
             this.grdcolInvItemQuantity.Caption = "Số lượng";
             this.grdcolInvItemQuantity.FieldName = "QUANTITY";
             this.grdcolInvItemQuantity.Name = "grdcolInvItemQuantity";
             this.grdcolInvItemQuantity.Visible = true;
             this.grdcolInvItemQuantity.VisibleIndex = 5;
-            this.grdcolInvItemQuantity.Width = 68;
+            this.grdcolInvItemQuantity.Width = 67;
             // 
             // grdcolInvItemAmount
             // 
             this.grdcolInvItemAmount.Caption = "Thành tiền";
             this.grdcolInvItemAmount.FieldName = "AMOUNT";
             this.grdcolInvItemAmount.Name = "grdcolInvItemAmount";
+            this.grdcolInvItemAmount.OptionsColumn.AllowEdit = false;
             this.grdcolInvItemAmount.Visible = true;
             this.grdcolInvItemAmount.VisibleIndex = 7;
-            this.grdcolInvItemAmount.Width = 150;
+            this.grdcolInvItemAmount.Width = 149;
             // 
             // grdcolInvItemNote
             // 
             this.grdcolInvItemNote.Caption = "Mô tả";
             this.grdcolInvItemNote.FieldName = "NOTE";
             this.grdcolInvItemNote.Name = "grdcolInvItemNote";
+            this.grdcolInvItemNote.OptionsColumn.AllowEdit = false;
             this.grdcolInvItemNote.Visible = true;
             this.grdcolInvItemNote.VisibleIndex = 8;
-            this.grdcolInvItemNote.Width = 192;
+            this.grdcolInvItemNote.Width = 190;
             // 
             // btnAIDelInvoiceItem
             // 
-            this.btnAIDelInvoiceItem.Caption = "Xóa";
             this.btnAIDelInvoiceItem.ColumnEdit = this.btnAIDeleteItem;
             this.btnAIDelInvoiceItem.Name = "btnAIDelInvoiceItem";
             this.btnAIDelInvoiceItem.Visible = true;
             this.btnAIDelInvoiceItem.VisibleIndex = 9;
-            this.btnAIDelInvoiceItem.Width = 40;
+            this.btnAIDelInvoiceItem.Width = 20;
             // 
             // grdconAIItems
             // 
@@ -229,7 +237,7 @@
             this.grdconAIItems.MainView = this.gvInvoiceItems;
             this.grdconAIItems.MenuManager = this.barManager1;
             this.grdconAIItems.Name = "grdconAIItems";
-            this.grdconAIItems.Size = new System.Drawing.Size(980, 263);
+            this.grdconAIItems.Size = new System.Drawing.Size(980, 288);
             this.grdconAIItems.TabIndex = 7;
             this.grdconAIItems.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvInvoiceItems});
@@ -237,8 +245,7 @@
             // barManager1
             // 
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.barAIOptions,
-            this.bar3});
+            this.barAIOptions});
             this.barManager1.DockControls.Add(this.barDockControlTop);
             this.barManager1.DockControls.Add(this.barDockControlBottom);
             this.barManager1.DockControls.Add(this.barDockControlLeft);
@@ -252,7 +259,6 @@
             this.bsiAIState});
             this.barManager1.MainMenu = this.barAIOptions;
             this.barManager1.MaxItemId = 5;
-            this.barManager1.StatusBar = this.bar3;
             // 
             // barAIOptions
             // 
@@ -303,20 +309,6 @@
             this.barButtonItem2.Name = "barButtonItem2";
             this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
-            // bar3
-            // 
-            this.bar3.BarName = "Status bar";
-            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.bar3.DockCol = 0;
-            this.bar3.DockRow = 0;
-            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.bar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.bsiAIState)});
-            this.bar3.OptionsBar.AllowQuickCustomization = false;
-            this.bar3.OptionsBar.DrawDragBorder = false;
-            this.bar3.OptionsBar.UseWholeRow = true;
-            this.bar3.Text = "Status bar";
-            // 
             // bsiAIState
             // 
             this.bsiAIState.Caption = "State";
@@ -335,22 +327,22 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 497);
-            this.barDockControlBottom.Size = new System.Drawing.Size(980, 25);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 522);
+            this.barDockControlBottom.Size = new System.Drawing.Size(980, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 473);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 498);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(980, 24);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 473);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 498);
             // 
             // btnAINewCustomer
             // 
@@ -645,7 +637,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmAddInvoice";
-            this.Text = "Thêm hóa đơn";
+            this.Text = "Hóa đơn";
             this.Activated += new System.EventHandler(this.frmAddInvoice_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.btnAIDeleteItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvInvoiceItems)).EndInit();
@@ -677,7 +669,6 @@
         private DevExpress.XtraBars.BarButtonItem btnAdd;
         private DevExpress.XtraBars.BarButtonItem btnPrint;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;

@@ -33,14 +33,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.edtPassword = new DevExpress.XtraEditors.TextEdit();
             this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cboxRemember = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.edtID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtPassword.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // edtID
             // 
-            this.edtID.EditValue = "uitstu";
+            this.edtID.EditValue = "";
             this.edtID.Location = new System.Drawing.Point(85, 28);
             this.edtID.Name = "edtID";
             this.edtID.Size = new System.Drawing.Size(214, 20);
@@ -66,7 +66,7 @@
             // 
             // edtPassword
             // 
-            this.edtPassword.EditValue = "123456";
+            this.edtPassword.EditValue = "";
             this.edtPassword.Location = new System.Drawing.Point(85, 65);
             this.edtPassword.Name = "edtPassword";
             this.edtPassword.Properties.PasswordChar = '*';
@@ -82,22 +82,22 @@
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // checkBox1
+            // cboxRemember
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(219, 92);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(67, 17);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "Ghi nhớ?";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cboxRemember.AutoSize = true;
+            this.cboxRemember.Location = new System.Drawing.Point(219, 92);
+            this.cboxRemember.Name = "cboxRemember";
+            this.cboxRemember.Size = new System.Drawing.Size(67, 17);
+            this.cboxRemember.TabIndex = 5;
+            this.cboxRemember.Text = "Ghi nhớ?";
+            this.cboxRemember.UseVisualStyleBackColor = true;
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(320, 158);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.cboxRemember);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.edtPassword);
@@ -105,7 +105,8 @@
             this.Controls.Add(this.edtID);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmLogin";
+            this.Text = "Đăng nhập";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.edtID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edtPassword.Properties)).EndInit();
             this.ResumeLayout(false);
@@ -120,6 +121,6 @@
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.TextEdit edtPassword;
         private DevExpress.XtraEditors.SimpleButton btnLogin;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cboxRemember;
     }
 }

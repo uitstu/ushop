@@ -30,46 +30,47 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditAccount));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnAIDeleteItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.txteEACPassword = new DevExpress.XtraEditors.TextEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barAAOptions = new DevExpress.XtraBars.Bar();
             this.bbtniEABack = new DevExpress.XtraBars.BarButtonItem();
             this.bbtniEAAdd = new DevExpress.XtraBars.BarButtonItem();
-            this.bsiAIState = new DevExpress.XtraBars.BarStaticItem();
+            this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.bbtniAAPrint = new DevExpress.XtraBars.BarButtonItem();
             this.bbtniEAReset = new DevExpress.XtraBars.BarButtonItem();
+            this.bsiAIState = new DevExpress.XtraBars.BarStaticItem();
             this.txteEAAccountCode = new DevExpress.XtraEditors.TextEdit();
             this.label7 = new System.Windows.Forms.Label();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.tboxAgainPassword = new DevExpress.XtraEditors.TextEdit();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tboxOldPassword = new DevExpress.XtraEditors.TextEdit();
+            this.label2 = new System.Windows.Forms.Label();
             this.txteEAEmployeeCodeName = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.tboxOldPassword = new DevExpress.XtraEditors.TextEdit();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tboxAgainPassword = new DevExpress.XtraEditors.TextEdit();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnAIDeleteItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteEACPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteEAAccountCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txteEAEmployeeCodeName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tboxOldPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tboxAgainPassword.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tboxOldPassword.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txteEAEmployeeCodeName.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAIDeleteItem
             // 
             this.btnAIDeleteItem.AutoHeight = false;
             this.btnAIDeleteItem.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnAIDeleteItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnAIDeleteItem.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.btnAIDeleteItem.Name = "btnAIDeleteItem";
             this.btnAIDeleteItem.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -97,9 +98,10 @@
             this.bbtniAAPrint,
             this.bbtniEAReset,
             this.bbtniEABack,
-            this.bsiAIState});
+            this.bsiAIState,
+            this.btnDelete});
             this.barManager1.MainMenu = this.barAAOptions;
-            this.barManager1.MaxItemId = 5;
+            this.barManager1.MaxItemId = 6;
             // 
             // barAAOptions
             // 
@@ -110,7 +112,8 @@
             this.barAAOptions.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.barAAOptions.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniEABack, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniEAAdd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniEAAdd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDelete, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.barAAOptions.OptionsBar.AllowQuickCustomization = false;
             this.barAAOptions.OptionsBar.MultiLine = true;
             this.barAAOptions.OptionsBar.UseWholeRow = true;
@@ -132,12 +135,13 @@
             this.bbtniEAAdd.Name = "bbtniEAAdd";
             this.bbtniEAAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtniEAAdd_ItemClick);
             // 
-            // bsiAIState
+            // btnDelete
             // 
-            this.bsiAIState.Caption = "State";
-            this.bsiAIState.Id = 4;
-            this.bsiAIState.Name = "bsiAIState";
-            this.bsiAIState.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.btnDelete.Caption = "Xóa";
+            this.btnDelete.Id = 5;
+            this.btnDelete.ImageUri.Uri = "Cancel";
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelete_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -181,6 +185,13 @@
             this.bbtniEAReset.ImageUri.Uri = "Cancel";
             this.bbtniEAReset.Name = "bbtniEAReset";
             // 
+            // bsiAIState
+            // 
+            this.bsiAIState.Caption = "State";
+            this.bsiAIState.Id = 4;
+            this.bsiAIState.Name = "bsiAIState";
+            this.bsiAIState.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
             // txteEAAccountCode
             // 
             this.txteEAAccountCode.Location = new System.Drawing.Point(108, 61);
@@ -220,6 +231,47 @@
             this.groupControl1.TabIndex = 12;
             this.groupControl1.Text = "Thông tin Tài khoản";
             // 
+            // tboxAgainPassword
+            // 
+            this.tboxAgainPassword.Location = new System.Drawing.Point(108, 149);
+            this.tboxAgainPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tboxAgainPassword.MenuManager = this.barManager1;
+            this.tboxAgainPassword.Name = "tboxAgainPassword";
+            this.tboxAgainPassword.Properties.PasswordChar = '*';
+            this.tboxAgainPassword.Size = new System.Drawing.Size(180, 20);
+            this.tboxAgainPassword.TabIndex = 56;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 151);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 55;
+            this.label3.Text = "Nhập lại:";
+            // 
+            // tboxOldPassword
+            // 
+            this.tboxOldPassword.EditValue = "";
+            this.tboxOldPassword.Location = new System.Drawing.Point(108, 96);
+            this.tboxOldPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tboxOldPassword.MenuManager = this.barManager1;
+            this.tboxOldPassword.Name = "tboxOldPassword";
+            this.tboxOldPassword.Properties.PasswordChar = '*';
+            this.tboxOldPassword.Size = new System.Drawing.Size(180, 20);
+            this.tboxOldPassword.TabIndex = 54;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 98);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 13);
+            this.label2.TabIndex = 53;
+            this.label2.Text = "Mật khẩu cũ:";
+            // 
             // txteEAEmployeeCodeName
             // 
             this.txteEAEmployeeCodeName.Location = new System.Drawing.Point(108, 29);
@@ -250,47 +302,6 @@
             this.label4.TabIndex = 27;
             this.label4.Text = "Mật khẩu mới:";
             // 
-            // tboxOldPassword
-            // 
-            this.tboxOldPassword.EditValue = "";
-            this.tboxOldPassword.Location = new System.Drawing.Point(108, 96);
-            this.tboxOldPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tboxOldPassword.MenuManager = this.barManager1;
-            this.tboxOldPassword.Name = "tboxOldPassword";
-            this.tboxOldPassword.Properties.PasswordChar = '*';
-            this.tboxOldPassword.Size = new System.Drawing.Size(180, 20);
-            this.tboxOldPassword.TabIndex = 54;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 98);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 13);
-            this.label2.TabIndex = 53;
-            this.label2.Text = "Mật khẩu cũ:";
-            // 
-            // tboxAgainPassword
-            // 
-            this.tboxAgainPassword.Location = new System.Drawing.Point(108, 149);
-            this.tboxAgainPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tboxAgainPassword.MenuManager = this.barManager1;
-            this.tboxAgainPassword.Name = "tboxAgainPassword";
-            this.tboxAgainPassword.Properties.PasswordChar = '*';
-            this.tboxAgainPassword.Size = new System.Drawing.Size(180, 20);
-            this.tboxAgainPassword.TabIndex = 56;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 151);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 20, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
-            this.label3.TabIndex = 55;
-            this.label3.Text = "Nhập lại:";
-            // 
             // frmEditAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,7 +314,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmEditAccount";
-            this.Text = "frmEditAccount";
+            this.Text = "Đổi mật khẩu";
             ((System.ComponentModel.ISupportInitialize)(this.btnAIDeleteItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txteEACPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
@@ -311,9 +322,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txteEAEmployeeCodeName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tboxOldPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tboxAgainPassword.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tboxOldPassword.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txteEAEmployeeCodeName.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,5 +355,6 @@
         private System.Windows.Forms.Label label3;
         private DevExpress.XtraEditors.TextEdit tboxOldPassword;
         private System.Windows.Forms.Label label2;
+        private DevExpress.XtraBars.BarButtonItem btnDelete;
     }
 }

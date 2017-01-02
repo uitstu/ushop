@@ -55,8 +55,8 @@ namespace View.Elements.Employee
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bbtniELAddInvoice = new DevExpress.XtraBars.BarButtonItem();
-            this.bbtniELExport = new DevExpress.XtraBars.BarButtonItem();
-            this.bar3 = new DevExpress.XtraBars.Bar();
+            this.btnExcel = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPDF = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -93,81 +93,90 @@ namespace View.Elements.Employee
             this.gridColumn1.Caption = "Mã nhân sự";
             this.gridColumn1.FieldName = "EMP_CODE";
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 83;
+            this.gridColumn1.Width = 71;
             // 
             // gridColumn2
             // 
             this.gridColumn2.Caption = "Họ tên";
             this.gridColumn2.FieldName = "EMP_NAME";
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 73;
+            this.gridColumn2.Width = 62;
             // 
             // gridColumn3
             // 
             this.gridColumn3.Caption = "Giới tính";
             this.gridColumn3.FieldName = "GENDER";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 5;
-            this.gridColumn3.Width = 48;
+            this.gridColumn3.Width = 41;
             // 
             // gridColumn4
             // 
             this.gridColumn4.Caption = "Ngày sinh";
             this.gridColumn4.FieldName = "BIRTHDAY";
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 6;
-            this.gridColumn4.Width = 69;
+            this.gridColumn4.Width = 59;
             // 
             // gridColumn5
             // 
             this.gridColumn5.Caption = "CMND";
             this.gridColumn5.FieldName = "ID_CARD_NO";
             this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 7;
-            this.gridColumn5.Width = 55;
+            this.gridColumn5.Width = 47;
             // 
             // gridColumn6
             // 
             this.gridColumn6.Caption = "Địa chỉ";
             this.gridColumn6.FieldName = "ADDRESS";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 3;
-            this.gridColumn6.Width = 71;
+            this.gridColumn6.Width = 60;
             // 
             // gridColumn7
             // 
             this.gridColumn7.Caption = "SDT";
             this.gridColumn7.FieldName = "PHONE";
             this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 4;
-            this.gridColumn7.Width = 63;
+            this.gridColumn7.Width = 53;
             // 
             // gridColumn8
             // 
             this.gridColumn8.Caption = "Ngày vào làm";
             this.gridColumn8.FieldName = "APPROVE_DATE";
             this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.OptionsColumn.AllowEdit = false;
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 9;
-            this.gridColumn8.Width = 112;
+            this.gridColumn8.Width = 95;
             // 
             // gridColumn9
             // 
             this.gridColumn9.Caption = "Tình trạng";
             this.gridColumn9.FieldName = "WORK_STATUS";
             this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.OptionsColumn.AllowEdit = false;
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 8;
-            this.gridColumn9.Width = 86;
+            this.gridColumn9.Width = 73;
             // 
             // gridColumn10
             // 
@@ -180,9 +189,10 @@ namespace View.Elements.Employee
             this.gridColumn11.Caption = "Vị trí";
             this.gridColumn11.FieldName = "POSITION";
             this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.OptionsColumn.AllowEdit = false;
             this.gridColumn11.Visible = true;
             this.gridColumn11.VisibleIndex = 2;
-            this.gridColumn11.Width = 46;
+            this.gridColumn11.Width = 39;
             // 
             // btnUPDATE
             // 
@@ -190,7 +200,7 @@ namespace View.Elements.Employee
             this.btnUPDATE.Name = "btnUPDATE";
             this.btnUPDATE.Visible = true;
             this.btnUPDATE.VisibleIndex = 10;
-            this.btnUPDATE.Width = 33;
+            this.btnUPDATE.Width = 20;
             // 
             // btnELUpdateInvoice
             // 
@@ -207,7 +217,7 @@ namespace View.Elements.Employee
             this.btnDELETE.Name = "btnDELETE";
             this.btnDELETE.Visible = true;
             this.btnDELETE.VisibleIndex = 11;
-            this.btnDELETE.Width = 48;
+            this.btnDELETE.Width = 20;
             // 
             // btnELDeleteInvoice
             // 
@@ -221,16 +231,14 @@ namespace View.Elements.Employee
             // grdconELEmployee
             // 
             this.grdconELEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdconELEmployee.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.grdconELEmployee.Location = new System.Drawing.Point(0, 30);
+            this.grdconELEmployee.Location = new System.Drawing.Point(0, 24);
             this.grdconELEmployee.MainView = this.gvELEmployee;
-            this.grdconELEmployee.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grdconELEmployee.MenuManager = this.barManager1;
             this.grdconELEmployee.Name = "grdconELEmployee";
             this.grdconELEmployee.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnELUpdateInvoice,
             this.btnELDeleteInvoice});
-            this.grdconELEmployee.Size = new System.Drawing.Size(807, 320);
+            this.grdconELEmployee.Size = new System.Drawing.Size(692, 281);
             this.grdconELEmployee.TabIndex = 8;
             this.grdconELEmployee.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvELEmployee});
@@ -238,8 +246,7 @@ namespace View.Elements.Employee
             // barManager1
             // 
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar2,
-            this.bar3});
+            this.bar2});
             this.barManager1.DockControls.Add(this.barDockControlTop);
             this.barManager1.DockControls.Add(this.barDockControlBottom);
             this.barManager1.DockControls.Add(this.barDockControlLeft);
@@ -247,10 +254,10 @@ namespace View.Elements.Employee
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.bbtniELAddInvoice,
-            this.bbtniELExport});
+            this.btnExcel,
+            this.btnPDF});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 2;
-            this.barManager1.StatusBar = this.bar3;
+            this.barManager1.MaxItemId = 3;
             // 
             // bar2
             // 
@@ -260,7 +267,8 @@ namespace View.Elements.Employee
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniELAddInvoice, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniELExport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnExcel, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPDF, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -268,74 +276,68 @@ namespace View.Elements.Employee
             // bbtniELAddInvoice
             // 
             this.bbtniELAddInvoice.Caption = "Thêm mới";
-            this.bbtniELAddInvoice.Glyph = ((System.Drawing.Image)(resources.GetObject("bbtniELAddInvoice.Glyph")));
             this.bbtniELAddInvoice.Id = 0;
+            this.bbtniELAddInvoice.ImageUri.Uri = "Add";
             this.bbtniELAddInvoice.Name = "bbtniELAddInvoice";
             this.bbtniELAddInvoice.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtniELAddEmployee_ItemClick);
             // 
-            // bbtniELExport
+            // btnExcel
             // 
-            this.bbtniELExport.Caption = "Xuất danh sách";
-            this.bbtniELExport.Id = 1;
-            this.bbtniELExport.ImageUri.Uri = "ExportToXLSX";
-            this.bbtniELExport.Name = "bbtniELExport";
+            this.btnExcel.Caption = "Xuất danh sách";
+            this.btnExcel.Id = 1;
+            this.btnExcel.ImageUri.Uri = "ExportToXLSX";
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExcel_ItemClick);
             // 
-            // bar3
+            // btnPDF
             // 
-            this.bar3.BarName = "Status bar";
-            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.bar3.DockCol = 0;
-            this.bar3.DockRow = 0;
-            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.bar3.OptionsBar.AllowQuickCustomization = false;
-            this.bar3.OptionsBar.DrawDragBorder = false;
-            this.bar3.OptionsBar.UseWholeRow = true;
-            this.bar3.Text = "Status bar";
+            this.btnPDF.Caption = "Xuất danh sách";
+            this.btnPDF.Id = 2;
+            this.btnPDF.ImageUri.Uri = "ExportToPDF";
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPDF_ItemClick);
             // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlTop.Size = new System.Drawing.Size(807, 30);
+            this.barDockControlTop.Size = new System.Drawing.Size(692, 24);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 350);
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(807, 25);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 305);
+            this.barDockControlBottom.Size = new System.Drawing.Size(692, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 320);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 281);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(807, 30);
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 320);
+            this.barDockControlRight.Location = new System.Drawing.Point(692, 24);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 281);
             // 
             // frmEmployee
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 375);
+            this.ClientSize = new System.Drawing.Size(692, 305);
             this.Controls.Add(this.grdconELEmployee);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmEmployee";
-            this.Text = "frmEmployee";
+            this.Text = "Quản lý nhân viên";
             this.Activated += new System.EventHandler(this.frmEmployee_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.gvELEmployee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnELUpdateInvoice)).EndInit();
@@ -372,11 +374,11 @@ namespace View.Elements.Employee
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarButtonItem bbtniELAddInvoice;
-        private DevExpress.XtraBars.BarButtonItem bbtniELExport;
-        private DevExpress.XtraBars.Bar bar3;
+        private DevExpress.XtraBars.BarButtonItem btnExcel;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.BarButtonItem btnPDF;
     }
 }

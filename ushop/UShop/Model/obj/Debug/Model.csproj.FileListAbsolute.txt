@@ -23,4 +23,3 @@ C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Model\obj\Debug\Model.Propertie
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Model\obj\Debug\Model.csproj.GenerateResource.Cache
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Model\obj\Debug\Model.dll
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Model\obj\Debug\Model.pdb
-C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache

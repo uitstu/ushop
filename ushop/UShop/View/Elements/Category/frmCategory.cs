@@ -26,7 +26,7 @@ namespace View.Elements
             GridView gridView = gridCategory.FocusedView as GridView;
             foreach (GridColumn col in gridView.Columns)
             {
-                col.OptionsFilter.AutoFilterCondition = AutoFilterCondition.Contains;// .Settings.AutoFilterCondition = AutoFilterCondition.Contains;
+                col.OptionsFilter.AutoFilterCondition = AutoFilterCondition.Contains;
             }
         }
 
@@ -59,7 +59,7 @@ namespace View.Elements
 
         private void btnDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure delete it?", "Deleting", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn xóa?", "Xóa", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
 
@@ -109,6 +109,46 @@ namespace View.Elements
             preCategory.loadCategories();
             this.WindowState = FormWindowState.Maximized;
 
+        }
+
+        private void btnPrintExcel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.InitialDirectory = @"C:\";
+            saveFileDialog1.DefaultExt = "xlsx";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                GridView gridView = gridCategory.FocusedView as GridView;
+
+                gridView.Columns[3].Visible = false;
+                gridView.Columns[4].Visible = false;
+
+                gridCategory.ExportToXlsx(saveFileDialog1.FileName);
+
+                gridView.Columns[3].Visible = true;
+                gridView.Columns[4].Visible = true;
+            }
+        }
+
+        private void btnPrintPDF_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.InitialDirectory = @"C:\";
+            saveFileDialog1.DefaultExt = "pdf";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                GridView gridView = gridCategory.FocusedView as GridView;
+
+                gridView.Columns[3].Visible = false;
+                gridView.Columns[4].Visible = false;
+
+                gridCategory.ExportToPdf(saveFileDialog1.FileName);
+
+                gridView.Columns[3].Visible = true;
+                gridView.Columns[4].Visible = true;
+            }
         }
 
         

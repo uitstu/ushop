@@ -33,8 +33,8 @@ namespace View.Elements.Invoice
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInvoice));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnILDeleteInvoice = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnILUpdateInvoice = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnUPDATE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -43,10 +43,10 @@ namespace View.Elements.Invoice
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.bar3 = new DevExpress.XtraBars.Bar();
-            this.bbtniILExport = new DevExpress.XtraBars.BarButtonItem();
+            this.btnExcel = new DevExpress.XtraBars.BarButtonItem();
             this.bbtniILAddInvoice = new DevExpress.XtraBars.BarButtonItem();
             this.bar2 = new DevExpress.XtraBars.Bar();
+            this.btnPDF = new DevExpress.XtraBars.BarButtonItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.gvILInvoice = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grdcolInvCode = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -68,7 +68,7 @@ namespace View.Elements.Invoice
             // 
             this.btnILDeleteInvoice.AutoHeight = false;
             this.btnILDeleteInvoice.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnILDeleteInvoice.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnILDeleteInvoice.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
             this.btnILDeleteInvoice.Name = "btnILDeleteInvoice";
             this.btnILDeleteInvoice.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnILDeleteInvoice.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnILDeleteInvoice_ButtonClick);
@@ -77,7 +77,7 @@ namespace View.Elements.Invoice
             // 
             this.btnILUpdateInvoice.AutoHeight = false;
             this.btnILUpdateInvoice.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnILUpdateInvoice.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnILUpdateInvoice.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
             this.btnILUpdateInvoice.Name = "btnILUpdateInvoice";
             this.btnILUpdateInvoice.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnILUpdateInvoice.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnILUpdateInvoice_ButtonClick);
@@ -89,7 +89,7 @@ namespace View.Elements.Invoice
             this.btnUPDATE.Name = "btnUPDATE";
             this.btnUPDATE.Visible = true;
             this.btnUPDATE.VisibleIndex = 7;
-            this.btnUPDATE.Width = 26;
+            this.btnUPDATE.Width = 20;
             // 
             // btnDELETE
             // 
@@ -97,28 +97,28 @@ namespace View.Elements.Invoice
             this.btnDELETE.Name = "btnDELETE";
             this.btnDELETE.Visible = true;
             this.btnDELETE.VisibleIndex = 8;
-            this.btnDELETE.Width = 33;
+            this.btnDELETE.Width = 20;
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 231);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 254);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(659, 24);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 231);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 254);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 255);
-            this.barDockControlBottom.Size = new System.Drawing.Size(659, 23);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 278);
+            this.barDockControlBottom.Size = new System.Drawing.Size(659, 0);
             // 
             // barDockControlTop
             // 
@@ -127,30 +127,19 @@ namespace View.Elements.Invoice
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Size = new System.Drawing.Size(659, 24);
             // 
-            // bar3
+            // btnExcel
             // 
-            this.bar3.BarName = "Status bar";
-            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.bar3.DockCol = 0;
-            this.bar3.DockRow = 0;
-            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.bar3.OptionsBar.AllowQuickCustomization = false;
-            this.bar3.OptionsBar.DrawDragBorder = false;
-            this.bar3.OptionsBar.UseWholeRow = true;
-            this.bar3.Text = "Status bar";
-            // 
-            // bbtniILExport
-            // 
-            this.bbtniILExport.Caption = "Xuất danh sách";
-            this.bbtniILExport.Id = 1;
-            this.bbtniILExport.ImageUri.Uri = "ExportToXLSX";
-            this.bbtniILExport.Name = "bbtniILExport";
+            this.btnExcel.Caption = "Xuất danh sách";
+            this.btnExcel.Id = 1;
+            this.btnExcel.ImageUri.Uri = "ExportToXLSX";
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExcel_ItemClick);
             // 
             // bbtniILAddInvoice
             // 
             this.bbtniILAddInvoice.Caption = "Thêm mới";
-            this.bbtniILAddInvoice.Glyph = ((System.Drawing.Image)(resources.GetObject("bbtniILAddInvoice.Glyph")));
             this.bbtniILAddInvoice.Id = 0;
+            this.bbtniILAddInvoice.ImageUri.Uri = "Add";
             this.bbtniILAddInvoice.Name = "bbtniILAddInvoice";
             this.bbtniILAddInvoice.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtniILAddInvoice_ItemClick);
             // 
@@ -162,16 +151,24 @@ namespace View.Elements.Invoice
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniILAddInvoice, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniILExport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnExcel, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPDF, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
             // 
+            // btnPDF
+            // 
+            this.btnPDF.Caption = "Xuất danh sách";
+            this.btnPDF.Id = 2;
+            this.btnPDF.ImageUri.Uri = "ExportToPDF";
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPDF_ItemClick);
+            // 
             // barManager1
             // 
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar2,
-            this.bar3});
+            this.bar2});
             this.barManager1.DockControls.Add(this.barDockControlTop);
             this.barManager1.DockControls.Add(this.barDockControlBottom);
             this.barManager1.DockControls.Add(this.barDockControlLeft);
@@ -179,10 +176,10 @@ namespace View.Elements.Invoice
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.bbtniILAddInvoice,
-            this.bbtniILExport});
+            this.btnExcel,
+            this.btnPDF});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 2;
-            this.barManager1.StatusBar = this.bar3;
+            this.barManager1.MaxItemId = 3;
             // 
             // gvILInvoice
             // 
@@ -205,6 +202,7 @@ namespace View.Elements.Invoice
             this.grdcolInvCode.Caption = "Mã hóa đơn";
             this.grdcolInvCode.FieldName = "INVOICE_CODE";
             this.grdcolInvCode.Name = "grdcolInvCode";
+            this.grdcolInvCode.OptionsColumn.AllowEdit = false;
             this.grdcolInvCode.Visible = true;
             this.grdcolInvCode.VisibleIndex = 0;
             this.grdcolInvCode.Width = 99;
@@ -214,6 +212,7 @@ namespace View.Elements.Invoice
             this.grdcolBuyerName.Caption = "Tên KH";
             this.grdcolBuyerName.FieldName = "CUS_NAME";
             this.grdcolBuyerName.Name = "grdcolBuyerName";
+            this.grdcolBuyerName.OptionsColumn.AllowEdit = false;
             this.grdcolBuyerName.Visible = true;
             this.grdcolBuyerName.VisibleIndex = 4;
             this.grdcolBuyerName.Width = 96;
@@ -223,6 +222,7 @@ namespace View.Elements.Invoice
             this.grdcolSeller.Caption = "Tên NVBH";
             this.grdcolSeller.FieldName = "EMP_NAME";
             this.grdcolSeller.Name = "grdcolSeller";
+            this.grdcolSeller.OptionsColumn.AllowEdit = false;
             this.grdcolSeller.Visible = true;
             this.grdcolSeller.VisibleIndex = 5;
             this.grdcolSeller.Width = 99;
@@ -232,6 +232,7 @@ namespace View.Elements.Invoice
             this.grdcolPaymentMethod.Caption = "PTTT";
             this.grdcolPaymentMethod.FieldName = "PAYMENT_METHOD";
             this.grdcolPaymentMethod.Name = "grdcolPaymentMethod";
+            this.grdcolPaymentMethod.OptionsColumn.AllowEdit = false;
             this.grdcolPaymentMethod.Visible = true;
             this.grdcolPaymentMethod.VisibleIndex = 3;
             this.grdcolPaymentMethod.Width = 99;
@@ -241,6 +242,7 @@ namespace View.Elements.Invoice
             this.grdcolTotalAmount.Caption = "Tổng tiền";
             this.grdcolTotalAmount.FieldName = "TOTAL_AMOUNT";
             this.grdcolTotalAmount.Name = "grdcolTotalAmount";
+            this.grdcolTotalAmount.OptionsColumn.AllowEdit = false;
             this.grdcolTotalAmount.Visible = true;
             this.grdcolTotalAmount.VisibleIndex = 1;
             this.grdcolTotalAmount.Width = 99;
@@ -250,6 +252,7 @@ namespace View.Elements.Invoice
             this.grdcolTotalPayment.Caption = "Đã thanh toán";
             this.grdcolTotalPayment.FieldName = "TOTAL_PAYMENT";
             this.grdcolTotalPayment.Name = "grdcolTotalPayment";
+            this.grdcolTotalPayment.OptionsColumn.AllowEdit = false;
             this.grdcolTotalPayment.Visible = true;
             this.grdcolTotalPayment.VisibleIndex = 2;
             this.grdcolTotalPayment.Width = 99;
@@ -259,6 +262,7 @@ namespace View.Elements.Invoice
             this.grdcolDate.Caption = "Ngày lập HĐ";
             this.grdcolDate.FieldName = "DATE";
             this.grdcolDate.Name = "grdcolDate";
+            this.grdcolDate.OptionsColumn.AllowEdit = false;
             this.grdcolDate.Visible = true;
             this.grdcolDate.VisibleIndex = 6;
             this.grdcolDate.Width = 99;
@@ -273,7 +277,7 @@ namespace View.Elements.Invoice
             this.grdconILInvoice.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnILUpdateInvoice,
             this.btnILDeleteInvoice});
-            this.grdconILInvoice.Size = new System.Drawing.Size(659, 231);
+            this.grdconILInvoice.Size = new System.Drawing.Size(659, 254);
             this.grdconILInvoice.TabIndex = 7;
             this.grdconILInvoice.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvILInvoice});
@@ -290,7 +294,7 @@ namespace View.Elements.Invoice
             this.Controls.Add(this.barDockControlTop);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmInvoice";
-            this.Text = "frmInvoice";
+            this.Text = "Quản lý hóa đơn";
             this.Activated += new System.EventHandler(this.frmInvoice_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.btnILDeleteInvoice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnILUpdateInvoice)).EndInit();
@@ -313,8 +317,7 @@ namespace View.Elements.Invoice
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
-        private DevExpress.XtraBars.Bar bar3;
-        private DevExpress.XtraBars.BarButtonItem bbtniILExport;
+        private DevExpress.XtraBars.BarButtonItem btnExcel;
         private DevExpress.XtraBars.BarButtonItem bbtniILAddInvoice;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarManager barManager1;
@@ -327,5 +330,6 @@ namespace View.Elements.Invoice
         private DevExpress.XtraGrid.Columns.GridColumn grdcolTotalAmount;
         private DevExpress.XtraGrid.Columns.GridColumn grdcolTotalPayment;
         private DevExpress.XtraGrid.Columns.GridColumn grdcolDate;
+        private DevExpress.XtraBars.BarButtonItem btnPDF;
     }
 }

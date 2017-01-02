@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCustomer));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.bar3 = new DevExpress.XtraBars.Bar();
-            this.bbtniCLExport = new DevExpress.XtraBars.BarButtonItem();
+            this.btnExcel = new DevExpress.XtraBars.BarButtonItem();
             this.bbtniCLAddCustomer = new DevExpress.XtraBars.BarButtonItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
+            this.btnPDF = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.btnCLDeleteCustomer = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnDELETE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -63,58 +63,43 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(815, 30);
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 458);
+            this.barDockControlRight.Location = new System.Drawing.Point(699, 24);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 393);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 488);
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(815, 25);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 417);
+            this.barDockControlBottom.Size = new System.Drawing.Size(699, 0);
             // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlTop.Size = new System.Drawing.Size(815, 30);
+            this.barDockControlTop.Size = new System.Drawing.Size(699, 24);
             // 
-            // bar3
+            // btnExcel
             // 
-            this.bar3.BarName = "Status bar";
-            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.bar3.DockCol = 0;
-            this.bar3.DockRow = 0;
-            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.bar3.OptionsBar.AllowQuickCustomization = false;
-            this.bar3.OptionsBar.DrawDragBorder = false;
-            this.bar3.OptionsBar.UseWholeRow = true;
-            this.bar3.Text = "Status bar";
-            // 
-            // bbtniCLExport
-            // 
-            this.bbtniCLExport.Caption = "Xuất danh sách";
-            this.bbtniCLExport.Id = 1;
-            this.bbtniCLExport.ImageUri.Uri = "ExportToXLSX";
-            this.bbtniCLExport.Name = "bbtniCLExport";
+            this.btnExcel.Caption = "Xuất danh sách";
+            this.btnExcel.Id = 1;
+            this.btnExcel.ImageUri.Uri = "ExportToXLSX";
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExcel_ItemClick);
             // 
             // bbtniCLAddCustomer
             // 
             this.bbtniCLAddCustomer.Caption = "Thêm mới";
-            this.bbtniCLAddCustomer.Glyph = ((System.Drawing.Image)(resources.GetObject("bbtniCLAddCustomer.Glyph")));
             this.bbtniCLAddCustomer.Id = 0;
+            this.bbtniCLAddCustomer.ImageUri.Uri = "Add";
             this.bbtniCLAddCustomer.Name = "bbtniCLAddCustomer";
             this.bbtniCLAddCustomer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtniCLAddCustomer_ItemClick);
             // 
             // barManager1
             // 
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar2,
-            this.bar3});
+            this.bar2});
             this.barManager1.DockControls.Add(this.barDockControlTop);
             this.barManager1.DockControls.Add(this.barDockControlBottom);
             this.barManager1.DockControls.Add(this.barDockControlLeft);
@@ -122,10 +107,10 @@
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.bbtniCLAddCustomer,
-            this.bbtniCLExport});
+            this.btnExcel,
+            this.btnPDF});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 2;
-            this.barManager1.StatusBar = this.bar3;
+            this.barManager1.MaxItemId = 3;
             // 
             // bar2
             // 
@@ -135,27 +120,35 @@
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniCLAddCustomer, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbtniCLExport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnExcel, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPDF, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
+            // 
+            // btnPDF
+            // 
+            this.btnPDF.Caption = "Xuất danh sách";
+            this.btnPDF.Id = 2;
+            this.btnPDF.ImageUri.Uri = "ExportToPDF";
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPDF_ItemClick);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 458);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 393);
             // 
             // btnCLDeleteCustomer
             // 
             this.btnCLDeleteCustomer.AutoHeight = false;
             this.btnCLDeleteCustomer.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnCLDeleteCustomer.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnCLDeleteCustomer.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
             this.btnCLDeleteCustomer.Name = "btnCLDeleteCustomer";
             this.btnCLDeleteCustomer.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.btnCLDeleteCustomer.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(btnCLDeleteCustomer_ButtonClick);
+            this.btnCLDeleteCustomer.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnCLDeleteCustomer_ButtonClick);
             // 
             // btnDELETE
             // 
@@ -163,16 +156,16 @@
             this.btnDELETE.Name = "btnDELETE";
             this.btnDELETE.Visible = true;
             this.btnDELETE.VisibleIndex = 6;
-            this.btnDELETE.Width = 48;
+            this.btnDELETE.Width = 20;
             // 
             // btnCLUpdateCustomer
             // 
             this.btnCLUpdateCustomer.AutoHeight = false;
             this.btnCLUpdateCustomer.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnCLUpdateCustomer.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnCLUpdateCustomer.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.btnCLUpdateCustomer.Name = "btnCLUpdateCustomer";
             this.btnCLUpdateCustomer.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.btnCLUpdateCustomer.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(btnCLUpdateCustomer_ButtonClick);
+            this.btnCLUpdateCustomer.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnCLUpdateCustomer_ButtonClick);
             // 
             // btnUPDATE
             // 
@@ -180,7 +173,7 @@
             this.btnUPDATE.Name = "btnUPDATE";
             this.btnUPDATE.Visible = true;
             this.btnUPDATE.VisibleIndex = 5;
-            this.btnUPDATE.Width = 33;
+            this.btnUPDATE.Width = 20;
             // 
             // gvCLCustomer
             // 
@@ -201,70 +194,79 @@
             this.gridColumn6.Caption = "Mã Khách hàng";
             this.gridColumn6.FieldName = "CUS_CODE";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 0;
+            this.gridColumn6.Width = 112;
             // 
             // gridColumn5
             // 
             this.gridColumn5.Caption = "Tên Khách hàng";
             this.gridColumn5.FieldName = "CUS_NAME";
             this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 1;
+            this.gridColumn5.Width = 112;
             // 
             // gridColumn4
             // 
             this.gridColumn4.Caption = "Địa chỉ";
             this.gridColumn4.FieldName = "ADDRESS";
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 2;
+            this.gridColumn4.Width = 112;
             // 
             // gridColumn3
             // 
             this.gridColumn3.Caption = "SDT";
             this.gridColumn3.FieldName = "PHONE";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 3;
+            this.gridColumn3.Width = 112;
             // 
             // gridColumn2
             // 
             this.gridColumn2.Caption = "Đã mua";
             this.gridColumn2.FieldName = "BOUGHT_AMOUNT";
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 4;
+            this.gridColumn2.Width = 112;
             // 
             // grdconCLCustomer
             // 
             this.grdconCLCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdconCLCustomer.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.grdconCLCustomer.Location = new System.Drawing.Point(0, 30);
+            this.grdconCLCustomer.Location = new System.Drawing.Point(0, 24);
             this.grdconCLCustomer.MainView = this.gvCLCustomer;
-            this.grdconCLCustomer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grdconCLCustomer.MenuManager = this.barManager1;
             this.grdconCLCustomer.Name = "grdconCLCustomer";
             this.grdconCLCustomer.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnCLUpdateCustomer,
             this.btnCLDeleteCustomer});
-            this.grdconCLCustomer.Size = new System.Drawing.Size(815, 458);
+            this.grdconCLCustomer.Size = new System.Drawing.Size(699, 393);
             this.grdconCLCustomer.TabIndex = 9;
             this.grdconCLCustomer.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCLCustomer});
             // 
             // frmCustomer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(815, 513);
+            this.ClientSize = new System.Drawing.Size(699, 417);
             this.Controls.Add(this.grdconCLCustomer);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmCustomer";
-            this.Text = "frmCustomer";
+            this.Text = "Quản lý khách hàng";
             this.Activated += new System.EventHandler(this.frmCustomer_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCLDeleteCustomer)).EndInit();
@@ -281,8 +283,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
-        private DevExpress.XtraBars.Bar bar3;
-        private DevExpress.XtraBars.BarButtonItem bbtniCLExport;
+        private DevExpress.XtraBars.BarButtonItem btnExcel;
         private DevExpress.XtraBars.BarButtonItem bbtniCLAddCustomer;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar2;
@@ -298,5 +299,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnCLUpdateCustomer;
         private DevExpress.XtraGrid.Columns.GridColumn btnDELETE;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnCLDeleteCustomer;
+        private DevExpress.XtraBars.BarButtonItem btnPDF;
     }
 }

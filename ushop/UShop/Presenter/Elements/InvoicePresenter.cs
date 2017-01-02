@@ -506,7 +506,7 @@ namespace Presenter.Elements
 
         public double calculateAmount( int quantity, float unitPrice, float discount)
         {
-            return (unitPrice * quantity) - discount;
+            return (unitPrice * quantity) - (discount * quantity);
         }
 
         public void sumTotalAmount()

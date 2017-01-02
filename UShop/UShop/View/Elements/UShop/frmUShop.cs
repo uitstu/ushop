@@ -18,17 +18,29 @@ namespace View.Elements
 {
     public partial class frmUShop : Form, IUShopView
     {
+        Form beforeForm;
         private UShopPresenter preUShop;
+
         public frmUShop()
         {
             InitializeComponent();
             preUShop = new UShopPresenter(this);
+        }
 
-            
+        public frmUShop(Form beforeForm)
+        {
+            InitializeComponent();
+            preUShop = new UShopPresenter(this);
+            this.beforeForm = beforeForm;
         }
 
         private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (tboxAddress.Text.Equals("") || tboxMST.Text.Equals("") || tboxName.Text.Equals("") || tboxPhone.Text.Equals(""))
+            {
+                MessageBox.Show("Hãy nhập đủ thông tin");
+                return;
+            }
             SUPPLIER ushop = new SUPPLIER();
             ushop.SUPPLIER_NAME = tboxName.Text;
             ushop.ADDRESS = tboxAddress.Text;
@@ -49,5 +61,14 @@ namespace View.Elements
         {
             preUShop.loadUShop();
         }
+
+        private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            tboxAddress.Text = "";
+            tboxMST.Text = "";
+            tboxName.Text = "";
+            tboxPhone.Text = "";
+        }
+
     }
 }

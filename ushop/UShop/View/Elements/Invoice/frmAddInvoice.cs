@@ -66,7 +66,16 @@ namespace View.Elements.Invoice
 
         private void btnAIDeleteItem_Click(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs arg)
         {
-            
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn xóa?", "Xóa", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+
             presenter.removeItem(gvInvoiceItems.FocusedRowHandle);
         }
         
@@ -138,7 +147,6 @@ namespace View.Elements.Invoice
         private void cmbAISearchProduct_SelectedIndexChanged(object sender, EventArgs e)
         {
             String text = cmbAISearchProduct.Text;
-
             cmbAISize.ResetText();
             if (text != null && !text.Equals(""))
                 presenter.loadSizeOfProduct(cmbAISearchProduct.Text);
@@ -224,6 +232,18 @@ namespace View.Elements.Invoice
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (cmbAICustomer.Text.Equals(""))
+            {
+                MessageBox.Show("Khách hàng không được để trống");
+                return;
+            }
+
+            if (float.Parse(txteAITotalAmount.Text) <= 0)
+            {
+                MessageBox.Show("Phải có ít nhất 1 hàng hóa");
+                return;
+            }
+
             String cusCodeName = cmbAICustomer.Text;
             String cusCode = cusCodeName.Split(new char[] { '-' })[0];
             
@@ -357,6 +377,18 @@ namespace View.Elements.Invoice
 
         private void btnPrint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (cmbAICustomer.Text.Equals(""))
+            {
+                MessageBox.Show("Khách hàng không được để trống");
+                return;
+            }
+
+            if (float.Parse(txteAITotalAmount.Text) <= 0)
+            {
+                MessageBox.Show("Phải có ít nhất 1 hàng hóa");
+                return;
+            }
+
             LocalReport localReport = new LocalReport();
             localReport.ReportEmbeddedResource = "View.Elements.Invoice.ReportInvoice.rdlc";
             localReport.DataSources.Clear();
@@ -497,6 +529,11 @@ namespace View.Elements.Invoice
         {
             presenter.loadCustomerName(null, false);
             presenter.loadProductName(null, false);
+
+            String text = cmbAISearchProduct.Text;
+            cmbAISize.ResetText();
+            if (text != null && !text.Equals(""))
+                presenter.loadSizeOfProduct(cmbAISearchProduct.Text);
         }
     }
 }

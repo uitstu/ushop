@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCategory));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -40,7 +40,8 @@
             this.barManager2 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnCategoryAdd = new DevExpress.XtraBars.BarButtonItem();
-            this.bar3 = new DevExpress.XtraBars.Bar();
+            this.btnPrintExcel = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPrintPDF = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
@@ -82,7 +83,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 378);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 401);
             this.barDockControlBottom.Size = new System.Drawing.Size(675, 0);
             // 
             // barDockControlLeft
@@ -90,30 +91,30 @@
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 354);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 377);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(675, 24);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 354);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 377);
             // 
             // barManager2
             // 
             this.barManager2.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar2,
-            this.bar3});
+            this.bar2});
             this.barManager2.DockControls.Add(this.barDockControl1);
             this.barManager2.DockControls.Add(this.barDockControl2);
             this.barManager2.DockControls.Add(this.barDockControl3);
             this.barManager2.DockControls.Add(this.barDockControl4);
             this.barManager2.Form = this;
             this.barManager2.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.btnCategoryAdd});
+            this.btnCategoryAdd,
+            this.btnPrintExcel,
+            this.btnPrintPDF});
             this.barManager2.MainMenu = this.bar2;
-            this.barManager2.MaxItemId = 1;
-            this.barManager2.StatusBar = this.bar3;
+            this.barManager2.MaxItemId = 3;
             // 
             // bar2
             // 
@@ -122,7 +123,9 @@
             this.bar2.DockRow = 0;
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnCategoryAdd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnCategoryAdd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPrintExcel, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPrintPDF, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.AllowQuickCustomization = false;
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
@@ -131,22 +134,26 @@
             // btnCategoryAdd
             // 
             this.btnCategoryAdd.Caption = "Thêm mới";
-            this.btnCategoryAdd.Glyph = ((System.Drawing.Image)(resources.GetObject("btnCategoryAdd.Glyph")));
             this.btnCategoryAdd.Id = 0;
+            this.btnCategoryAdd.ImageUri.Uri = "Add";
             this.btnCategoryAdd.Name = "btnCategoryAdd";
             this.btnCategoryAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCategoryAdd_ItemClick);
             // 
-            // bar3
+            // btnPrintExcel
             // 
-            this.bar3.BarName = "Status bar";
-            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.bar3.DockCol = 0;
-            this.bar3.DockRow = 0;
-            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.bar3.OptionsBar.AllowQuickCustomization = false;
-            this.bar3.OptionsBar.DrawDragBorder = false;
-            this.bar3.OptionsBar.UseWholeRow = true;
-            this.bar3.Text = "Status bar";
+            this.btnPrintExcel.Caption = "Xuất danh sách";
+            this.btnPrintExcel.Id = 1;
+            this.btnPrintExcel.ImageUri.Uri = "ExportToXLSX";
+            this.btnPrintExcel.Name = "btnPrintExcel";
+            this.btnPrintExcel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPrintExcel_ItemClick);
+            // 
+            // btnPrintPDF
+            // 
+            this.btnPrintPDF.Caption = "Xuất danh sách";
+            this.btnPrintPDF.Id = 2;
+            this.btnPrintPDF.ImageUri.Uri = "ExportToPDF";
+            this.btnPrintPDF.Name = "btnPrintPDF";
+            this.btnPrintPDF.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPrintPDF_ItemClick);
             // 
             // barDockControl1
             // 
@@ -159,22 +166,22 @@
             // 
             this.barDockControl2.CausesValidation = false;
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControl2.Location = new System.Drawing.Point(0, 378);
-            this.barDockControl2.Size = new System.Drawing.Size(675, 23);
+            this.barDockControl2.Location = new System.Drawing.Point(0, 401);
+            this.barDockControl2.Size = new System.Drawing.Size(675, 0);
             // 
             // barDockControl3
             // 
             this.barDockControl3.CausesValidation = false;
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControl3.Location = new System.Drawing.Point(0, 24);
-            this.barDockControl3.Size = new System.Drawing.Size(0, 354);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 377);
             // 
             // barDockControl4
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControl4.Location = new System.Drawing.Point(675, 24);
-            this.barDockControl4.Size = new System.Drawing.Size(0, 354);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 377);
             // 
             // gridCategory
             // 
@@ -186,7 +193,7 @@
             this.gridCategory.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnEdit,
             this.btnDelete});
-            this.gridCategory.Size = new System.Drawing.Size(675, 354);
+            this.gridCategory.Size = new System.Drawing.Size(675, 377);
             this.gridCategory.TabIndex = 10;
             this.gridCategory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.updateCategory});
@@ -251,7 +258,7 @@
             // 
             this.btnEdit.AutoHeight = false;
             this.btnEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnEdit.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnEdit_ButtonClick);
@@ -271,7 +278,7 @@
             // 
             this.btnDelete.AutoHeight = false;
             this.btnDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnDelete.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("btnDelete.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDelete_ButtonClick);
@@ -291,7 +298,7 @@
             this.Controls.Add(this.barDockControl2);
             this.Controls.Add(this.barDockControl1);
             this.Name = "frmCategory";
-            this.Text = "frmCategory";
+            this.Text = "Quản lý danh mục";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Activated += new System.EventHandler(this.frmCategory_Activated);
             this.Load += new System.EventHandler(this.frmCategory_Load);
@@ -321,7 +328,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControl1;
         private DevExpress.XtraBars.BarManager barManager2;
         private DevExpress.XtraBars.Bar bar2;
-        private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarButtonItem btnCategoryAdd;
         private DevExpress.XtraGrid.Columns.GridColumn CategoryName;
         private DevExpress.XtraGrid.Columns.GridColumn CategoryDescription;
@@ -330,6 +336,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDelete;
         private DevExpress.XtraGrid.Columns.GridColumn CATEGORY_CODE;
+        private DevExpress.XtraBars.BarButtonItem btnPrintExcel;
+        private DevExpress.XtraBars.BarButtonItem btnPrintPDF;
 
     }
 }

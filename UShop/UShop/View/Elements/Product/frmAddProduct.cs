@@ -132,6 +132,37 @@ namespace View.Elements.Product
 
         private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (tboxName.Text.Equals(""))
+            {
+                MessageBox.Show("Tên hàng không được rỗng");
+                return;
+            }
+
+            int price, cost, sale = 0;
+            try
+            {
+                price = Int32.Parse(tboxCost.Text);
+                cost = Int32.Parse(tboxCost.Text);
+                sale = Int32.Parse(tboxSale.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Giá bán, giá nhập và tiền giảm phải là số");
+                return;
+            }
+
+            if (price == 0 || cost == 0)
+            {
+                MessageBox.Show("Giá bán và giá nhập phải lớn hơn 0");
+                return;
+            }
+
+            if (sale > price)
+            {
+                MessageBox.Show("Tiền giảm không được lớn hơn giá bán");
+                return;
+            }
+
             if (obj == null)
             {
                 obj = new PRODUCT();
@@ -192,6 +223,17 @@ namespace View.Elements.Product
             //this.WindowState = FormWindowState.Minimized;
             this.beforeForm.WindowState = FormWindowState.Maximized;
             this.beforeForm.Activate();
+        }
+
+        private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            tboxName.Text = "";
+            tboxPrice.Text = "0";
+            tboxCost.Text = "0";
+            tboxSale.Text = "0";
+            tboxNote.Text = "";
+            tboxProducer.Text = "";
+            tboxOrigin.Text = "";
         }
     }
 }

@@ -146,13 +146,13 @@ namespace View.Elements.ReceiptNote
             {
                 foreach (DataRow r in ((DataTable)gridItems.DataSource).Rows)
                 {
-                    if (Int32.Parse(r[2].ToString()) == 0)
+                    if (Int32.Parse(r[3].ToString()) == 0)
                         checkItem = false;
                 }
             }
             
 
-            if (!checkItem/*lbTotal.Text.Equals("")*/)
+            if (!checkItem)
             {
                 strError += "\nHàng hóa phải có số lượng";
             }
@@ -163,12 +163,7 @@ namespace View.Elements.ReceiptNote
                     strError += "\nTiền thanh toán không được lớn hơn tổng tiền";
                 }
             }
-            /*
-            if (dpickIssued.Value > dpickAccounting.Value)
-            {
-                strError += "\nIssued date is not rather than accounting date";
-            }
-            */
+
             if (!strError.Equals(""))
             {
                 MessageBox.Show(strError);
@@ -228,11 +223,17 @@ namespace View.Elements.ReceiptNote
                 receipt_note.STATUS = "Đã thanh toán";
             }
 
-            receipt_note.PREPARER_ID = 1;
+            if (AccountPresenter.currentEmployee == null)
+            {
+                receipt_note.PREPARER_ID = 1;
+            }
+            else
+            {
+                receipt_note.PREPARER_ID = AccountPresenter.currentEmployee.EMP_ID;
+            }
+
             receipt_note.RECORD_STATUS = "A";
-            //receipt_note.RN_CODE = "aaaa";
             receipt_note.TOTAL = float.Parse(lbTotal.Text);
-            //receipt_note.RN_ID = 1;
 
             preReceiptNote.add(receipt_note, dtItems);
 
@@ -403,44 +404,38 @@ namespace View.Elements.ReceiptNote
         }
         
         private void gridView1_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
-        {
-            /*
+        {    
             int num = 0;
             if (!Int32.TryParse(e.Value as String, out num))
             {
                 e.Valid = false;
-                e.ErrorText = "Hey guy, just type integer style... :D";
+                e.ErrorText = "Phải nhập số";
             }
             else
                 if (num < 0)
                 {
                     e.Valid = false;
-                    e.ErrorText = "Must rather than -1 guy... :D";
+                    e.ErrorText = "Phải lớn hơn 0";
                 }
-             * */
         }
 
         private void gridView1_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
-            /*
-            for (int i = 2; i < 11; i += 2)
+            GridColumn colStock = gridView1.Columns[2];
+            GridColumn colVoucher = gridView1.Columns[3];
+
+            int stockS = Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle, colStock));
+            int voucherS = Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle, colVoucher));
+
+            if (stockS > voucherS)
             {
-                GridColumn colStock = gridView1.Columns[i];
-                GridColumn colVoucher = gridView1.Columns[i+1];
-
-                int stockS = Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle, colStock));
-                int voucherS = Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle, colVoucher));
-
-                if (stockS > voucherS)
-                {
-                    //gridView1.SetColumnError(colStock_S, "The Voucher_S value should be less than this value.");
-                    //gridView1.SetColumnError(colVoucher_S, "This value should be less than the Units In Stock value.");
-                    //gridView1.SetColumnError(null, "Invalid data");
-                    //gridView1.SetColumnError(colStock, "aahi");
-                    e.Valid = false;
-                    e.ErrorText = "'Stock' value should be less than 'Voucher' value guy... :D";
-                }
-            }*/
+                //gridView1.SetColumnError(colStock_S, "The Voucher_S value should be less than this value.");
+                //gridView1.SetColumnError(colVoucher_S, "This value should be less than the Units In Stock value.");
+                //gridView1.SetColumnError(null, "Invalid data");
+                //gridView1.SetColumnError(colStock, "aahi");
+                e.Valid = false;
+                e.ErrorText = "Thực nhập không được lớn hơn yêu cầu";
+            }
         
         }
 
@@ -457,34 +452,21 @@ namespace View.Elements.ReceiptNote
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            /*
-            if (e.Column.FieldName.Equals("STOCK_TOTAL") || e.Column.FieldName.Equals("VOUCHER_TOTAL")
-                || e.Column.FieldName.Equals("AMOUNT"))
-                return;
-
-            int stockTotal = 0;
-            int voucherTotal = 0;
-
-            for (int i = 2; i < 11; i += 2)
+            if (e.Column.FieldName.Equals("AMOUNT"))
             {
-                GridColumn colStock = gridView1.Columns[i];
-                GridColumn colVoucher = gridView1.Columns[i + 1];
-
-                stockTotal += Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle, colStock));
-                voucherTotal += Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle, colVoucher));
+                return;
             }
 
-            GridColumn colStockTotal = gridView1.Columns["STOCK_TOTAL"];
-            GridColumn colVoucherTotal = gridView1.Columns["VOUCHER_TOTAL"];
+            GridColumn colStock = gridView1.Columns[2];
+            GridColumn colVoucher = gridView1.Columns[3];
 
-            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, colStockTotal, stockTotal);
-            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, colVoucherTotal, voucherTotal);
+            int voucher = Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle, colVoucher));
 
             GridColumn colAmount = gridView1.Columns["AMOUNT"];
             GridColumn colPrice = gridView1.Columns["PRICE"];
 
             float price = float.Parse(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, colPrice).ToString());
-            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, colAmount, (voucherTotal * price).ToString("0.##"));
+            gridView1.SetRowCellValue(gridView1.FocusedRowHandle, colAmount, (voucher * price).ToString(/*"0.##"*/));
 
             float totalAmount = 0;
             for (int i = 0; i < gridView1.RowCount; i++)
@@ -493,7 +475,6 @@ namespace View.Elements.ReceiptNote
             }
             lbTotal.Text = totalAmount.ToString("0.##");
             //lbTotal.Text = Convert.ToString(totalAmount);
-             * */
         }
 
 
@@ -525,7 +506,7 @@ namespace View.Elements.ReceiptNote
 
         private void btnDeleteItem_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure delete it?", "Deleting", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Chắc chắn xóa?", "Xóa", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
 
@@ -755,6 +736,13 @@ namespace View.Elements.ReceiptNote
             }
         }
         #endregion
+
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            cboxSupplier.Text = "";
+            tboxAccounted.Text = "";
+            tboxNote.Text = "";
+        }
     }
 
     //data input: https://documentation.devexpress.com/#WindowsForms/CustomDocument114741
