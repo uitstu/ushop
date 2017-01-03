@@ -35,6 +35,7 @@ namespace View.Elements.Invoice
             {
                 col.OptionsFilter.AutoFilterCondition = AutoFilterCondition.Contains;
             }
+            gridView.GroupPanelText = "Thả một tiêu đề ở đây để nhóm thông tin";
         }
 
         public void showInvoiceList(DataTable invoiceTable)

@@ -31,6 +31,7 @@ namespace View.Elements.ReceiptNote
             {
                 col.OptionsFilter.AutoFilterCondition = AutoFilterCondition.Contains;// .Settings.AutoFilterCondition = AutoFilterCondition.Contains;
             }
+            gridView.GroupPanelText = "Thả một tiêu đề ở đây để nhóm thông tin";
         }
 
         public void loadReceiptNotesDB(System.Data.DataTable dt)

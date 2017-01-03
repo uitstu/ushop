@@ -27,6 +27,7 @@ namespace View.Elements.Product
             {
                 col.OptionsFilter.AutoFilterCondition = AutoFilterCondition.Contains;
             }
+            gridView.GroupPanelText = "Thả một tiêu đề ở đây để nhóm thông tin";
         }
 
         //functions from interface

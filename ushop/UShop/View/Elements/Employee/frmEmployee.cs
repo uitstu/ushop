@@ -35,6 +35,7 @@ namespace View.Elements.Employee
             {
                 col.OptionsFilter.AutoFilterCondition = AutoFilterCondition.Contains;
             }
+            gridView.GroupPanelText = "Thả một tiêu đề ở đây để nhóm thông tin";
         }
 
         public DataTable getEmployeeTable()
