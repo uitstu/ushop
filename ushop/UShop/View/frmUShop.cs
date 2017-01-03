@@ -18,6 +18,8 @@ using View.Elements.frmProductSize;
 using View.Elements.Invoice;
 using View.Elements.Product;
 using View.Elements.ReceiptNote;
+using DevExpress.Skins;
+using DevExpress.UserSkins;
 
 namespace View
 {
@@ -335,6 +337,12 @@ namespace View
         private void frmUShop_Load(object sender, EventArgs e)
         {
             btnInvoice.PerformClick();
+
+            DevExpress.UserSkins.BonusSkins.Register();
+
+            //DevExpress.UserSkins.OfficeSkins.Register();
+
+            DevExpress.XtraBars.Helpers.SkinHelper.InitSkinGallery(ribbonGalleryBarItem1, true);
         }
 
         private void btnChangePassword_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
