@@ -120,5 +120,55 @@ namespace View.Elements
         {
             dpickBegin.MaxDate = dpickEnd.Value;
         }
+
+        private void cboxEmp_TextChanged(object sender, EventArgs e)
+        {
+            preAnalyzing.loadEmp();
+
+            List<string> lst = new List<string>();
+
+            foreach (string str in cboxEmp.Properties.Items)
+            {
+                if (str.ToLower().Contains(cboxEmp.Text.ToLower()))
+                {
+                    lst.Add(str);
+                }
+            }
+
+            try
+            {
+                cboxEmp.Properties.Items.Clear();
+            }
+            catch { }
+            
+            cboxEmp.Properties.Items.AddRange(lst);
+
+            cboxEmp.ShowPopup();
+        }
+
+        private void cboxCus_TextChanged(object sender, EventArgs e)
+        {
+            preAnalyzing.loadCus();
+
+            List<string> lst = new List<string>();
+
+            foreach (string str in cboxCus.Properties.Items)
+            {
+                if (str.ToLower().Contains(cboxCus.Text.ToLower()))
+                {
+                    lst.Add(str);
+                }
+            }
+
+            try
+            {
+                cboxCus.Properties.Items.Clear();
+            }
+            catch { }
+
+            cboxCus.Properties.Items.AddRange(lst);
+
+            cboxCus.ShowPopup();
+        }
     }
 }

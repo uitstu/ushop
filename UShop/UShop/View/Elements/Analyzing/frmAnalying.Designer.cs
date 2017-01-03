@@ -43,6 +43,8 @@
             this.btnBack = new DevExpress.XtraBars.BarButtonItem();
             this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tboxTax = new DevExpress.XtraEditors.TextEdit();
             this.label7 = new System.Windows.Forms.Label();
             this.tboxWin = new DevExpress.XtraEditors.TextEdit();
             this.label6 = new System.Windows.Forms.Label();
@@ -58,18 +60,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tboxTax = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tboxTax.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tboxWin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tboxCost.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tboxTotal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboxCus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboxEmp.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tboxTax.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -197,6 +197,24 @@
             this.groupControl1.TabIndex = 19;
             this.groupControl1.Text = "Thông tin thống kê";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(13, 251);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Thuế:";
+            // 
+            // tboxTax
+            // 
+            this.tboxTax.Location = new System.Drawing.Point(119, 248);
+            this.tboxTax.MenuManager = this.barManager1;
+            this.tboxTax.Name = "tboxTax";
+            this.tboxTax.Properties.ReadOnly = true;
+            this.tboxTax.Size = new System.Drawing.Size(200, 20);
+            this.tboxTax.TabIndex = 18;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -289,6 +307,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboxCus.Size = new System.Drawing.Size(200, 20);
             this.cboxCus.TabIndex = 8;
+            this.cboxCus.TextChanged += new System.EventHandler(this.cboxCus_TextChanged);
             // 
             // cboxEmp
             // 
@@ -299,6 +318,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboxEmp.Size = new System.Drawing.Size(200, 20);
             this.cboxEmp.TabIndex = 7;
+            this.cboxEmp.TextChanged += new System.EventHandler(this.cboxEmp_TextChanged);
             // 
             // label4
             // 
@@ -336,24 +356,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Từ ngày:";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 251);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "Thuế:";
-            // 
-            // tboxTax
-            // 
-            this.tboxTax.Location = new System.Drawing.Point(119, 248);
-            this.tboxTax.MenuManager = this.barManager1;
-            this.tboxTax.Name = "tboxTax";
-            this.tboxTax.Properties.ReadOnly = true;
-            this.tboxTax.Size = new System.Drawing.Size(200, 20);
-            this.tboxTax.TabIndex = 18;
-            // 
             // frmAnalyzing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,12 +379,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tboxTax.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tboxWin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tboxCost.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tboxTotal.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboxCus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboxEmp.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tboxTax.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
