@@ -36,7 +36,7 @@ namespace View.Elements.Account
             }
 
             gridView.GroupPanelText = "Thả một tiêu đề ở đây để nhóm thông tin";
-            gridView.Columns["EMP_CODE"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+            //gridView.Columns["EMP_CODE"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
         }
 
 

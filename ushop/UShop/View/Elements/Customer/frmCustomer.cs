@@ -38,7 +38,7 @@ namespace View.Elements.Customer
             }
 
             gridView.GroupPanelText = "Thả một tiêu đề ở đây để nhóm thông tin";
-            gridView.Columns["CUS_CODE"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+            //gridView.Columns["CUS_CODE"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
         }
 
         public DataTable getCustomerTable()
