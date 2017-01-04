@@ -47,16 +47,18 @@ namespace View.Elements.Employee
         
         public void backPreviousForm()
         {
-            foreach (var form in MdiParent.MdiChildren)
-            {
+            //foreach (var form in MdiParent.MdiChildren)
+            //{
 
-                if (caller.Equals(form))
-                {
-                    caller.Activate();
+            //    if (caller.Equals(form))
+            //    {
+            //        caller.Activate();
 
-                }
-            }
+            //    }
+            //}
+
             this.Close();
+            caller.Activate();
         }
 
         public void refreshAll()
@@ -106,6 +108,14 @@ namespace View.Elements.Employee
                 txteAEPhone.Text = emp.PHONE;
                 cmbAEPosition.Text = emp.POSITION;
                 txteAEIDNo.Text = emp.ID_CARD_NO;
+
+                String workStatus = cmbAEWorkStatus.Text;
+                if (workStatus.Equals(Resources.WS_SEVERANCE))
+                {
+                    dpkAESevDate.Enabled = true;
+                }
+                else
+                    dpkAESevDate.Enabled = false;
             }
             catch(Exception e)
             {
@@ -167,6 +177,17 @@ namespace View.Elements.Employee
         private void dpickAEBirthday_ValueChanged(object sender, EventArgs e)
         {
             dpkAEApproveDate.MinDate = dpickAEBirthday.Value;
+        }
+
+        private void cmbAEWorkStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String workStatus = cmbAEWorkStatus.Text;
+            if (workStatus.Equals(Resources.WS_SEVERANCE))
+            {
+                dpkAESevDate.Enabled = true;
+            }
+            else
+                dpkAESevDate.Enabled = false;
         }
     }
 }

@@ -108,16 +108,9 @@ namespace View.Elements.Account
 
         public void backPreviousForm()
         {
-            foreach (var form in MdiParent.MdiChildren)
-            {
 
-                if (caller.Equals(form))
-                {
-                    caller.Activate();
-
-                }
-            }
             this.Close();
+            caller.Activate();
         }
 
         public void showEmployeeName(List<String> empCodeNameList)

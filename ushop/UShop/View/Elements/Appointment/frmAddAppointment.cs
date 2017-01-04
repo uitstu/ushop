@@ -132,16 +132,9 @@ namespace View.Elements.Appointment
 
         public void backPreviousForm()
         {
-            foreach (var form in MdiParent.MdiChildren)
-            {
 
-                if (caller.Equals(form))
-                {
-                    caller.Activate();
-
-                }
-            }
             this.Close();
+            caller.Activate();
         }
 
         public void showCustomerName(List<String> cusCodeNameList)

@@ -81,17 +81,10 @@ namespace View.Elements.Invoice
         
         private void bbtniAIBack_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
-            foreach( var form in MdiParent.MdiChildren)
-            {
 
-                if (caller.Equals(form))
-                {
-                    caller.Activate();
 
-                }
-            }
             this.Close();
+            caller.Activate();
         }
 
         private void cmbAICustomer_TextChanged(object sender, EventArgs e)
