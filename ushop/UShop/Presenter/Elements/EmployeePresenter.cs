@@ -95,7 +95,22 @@ namespace Presenter.Elements
                 empView.showMessageBox(Resources.MB_FAILURE, System.Windows.Forms.MessageBoxIcon.Information);
             }
         }
+        public void removeEmployee(string code)
+        {
 
+           
+
+            if (model.deleteEmployee(code))
+            {
+                loadEmployeList();
+                //delete in grid
+                //table.Rows.RemoveAt(index);
+            }
+            else
+            {
+                empView.showMessageBox(Resources.MB_FAILURE, System.Windows.Forms.MessageBoxIcon.Information);
+            }
+        }
         public void insertOrUpdateEmployee(string name, string address, DateTime birthday, DateTime approveDt, DateTime sevDt,string idno, string gender, string workStatus, string phone, string position)
         {
             
@@ -171,6 +186,7 @@ namespace Presenter.Elements
                         empAddingView.showMessageBox(Resources.MB_SUCCESS, MessageBoxIcon.Information);
                         emp = new EMPLOYEE();
                         empAddingView.refreshAll();
+                        
                     }
                     else
                     {

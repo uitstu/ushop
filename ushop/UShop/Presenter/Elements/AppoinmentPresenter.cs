@@ -139,7 +139,23 @@ namespace Presenter.Elements
             if (model.deleteAppointment(code))
             {
                 //delete in grid
-                table.Rows.RemoveAt(index);
+                //table.Rows.RemoveAt(index);
+                loadAppointmentList();
+            }
+            else
+            {
+                appView.showMessageBox(Resources.MB_FAILURE, System.Windows.Forms.MessageBoxIcon.Information);
+            }
+        }
+        public void removeAppointment(String code)
+        {
+
+           
+            if (model.deleteAppointment(code))
+            {
+                //delete in grid
+                //table.Rows.RemoveAt(index);
+                loadAppointmentList();
             }
             else
             {

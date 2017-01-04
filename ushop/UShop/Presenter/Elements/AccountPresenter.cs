@@ -267,7 +267,22 @@ namespace Presenter.InterfaceImplement
                 accView.showMessageBox(Resources.MB_FAILURE, System.Windows.Forms.MessageBoxIcon.Information);
             }
         }
+        public void removeAccount(String code)
+        {
 
+            //DataTable table = accView.getAccountTable();
+
+            if (model.deleteAccount(code))
+            {
+                loadAccountList();
+                //delete in grid
+                //table.Rows.RemoveAt(index);
+            }
+            else
+            {
+                accView.showMessageBox(Resources.MB_FAILURE, System.Windows.Forms.MessageBoxIcon.Information);
+            }
+        }
         public string getOldPassword(string code)
         {
             string str = "";

@@ -79,8 +79,13 @@ namespace View.Elements.Employee
 
         private void btnELUpdateEmployee_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-           
-            Form addEmpForm = new frmAddEmployee(this, presenter,table.Rows[gvELEmployee.FocusedRowHandle]["EMP_CODE"]+"");
+
+
+            GridView gridView = grdconELEmployee.FocusedView as GridView;
+            GridColumn colCode = gvELEmployee.Columns["EMP_CODE"];
+            String code = gvELEmployee.GetRowCellValue(gridView.FocusedRowHandle, colCode).ToString();
+
+            Form addEmpForm = new frmAddEmployee(this, presenter, code);
             addEmpForm.FormBorderStyle = FormBorderStyle.None;
             //set fill parent
             addEmpForm.MdiParent = this.MdiParent;
@@ -99,9 +104,12 @@ namespace View.Elements.Employee
             {
                 return;
             }
+            GridView gridView = grdconELEmployee.FocusedView as GridView;
+            GridColumn colCode = gvELEmployee.Columns["EMP_CODE"];
+            String code = gvELEmployee.GetRowCellValue(gridView.FocusedRowHandle, colCode).ToString();
 
-            int index = gvELEmployee.FocusedRowHandle;
-            presenter.removeEmployee(index);
+            //int index = gvELEmployee.FocusedRowHandle;
+            presenter.removeEmployee(code);
         }
 
         private void frmEmployee_Activated(object sender, EventArgs e)

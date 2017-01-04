@@ -64,9 +64,12 @@ namespace View.Elements.Account
 
         private void btnAMUpdateAccount_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-          
-            String accCode = table.Rows[gvAMAccount.FocusedRowHandle]["ACC_CODE"] + "";
-            Form addAccForm = new frmAddAccount(this, presenter, accCode);
+            GridView gridView = grdconAMAccount.FocusedView as GridView;
+            GridColumn colCode = gvAMAccount.Columns["ACC_CODE"];
+            String code = gvAMAccount.GetRowCellValue(gridView.FocusedRowHandle, colCode).ToString();
+
+           
+            Form addAccForm = new frmAddAccount(this, presenter, code);
             addAccForm.FormBorderStyle = FormBorderStyle.None;
             //set fill parent
             addAccForm.MdiParent = this.MdiParent;
@@ -85,9 +88,13 @@ namespace View.Elements.Account
             {
                 return;
             }
+            GridView gridView = grdconAMAccount.FocusedView as GridView;
+            GridColumn colCode = gvAMAccount.Columns["ACC_CODE"];
+            String acccode = gvAMAccount.GetRowCellValue(gridView.FocusedRowHandle, colCode).ToString();
 
-            int index = gvAMAccount.FocusedRowHandle;
-            presenter.removeAccount(index);
+
+           //int index = gvAMAccount.FocusedRowHandle;
+            presenter.removeAccount(acccode);
         }
 
 

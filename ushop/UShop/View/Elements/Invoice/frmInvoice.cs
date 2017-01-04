@@ -81,8 +81,13 @@ namespace View.Elements.Invoice
         private void btnILUpdateInvoice_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             
-            int row = gvILInvoice.FocusedRowHandle;
-            String invoiceCode =  table.Rows[row]["INVOICE_CODE"] + "";
+            //int row = gvILInvoice.FocusedRowHandle;
+           //String invoiceCode =  table.Rows[row]["INVOICE_CODE"] + "";
+
+            GridView gridView = grdconILInvoice.FocusedView as GridView;
+            GridColumn colCode = gvILInvoice.Columns["INVOICE_CODE"];
+            String invoiceCode = gvILInvoice.GetRowCellValue(gridView.FocusedRowHandle, colCode).ToString();
+
             Form addInvoiceForm = new frmAddInvoice(this, presenter, invoiceCode);
             addInvoiceForm.FormBorderStyle = FormBorderStyle.None;
             //set fill parent
@@ -103,8 +108,15 @@ namespace View.Elements.Invoice
                 return;
             }
 
-            int indexOfGrid = gvILInvoice.FocusedRowHandle;
-            presenter.removeInvoice(indexOfGrid);
+            //int indexOfGrid = gvILInvoice.FocusedRowHandle;
+
+            GridView gridView = grdconILInvoice.FocusedView as GridView;
+            GridColumn colCode = gvILInvoice.Columns["INVOICE_CODE"];
+            String invoiceCode = gvILInvoice.GetRowCellValue(gridView.FocusedRowHandle, colCode).ToString();
+
+
+            presenter.removeInvoice(invoiceCode);
+
         }
 
         public DataTable getDataTable()

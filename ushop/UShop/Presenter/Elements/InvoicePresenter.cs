@@ -156,7 +156,27 @@ namespace Presenter.Elements
                 invoiceView.showMessageBox(Resources.MB_FAILURE+": mã hóa đơn rỗng.", System.Windows.Forms.MessageBoxIcon.Error);
             }
         }
-
+        public void removeInvoice(String code)
+        {
+            DataTable table = invoiceView.getDataTable();
+            
+            if (code != null && !code.Equals(""))
+            {
+                if (model.deleteInvoice(code))
+                {
+                    //delete in grid-try loading
+                    loadInvoiceList();
+                }
+                else
+                {
+                    invoiceView.showMessageBox(Resources.MB_FAILURE, System.Windows.Forms.MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                invoiceView.showMessageBox(Resources.MB_FAILURE + ": mã hóa đơn rỗng.", System.Windows.Forms.MessageBoxIcon.Error);
+            }
+        }
         public void loadSizeOfProduct(String productCodeName)
         {
             List<String> sizeList = new List<string>();

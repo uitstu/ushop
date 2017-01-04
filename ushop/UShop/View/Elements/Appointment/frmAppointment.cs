@@ -65,8 +65,13 @@ namespace View.Elements.Appointment
 
         private void btnALUpdateAppointment_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-          
-            Form addAppForm = new frmAddAppointment(this, presenter, table.Rows[gvALAppointment.FocusedRowHandle]["APP_CODE"] + "");
+
+            GridView gridView = grdconALAppointment.FocusedView as GridView;
+            GridColumn colCode = gvALAppointment.Columns["APP_CODE"];
+            String code = gvALAppointment.GetRowCellValue(gridView.FocusedRowHandle, colCode).ToString();
+
+
+            Form addAppForm = new frmAddAppointment(this, presenter, code);
             addAppForm.FormBorderStyle = FormBorderStyle.None;
             //set fill parent
             addAppForm.MdiParent = this.MdiParent;
@@ -86,8 +91,12 @@ namespace View.Elements.Appointment
                 return;
             }
 
+            GridView gridView = grdconALAppointment.FocusedView as GridView;
+            GridColumn colCode = gvALAppointment.Columns["APP_CODE"];
+            string code = gvALAppointment.GetRowCellValue(gridView.FocusedRowHandle, colCode).ToString();
+
             int index = gvALAppointment.FocusedRowHandle;
-            presenter.removeAppointment(index);
+            presenter.removeAppointment(code);
         }
 
 

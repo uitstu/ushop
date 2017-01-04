@@ -87,15 +87,30 @@ namespace Presenter.Elements
 
             if (model.deleteCustomer(table.Rows[index]["CUS_CODE"] + ""))
             {
+                loadCustomerList();
                 //delete in grid
-                table.Rows.RemoveAt(index);
+                //table.Rows.RemoveAt(index);
             }
             else
             {
                 cusView.showMessageBox(Resources.MB_FAILURE, System.Windows.Forms.MessageBoxIcon.Information);
             }
         }
+        public void removeCustomer(String code)
+        {
+            
 
+            if (model.deleteCustomer(code))
+            {
+                loadCustomerList();
+                //delete in grid
+                //table.Rows.RemoveAt(index);
+            }
+            else
+            {
+                cusView.showMessageBox(Resources.MB_FAILURE, System.Windows.Forms.MessageBoxIcon.Information);
+            }
+        }
         public void insertOrUpdateCustomer(string name, string address, string phone)
         {
 

@@ -71,8 +71,12 @@ namespace View.Elements.Customer
 
         private void btnCLUpdateCustomer_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-           
-            Form addCusForm = new frmAddCustomer(this, presenter, table.Rows[gvCLCustomer.FocusedRowHandle]["CUS_CODE"] + "");
+            GridView gridView = grdconCLCustomer.FocusedView as GridView;
+            GridColumn colCode = gvCLCustomer.Columns["CUS_CODE"];
+            String code = gvCLCustomer.GetRowCellValue(gridView.FocusedRowHandle, colCode).ToString();
+
+
+            Form addCusForm = new frmAddCustomer(this, presenter, code);
             addCusForm.FormBorderStyle = FormBorderStyle.None;
             //set fill parent
             addCusForm.MdiParent = this.MdiParent;
@@ -91,9 +95,11 @@ namespace View.Elements.Customer
             {
                 return;
             }
-
-            int index = gvCLCustomer.FocusedRowHandle;
-            presenter.removeCustomer(index);
+            GridView gridView = grdconCLCustomer.FocusedView as GridView;
+            GridColumn colCode = gvCLCustomer.Columns["CUS_CODE"];
+            String code = gvCLCustomer.GetRowCellValue(gridView.FocusedRowHandle, colCode).ToString();
+           // int index = gvCLCustomer.FocusedRowHandle;
+            presenter.removeCustomer(code);
         }
         
 
