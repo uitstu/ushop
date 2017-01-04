@@ -32,6 +32,7 @@ namespace View.Elements.ReceiptNote
                 col.OptionsFilter.AutoFilterCondition = AutoFilterCondition.Contains;// .Settings.AutoFilterCondition = AutoFilterCondition.Contains;
             }
             gridView.GroupPanelText = "Thả một tiêu đề ở đây để nhóm thông tin";
+            gridView.Columns["RN_CODE"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
         }
 
         public void loadReceiptNotesDB(System.Data.DataTable dt)
@@ -60,7 +61,8 @@ namespace View.Elements.ReceiptNote
         {
             //frmAddReceiptNote frmAdd = new frmAddReceiptNote(preReceiptNote);
             //frmAdd.ShowDialog();
-            frmAddReceiptNote frmAdd = new frmAddReceiptNote(preReceiptNote, this);
+            //frmAddReceiptNote frmAdd = new frmAddReceiptNote(preReceiptNote, this);
+            frmAddReceiptNote frmAdd = new frmAddReceiptNote(new ReceiptNotePresenter(this), this);
             frmAdd.FormBorderStyle = FormBorderStyle.None;
             frmAdd.MdiParent = this.MdiParent;
             frmAdd.Dock = DockStyle.Fill;

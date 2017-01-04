@@ -36,6 +36,7 @@ namespace View.Elements.Employee
                 col.OptionsFilter.AutoFilterCondition = AutoFilterCondition.Contains;
             }
             gridView.GroupPanelText = "Thả một tiêu đề ở đây để nhóm thông tin";
+            gridView.Columns["EMP_CODE"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
         }
 
         public DataTable getEmployeeTable()

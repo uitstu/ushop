@@ -30,6 +30,7 @@ namespace View.Elements
             }
 
             gridView.GroupPanelText = "Thả một tiêu đề ở đây để nhóm thông tin";
+            gridView.Columns["CATEGORY_CODE"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
         }
 
         //functions from interface

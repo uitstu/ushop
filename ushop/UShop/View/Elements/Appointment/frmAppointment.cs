@@ -37,6 +37,7 @@ namespace View.Elements.Appointment
             }
 
             gridView.GroupPanelText = "Thả một tiêu đề ở đây để nhóm thông tin";
+            gridView.Columns["APP_CODE"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
         }
         
 

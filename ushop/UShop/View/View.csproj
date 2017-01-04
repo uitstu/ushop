@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="UShopDataSet.cs">
       <DependentUpon>UShopDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="UShopDataSet.Designer.cs">
       <AutoGen>True</AutoGen>

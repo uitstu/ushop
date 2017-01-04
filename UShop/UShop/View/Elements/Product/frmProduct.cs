@@ -28,6 +28,7 @@ namespace View.Elements.Product
                 col.OptionsFilter.AutoFilterCondition = AutoFilterCondition.Contains;
             }
             gridView.GroupPanelText = "Thả một tiêu đề ở đây để nhóm thông tin";
+            gridView.Columns["PRODUCT_CODE"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
         }
 
         //functions from interface
