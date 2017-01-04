@@ -264,6 +264,7 @@ namespace View.Elements.Invoice
             //load customer name into cmb
             presenter.loadCustomerName(null, false);
             //load payment method into cmb
+            cmbAIPaymentMethod.Properties.Items.Clear();
             cmbAIPaymentMethod.Properties.Items.AddRange
                 (new String[] {
                      Resources.PM_CASH
@@ -285,6 +286,7 @@ namespace View.Elements.Invoice
             if (table == null)
             {
                 table = new DataTable();
+
                 var cols = table.Columns;
                 cols.Add("INVOICE_ITEM_CODE");
                 cols.Add("PRODUCT_NAME");
@@ -293,12 +295,16 @@ namespace View.Elements.Invoice
                 cols.Add("DISCOUNT_AMOUNT");
                 cols.Add("QUANTITY");
                 cols.Add("UNIT_PRICE");
-                
-                
                 cols.Add("AMOUNT");
                 cols.Add("NOTE");
-
             }
+            else
+            {
+                table.Clear();
+                
+            }
+
+
         }
 
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

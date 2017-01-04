@@ -18,7 +18,7 @@ namespace Presenter.Elements
         private IInvoiceView invoiceView;
         private IInvoiceAddingView invoiceAddingView;
 
-        private INVOICE invoice;
+        private INVOICE updateInvoice;
         private List<INVOICE> invoiceList;
         private List<INVOICE_ITEM> invoiceItemList;
 
@@ -62,7 +62,7 @@ namespace Presenter.Elements
             productList = new List<PRODUCT>();
             proSizeList = new List<PRODUCT_SIZE>();
             invoiceItemList = new List<INVOICE_ITEM>();
-            invoice = new INVOICE();
+            updateInvoice = new INVOICE();
 
             invoiceList = new List<INVOICE>();
         }
@@ -72,8 +72,8 @@ namespace Presenter.Elements
 
             if (code != null && !code.Equals(""))
             {
-                invoice = model.getInvoiceByCode(code,RECORD_STATUS.ACTIVE);
-                DataTable table = model.getInvoiceItemListBy(invoice.INVOICE_ID, RECORD_STATUS.ACTIVE);
+                updateInvoice = model.getInvoiceByCode(code,RECORD_STATUS.ACTIVE);
+                DataTable table = model.getInvoiceItemListBy(updateInvoice.INVOICE_ID, RECORD_STATUS.ACTIVE);
                 if (table == null)
                 {
                     table = new DataTable();
@@ -91,7 +91,7 @@ namespace Presenter.Elements
                 }
                 else
                     isUpdated = true;
-                invoiceAddingView.showInfoComponents(invoice);
+                invoiceAddingView.showInfoComponents(updateInvoice);
                 invoiceAddingView.showInvoiceItemGrid(table);
             }
             else
@@ -99,10 +99,17 @@ namespace Presenter.Elements
             
         }
 
-        public  bool isValidList<T>(List<T> list)
+        public  bool isValidList<String>(List<String> list)
         {
             if (list != null && list.Count > 0)
+            {
+                foreach (var item in list)
+                {
+                    if (item == null || item.Equals("") || item.Equals(Resources.EMPTY_ITEM))
+                        return false;
+                }
                 return true;
+            }
             return false;
         }
         public  void loadInvoiceList()
@@ -131,14 +138,22 @@ namespace Presenter.Elements
         {
             DataTable table = invoiceView.getDataTable();
 
-            if (model.deleteInvoice(table.Rows[indexOfGrid]["INVOICE_CODE"] + ""))
+            string code = table.Rows[indexOfGrid]["INVOICE_CODE"] + "";
+            if (code != null && !code.Equals(""))
             {
-                //delete in grid
-                table.Rows.RemoveAt(indexOfGrid);
+                if (model.deleteInvoice(code))
+                {
+                    //delete in grid
+                    table.Rows.RemoveAt(indexOfGrid);
+                }
+                else
+                {
+                    invoiceView.showMessageBox(Resources.MB_FAILURE, System.Windows.Forms.MessageBoxIcon.Information);
+                }
             }
             else
             {
-                invoiceView.showMessageBox(Resources.MB_FAILURE, System.Windows.Forms.MessageBoxIcon.Information);
+                invoiceView.showMessageBox(Resources.MB_FAILURE+": mã hóa đơn rỗng.", System.Windows.Forms.MessageBoxIcon.Error);
             }
         }
 
@@ -152,7 +167,7 @@ namespace Presenter.Elements
             if (id != -1)
                 proSizeList = model.getProductSizeBy(id, RECORD_STATUS.ACTIVE);
 
-            if (!isValidList(proSizeList))
+            if (proSizeList == null || proSizeList.Count <= 0)
             {
                 sizeList.Add(Resources.EMPTY_ITEM);
             }
@@ -167,7 +182,7 @@ namespace Presenter.Elements
             //true
             productList = model.getProductsBy(RECORD_STATUS.ACTIVE);
             List<String> productNameList = new List<string>();
-            if (!isValidList(productList))
+            if (productList == null || productList.Count <= 0)
             {
                 productNameList.Add(Resources.EMPTY_ITEM);
             }
@@ -331,73 +346,196 @@ namespace Presenter.Elements
             }
             return cusNameList;
         }
+        
+        private bool checkValidPaymentMethod(string paymentMethod)
+        {
+            if (paymentMethod != null && !paymentMethod.Equals("") && !paymentMethod.Equals(Resources.EMPTY_ITEM))
+                return true;
+            return false;
+        }
 
-        public void updateInvoice(INVOICE updateInvoice)
+        private bool checkValidCusCode(string cuscode)
+        {
+            if(cuscode != null && !cuscode.Equals(""))
+            {
+                return true;
+            }
+            return false;
+        }
+        private bool checkValidVAT(string vat) {
+            try { 
+                double ret = Convert.ToDouble(vat);
+                if (ret >= 0)
+                    return true;
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                
+            }
+            return false;
+        }
+        private bool checkValidDate(DateTime date)
+        {
+            try
+            {
+                if(date.CompareTo(DateTime.Now) <= 0)
+                {
+                    return true;
+                }
+            }
+            catch(Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
+            return false;
+        }
+
+        private bool checkValidTotalPayment(string totalPayment)
         {
 
+            try
+            {
+                double ret = Convert.ToDouble(totalPayment);
+                if (ret >= 0)
+                    return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+
+            }
+            return false;
+        }
+
+        private bool checkValidTotalAmount(string totalAmount)
+        {
+
+            try
+            {
+                double ret = Convert.ToDouble(totalAmount);
+                if (ret >= 0)
+                    return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+
+            }
+            return false;
         }
 
         public void insertInvoice(string cusCode, string paymentMethod, string vAT, string note, DateTime date,string totalPayment,string totalAmount)
         {
-            int cusId = findCustomerBy(cusCode).CUS_ID;
-            invoice.SELLER_ID = AccountPresenter.currentEmployee.EMP_ID;
-            invoice.BUYER_ID = cusId;
-            invoice.PAYMENT_METHOD = paymentMethod;
-            invoice.DATE = date;
-            invoice.NOTE = note;
-            invoice.TOTAL_AMOUNT = Convert.ToDouble(totalAmount);
-            invoice.TOTAL_PAYMENT = Convert.ToDouble(totalPayment);
-            invoice.TOTAL_SALE = 0;
-            invoice.VAT_AMOUNT = 0;
-            invoice.VAT_RATE = Convert.ToDouble(vAT);
-            invoice.RECORD_STATUS = ((char)RECORD_STATUS.ACTIVE) + "";
-            //put into invoiceItemList
-            DataTable table = InvoiceAddingView.getInvoiceItemDataTable();
-            for (int i = 0; i < table.Rows.Count; i++)
-            {
-                var currRow = table.Rows[i];
-                String proCodeName = currRow["PRODUCT_NAME"] + "";
-                String proCode = proCodeName.Split(new char[] { '-' })[0];
-                INVOICE_ITEM item = new INVOICE_ITEM();
-                item.PRICE = Convert.ToSingle(currRow["UNIT_PRICE"]);
-                item.QUANTITY = Convert.ToInt16(currRow["QUANTITY"]);
-                item.SIZE = currRow["SIZE"] + "";
-                item.DISCOUNT = Convert.ToSingle(currRow["DISCOUNT_AMOUNT"]);
-                item.AMOUNT = Convert.ToDouble(currRow["AMOUNT"]);
-                item.RECORD_STATUS = ((char)RECORD_STATUS.ACTIVE) + "";
-                item.PRODUCT_ID = findProductBy(proCode).PRODUCT_ID;
-                invoiceItemList.Add(item);
-            }
-            //update or insert
-            if (!isUpdated)
-            {
+            String error = Resources.MB_FAILURE;
+            try {
+
+                int cusId = 0;
+                if (!checkValidCusCode(cusCode))
+                {
+                    error += ": Không tìm thấy khách hàng này trong CSDL.";
+                    throw new Exception();
+                }
+                else if(!checkValidVAT(vAT))
+                {
+                    error += ": VAT không thể chứa kí tự đặc biệt, chữ và luôn >=0.";
+                    throw new Exception();
+                }
+                else if (!checkValidDate(date))
+                {
+                    error += ": Ngày lập phiếu không thể lớn hơn ngày hiện tại.";
+                    throw new Exception();
+                }
+                else if (!checkValidTotalPayment(totalPayment))
+                {
+                    error += ": tổng trả không thể chứa kí tự đặc biệt, chữ và luôn >=0.";
+                    throw new Exception();
+                }
+                else if (!checkValidTotalAmount(totalAmount))
+                {
+                    error += ": tổng tiền không thể chứa kí tự đặc biệt, chữ và luôn >=0.";
+                    throw new Exception();
+                }
+
+                cusId = findCustomerBy(cusCode).CUS_ID;
+                INVOICE invoice = new INVOICE();
+                invoice.SELLER_ID = AccountPresenter.currentEmployee.EMP_ID;
+                invoice.BUYER_ID = cusId;
+                invoice.PAYMENT_METHOD = paymentMethod;
+                invoice.DATE = date;
+                invoice.NOTE = note;
+                invoice.TOTAL_AMOUNT = Convert.ToDouble(totalAmount);
+                invoice.TOTAL_PAYMENT = Convert.ToDouble(totalPayment);
+                invoice.TOTAL_SALE = 0;
+                invoice.VAT_AMOUNT = 0;
+                invoice.VAT_RATE = Convert.ToDouble(vAT);
+                invoice.RECORD_STATUS = ((char)RECORD_STATUS.ACTIVE) + "";
+                //put into invoiceItemList
+                DataTable table = InvoiceAddingView.getInvoiceItemDataTable();
+                invoiceItemList.Clear();
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    var currRow = table.Rows[i];
+                    String proCodeName = currRow["PRODUCT_NAME"] + "";
+                    String proCode = proCodeName.Split(new char[] { '-' })[0];
+                    INVOICE_ITEM item = new INVOICE_ITEM();
+                    item.PRICE = Convert.ToSingle(currRow["UNIT_PRICE"]);
+                    item.QUANTITY = Convert.ToInt16(currRow["QUANTITY"]);
+                    item.SIZE = currRow["SIZE"] + "";
+                    item.DISCOUNT = Convert.ToSingle(currRow["DISCOUNT_AMOUNT"]);
+                    item.AMOUNT = Convert.ToDouble(currRow["AMOUNT"]);
+                    item.RECORD_STATUS = ((char)RECORD_STATUS.ACTIVE) + "";
+                    item.PRODUCT_ID = findProductBy(proCode).PRODUCT_ID;
+                    invoiceItemList.Add(item);
+                }
+                //update or insert
+                if (!isUpdated)
+                {
                 
 
 
-                if (model.addInvoice(invoice, invoiceItemList))
-                {
-                    invoiceAddingView.showMessageBox(Resources.MB_SUCCESS, System.Windows.Forms.MessageBoxIcon.Information);
-                    invoiceAddingView.resetAll();
+                    if (model.addInvoice(invoice, invoiceItemList))
+                    {
+                        invoice = new INVOICE();
+                        invoiceItemList.Clear();
+                        invoiceAddingView.showMessageBox(Resources.MB_SUCCESS, System.Windows.Forms.MessageBoxIcon.Information);
+                        invoiceAddingView.resetAll();
+                    }
+                    else
+                    {
+                        invoiceAddingView.showMessageBox(Resources.MB_FAILURE, System.Windows.Forms.MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
-                    invoiceAddingView.showMessageBox(Resources.MB_FAILURE, System.Windows.Forms.MessageBoxIcon.Information);
+                    updateInvoice.BUYER_ID = invoice.BUYER_ID;
+                    updateInvoice.DATE = invoice.DATE;
+                    updateInvoice.NOTE = invoice.NOTE;
+                    updateInvoice.PAYMENT_METHOD = invoice.PAYMENT_METHOD;
+                    updateInvoice.SELLER_ID = invoice.SELLER_ID;
+                    updateInvoice.TOTAL_AMOUNT = invoice.TOTAL_AMOUNT;
+                    updateInvoice.TOTAL_PAYMENT = invoice.TOTAL_PAYMENT;
+                    updateInvoice.TOTAL_SALE = invoice.TOTAL_SALE;
+                    updateInvoice.VAT_AMOUNT = invoice.VAT_AMOUNT;
+                    updateInvoice.VAT_RATE = invoice.VAT_RATE;
+                    updateInvoice.RECORD_STATUS = invoice.RECORD_STATUS;
+                    
+                    if (model.updateInvoice(updateInvoice, invoiceItemList))
+                    {
+                        invoice = new INVOICE();
+                        invoiceItemList.Clear();
+                        invoiceAddingView.showMessageBox(Resources.MB_SUCCESS, System.Windows.Forms.MessageBoxIcon.Information);
+                        invoiceAddingView.resetAll();
+                    }
+                    else
+                    {
+                        invoiceAddingView.showMessageBox(Resources.MB_FAILURE, System.Windows.Forms.MessageBoxIcon.Information);
+                    }
                 }
-            }
-            else
+            }catch(Exception e)
             {
-                
-                if (model.updateInvoice(invoice, invoiceItemList))
-                {
-                    invoice = new INVOICE();
-                    invoiceItemList.Clear();
-                    invoiceAddingView.showMessageBox(Resources.MB_SUCCESS, System.Windows.Forms.MessageBoxIcon.Information);
-                    invoiceAddingView.resetAll();
-                }
-                else
-                {
-                    invoiceAddingView.showMessageBox(Resources.MB_FAILURE, System.Windows.Forms.MessageBoxIcon.Information);
-                }
+                Console.WriteLine(e.Message);
+                invoiceAddingView.showMessageBox(error, System.Windows.Forms.MessageBoxIcon.Error);
             }
         }
 
@@ -405,10 +543,10 @@ namespace Presenter.Elements
 
         public void addItem(String productCodeName,String size)
         {
-            if (productCodeName != null && !productCodeName.Equals("")
-                && size != null && !size.Equals("")
-                && isValidList(productList) 
-                && isValidList(proSizeList))
+            if (productCodeName != null && !productCodeName.Equals("") && !productCodeName.Equals(Resources.EMPTY_ITEM)
+                && size != null && !size.Equals("") && !size.Equals(Resources.EMPTY_ITEM)
+                && productList != null && productList.Count > 0
+                && proSizeList != null && proSizeList.Count > 0)
             {
                 
                 
@@ -500,7 +638,7 @@ namespace Presenter.Elements
             }
             else
             {
-                invoiceAddingView.showMessageBox("Trường Tên sản phẩm hoặc Kích cỡ chưa được chọn", System.Windows.Forms.MessageBoxIcon.Error);
+                invoiceAddingView.showMessageBox("Trường Tên sản phẩm, Kích cỡ chưa được chọn hoặc không hợp lệ", System.Windows.Forms.MessageBoxIcon.Error);
             }
         }
 

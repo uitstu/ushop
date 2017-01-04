@@ -177,3 +177,20 @@ C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.exe
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.pdb
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.frmShop.resources
 C:\Users\Huy\Desktop\gitHDTMoi\ushop\UShop\UShop\View\obj\Debug\View.Elements.frmAnalyzing.resources
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\DevExpress.TouchSkins.v15.1.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\Microsoft.SqlServer.Types.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.frmAnalyzing.resources
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\View.Elements.frmShop.resources
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\RdlCompile.cache
+E:\UIT\Object Oriented Development\Program\ushop\UShop\View\obj\Debug\RdlCompile.compiled

@@ -51,7 +51,10 @@ namespace Model.InterfaceImplements
                     {
                         item.INVOICE_ITEM_CODE = getCODE("INVI", item.INVOICE_ITEM_ID);
                         item.INVOICE_ID = invoice.INVOICE_ID;
+                        
                         totalDiscount += (double)item.DISCOUNT;
+
+                        //updateProductSize((int)item.PRODUCT_ID, item.SIZE,0 -(int)item.QUANTITY);
                     }
                     invoice.TOTAL_SALE = totalDiscount;
                 }
@@ -65,6 +68,24 @@ namespace Model.InterfaceImplements
             }
         }
 
+        private bool updateProductSize(int productId,string size, int deltaQuantity) 
+        {
+            PRODUCT_SIZE prosize = UShopDB.PRODUCT_SIZEs.Where(o => o.PRODUCT_ID == productId && o.SIZE.Equals(size)).SingleOrDefault();
+            if (prosize != null)
+            {
+                if (prosize.IN_STOCK_QUANTITY == 0)
+                {
+                    throw new Exception("instock quantity is zero but still has an invoice item ");
+                }
+
+                prosize.IN_STOCK_QUANTITY = prosize.IN_STOCK_QUANTITY + deltaQuantity;
+
+                UShopDB.SubmitChanges();
+                return true;
+            }
+            return false;
+        }
+
         public bool updateInvoice(INVOICE updated, List<INVOICE_ITEM> itemList)
         {
             int queryid = updated.INVOICE_ID;
@@ -74,7 +95,7 @@ namespace Model.InterfaceImplements
                 {
                     var invoice = UShopDB.INVOICEs.Where(o => o.INVOICE_ID == queryid).SingleOrDefault();
 
-                    invoice.INVOICE_CODE = updated.INVOICE_CODE;
+                    //invoice.INVOICE_CODE = updated.INVOICE_CODE;
                     invoice.BUYER_ID = updated.BUYER_ID;
                     invoice.DATE = updated.DATE;
                     invoice.NOTE = updated.NOTE;
@@ -86,7 +107,9 @@ namespace Model.InterfaceImplements
                     invoice.SELLER_ID = updated.SELLER_ID;
 
                     UShopDB.SubmitChanges();
+                    invoice.INVOICE_CODE = getCODE("INV", invoice.INVOICE_ID);
 
+                    UShopDB.SubmitChanges();
                     if (itemList != null && itemList.Count > 0)
                     {
 
@@ -99,11 +122,47 @@ namespace Model.InterfaceImplements
                         {
                             foreach (var item in invoiceItemList)
                             {
-                                if(item != null)
-                                    UShopDB.INVOICE_ITEMs.DeleteOnSubmit(item);
+                                //tra lai so luong cho product size
+                                //updateProductSize((int)item.PRODUCT_ID, item.SIZE,(int)item.QUANTITY - 0);
+                                // xoa di item nay
+                                UShopDB.INVOICE_ITEMs.DeleteOnSubmit(item);
+
+                                ////update invoice item data
+                                //bool isExisted = false;
+                                //foreach (var updateItem in itemList)
+                                //{
+                                //    if (item.INVOICE_ITEM_ID == updateItem.INVOICE_ITEM_ID)
+                                //    {
+                                //        isExisted = true;
+                                //        item.NOTE = updateItem.NOTE;
+                                //        item.PRICE = updateItem.PRICE;
+                                //        item.RECORD_STATUS = updateItem.RECORD_STATUS;
+
+                                //        if( !item.SIZE.Equals(updateItem.SIZE) 
+                                //            || !item.PRODUCT_ID.Equals(updateItem.PRODUCT_ID)
+                                //            || !item.QUANTITY.Equals(updateItem.QUANTITY))
+                                //        {
+                                //            //UPDATE product size
+                                //            updateProductSize((int)updateItem.PRODUCT_ID, updateItem.SIZE, (int)( item.QUANTITY - updateItem.QUANTITY ));
+                                //        }
+
+                                //        item.SIZE = updateItem.SIZE;
+                                //        item.PRODUCT_ID = updateItem.PRODUCT_ID;
+                                //        item.QUANTITY = updateItem.QUANTITY;
+
+                                //        UShopDB.SubmitChanges();
+                                //        break;
+                                //    }
+
+                                //}
+
+
+                                //UShopDB.INVOICE_ITEMs.DeleteOnSubmit(item);     
+
                             }
                             UShopDB.SubmitChanges();
                         }
+                        //add lai
                         UShopDB.INVOICE_ITEMs.InsertAllOnSubmit(itemList);
                         UShopDB.SubmitChanges();
 
@@ -114,6 +173,8 @@ namespace Model.InterfaceImplements
                             update.INVOICE_ITEM_CODE = getCODE("INVI", update.INVOICE_ITEM_ID);
                             update.INVOICE_ID = invoice.INVOICE_ID;
 
+                            //tru lai trong bang product size
+                            //updateProductSize((int)update.PRODUCT_ID, update.SIZE, (int)(0 - update.QUANTITY));
                         }
 
                         UShopDB.SubmitChanges();
